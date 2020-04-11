@@ -49,6 +49,8 @@ Examples
 
 #### Output using the combined mode (default)
 
+This is the recommended method, it will generate more CSS code but each direction will have their specific CSS declarations and there is not need to override properties.
+
 ```css
 .test1, .test2 {
     background-color: #FFF;
@@ -88,6 +90,8 @@ Examples
 
 #### Output using the override mode
 
+This is the alternative method, it will generate less code because it lets the main rule intact and generates a shorter specific rule to override the properties that are affected by the direction of the text.
+
 ```css
 .test1, .test2 {
     background-color: #FFF;
@@ -119,6 +123,108 @@ Examples
     direction: rtl;
 }
 ```
+
+But this method has a disadvantage:
+
+<details><summary>Disadvantage of the override method</summary>
+<p>
+
+Use this method carefully. It can override a property that is coming from another class if multiple classes are used at the same time. Take a look at the next `HTML` and `CSS` codes:
+
+```html
+<div class="test1 test2">
+    This is an example
+</div>    
+```
+
+```css
+.test1 {
+    background: #666;
+    color: #FFF;
+    padding: 20px;
+}
+
+.test2 {
+    padding-right: 10px;
+}
+```
+
+Using the combined method, the generated code will be the next one:
+
+```css
+.test1 {
+    background: #666;
+    color: #FFF;
+    padding: 20px;
+}
+
+[dir="ltr"] .test2 {
+    padding-right: 10px;
+}
+
+[dir="rtl"] .test2 {
+    padding-left: 10px;
+}
+```
+
+So, the `div` will have a padding of `20px 10px 20px 20px` in `LTR` and `20px 20px 20px 10px` in `RTL`.
+
+However, using the override method the generated code will be the next one:
+
+```css
+.test1 {
+    background: #666;
+    color: #FFF;
+    padding: 20px;
+}
+
+.test2 {
+    padding-right: 10px;
+}
+
+[dir="rtl"] .test2 {
+    padding-right: unset;
+    padding-left: 10px;
+}
+```
+
+Now the `div` has a padding of `20px 10px 20px 20px` in `LTR` and `20px 0 20px 10px` in `RTL`, because the override of the class `test2` doesn't take into account that this class could be used with `test1` having the same properties. The solution, in this case, is to provide the property that has been inherited:
+
+```css
+.test1 {
+    background: #666;
+    color: #FFF;
+    padding: 20px;
+}
+
+.test2 {
+    padding-left: 20px;
+    padding-right: 10px;
+}
+```
+
+So, the generated code will be:
+
+```css
+.test1 {
+    background: #666;
+    color: #FFF;
+    padding: 20px;
+}
+
+.test2 {
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+[dir="rtl"] .test2 {
+    padding-right: 20px;
+    padding-left: 10px;
+}
+```
+
+</p>
+</details>
 
 Basic usage
 ---
