@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist/",
+      "module": "commonjs",
+      "target": "esnext",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "declaration": true,
+      "noImplicitAny": true,
+      "removeComments": true,
+      "baseUrl": "./src",
+      "paths": {
+        "@types": ["@types"],
+        "@constants": ["constants"],
+        "@rules/*": ["rules/*"],
+        "@utilities/*": ["utilities/*"]
+    }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
+  
