@@ -733,7 +733,9 @@ In the next block only the `left` property will be ignored:
 <details><summary>Expand</summary>
 <p>
 
-These directives should be used together, they will provide the beginning and the end for ignoring rules or declarations:
+These directives should be used together, they will provide the beginning and the end for ignoring rules or declarations.
+
+>**Note:** The directives inserted between these blocks will be ignored and maintained in the final output.
 
 Ignoring multiple rules:
 

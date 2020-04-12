@@ -2,7 +2,6 @@ import postcss, { Rule, Declaration } from 'postcss';
 import rtlcss from 'rtlcss';
 import { RulesObject, PluginOptionsParsed, Source } from '@types';
 import { DECLARATION_TYPE, FLIP_PROPERTY_REGEXP, COMMENT_TYPE } from '@constants';
-import { removeRTLComments } from '@utilities/comments';
 import { addSelectorPrefixes } from '@utilities/selectors';
 import { getRTLCSSStringMap } from '@utilities/options';
 
@@ -20,7 +19,6 @@ export const insertOverrideRules = (appends: RulesObject[], rule: Rule, options:
     });
 
     if (ruleStr === ruleFlippedtring) {
-        removeRTLComments(rule);
         return;
     }        
         
@@ -50,8 +48,6 @@ export const insertOverrideRules = (appends: RulesObject[], rule: Rule, options:
     });
         
     addSelectorPrefixes(ruleFlipped, prefixes);
-    removeRTLComments(rule);
-    removeRTLComments(ruleFlipped);
 
     appends.push({
         rule,
