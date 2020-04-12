@@ -114,7 +114,7 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 
 [dir=\\"rtl\\"] .test11:hover,
 [dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -266,7 +266,7 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 
 [dir=\\"ltr\\"] .test11:hover,
 [dir=\\"ltr\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -420,7 +420,7 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 
 [dir=\\"rtl\\"] .test11:hover,
 [dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -572,7 +572,7 @@ exports[`Override Tests Override Basic 1`] = `
 
 [dir=\\"rtl\\"] .test11:hover,
 [dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -724,7 +724,7 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
 
 .rtl .test11:hover,
 .rtl .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -881,7 +881,7 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
 .right-to-left .test11:hover,
 .rtl .test11:active,
 .right-to-left .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -1033,7 +1033,7 @@ exports[`Override Tests Override custom string map 1`] = `
 
 [dir=\\"rtl\\"] .test11:hover,
 [dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);

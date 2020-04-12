@@ -666,6 +666,145 @@ Control directives are placed between rules or declaration. They can target a si
 | `/*rtl:begin:ignore*/`   | Starts an ignoring block that will ignore any rule or declaration       |
 | `/*rtl:end:ignore*/`     | Ends an ignoring block                                                  |
 
+---
+
+#### `/*rtl:ignore*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive ignores processing of the following rule or declaration. In the next block the whole declaration will be ignored:
+
+##### input
+
+```css
+/*rtl:ignore*/
+.test1, .test2 {
+    text-align: left;
+    left: 10px;
+}
+```
+
+##### output
+
+```css
+.test1, .test2 {
+    text-align: left;
+    left: 10px;
+}
+```
+
+In the next block only the `left` property will be ignored:
+
+##### input
+
+```css
+.test3, .test4 {
+    text-align: left;
+    /*rtl:ignore*/
+    left: 10px;
+}
+```
+
+##### output
+
+```css
+.test3, .test4 {
+    left: 10px;
+}
+
+[dir="ltr"] .test3, [dir="ltr"] .test4 {
+    text-align: left;
+}
+
+[dir="rtl"] .test3, [dir="rtl"] .test4 {
+    text-align: right;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:begin:ignore*/` and `/*rtl:end:ignore*/`
+
+<details><summary>Expand</summary>
+<p>
+
+These directives should be used together, they will provide the beginning and the end for ignoring rules or declarations:
+
+Ignoring multiple rules:
+
+##### input
+
+```css
+/*rtl:begin:ignore*/
+.test1, .test2 {
+    left: 10px;
+    text-align: left;
+}
+
+.test3 {
+    padding: 1px 2px 3px 4px;
+}
+/*rtl:end:ignore*/
+```
+
+##### output
+
+```css
+.test1, .test2 {
+    left: 10px;
+    text-align: left;
+}
+
+.test3 {
+    padding: 1px 2px 3px 4px;
+}
+```
+
+Ignoring multiple declarations:
+
+##### input
+
+```css
+.test1, .test2 {
+    left: 10px;
+    /*rtl:begin:ignore*/
+    margin-left: 4em;
+    padding: 1px 2px 3px 4px;
+    /*rtl:end:ignore*/
+    text-align: left;
+}
+```
+
+##### output
+
+```css
+.test1, .test2 {
+    margin-left: 4em;
+    padding: 1px 2px 3px 4px;
+}
+
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    left: 10px;
+    text-align: left;
+}
+
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    right: 10px;
+    text-align: right;
+}
+```
+
+</p>
+
+</details>
+
+---
+
 Value Directives
 ---
 
@@ -678,6 +817,190 @@ Value directives are placed any where inside the declaration value. They target 
 | `/*rtl:insert:{value}*/` | Inserts `{value}` to where the directive is located inside the declaration value |
 | `/*rtl:prepend:{value}*/`| Prepends `{value}` to the begining of the declaration value                      |
 | `/*rtl:{value}*/`        | Replaces the declaration value with `{value}`                                    |
+
+---
+
+#### `/*rtl:ignore*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive ignores processing of the current declaration:
+
+##### input
+
+```css
+.test1, .test2 {
+    text-align: left /*rtl:ignore*/;
+    left: 10px;
+}
+```
+
+##### output
+
+```css
+.test1, .test2 {
+    text-align: left;
+}
+
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    left: 10px;
+}
+
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    right: 10px;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:append{value}*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive appends `{value}` to the end of the declaration value:
+
+##### input
+
+```css
+.test1, .test2 {
+    padding: 10px /*rtl:append20px*/;
+    left: 10px;
+}
+```
+
+##### output
+
+```css
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    padding: 10px;
+    left: 10px;
+}
+
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    padding: 10px 20px;
+    right: 10px;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:insert:{value}*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive inserts `{value}` to where the directive is located inside the declaration value:
+
+##### input
+
+```css
+.test1, .test2 {
+    padding: 10px/*rtl:insert 20px*/ 5px;
+    left: 10px;
+}
+```
+
+##### output
+
+```css
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    padding: 10px5px;
+    left: 10px;
+}
+
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    padding: 10px 20px 5px;
+    right: 10px;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:prepend:{value}*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive prepends `{value}` to the begining of the declaration value:
+
+##### input
+
+```css
+.test1, .test2 {
+    font-family: Arial, Helvetica/*rtl:prepend:"Droid Arabic Kufi", */;
+    left: 10px;
+}
+```
+
+##### output
+
+```css
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    font-family: Arial, Helvetica;
+    left: 10px;
+}
+
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
+    right: 10px;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:{value}*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive replaces the declaration value with `{value}`:
+
+##### input
+
+```css
+.test1, .test2 {
+    font-family: Arial, Helvetica/*rtl:"Droid Arabic Kufi"*/;
+    left: 10px;
+}
+```
+
+##### output
+
+```css
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    font-family: Arial, Helvetica;
+    left: 10px;
+}
+
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    font-family: "Droid Arabic Kufi";
+    right: 10px;
+}
+```
+
+</p>
+
+</details>
+
+---
 
 If you do not use PostCSS, add it according to [official docs]
 and set this plugin in settings.

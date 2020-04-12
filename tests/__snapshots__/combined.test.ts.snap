@@ -131,7 +131,7 @@ exports[`Combined Tests Combined {processUrls: true} 1`] = `
 
 [dir=\\"rtl\\"] .test11:hover,
 [dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -300,7 +300,7 @@ exports[`Combined Tests Combined {source: rtl} 1`] = `
 
 [dir=\\"ltr\\"] .test11:hover,
 [dir=\\"ltr\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -471,7 +471,7 @@ exports[`Combined Tests Combined {useCalc: true} 1`] = `
 
 [dir=\\"rtl\\"] .test11:hover,
 [dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -640,7 +640,7 @@ exports[`Combined Tests Combined Basic 1`] = `
 
 [dir=\\"rtl\\"] .test11:hover,
 [dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -809,7 +809,7 @@ exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties 1`] =
 
 .rtl .test11:hover,
 .rtl .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -988,7 +988,7 @@ exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties as ar
 .right-to-left .test11:hover,
 .rtl .test11:active,
 .right-to-left .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -1157,7 +1157,7 @@ exports[`Combined Tests Combined custom string map 1`] = `
 
 [dir=\\"rtl\\"] .test11:hover,
 [dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\" Arial, Helvetica;
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
