@@ -43,7 +43,9 @@ export interface PluginOptions {
     stringMap?: PluginStringMap[];
 }
 
-export type PluginOptionsParsed = Required<PluginOptions>;
+export interface PluginOptionsParsed extends Omit<Required<PluginOptions>, 'stringMap'> {
+    stringMap: StringMap[];
+}
 
 export interface RulesObject {
     rule: Rule;

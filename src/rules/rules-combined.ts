@@ -3,7 +3,6 @@ import rtlcss from 'rtlcss';
 import { RulesObject, PluginOptionsParsed, Source } from '@types';
 import { DECLARATION_TYPE, COMMENT_TYPE } from '@constants';
 import { addSelectorPrefixes } from '@utilities/selectors';
-import { getRTLCSSStringMap } from '@utilities/options';
 
 export const insertCombinedRules = (appends: RulesObject[], rule: Rule, options: PluginOptionsParsed): RulesObject[] => {
 
@@ -14,7 +13,7 @@ export const insertCombinedRules = (appends: RulesObject[], rule: Rule, options:
         clean: false,
         processUrls,
         useCalc,
-        stringMap: getRTLCSSStringMap(stringMap)
+        stringMap
     });
 
     if (ruleStr === ruleFlippedtring) {

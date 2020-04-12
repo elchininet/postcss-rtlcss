@@ -11,24 +11,26 @@ import {
 } from '@types';
 import { BOOLEAN_TYPE } from '@constants';
 
-const defaultOptions: PluginOptionsParsed = {
-    mode: Mode.combined,
-    ltrPrefix: '[dir="ltr"]',
-    rtlPrefix: '[dir="rtl"]',
-    source: Source.ltr,
-    processUrls: false,
-    useCalc: false,
-    stringMap: [
-        {
-            search : ['left', 'Left', 'LEFT'],
-            replace : ['right', 'Right', 'RIGHT']
-        },
-        {
-            search  : ['ltr', 'Ltr', 'LTR'],
-            replace : ['rtl', 'Rtl', 'RTL'],
-        }
-    ]
+const getStringMapName = (map: PluginStringMap): string => {
+    const search = Array.isArray(map.search) ? map.search[0] : map.search;
+    const replace = Array.isArray(map.replace) ? map.replace[0] : map.replace;
+    const reg = /[^\w]/g;
+    const searchName = search.replace(reg, '-');
+    const replaceName = replace.replace(reg, '_');
+    return `${searchName}-${replaceName}`;
 };
+
+const getRTLCSSStringMap = (stringMap: PluginStringMap[]): StringMap[] =>
+    stringMap.map((map: PluginStringMap): StringMap => ({
+        name: getStringMapName(map),
+        priority: 100,
+        search: map.search,
+        replace: map.replace,
+        options: {
+            scope: '*',
+            ignoreCase: false
+        }
+    }));
 
 const ModeValuesArray = Object.keys(Mode).map((prop: ModeValues) => Mode[prop] as ModeValues);
 const SourceValuesArray = Object.keys(Source).map((prop: SourceValues) => Source[prop] as SourceValues);
@@ -41,6 +43,7 @@ const isNotAcceptedPrefix = (prefix: strings): boolean => {
     }
     return false;
 };
+
 const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
     if (!Array.isArray(stringMap)) {
         return true;
@@ -48,6 +51,27 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
     return stringMap.some((map: PluginStringMap) =>
         isNotAcceptedPrefix(map.search) || isNotAcceptedPrefix(map.replace)
     );
+};
+
+const defaultStringMap = [
+    {
+        search : ['left', 'Left', 'LEFT'],
+        replace : ['right', 'Right', 'RIGHT']
+    },
+    {
+        search  : ['ltr', 'Ltr', 'LTR'],
+        replace : ['rtl', 'Rtl', 'RTL'],
+    }
+];
+
+const defaultOptions: PluginOptionsParsed = {
+    mode: Mode.combined,
+    ltrPrefix: '[dir="ltr"]',
+    rtlPrefix: '[dir="rtl"]',
+    source: Source.ltr,
+    processUrls: false,
+    useCalc: false,
+    stringMap: getRTLCSSStringMap(defaultStringMap)
 };
 
 export const parseOptions = (options: PluginOptions): PluginOptionsParsed => {
@@ -71,28 +95,7 @@ export const parseOptions = (options: PluginOptions): PluginOptionsParsed => {
         returnOptions.useCalc = options.useCalc;
     }
     if (!isNotAcceptedStringMap(options.stringMap)) {
-        returnOptions.stringMap = options.stringMap;
+        returnOptions.stringMap = getRTLCSSStringMap(options.stringMap);
     }
     return returnOptions;
 };
-
-const getStringMapName = (map: PluginStringMap): string => {
-    const search = Array.isArray(map.search) ? map.search[0] : map.search;
-    const replace = Array.isArray(map.replace) ? map.replace[0] : map.replace;
-    const reg = /[^\w]/g;
-    const searchName = search.replace(reg, '-');
-    const replaceName = replace.replace(reg, '_');
-    return `${searchName}-${replaceName}`;
-};
-
-export const getRTLCSSStringMap = (stringMap: PluginStringMap[]): StringMap[] =>
-    stringMap.map((map: PluginStringMap): StringMap => ({
-        name: getStringMapName(map),
-        priority: 100,
-        search: map.search,
-        replace: map.replace,
-        options: {
-            scope: '*',
-            ignoreCase: false
-        }
-    }));

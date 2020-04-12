@@ -3,7 +3,6 @@ import rtlcss from 'rtlcss';
 import { RulesObject, PluginOptionsParsed, Source } from '@types';
 import { DECLARATION_TYPE, FLIP_PROPERTY_REGEXP, COMMENT_TYPE } from '@constants';
 import { addSelectorPrefixes } from '@utilities/selectors';
-import { getRTLCSSStringMap } from '@utilities/options';
 
 export const insertOverrideRules = (appends: RulesObject[], rule: Rule, options: PluginOptionsParsed): void => {
 
@@ -15,7 +14,7 @@ export const insertOverrideRules = (appends: RulesObject[], rule: Rule, options:
         clean: false,
         processUrls,
         useCalc,
-        stringMap: getRTLCSSStringMap(stringMap)
+        stringMap
     });
 
     if (ruleStr === ruleFlippedtring) {
