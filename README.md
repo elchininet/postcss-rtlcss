@@ -22,6 +22,58 @@ nmp install postcss-rtlcss --save-dev
 yarn add postcss-rtlcss -d
 ```
 
+Basic usage
+---
+
+#### Usage with commonJS
+
+```bash
+const postcss = require('postcss');
+const { postcssRTLCSS } = require('postcss-rtlcss');
+
+const options = { ... available options ... };
+const result = postcss([
+    postcssRTLCSS(options)
+]).process(cssInput);
+
+const rtlCSS = result.css;
+```
+
+#### Usage with ES6 modules
+
+```bash
+import postcss from 'postcss';
+import { postcssRTLCSS } from 'postcss-rtlcss';
+
+const options = { ... available options ... };
+const result = postcss([
+    postcssRTLCSS(options)
+]).process(cssInput);
+
+const rtlCSS = result.css;
+```
+
+#### Usage in Webpack with postcss-loader
+
+```bash
+rules: [
+    {
+        test: /\.css$/,
+        use: [
+            { loader: 'style-loader' },
+            { loader: 'css-loader' },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    ident: 'postcss',
+                    plugins: () => [ require('postcss-rtlcss')(options) ]
+                }
+            }
+        ]
+    }
+]
+```
+
 Examples
 ---
 
@@ -225,41 +277,6 @@ So, the generated code will be:
 
 </p>
 </details>
-
-Basic usage
----
-
-#### Using postcss JavaScript API
-
-```bash
-const postcss = require('postcss');
-const postcssRTLCSS = require('postcss-rtlcss');
-
-postcss(
-    [ postcssRTLCSS(options) ]
-).process(cssInput)
-```
-
-#### Using postcss-loader in Webpack
-
-```bash
-rules: [
-    {
-        test: /\.css$/,
-        use: [
-            { loader: 'style-loader' },
-            { loader: 'css-loader' },
-            {
-                loader: 'postcss-loader',
-                options: {
-                    ident: 'postcss',
-                    plugins: () => [ require('postcss-rtlcss')(options) ]
-                }
-            }
-        ]
-    }
-]
-```
 
 Options
 ---

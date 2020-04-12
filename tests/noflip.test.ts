@@ -1,5 +1,5 @@
 import postcss from 'postcss';
-import postcssRTLCSS, { PluginOptions } from '../src';
+import { postcssRTLCSS, PluginOptions } from '../src';
 import { readCSSFile } from './test-utils';
 
 describe('Combined Tests', (): void => {

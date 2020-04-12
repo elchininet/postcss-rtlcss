@@ -1,5 +1,5 @@
 import postcss from 'postcss';
-import postcssRTLCSS, { PluginOptions, Mode, Source } from '../src';
+import { postcssRTLCSS, PluginOptions, Mode, Source } from '../src';
 import { readCSSFile } from './test-utils';
 
 const baseOptions: PluginOptions = {mode: Mode.combined};
