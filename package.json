@@ -1,6 +1,6 @@
 {
   "name": "postcss-rtlcss",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PostCSS plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules",
   "keywords": [
     "postcss",
@@ -26,7 +26,6 @@
     "prepublishOnly": "npm run lint && npm run test",
     "version": "git add .",
     "postversion": "git push && git push --tags"
-    
   },
   "author": "ElChiniNet",
   "license": "MIT",
