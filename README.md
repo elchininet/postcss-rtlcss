@@ -127,8 +127,8 @@ This is the alternative method, it will generate less code because it lets the m
 But this method has a disadvantage:
 
 <details><summary>Disadvantage of the override method</summary>
-
 <p>
+
 Use this method carefully. It can override a property that is coming from another class if multiple classes are used at the same time. Take a look at the next `HTML` and `CSS` codes:
 
 ```html
