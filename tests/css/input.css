@@ -59,7 +59,7 @@
 
 .test11:hover,
 .test11:active {
-    font-family: Arial, Helvetica /* rtl:prepend:"Droid Arabic Kufi" */;
+    font-family: Arial, Helvetica /* rtl:prepend:"Droid Arabic Kufi", */;
     font-size: 20px /* rtl:30px */;
     color: '#FFF' /* rtl:#000 */;
     transform: translateY(10px) /* rtl:append:scaleX(-1) */;
