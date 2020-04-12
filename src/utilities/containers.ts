@@ -19,9 +19,7 @@ export const walkContainer = (container: Container, filter: string, callback: Wa
             const ignore = getIgnoreComment(comment);
             
             if (ignore) {
-                if (filter === RULE_TYPE) {
-                    cleanRuleRawsBefore(comment.next());
-                }                
+                cleanRuleRawsBefore(comment.next());              
                 comment.remove();             
                 switch (ignore) {
                     case IGNORE_BEGIN:
