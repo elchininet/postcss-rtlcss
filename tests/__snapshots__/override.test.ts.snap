@@ -23,12 +23,10 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 }
 
 /* Comment not related to rtl */
-
 .test3 {
     direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
-
     /* Property comment not related to rtl */
     text-align: center;
 }
@@ -76,7 +74,6 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 }
 
 /* rtl:novalid:ignore */
-
 .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
@@ -175,12 +172,10 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 }
 
 /* Comment not related to rtl */
-
 .test3 {
     direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
-
     /* Property comment not related to rtl */
     text-align: center;
 }
@@ -228,7 +223,6 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 }
 
 /* rtl:novalid:ignore */
-
 .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
@@ -328,12 +322,10 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 }
 
 /* Comment not related to rtl */
-
 .test3 {
     direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
-
     /* Property comment not related to rtl */
     text-align: center;
 }
@@ -382,7 +374,6 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 }
 
 /* rtl:novalid:ignore */
-
 .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
@@ -481,12 +472,10 @@ exports[`Override Tests Override Basic 1`] = `
 }
 
 /* Comment not related to rtl */
-
 .test3 {
     direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
-
     /* Property comment not related to rtl */
     text-align: center;
 }
@@ -534,7 +523,6 @@ exports[`Override Tests Override Basic 1`] = `
 }
 
 /* rtl:novalid:ignore */
-
 .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
@@ -633,12 +621,10 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
 }
 
 /* Comment not related to rtl */
-
 .test3 {
     direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
-
     /* Property comment not related to rtl */
     text-align: center;
 }
@@ -686,7 +672,6 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
 }
 
 /* rtl:novalid:ignore */
-
 .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
@@ -785,12 +770,10 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
 }
 
 /* Comment not related to rtl */
-
 .test3 {
     direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
-
     /* Property comment not related to rtl */
     text-align: center;
 }
@@ -841,7 +824,6 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
 }
 
 /* rtl:novalid:ignore */
-
 .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
@@ -942,12 +924,10 @@ exports[`Override Tests Override custom string map 1`] = `
 }
 
 /* Comment not related to rtl */
-
 .test3 {
     direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
-
     /* Property comment not related to rtl */
     text-align: center;
 }
@@ -995,7 +975,6 @@ exports[`Override Tests Override custom string map 1`] = `
 }
 
 /* rtl:novalid:ignore */
-
 .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
