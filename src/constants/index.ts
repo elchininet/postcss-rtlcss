@@ -9,7 +9,7 @@ export const FLIP_PROPERTY_REGEXP = /(right|left)/i;
 
 export enum IGNORE_MODE {
     DISABLED,
-    NEXT_RULE,
+    NEXT_NODE,
     BLOCK_MODE
 }
 

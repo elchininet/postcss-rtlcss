@@ -1,7 +1,8 @@
 import { Rule, Node } from 'postcss';
+import { RulesObject } from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_REGEXP, DECLARATION_TYPE, RULE_TYPE } from '@constants';
 
-export const cleanRuleBefore = (node: Node | void): void => {
+export const cleanRuleRawsBefore = (node: Node | void): void => {
     if (node && node.type === RULE_TYPE) {
         node.raws.before = '\n\n';
     }
@@ -12,7 +13,7 @@ export const cleanRules = (...rules: (Rule | undefined | null)[]): void => {
         if (rule) {
             const prev = rule.prev();
             if (prev && prev.type !== COMMENT_TYPE) {
-                cleanRuleBefore(rule);
+                cleanRuleRawsBefore(rule);
             }
             rule.walk((node: Node): void => {
                 if (node.type === COMMENT_TYPE) {
@@ -31,4 +32,15 @@ export const cleanRules = (...rules: (Rule | undefined | null)[]): void => {
             });
         }
     });
+};
+
+export const appendRules = (rules: RulesObject[]): void => {
+    rules.forEach(({rule, ruleLTR, ruleRTL}): void => {
+        ruleRTL && rule.after(ruleRTL);
+        ruleLTR && rule.after(ruleLTR);
+        if (rule.nodes.length === 0) {
+            rule.remove();
+        }
+        cleanRules(rule, ruleLTR, ruleRTL);
+    }); 
 };

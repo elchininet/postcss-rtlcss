@@ -2,13 +2,13 @@ import { Root, Comment, Node, Rule } from 'postcss';
 import { RulesObject, PluginOptionsParsed, Mode } from '@types';
 import { COMMENT_TYPE, IGNORE_MODE, IGNORE_BEGIN, IGNORE_END, RULE_TYPE } from '@constants';
 import { getIgnoreComment } from '@utilities/comments';
-import { cleanRuleBefore } from '@utilities/rules';
+import { cleanRuleRawsBefore } from '@utilities/rules';
 import { insertCombinedRules } from './rules-combined';
 import { insertOverrideRules } from './rules-override';
 
 export const parseRules = (css: Root, options: PluginOptionsParsed): RulesObject[] => {
     
-    const appends: RulesObject[] = [];
+    const rules: RulesObject[] = [];
     let ignoreMode = IGNORE_MODE.DISABLED;
 
     css.each((node: Node): undefined | false => {
@@ -21,7 +21,7 @@ export const parseRules = (css: Root, options: PluginOptionsParsed): RulesObject
             const ignore = getIgnoreComment(comment);
             
             if (ignore) {
-                cleanRuleBefore(comment.next());
+                cleanRuleRawsBefore(comment.next());
                 comment.remove();             
                 switch (ignore) {
                     case IGNORE_BEGIN:
@@ -31,7 +31,7 @@ export const parseRules = (css: Root, options: PluginOptionsParsed): RulesObject
                         ignoreMode = IGNORE_MODE.DISABLED;
                         break;
                     default:
-                        ignoreMode = IGNORE_MODE.NEXT_RULE;
+                        ignoreMode = IGNORE_MODE.NEXT_NODE;
                         break;
                 }
                 return;
@@ -41,7 +41,7 @@ export const parseRules = (css: Root, options: PluginOptionsParsed): RulesObject
 
         if (node.type === RULE_TYPE) {
 
-            if (ignoreMode === IGNORE_MODE.NEXT_RULE) {                
+            if (ignoreMode === IGNORE_MODE.NEXT_NODE) {                
                 ignoreMode = IGNORE_MODE.DISABLED;
                 return;
             }
@@ -53,16 +53,16 @@ export const parseRules = (css: Root, options: PluginOptionsParsed): RulesObject
             const rule = node as Rule;
 
             if (options.mode == Mode.combined) {
-                insertCombinedRules(appends, rule, options);
+                insertCombinedRules(rules, rule, options);
             }
             if (options.mode === Mode.override) {
-                insertOverrideRules(appends, rule, options);
+                insertOverrideRules(rules, rule, options);
             }            
 
         }
 
     });
 
-    return appends;
+    return rules;
 
 }; 
