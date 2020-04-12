@@ -26,4 +26,4 @@ const transformer = (options: PluginOptions = {}): Transformer  => (
     }
 );
 
-export default postcss.plugin<PluginOptions>('postcss-rtlcss', transformer);
+export const postcssRTLCSS = postcss.plugin<PluginOptions>('postcss-rtlcss', transformer);
