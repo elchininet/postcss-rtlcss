@@ -85,7 +85,7 @@ exports[`Combined Tests Combined {processUrls: true} 1`] = `
     transform: translateX(-5px);
 }
 
-/* rtl:novalid:ignore */
+/*rtl:novalid:ignore*/
 .test8 {
     display: flex;
     padding-left: 10%;
@@ -251,7 +251,7 @@ exports[`Combined Tests Combined {source: rtl} 1`] = `
     transform: translateX(-5px);
 }
 
-/* rtl:novalid:ignore */
+/*rtl:novalid:ignore*/
 .test8 {
     display: flex;
     padding-left: 10%;
@@ -419,7 +419,7 @@ exports[`Combined Tests Combined {useCalc: true} 1`] = `
     transform: translateX(-5px);
 }
 
-/* rtl:novalid:ignore */
+/*rtl:novalid:ignore*/
 .test8 {
     display: flex;
     padding-left: 10%;
@@ -585,7 +585,7 @@ exports[`Combined Tests Combined Basic 1`] = `
     transform: translateX(-5px);
 }
 
-/* rtl:novalid:ignore */
+/*rtl:novalid:ignore*/
 .test8 {
     display: flex;
     padding-left: 10%;
@@ -751,7 +751,7 @@ exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties 1`] =
     transform: translateX(-5px);
 }
 
-/* rtl:novalid:ignore */
+/*rtl:novalid:ignore*/
 .test8 {
     display: flex;
     padding-left: 10%;
@@ -923,7 +923,7 @@ exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties as ar
     transform: translateX(-5px);
 }
 
-/* rtl:novalid:ignore */
+/*rtl:novalid:ignore*/
 .test8 {
     display: flex;
     padding-left: 10%;
@@ -1093,7 +1093,7 @@ exports[`Combined Tests Combined custom string map 1`] = `
     transform: translateX(-5px);
 }
 
-/* rtl:novalid:ignore */
+/*rtl:novalid:ignore*/
 .test8 {
     display: flex;
     padding-left: 10%;

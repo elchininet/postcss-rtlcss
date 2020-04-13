@@ -41,11 +41,11 @@
     transform: translateX(5px);
 }
 
-/* rtl:novalid:ignore */
+/*rtl:novalid:ignore*/
 .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
-    /* rtl:ignore */
+    /*rtl:ignore*/
     padding-left: 10%;
 }
 
@@ -54,19 +54,19 @@
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
-    padding: 0px 2px 3px 4px /* rtl:ignore */;
+    padding: 0px 2px 3px 4px /*rtl:ignore*/;
 }
 
 .test11:hover,
 .test11:active {
-    font-family: Arial, Helvetica /* rtl:prepend:"Droid Arabic Kufi", */;
-    font-size: 20px /* rtl:30px */;
-    color: '#FFF' /* rtl:#000 */;
-    transform: translateY(10px) /* rtl:append:scaleX(-1) */;
-    padding: 10px /* rtl:insert:20px */;
+    font-family: Arial, Helvetica /*rtl:prepend:"Droid Arabic Kufi", */;
+    font-size: 20px /*rtl:30px*/;
+    color: '#FFF' /*rtl:#000*/;
+    transform: translateY(10px) /*rtl:append:scaleX(-1)*/;
+    padding: 10px /*rtl:insert:20px*/;
 }
 
-/* rtl:begin:ignore */
+/*rtl:begin:ignore*/
 #test12, #test13 {
     left: 10px;
     position: relative;
@@ -82,9 +82,9 @@
 .test16 {
     padding-right: 10px;
 }
-/* rtl:end:ignore */
+/*rtl:end:ignore*/
 
-/* rtl:ignore */
+/*rtl:ignore*/
 .test17 {
     animation: 5s flip 1s ease-in-out;
     padding: 10px 20px 40px 10px;

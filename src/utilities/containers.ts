@@ -1,5 +1,5 @@
 import { Container, Node, Comment } from 'postcss';
-import { COMMENT_TYPE, RULE_TYPE, IGNORE_MODE, IGNORE_BEGIN, IGNORE_END } from '@constants';
+import { COMMENT_TYPE, IGNORE_MODE, IGNORE_BEGIN, IGNORE_END } from '@constants';
 import { getIgnoreComment } from '@utilities/comments';
 import { cleanRuleRawsBefore } from '@utilities/rules';
 
