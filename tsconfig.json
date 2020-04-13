@@ -12,7 +12,7 @@
       "paths": {
         "@types": ["@types"],
         "@constants": ["constants"],
-        "@rules/*": ["rules/*"],
+        "@parsers/*": ["parsers/*"],
         "@utilities/*": ["utilities/*"]
     }
     },
