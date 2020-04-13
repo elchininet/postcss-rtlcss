@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.1] - 2020-04-13
+
+- Add support for multiple animation names
+
 ## [1.1.0] - 2020-04-13
 
 - Implemented an option to flip keyframes animations
