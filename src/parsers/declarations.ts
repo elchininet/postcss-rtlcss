@@ -56,10 +56,17 @@ export const parseDeclarations = (
 
         if (isAnimation) {
 
-            const animationNames = decl.value.match(keyFrameData.regExp);
-            const animationName = animationNames[0].trim();
-            const declValue = decl.value.replace(animationName, keyFrameData.stringMap[animationName].name);
-            const declValueFlipped = decl.value.replace(animationName, keyFrameData.stringMap[animationName].nameFlipped);
+            const declValue = decl.value.replace(
+                keyFrameData.regExp,
+                (_match: string, before: string, animation: string, after: string): string =>
+                    before + keyFrameData.stringMap[animation].name + after
+            );
+
+            const declValueFlipped = decl.value.replace(
+                keyFrameData.regExp,
+                (_match: string, before: string, animation: string, after: string): string =>
+                    before + keyFrameData.stringMap[animation].nameFlipped + after
+            );
 
             const declCloneFlipped = decl.clone();
 
