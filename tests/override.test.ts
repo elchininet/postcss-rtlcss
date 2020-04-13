@@ -33,6 +33,20 @@ describe('Override Tests', (): void => {
     expect(output.warnings()).toHaveLength(0);
   });
 
+  it('Override {processKeyFrames: true}', (): void => {
+    const options: PluginOptions = { ...baseOptions, processKeyFrames: true };
+    const output = postcss([postcssRTLCSS(options)]).process(input);
+    expect(output.css).toMatchSnapshot();
+    expect(output.warnings()).toHaveLength(0);
+  });
+
+  it('Override {source: rtl, processKeyFrames: true}', (): void => {
+    const options: PluginOptions = { ...baseOptions, source: Source.rtl, processKeyFrames: true };
+    const output = postcss([postcssRTLCSS(options)]).process(input);
+    expect(output.css).toMatchSnapshot();
+    expect(output.warnings()).toHaveLength(0);
+  });
+
   it('Override {useCalc: true}', (): void => {
     const options: PluginOptions = { ...baseOptions, useCalc: true };
     const output = postcss([postcssRTLCSS(options)]).process(input);

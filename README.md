@@ -290,6 +290,7 @@ All the options are optional, and a default value will be used, if any of them i
 | rtlPrefix          | `string` or `string[]`    | `[dir="rtl"]`   | Prefix to use in the right-to-left CSS rules                 |
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
 | processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
+| processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
 | useCalc            | `boolean`                 | `false`         | Flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
 | stringMap          | `PluginStringMap (array)` | Check below     | An array of strings maps that will be used to make the replacements|
 
@@ -540,6 +541,101 @@ const options = { processUrls: true };
 [dir="rtl"] .test1, [dir="rtl"] .test2 {
     background-image: url("./folder/subfolder/icons/rtl/chevron-right.png");
     right: 10px;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### processKeyFrames
+
+<details><summary>Expand</summary>
+<p>
+
+This option manages if the @keyframes animation rules should be flipped:
+
+##### input
+
+```css
+.test1 {
+    animation: 5s flip 1s ease-in-out;
+    color: #FFF;
+}
+
+@keyframes flip {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+```
+
+##### processKeyFrames false
+
+```javascript
+const options = { processKeyFrames: false }; // This is the default value
+```
+
+##### output
+
+```css
+.test1 {
+    animation: 5s flip 1s ease-in-out;
+    color: #FFF;
+}
+
+@keyframes flip {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+```
+
+##### processKeyFrames true
+
+```javascript
+const options = { processKeyFrames: true };
+```
+
+##### output
+
+```css
+.test1 {
+    color: #FFF;
+}
+
+[dir="ltr"] .test1 {
+    animation: 5s flip-ltr 1s ease-in-out;
+}
+
+[dir="rtl"] .test1 {
+    animation: 5s flip-rtl 1s ease-in-out;
+}
+
+@keyframes flip-ltr {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes flip-rtl {
+    from {
+        transform: translateX(-100px);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 ```
 
@@ -916,7 +1012,7 @@ This directive inserts `{value}` to where the directive is located inside the de
 
 ```css
 [dir="ltr"] .test1, [dir="ltr"] .test2 {
-    padding: 10px5px;
+    padding: 10px 5px;
     left: 10px;
 }
 

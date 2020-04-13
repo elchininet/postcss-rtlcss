@@ -86,16 +86,68 @@
 
 /*rtl:ignore*/
 .test17 {
-    animation: 5s flip 1s ease-in-out;
+    cursor: pointer;
     padding: 10px 20px 40px 10px;
     text-align: right;
 }
 
+@media only screen and (min-device-width: 320px) {
+    .test17 {
+        cursor: wait;
+    }
+}
+
+.test18 {
+    animation: 5s flip 1s ease-in-out;
+    font-size: 10px;
+    padding: 10px 20px 40px 10px;
+}
+
 @keyframes flip {
     from {
-        transform: translateX(-1000px);
+        transform: translateX(100px);
     }
     to {
         transform: translateX(0);
+    }
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test18 {
+        padding: 1px 2px 3px 4px;
+        width: 100%;
+    }
+}
+
+.test19 {
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: my-animation;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes my-animation {
+    from {
+        left: 0%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.test20 {
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: no-flip;
+    animation-timing-function: ease-in-out;
+    width: 100%;
+}
+
+@keyframes no-flip {
+    from {
+        color: #000;
+    }
+    to {
+        color: #FFF;
     }
 }

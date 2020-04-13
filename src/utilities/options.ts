@@ -1,6 +1,6 @@
 import {
     PluginOptions,
-    PluginOptionsParsed,
+    PluginOptionsNormalized,
     PluginStringMap,
     StringMap,
     Mode,
@@ -64,18 +64,19 @@ const defaultStringMap = [
     }
 ];
 
-const defaultOptions: PluginOptionsParsed = {
+const defaultOptions: PluginOptionsNormalized = {
     mode: Mode.combined,
     ltrPrefix: '[dir="ltr"]',
     rtlPrefix: '[dir="rtl"]',
     source: Source.ltr,
     processUrls: false,
+    processKeyFrames: false,
     useCalc: false,
     stringMap: getRTLCSSStringMap(defaultStringMap)
 };
 
-export const parseOptions = (options: PluginOptions): PluginOptionsParsed => {
-    const returnOptions: PluginOptionsParsed = {...defaultOptions};
+export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
+    const returnOptions: PluginOptionsNormalized = {...defaultOptions};
     if (options.mode && ModeValuesArray.includes(options.mode)) {
         returnOptions.mode = options.mode;
     }
@@ -90,6 +91,9 @@ export const parseOptions = (options: PluginOptions): PluginOptionsParsed => {
     }
     if (typeof options.processUrls === BOOLEAN_TYPE) {
         returnOptions.processUrls = options.processUrls;
+    }
+    if (typeof options.processKeyFrames === BOOLEAN_TYPE) {
+        returnOptions.processKeyFrames = options.processKeyFrames;
     }
     if (typeof options.useCalc === BOOLEAN_TYPE) {
         returnOptions.useCalc = options.useCalc;
