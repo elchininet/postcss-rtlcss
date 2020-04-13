@@ -98,7 +98,8 @@
 }
 
 .test18 {
-    animation: 5s flip 1s ease-in-out;
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }

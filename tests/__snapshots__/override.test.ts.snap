@@ -146,13 +146,15 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 }
 
 .test18 {
-    animation: 5s flip-ltr 1s ease-in-out;
+    animation: 5s flip-ltr 1s ease-in-out,
+               3s my-animation-ltr 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
 
 [dir=\\"rtl\\"] .test18 {
-    animation: 5s flip-rtl 1s ease-in-out;
+    animation: 5s flip-rtl 1s ease-in-out,
+               3s my-animation-rtl 6s ease-in-out;
     padding: 10px 10px 40px 20px;
 }
 
@@ -379,7 +381,8 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 }
 
 .test18 {
-    animation: 5s flip 1s ease-in-out;
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
@@ -588,13 +591,15 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 }
 
 .test18 {
-    animation: 5s flip-rtl 1s ease-in-out;
+    animation: 5s flip-rtl 1s ease-in-out,
+               3s my-animation-rtl 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
 
 [dir=\\"ltr\\"] .test18 {
-    animation: 5s flip-ltr 1s ease-in-out;
+    animation: 5s flip-ltr 1s ease-in-out,
+               3s my-animation-ltr 6s ease-in-out;
     padding: 10px 10px 40px 20px;
 }
 
@@ -820,7 +825,8 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 }
 
 .test18 {
-    animation: 5s flip 1s ease-in-out;
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
@@ -1031,7 +1037,8 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 }
 
 .test18 {
-    animation: 5s flip 1s ease-in-out;
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
@@ -1240,7 +1247,8 @@ exports[`Override Tests Override Basic 1`] = `
 }
 
 .test18 {
-    animation: 5s flip 1s ease-in-out;
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
@@ -1449,7 +1457,8 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
 }
 
 .test18 {
-    animation: 5s flip 1s ease-in-out;
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
@@ -1663,7 +1672,8 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
 }
 
 .test18 {
-    animation: 5s flip 1s ease-in-out;
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
@@ -1872,7 +1882,8 @@ exports[`Override Tests Override custom string map 1`] = `
 }
 
 .test18 {
-    animation: 5s flip 1s ease-in-out;
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
