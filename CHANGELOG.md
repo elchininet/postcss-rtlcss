@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.0] - 2020-04-13
+
+- Implemented an option to flip keyframes animations
+- Flip rules inside media-queries
+
 ## [1.0.2] - 2020-04-12
 
 - Improve the output formatting

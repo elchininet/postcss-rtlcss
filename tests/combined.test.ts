@@ -32,6 +32,20 @@ describe('Combined Tests', (): void => {
     expect(output.warnings()).toHaveLength(0);
   });
 
+  it('Combined {processKeyFrames: true}', (): void => {
+    const options: PluginOptions = { ...baseOptions, processKeyFrames: true };
+    const output = postcss([postcssRTLCSS(options)]).process(input);
+    expect(output.css).toMatchSnapshot();
+    expect(output.warnings()).toHaveLength(0);
+  });
+
+  it('Combined {source: rtl, processKeyFrames: true}', (): void => {
+    const options: PluginOptions = { ...baseOptions, source: Source.rtl, processKeyFrames: true };
+    const output = postcss([postcssRTLCSS(options)]).process(input);
+    expect(output.css).toMatchSnapshot();
+    expect(output.warnings()).toHaveLength(0);
+  });
+
   it('Combined {useCalc: true}', (): void => {
     const options: PluginOptions = { ...baseOptions, useCalc: true };
     const output = postcss([postcssRTLCSS(options)]).process(input);

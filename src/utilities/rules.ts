@@ -1,14 +1,14 @@
-import { Rule, Node } from 'postcss';
-import { RulesObject } from '@types';
+import { Rule, AtRule, Node } from 'postcss';
+import { RulesObject, AtRulesObject } from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_REGEXP, DECLARATION_TYPE, RULE_TYPE } from '@constants';
 
 export const cleanRuleRawsBefore = (node: Node | void): void => {
     if (node && node.type === RULE_TYPE) {
-        node.raws.before = '\n\n';
+        node.raws.before = '\n\n' + node.raws.before.replace(/\n/g, '');      
     }
 };
 
-export const cleanRules = (...rules: (Rule | undefined | null)[]): void => {
+export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void => {
     rules.forEach((rule: Rule | undefined | null): void | undefined => {        
         const prev = rule.prev();
         if (prev && prev.type !== COMMENT_TYPE) {
@@ -35,5 +35,12 @@ export const appendRules = (rules: RulesObject[]): void => {
             rule.remove();
         }
         cleanRules(rule, ruleLTR, ruleRTL);
+    }); 
+};
+
+export const appendKeyFrames = (rules: AtRulesObject[]): void => {
+    rules.forEach(({atRule, atRuleFlipped}): void => {
+        atRule.after(atRuleFlipped);
+        cleanRules(atRule, atRuleFlipped);
     }); 
 };

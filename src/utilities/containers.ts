@@ -5,13 +5,18 @@ import { cleanRuleRawsBefore } from '@utilities/rules';
 
 type WalkContainerCallback = (node: Node) => void;
 
-export const walkContainer = (container: Container, filter: string, callback: WalkContainerCallback): void => {
+export const walkContainer = (
+    container: Container,
+    filter: string [],
+    removeComments: boolean,
+    callback: WalkContainerCallback
+): void => {
 
     let ignoreMode = IGNORE_MODE.DISABLED;
 
     container.each((node: Node): undefined | false => {
 
-        if ( node.type !== COMMENT_TYPE && node.type !== filter ) return;
+        if ( node.type !== COMMENT_TYPE && !filter.includes(node.type) ) return;
 
         if (node.type === COMMENT_TYPE) {
 
@@ -19,8 +24,10 @@ export const walkContainer = (container: Container, filter: string, callback: Wa
             const ignore = getIgnoreComment(comment);
             
             if (ignore) {
-                cleanRuleRawsBefore(comment.next());              
-                comment.remove();             
+                if (removeComments) {
+                    cleanRuleRawsBefore(comment.next());              
+                    comment.remove(); 
+                }            
                 switch (ignore) {
                     case IGNORE_BEGIN:
                         ignoreMode = IGNORE_MODE.BLOCK_MODE;
@@ -35,9 +42,7 @@ export const walkContainer = (container: Container, filter: string, callback: Wa
                 return;
             }
 
-        }
-
-        if (node.type === filter) {
+        } else {
 
             if (ignoreMode === IGNORE_MODE.NEXT_NODE) {                
                 ignoreMode = IGNORE_MODE.DISABLED;
