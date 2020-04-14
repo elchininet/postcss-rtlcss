@@ -1,6 +1,6 @@
 import postcss, { Rule, Node, Declaration, vendor } from 'postcss';
 import rtlcss from 'rtlcss';
-import { RulesObject, KeyFramesData, PluginOptionsNormalized, Source, Mode } from '@types';
+import { RulesObject, KeyFramesData, PluginOptionsNormalized, Source, Mode, ObjectWithProps } from '@types';
 import { DECLARATION_TYPE, FLIP_PROPERTY_REGEXP, ANIMATION_PROP, ANIMATION_NAME_PROP } from '@constants';
 import { addSelectorPrefixes } from '@utilities/selectors';
 import { walkContainer } from '@utilities/containers';
@@ -21,6 +21,14 @@ export const parseDeclarations = (
 
     ruleFlipped.removeAll();
     ruleFlippedSecond.removeAll();
+
+    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<boolean>, node: Node): object => {
+        if (node.type === DECLARATION_TYPE) {
+            const decl = node as Declaration;
+            obj[decl.prop] = true;
+        }
+        return obj;
+    }, {});
 
     walkContainer(rule, [ DECLARATION_TYPE ], true, (node: Node): void => {
         
@@ -91,7 +99,7 @@ export const parseDeclarations = (
                 ruleFlippedSecond.append(declFlipped);
                 deleteDeclarations.push(decl);
             } else {
-                if (FLIP_PROPERTY_REGEXP.test(decl.prop)) {
+                if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
                     const declClone = decl.clone();
                     declClone.value = 'unset';
                     ruleFlipped.append(declClone);

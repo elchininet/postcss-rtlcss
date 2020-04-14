@@ -231,6 +231,17 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+[dir=\\"rtl\\"] .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;
 
@@ -442,6 +453,17 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+[dir=\\"rtl\\"] .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;
 
@@ -676,6 +698,17 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+[dir=\\"ltr\\"] .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;
 
@@ -886,6 +919,17 @@ exports[`Override Tests Override {source: rtl} 1`] = `
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+[dir=\\"ltr\\"] .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;
 
@@ -1098,6 +1142,17 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+[dir=\\"rtl\\"] .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;
 
@@ -1308,6 +1363,17 @@ exports[`Override Tests Override Basic 1`] = `
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+[dir=\\"rtl\\"] .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;
 
@@ -1518,6 +1584,17 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+.rtl .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;
 
@@ -1733,6 +1810,17 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+.rtl .test21, .right-to-left .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;
 
@@ -1943,5 +2031,16 @@ exports[`Override Tests Override custom string map 1`] = `
     to {
         color: #FFF;
     }
+}
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}
+
+[dir=\\"rtl\\"] .test21 {
+    right: 5px;
+    left: 10px;
 }"
 `;

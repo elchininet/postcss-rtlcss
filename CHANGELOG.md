@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.2] - 2020-04-14
+
+- Bug fix: avoid adding unset variables when both directions exist in the main rule
+
 ## [1.1.1] - 2020-04-13
 
 - Add support for multiple animation names
