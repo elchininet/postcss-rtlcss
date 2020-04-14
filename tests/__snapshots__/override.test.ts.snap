@@ -242,6 +242,12 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 [dir=\\"rtl\\"] .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;
 
@@ -464,6 +470,12 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 [dir=\\"rtl\\"] .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;
 
@@ -709,6 +721,12 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 [dir=\\"ltr\\"] .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;
 
@@ -930,6 +948,12 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 [dir=\\"ltr\\"] .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;
 
@@ -1153,6 +1177,12 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 [dir=\\"rtl\\"] .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;
 
@@ -1374,6 +1404,12 @@ exports[`Override Tests Override Basic 1`] = `
 [dir=\\"rtl\\"] .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;
 
@@ -1595,6 +1631,12 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
 .rtl .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;
 
@@ -1821,6 +1863,12 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
 .rtl .test21, .right-to-left .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;
 
@@ -2042,5 +2090,11 @@ exports[`Override Tests Override custom string map 1`] = `
 [dir=\\"rtl\\"] .test21 {
     right: 5px;
     left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
 }"
 `;

@@ -158,3 +158,9 @@
     left: 5px;
     right: 10px;
 }
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
+}

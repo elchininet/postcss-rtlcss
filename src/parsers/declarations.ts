@@ -22,10 +22,10 @@ export const parseDeclarations = (
     ruleFlipped.removeAll();
     ruleFlippedSecond.removeAll();
 
-    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<boolean>, node: Node): object => {
+    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<string>, node: Node): object => {
         if (node.type === DECLARATION_TYPE) {
             const decl = node as Declaration;
-            obj[decl.prop] = true;
+            obj[decl.prop] = decl.value.trim();
         }
         return obj;
     }, {});
@@ -44,10 +44,12 @@ export const parseDeclarations = (
         const declPropUnprefixed = vendor.unprefixed(declProp);
         const declValue = decl.value.trim();
         const isAnimation = declPropUnprefixed === ANIMATION_PROP || declPropUnprefixed === ANIMATION_NAME_PROP;
-        
+        const declFlippedProp = declFlipped.prop.trim();
+        const declFlippedValue = declFlipped.value.trim();
+
         if (
-            declProp === declFlipped.prop.trim() &&
-            declValue === declFlipped.value.trim() &&
+            declProp === declFlippedProp &&
+            declValue === declFlippedValue &&
             (
                 !isAnimation ||
                 (
@@ -92,6 +94,10 @@ export const parseDeclarations = (
                 ruleFlipped.append(declCloneFlipped);                
             }
         } else {
+
+            if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
+                return;
+            }
 
             if (mode === Mode.combined) {
                 const declClone = decl.clone();
