@@ -152,3 +152,9 @@
         color: #FFF;
     }
 }
+
+/* Do not add reset values in override mode */
+.test21 {
+    left: 5px;
+    right: 10px;
+}

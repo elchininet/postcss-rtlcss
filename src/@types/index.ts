@@ -1,5 +1,9 @@
 import { Rule, AtRule } from 'postcss';
 
+export interface ObjectWithProps<T> {
+    [key: string]: T;
+}
+
 export enum Mode {
     combined = 'combined',
     override = 'override'
