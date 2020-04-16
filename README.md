@@ -288,6 +288,7 @@ All the options are optional, and a default value will be used, if any of them i
 | mode               | `Mode (string)`           | `Mode.combined` | Mode of generating the final CSS rules                       |
 | ltrPrefix          | `string` or `string[]`    | `[dir="ltr"]`   | Prefix to use in the left-to-right CSS rules                 |
 | rtlPrefix          | `string` or `string[]`    | `[dir="rtl"]`   | Prefix to use in the right-to-left CSS rules                 |
+| bothPrefix         | `string` or `string[]`    | `[dir]`         | Prefix to use for styles in both directions when the specificity of the ltr or rtl styles will override them |
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
 | processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
@@ -411,6 +412,68 @@ const options = {
     text-align: right;
 }
 ```
+
+</p>
+
+</details>
+
+---
+
+#### bothPrefix
+
+<details><summary>Expand</summary>
+<p>
+
+This prefix will be used in some specific cases in which a ltr or rtl rule will override styles located in the main rule due to [specificty](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity). Consider the next example using the option `processUrls` as `true`:
+
+```css
+.test1 {
+    background: url('icons/ltr/arrow.png');
+    background-size: 10px 20px;
+    width: 10px;
+}
+```
+
+The generated CSS would be:
+
+```css
+.test1 {
+    background-size: 10px 20px;
+    width: 10px;
+}
+
+[dir="ltr"] .test1 {
+    background: url('icons/ltr/arrow.png');
+}
+
+[dir="rtl"] .test1 {
+    background: url('icons/rtl/arrow.png');
+}
+```
+
+In the previous case, the `background-size` property has been overridden by the `background` one. Even if we change the order of the rules, the last ones have a higher specificty, so they will rule over the first one.
+
+To solve this, another rule will be created at the end using the `bothPrefix` parameter:
+
+```css
+.test1 {
+    width: 10px;
+}
+
+[dir="ltr"] .test1 {
+    background: url('icons/ltr/arrow.png');
+}
+
+[dir="rtl"] .test1 {
+    background: url('icons/rtl/arrow.png');
+}
+
+[dir] {
+    background-size: 10px 20px;
+}
+```
+
+And no matter the direction, the `background-size` property is respected.
 
 </p>
 

@@ -1,7 +1,7 @@
 .test1, .test2 {
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
-    background-image: url("/folder/subfolder/icons/ltr/chevron-left.png");
     border-radius: 0 2px 0 8px;
     color: #666;
     padding-right: 20px;
