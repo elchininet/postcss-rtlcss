@@ -61,19 +61,25 @@ describe('Override Tests', (): void => {
     expect(output.warnings()).toHaveLength(0);
   });
 
-  it('Override custom string map', (): void => {
-    const stringMap: PluginOptions['stringMap'] = [
-      {search: 'left', replace: 'right'},
-      {search: 'ltr', replace: 'rtl'}
-    ];
-    const options: PluginOptions = { ...baseOptions, stringMap };
+  it('Override custom ltrPrefix and rtlPrefix properties as arrays', (): void => {
+    const options: PluginOptions = { ...baseOptions, ltrPrefix: ['.ltr', '.left-to-right'], rtlPrefix: ['.rtl', '.right-to-left'] };
     const output = postcss([postcssRTLCSS(options)]).process(input);
     expect(output.css).toMatchSnapshot();
     expect(output.warnings()).toHaveLength(0);
   });
 
-  it('Override custom ltrPrefix and rtlPrefix properties as arrays', (): void => {
-    const options: PluginOptions = { ...baseOptions, ltrPrefix: ['.ltr', '.left-to-right'], rtlPrefix: ['.rtl', '.right-to-left'] };
+  it('Override custom ltrPrefix, rtlPrefix, and bothPrefix properties as arrays and processUrls: true', (): void => {
+    const options: PluginOptions = { ...baseOptions, ltrPrefix: ['.ltr', '.left-to-right'], rtlPrefix: ['.rtl', '.right-to-left'], bothPrefix: ['.ltr', '.left-to-right', '.rtl', '.right-to-left'], processUrls: true };
+    const output = postcss([postcssRTLCSS(options)]).process(input);
+    expect(output.css).toMatchSnapshot();
+    expect(output.warnings()).toHaveLength(0);
+  });
+
+  it('Override custom string map and processUrls: true', (): void => {
+    const stringMap: PluginOptions['stringMap'] = [
+      {search: 'left', replace: 'right'}
+    ];
+    const options: PluginOptions = { ...baseOptions, processUrls: true, stringMap };
     const output = postcss([postcssRTLCSS(options)]).process(input);
     expect(output.css).toMatchSnapshot();
     expect(output.warnings()).toHaveLength(0);

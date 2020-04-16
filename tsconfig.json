@@ -5,6 +5,7 @@
       "target": "ES5",
       "moduleResolution": "node",
       "esModuleInterop": true,
+      "resolveJsonModule": true,
       "declaration": true,
       "noImplicitAny": true,
       "removeComments": true,
@@ -13,10 +14,11 @@
         "@types": ["@types"],
         "@constants": ["constants"],
         "@parsers/*": ["parsers/*"],
-        "@utilities/*": ["utilities/*"]
+        "@utilities/*": ["utilities/*"],
+        "@data/*": ["data/*"]
     }
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts", "src/**/*.json"],
     "exclude": ["node_modules"]
   }
   

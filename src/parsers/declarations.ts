@@ -3,6 +3,7 @@ import rtlcss from 'rtlcss';
 import { RulesObject, KeyFramesData, PluginOptionsNormalized, Source, Mode, ObjectWithProps } from '@types';
 import { DECLARATION_TYPE, FLIP_PROPERTY_REGEXP, ANIMATION_PROP, ANIMATION_NAME_PROP } from '@constants';
 import { addSelectorPrefixes } from '@utilities/selectors';
+import { shorthands } from '@utilities/shorthands';
 import { walkContainer } from '@utilities/containers';
 
 export const parseDeclarations = (
@@ -12,15 +13,13 @@ export const parseDeclarations = (
     options: PluginOptionsNormalized
 ): void => {
 
-    const { mode, ltrPrefix, rtlPrefix, source, processUrls, useCalc, stringMap } = options;
+    const { mode, ltrPrefix, rtlPrefix, bothPrefix, source, processUrls, useCalc, stringMap } = options;
 
     const deleteDeclarations: Declaration[] = [];
 
-    const ruleFlipped = rule.clone();
-    const ruleFlippedSecond = rule.clone();
-
-    ruleFlipped.removeAll();
-    ruleFlippedSecond.removeAll();
+    const ruleFlipped = rule.clone().removeAll();
+    const ruleFlippedSecond = ruleFlipped.clone();
+    const ruleBoth = ruleFlipped.clone();
 
     const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<string>, node: Node): object => {
         if (node.type === DECLARATION_TYPE) {
@@ -29,6 +28,8 @@ export const parseDeclarations = (
         }
         return obj;
     }, {});
+
+    const declarationsProps: string[] = [];
 
     walkContainer(rule, [ DECLARATION_TYPE ], true, (node: Node): void => {
         
@@ -46,8 +47,11 @@ export const parseDeclarations = (
         const isAnimation = declPropUnprefixed === ANIMATION_PROP || declPropUnprefixed === ANIMATION_NAME_PROP;
         const declFlippedProp = declFlipped.prop.trim();
         const declFlippedValue = declFlipped.value.trim();
-
+        const overridenBy = shorthands[declPropUnprefixed] || '';
+        const hasBeenOverriden = declarationsProps.includes(overridenBy);
+        
         if (
+            !hasBeenOverriden &&
             declProp === declFlippedProp &&
             declValue === declFlippedValue &&
             (
@@ -93,9 +97,19 @@ export const parseDeclarations = (
                 declCloneFlipped.value = declValueFlipped;
                 ruleFlipped.append(declCloneFlipped);                
             }
+
         } else {
 
-            if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
+            if (
+                hasBeenOverriden &&
+                declProp === declFlippedProp &&
+                declValue === declFlippedValue
+            ) {
+                const declClone = decl.clone();
+                ruleBoth.append(declClone);
+                deleteDeclarations.push(decl);
+                return;
+            } else  if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
                 return;
             }
 
@@ -112,6 +126,8 @@ export const parseDeclarations = (
                 }
                 ruleFlipped.append(declFlipped);
             }
+
+            declarationsProps.push(declPropUnprefixed);
 
         }
 
@@ -131,10 +147,13 @@ export const parseDeclarations = (
             addSelectorPrefixes(ruleFlippedSecond, source === Source.rtl ? rtlPrefix : ltrPrefix);
         }
 
+        addSelectorPrefixes(ruleBoth, bothPrefix);
+
         rules.push({
             rule,
             ruleLTR: ruleFlipped,
-            ruleRTL: ruleFlippedSecond
+            ruleRTL: ruleFlippedSecond,
+            ruleBoth
         });
     }
 

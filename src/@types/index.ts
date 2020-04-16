@@ -41,6 +41,7 @@ export interface PluginOptions {
     mode?: ModeValues;
     ltrPrefix?: strings;
     rtlPrefix?: strings;
+    bothPrefix?: strings;
     source?: SourceValues;
     processUrls?: boolean;
     processKeyFrames?: boolean;
@@ -56,6 +57,7 @@ export interface RulesObject {
     rule: Rule;
     ruleLTR: Rule | null;
     ruleRTL: Rule | null;
+    ruleBoth: Rule | null;
 }
 
 export interface AtRulesObject {
@@ -78,4 +80,11 @@ export interface KeyFramesData {
     keyframes: AtRulesObject[];
     stringMap: AtRulesStringMap;
     regExp: RegExp;
+}
+
+export interface ShortHandsData {
+    [key: string]: {
+        overridden: string | null;
+        overrides: string[];
+    };
 }

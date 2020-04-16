@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.0] - 2020-04-16
+
+- Introduced a new parameter (bothPrefix) to manage styles that can be overridden due to specificity
+
 ## [1.1.2] - 2020-04-14
 
 - Avoid duplicating the same declarations in the flipped rules

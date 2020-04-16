@@ -28,13 +28,14 @@ export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void
 };
 
 export const appendRules = (rules: RulesObject[]): void => {
-    rules.forEach(({rule, ruleLTR, ruleRTL}): void => {
+    rules.forEach(({rule, ruleLTR, ruleRTL, ruleBoth}): void => {
+        ruleBoth && ruleBoth.nodes.length && rule.after(ruleBoth);
         ruleRTL && ruleRTL.nodes.length && rule.after(ruleRTL);
-        ruleLTR && ruleLTR.nodes.length && rule.after(ruleLTR);
+        ruleLTR && ruleLTR.nodes.length && rule.after(ruleLTR);        
         if (rule.nodes.length === 0) {
             rule.remove();
         }
-        cleanRules(rule, ruleLTR, ruleRTL);
+        cleanRules(rule, ruleLTR, ruleRTL, ruleBoth);
     }); 
 };
 

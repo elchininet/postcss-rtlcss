@@ -2,9 +2,9 @@
 
 exports[`Combined Tests Combined {processKeyFrames: true} 1`] = `
 ".test1, .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     color: #666;
     width: 100%;
 }
@@ -279,14 +279,12 @@ exports[`Combined Tests Combined {processKeyFrames: true} 1`] = `
 
 exports[`Combined Tests Combined {processUrls: true} 1`] = `
 ".test1, .test2 {
-    background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
 [dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
@@ -294,11 +292,16 @@ exports[`Combined Tests Combined {processUrls: true} 1`] = `
 }
 
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
-    background-image: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
+    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
+}
+
+[dir] .test1, [dir] .test2 {
+    background-color: #FFF;
+    background-position: 10px 20px;
 }
 
 /* Comment not related to rtl */
@@ -530,9 +533,9 @@ exports[`Combined Tests Combined {processUrls: true} 1`] = `
 
 exports[`Combined Tests Combined {source: rtl, processKeyFrames: true} 1`] = `
 ".test1, .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     color: #666;
     width: 100%;
 }
@@ -807,9 +810,9 @@ exports[`Combined Tests Combined {source: rtl, processKeyFrames: true} 1`] = `
 
 exports[`Combined Tests Combined {source: rtl} 1`] = `
 ".test1, .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     color: #666;
     width: 100%;
 }
@@ -1057,8 +1060,8 @@ exports[`Combined Tests Combined {source: rtl} 1`] = `
 
 exports[`Combined Tests Combined {useCalc: true} 1`] = `
 ".test1, .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     color: #666;
     width: 100%;
 }
@@ -1309,9 +1312,9 @@ exports[`Combined Tests Combined {useCalc: true} 1`] = `
 
 exports[`Combined Tests Combined Basic 1`] = `
 ".test1, .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     color: #666;
     width: 100%;
 }
@@ -1557,11 +1560,11 @@ exports[`Combined Tests Combined Basic 1`] = `
 }"
 `;
 
-exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties 1`] = `
+exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix 1`] = `
 ".test1, .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     color: #666;
     width: 100%;
 }
@@ -1809,9 +1812,9 @@ exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties 1`] =
 
 exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties as arrays 1`] = `
 ".test1, .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     color: #666;
     width: 100%;
 }
@@ -2067,16 +2070,278 @@ exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties as ar
 }"
 `;
 
-exports[`Combined Tests Combined custom string map 1`] = `
+exports[`Combined Tests Combined custom ltrPrefix, rtlPrefix, and bothPrefix properties as arrays and processUrls: true 1`] = `
 ".test1, .test2 {
+    color: #666;
+    width: 100%;
+}
+
+.ltr .test1, .left-to-right .test1, .ltr .test2, .left-to-right .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    border-radius: 0 2px 0 8px;
+    padding-right: 20px;
+    text-align: left;
+    transform: translate(-50%, 50%);
+}
+
+.rtl .test1, .right-to-left .test1, .rtl .test2, .right-to-left .test2 {
+    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
+    border-radius: 2px 0 8px 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.ltr .test1, .left-to-right .test1, .rtl .test1, .right-to-left .test1, .ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     background-color: #FFF;
     background-position: 10px 20px;
-    background-image: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+}
+
+/* Comment not related to rtl */
+.test3 {
+    margin: 1px 2px 3px;
+    padding: 10px 20px;
+    /* Property comment not related to rtl */
+    text-align: center;
+}
+
+.ltr .test3, .left-to-right .test3 {
+    direction: ltr;
+}
+
+.rtl .test3, .right-to-left .test3 {
+    direction: rtl;
+}
+
+.test4 {
+    font-size: 10px;
+    border-color: red;
+    transform-origin: 10px 20px;
+    transform: scale(0.5, 0.5);
+}
+
+.ltr .test4, .left-to-right .test4 {
+    border-radius: 2px 4px 8px 16px;
+    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
+}
+
+.rtl .test4, .right-to-left .test4 {
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+}
+
+.test5,
+.test6,
+.test7 {
+    border: 1px solid 2px;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.ltr .test5,
+.left-to-right .test5,
+.ltr .test6,
+.left-to-right .test6,
+.ltr .test7,
+.left-to-right .test7 {
+    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #777 #888 #999;
+    border-width: 1px 2px 3px 4px;
+    left: 100px;
+    transform: translateX(5px);
+}
+
+.rtl .test5,
+.right-to-left .test5,
+.rtl .test6,
+.right-to-left .test6,
+.rtl .test7,
+.right-to-left .test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+/*rtl:novalid:ignore*/
+.test8 {
+    display: flex;
+    padding-left: 10%;
+}
+
+.ltr .test8, .left-to-right .test8 {
+    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.rtl .test8, .right-to-left .test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    padding: 0px 2px 3px 4px;
+}
+
+.ltr .test9, .left-to-right .test9, .ltr .test10, .left-to-right .test10 {
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: 5px;
+}
+
+.rtl .test9, .right-to-left .test9, .rtl .test10, .right-to-left .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    right: 5px;
+}
+
+.ltr .test11:hover,
+.left-to-right .test11:hover,
+.ltr .test11:active,
+.left-to-right .test11:active {
+    font-family: Arial, Helvetica;
+    font-size: 20px;
+    color: '#FFF';
+    transform: translateY(10px);
+    padding: 10px;
+}
+
+.rtl .test11:hover,
+.right-to-left .test11:hover,
+.rtl .test11:active,
+.right-to-left .test11:active {
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+#test12, #test13 {
+    left: 10px;
+    position: relative;
+    text-align: right;
+}
+
+.test14 .test15 span {
+    border-left-color: #777;
+    margin: 10px 20px 30px 40px;
+    transform: translate(100%, 10%);
+}
+
+.test16 {
+    padding-right: 10px;
+}
+
+.test17 {
+    cursor: pointer;
+    padding: 10px 20px 40px 10px;
+    text-align: right;
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test17 {
+        cursor: wait;
+    }
+}
+
+.test18 {
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
+    font-size: 10px;
+}
+
+.ltr .test18, .left-to-right .test18 {
+    padding: 10px 20px 40px 10px;
+}
+
+.rtl .test18, .right-to-left .test18 {
+    padding: 10px 10px 40px 20px;
+}
+
+@keyframes flip {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test18 {
+        width: 100%;
+    }
+
+    .ltr .test18, .left-to-right .test18 {
+        padding: 1px 2px 3px 4px;
+    }
+
+    .rtl .test18, .right-to-left .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test19 {
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: my-animation;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes my-animation {
+    from {
+        left: 0%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.test20 {
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: no-flip;
+    animation-timing-function: ease-in-out;
+    width: 100%;
+}
+
+@keyframes no-flip {
+    from {
+        color: #000;
+    }
+    to {
+        color: #FFF;
+    }
+}
+
+/* Do not add reset values in override mode */
+.ltr .test21, .left-to-right .test21 {
+    left: 5px;
+    right: 10px;
+}
+
+.rtl .test21, .right-to-left .test21 {
+    right: 5px;
+    left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test22 {
+    left: 10px;
+    right: 10px;
+}"
+`;
+
+exports[`Combined Tests Combined custom string map and processUrls: true 1`] = `
+".test1, .test2 {
     color: #666;
     width: 100%;
 }
 
 [dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
@@ -2084,10 +2349,16 @@ exports[`Combined Tests Combined custom string map 1`] = `
 }
 
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
+}
+
+[dir] .test1, [dir] .test2 {
+    background-color: #FFF;
+    background-position: 10px 20px;
 }
 
 /* Comment not related to rtl */
