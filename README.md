@@ -424,7 +424,7 @@ const options = {
 <details><summary>Expand</summary>
 <p>
 
-This prefix will be used in some specific cases in which a ltr or rtl rule will override styles located in the main rule due to [specificty](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity). Consider the next example using the option `processUrls` as `true`:
+This prefix will be used in some specific cases in which a ltr or rtl rule will override declarations located in the main rule due to [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity). Consider the next example using the option `processUrls` as `true`:
 
 ```css
 .test1 {
@@ -451,7 +451,7 @@ The generated CSS would be:
 }
 ```
 
-In the previous case, the `background-size` property has been overridden by the `background` one. Even if we change the order of the rules, the last ones have a higher specificty, so they will rule over the first one.
+In the previous case, the `background-size` property has been overridden by the `background` one. Even if we change the order of the rules, the last ones have a higher specificity, so they will rule over the first one.
 
 To solve this, another rule will be created at the end using the `bothPrefix` parameter:
 
