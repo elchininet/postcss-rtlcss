@@ -49,7 +49,7 @@ export const parseDeclarations = (
         const declFlippedValue = declFlipped.value.trim();
         const overridenBy = shorthands[declPropUnprefixed];
         const hasBeenOverriden = overridenBy
-            ? declarationsProps.some((d: string): boolean => overridenBy.indexOf(d) >= 0)
+            ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
             : false;
         
         if (

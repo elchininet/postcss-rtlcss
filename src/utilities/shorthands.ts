@@ -4,22 +4,17 @@ import shorthandsJson from '@data/shorthands.json';
 const shorthandsData: ShortHandsData = shorthandsJson;
 const shorthands: ObjectWithProps<string[]> = {};
 
-const getDependencies = (prop: string): string[] => {
+const getOverrideTree = (prop: string): string[] => {
     const overridenProp = shorthandsData[prop].overridden;
-    const overridden = overridenProp ? [overridenProp].concat(getDependencies(overridenProp)) : [];
+    const overridden = overridenProp ? [overridenProp].concat(getOverrideTree(overridenProp)) : [];
     return overridden;
 };
 
 Object.keys(shorthandsData).forEach((prop: string): void => {
-
-    shorthands[prop] = getDependencies(prop);
-
+    const overrideTree =  getOverrideTree(prop);
+    shorthands[prop] = overrideTree;
     shorthandsData[prop].overrides.forEach((oprop: string): void => {
-
-        const overridden = [prop];
-
-        shorthands[oprop] = overridden.concat(getDependencies(prop));
-
+        shorthands[oprop] = [prop].concat(overrideTree);
     });
 
 });
