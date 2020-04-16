@@ -47,8 +47,10 @@ export const parseDeclarations = (
         const isAnimation = declPropUnprefixed === ANIMATION_PROP || declPropUnprefixed === ANIMATION_NAME_PROP;
         const declFlippedProp = declFlipped.prop.trim();
         const declFlippedValue = declFlipped.value.trim();
-        const overridenBy = shorthands[declPropUnprefixed] || '';
-        const hasBeenOverriden = declarationsProps.includes(overridenBy);
+        const overridenBy = shorthands[declPropUnprefixed];
+        const hasBeenOverriden = overridenBy
+            ? declarationsProps.some((d: string): boolean => overridenBy.indexOf(d) >= 0)
+            : false;
         
         if (
             !hasBeenOverriden &&

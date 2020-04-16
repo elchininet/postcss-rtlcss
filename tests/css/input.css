@@ -164,3 +164,10 @@
     left: 10px;
     right: 10px;
 }
+
+/* Chain override */
+.test22 {
+    border: 1px solid #FFF /*rtl:1px solid #000*/;
+    border-bottom-color: #666;
+    padding: 10px;
+}

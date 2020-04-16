@@ -274,6 +274,23 @@ exports[`Combined Tests Combined {processKeyFrames: true} 1`] = `
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test22 {
+    border: 1px solid #FFF;
+}
+
+[dir=\\"rtl\\"] .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -528,6 +545,23 @@ exports[`Combined Tests Combined {processUrls: true} 1`] = `
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test22 {
+    border: 1px solid #FFF;
+}
+
+[dir=\\"rtl\\"] .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -805,6 +839,23 @@ exports[`Combined Tests Combined {source: rtl, processKeyFrames: true} 1`] = `
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+[dir=\\"rtl\\"] .test22 {
+    border: 1px solid #FFF;
+}
+
+[dir=\\"ltr\\"] .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -1055,6 +1106,23 @@ exports[`Combined Tests Combined {source: rtl} 1`] = `
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+[dir=\\"rtl\\"] .test22 {
+    border: 1px solid #FFF;
+}
+
+[dir=\\"ltr\\"] .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -1307,6 +1375,23 @@ exports[`Combined Tests Combined {useCalc: true} 1`] = `
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test22 {
+    border: 1px solid #FFF;
+}
+
+[dir=\\"rtl\\"] .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -1557,6 +1642,23 @@ exports[`Combined Tests Combined Basic 1`] = `
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test22 {
+    border: 1px solid #FFF;
+}
+
+[dir=\\"rtl\\"] .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -1807,6 +1909,23 @@ exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix 1`] = `
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+.ltr .test22 {
+    border: 1px solid #FFF;
+}
+
+.rtl .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -2067,6 +2186,23 @@ exports[`Combined Tests Combined custom ltrPrefix and rtlPrefix properties as ar
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+.ltr .test22, .left-to-right .test22 {
+    border: 1px solid #FFF;
+}
+
+.rtl .test22, .right-to-left .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -2331,6 +2467,23 @@ exports[`Combined Tests Combined custom ltrPrefix, rtlPrefix, and bothPrefix pro
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+.ltr .test22, .left-to-right .test22 {
+    border: 1px solid #FFF;
+}
+
+.rtl .test22, .right-to-left .test22 {
+    border: 1px solid #000;
+}
+
+.ltr .test22, .left-to-right .test22, .rtl .test22, .right-to-left .test22 {
+    border-bottom-color: #666;
 }"
 `;
 
@@ -2585,5 +2738,22 @@ exports[`Combined Tests Combined custom string map and processUrls: true 1`] = `
 .test22 {
     left: 10px;
     right: 10px;
+}
+
+/* Chain override */
+.test22 {
+    padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test22 {
+    border: 1px solid #FFF;
+}
+
+[dir=\\"rtl\\"] .test22 {
+    border: 1px solid #000;
+}
+
+[dir] .test22 {
+    border-bottom-color: #666;
 }"
 `;

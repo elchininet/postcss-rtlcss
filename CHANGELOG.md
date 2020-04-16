@@ -1,6 +1,10 @@
 # Changelog
 
-## [1.2.0] - 2020-04-16
+## [1.2.2] - 2020-04-16
+
+- Bug fix: detect chainable override, e.g. border-bottom-color is overridden by border-bottom but also by border
+
+## [1.2.0 - 1.2.1] - 2020-04-16
 
 - Introduced a new parameter (bothPrefix) to manage styles that can be overridden due to specificity
 
