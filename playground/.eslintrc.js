@@ -6,8 +6,9 @@ module.exports = {
     },
     extends: [
         "eslint:recommended",
+        "plugin:react/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended"        
     ],
     globals: {
         Atomics: "readonly",
@@ -16,14 +17,13 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaVersion: 2018,
+        ecmaFeatures: { jsx: true },
         sourceType: "module"
     },
-    plugins: ["@typescript-eslint"],
+    plugins: ["react", "@typescript-eslint"],
     rules: {
         quotes: ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
-        semi: ["error", "always"],
-        '@typescript-eslint/no-var-requires': 0,
-        '@typescript-eslint/ban-ts-ignore': 0
+        semi: ["error", "always"]
     },
     overrides: [
         {
