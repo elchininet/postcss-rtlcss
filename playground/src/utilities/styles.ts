@@ -44,3 +44,8 @@ export const parse = (stylesheet: StyleSheet): FacepaintStyleSheetObject =>
     }, {});
 
 export const shorthands = (...props: (string | number)[]): string => props.map((p: string | number) => typeof p === 'string' ? p : `${p}px`).join(' ');
+
+const transformParams = '0.25s ease-in-out';
+
+export const buildTransition = (...transforms: string[]): string =>
+    transforms.map((t: string) => `${t} ${transformParams}`).join(', ');
