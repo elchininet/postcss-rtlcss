@@ -16,9 +16,9 @@
         "@parsers/*": ["parsers/*"],
         "@utilities/*": ["utilities/*"],
         "@data/*": ["data/*"]
-    }
+      }
     },
     "include": ["src/**/*.ts", "src/**/*.json"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "playground", "docs"]
   }
   
