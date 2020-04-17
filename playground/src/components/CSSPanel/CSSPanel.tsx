@@ -8,16 +8,21 @@ export interface CSSPanelProps {
     width?: number;
     lines?: string;
     readOnly?: boolean;
+    isMobile?: boolean;
     onChange?: (code: string) => void;
 }
 
 export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
 
-    const { title, height, width, lines = '', readOnly = false, onChange } = props;
+    const { title, height, width, lines = '', readOnly = false, isMobile = false, onChange } = props;
     const panel = useRef<editor.IStandaloneCodeEditor>(null);
     const panelContainer = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+
+        languages.css.cssDefaults.setModeConfiguration({
+            colors: false
+        });
 
         panel.current = editor.create(panelContainer.current, {
             value: lines,
@@ -29,6 +34,11 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
                 alwaysConsumeMouseWheel: true
             },
             theme: 'vs-dark',
+            contextmenu: !isMobile,
+            selectionHighlight: !isMobile,
+            hover: {
+                enabled: false
+            },
             scrollBeyondLastLine: false,
             language: 'css'
         });
@@ -56,9 +66,7 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
     return (
         <div css={stylesheet.container}>
             <div css={stylesheet.panelHeader}>{ title }</div>
-            <div css={stylesheet.panel} ref={panelContainer}>
-                
-            </div>
+            <div css={stylesheet.panel} ref={panelContainer}></div>
         </div>
     );
 };

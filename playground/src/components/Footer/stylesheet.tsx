@@ -7,18 +7,17 @@ export const stylesheet = parse({
         color: COLORS.white,
         display: 'flex',
         fontSize: 12,
-        flexDirection: ['column', 'row'],
         flexGrow: 0,
         flexShrink: 0,
-        height: [60, 30]
+        height: 40
     },
     footerPanel: {
+        alignItems: 'center',
+        display: 'flex',
         flexGrow: 1,
-        lineHeight: '30px',
-        padding: shorthands(0, 10),
-        textAlign: ['center', 'left']
+        padding: shorthands(0, 10)
     },
-    footerPanelLeft: {
-        textAlign: ['center', 'right']
+    footerPanelRight: {
+        justifyContent: 'flex-end'
     }
 });
