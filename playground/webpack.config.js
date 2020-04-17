@@ -3,6 +3,7 @@ const aliases = require('./aliases');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {    
@@ -52,20 +53,25 @@ module.exports = {
                         }
                     }
                 ]
-            },
+            }
         ]
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'PostCSS-RTLCSS Playground',
+            fav32: 'images/favicon-32x32.png',
+            fav192: 'images/favicon-192x192.png',
+            fav180: 'images/favicon-180x180.png',
+            fav270: 'images/favicon-270x270.png',
             template: './demo.html'
         }),
+        new CopyWebpackPlugin([{ from: 'images', to: 'images' }]),
         new MiniCssExtractPlugin({
             filename: 'styles/styles.css'
         }),
         new MonacoWebpackPlugin({
             languages: ['css']
-        })
+        }),
     ]
 };
