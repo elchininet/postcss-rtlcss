@@ -7,6 +7,12 @@
 [PostCSS]: https://github.com/postcss/postcss
 [RTLCSS]: https://rtlcss.com/
 
+Demo
+---
+
+https://elchininet.github.io/postcss-rtlcss/
+
+
 Install
 ---
 
