@@ -69,7 +69,7 @@ export const parseDeclarations = (
         ) {
             return;
         }
-
+        
         if (isAnimation) {
 
             const declValue = decl.value.replace(

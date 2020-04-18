@@ -127,6 +127,13 @@
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -136,7 +143,7 @@
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -154,19 +161,19 @@
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF /*rtl:1px solid #000*/;
     border-bottom-color: #666;
     padding: 10px;

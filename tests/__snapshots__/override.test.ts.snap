@@ -198,6 +198,17 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
     animation-name: my-animation-rtl;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation-ltr, no-flip;
+    animation-timing-function: ease;
+}
+
+[dir=\\"rtl\\"] .test20 {
+    animation-name: my-animation-rtl, no-flip;
+}
+
 @keyframes my-animation-ltr {
     from {
         left: 0%;
@@ -216,7 +227,7 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -234,33 +245,33 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test21 {
+[dir=\\"rtl\\"] .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir=\\"rtl\\"] .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -452,6 +463,13 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -461,7 +479,7 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -479,33 +497,33 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test21 {
+[dir=\\"rtl\\"] .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir=\\"rtl\\"] .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -708,6 +726,17 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
     animation-name: my-animation-ltr;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation-rtl, no-flip;
+    animation-timing-function: ease;
+}
+
+[dir=\\"ltr\\"] .test20 {
+    animation-name: my-animation-ltr, no-flip;
+}
+
 @keyframes my-animation-rtl {
     from {
         left: 0%;
@@ -726,7 +755,7 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -744,33 +773,33 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test21 {
+[dir=\\"ltr\\"] .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test22 {
+[dir=\\"ltr\\"] .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -958,6 +987,13 @@ exports[`Override Tests Override {source: rtl} 1`] = `
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -967,7 +1003,7 @@ exports[`Override Tests Override {source: rtl} 1`] = `
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -985,33 +1021,33 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test21 {
+[dir=\\"ltr\\"] .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test22 {
+[dir=\\"ltr\\"] .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -1201,6 +1237,13 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -1210,7 +1253,7 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -1228,33 +1271,33 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test21 {
+[dir=\\"rtl\\"] .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir=\\"rtl\\"] .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -1442,6 +1485,13 @@ exports[`Override Tests Override Basic 1`] = `
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -1451,7 +1501,7 @@ exports[`Override Tests Override Basic 1`] = `
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -1469,33 +1519,33 @@ exports[`Override Tests Override Basic 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test21 {
+[dir=\\"rtl\\"] .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir=\\"rtl\\"] .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -1683,6 +1733,13 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -1692,7 +1749,7 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -1710,33 +1767,33 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] =
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-.rtl .test21 {
+.rtl .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-.rtl .test22 {
+.rtl .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -1929,6 +1986,13 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -1938,7 +2002,7 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -1956,33 +2020,33 @@ exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as ar
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-.rtl .test21, .right-to-left .test21 {
+.rtl .test22, .right-to-left .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-.rtl .test22, .right-to-left .test22 {
+.rtl .test24, .right-to-left .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -2179,6 +2243,13 @@ exports[`Override Tests Override custom ltrPrefix, rtlPrefix, and bothPrefix pro
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -2188,7 +2259,7 @@ exports[`Override Tests Override custom ltrPrefix, rtlPrefix, and bothPrefix pro
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -2206,33 +2277,33 @@ exports[`Override Tests Override custom ltrPrefix, rtlPrefix, and bothPrefix pro
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-.rtl .test21, .right-to-left .test21 {
+.rtl .test22, .right-to-left .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-.rtl .test22, .right-to-left .test22 {
+.rtl .test24, .right-to-left .test24 {
     border: 1px solid #000;
 }
 
-.ltr .test22, .left-to-right .test22, .rtl .test22, .right-to-left .test22 {
+.ltr .test24, .left-to-right .test24, .rtl .test24, .right-to-left .test24 {
     border-bottom-color: #666;
 }"
 `;
@@ -2424,6 +2495,13 @@ exports[`Override Tests Override custom string map and processUrls: true 1`] = `
     animation-timing-function: ease-in-out;
 }
 
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
 @keyframes my-animation {
     from {
         left: 0%;
@@ -2433,7 +2511,7 @@ exports[`Override Tests Override custom string map and processUrls: true 1`] = `
     }
 }
 
-.test20 {
+.test21 {
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: no-flip;
@@ -2451,33 +2529,33 @@ exports[`Override Tests Override custom string map and processUrls: true 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test21 {
+.test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test21 {
+[dir=\\"rtl\\"] .test22 {
     right: 5px;
     left: 10px;
 }
 
 /* Do not create the RTL version if the result is the same */
-.test22 {
+.test23 {
     left: 10px;
     right: 10px;
 }
 
 /* Chain override */
-.test22 {
+.test24 {
     border: 1px solid #FFF;
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir=\\"rtl\\"] .test24 {
     border: 1px solid #000;
 }
 
-[dir] .test22 {
+[dir] .test24 {
     border-bottom-color: #666;
 }"
 `;
