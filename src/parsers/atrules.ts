@@ -16,7 +16,7 @@ export const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesString
     return stringMap;
 };
 
-export const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new RegExp(`(^| )(${ Object.keys(stringMap).join('|') })( |$)`, 'g');
+export const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new RegExp(`(^|[^\\w-]| )(${ Object.keys(stringMap).join('|') })( |[^\\w-]|$)`, 'g');
 
 export const parseAtRules = (
     rules: RulesObject[],

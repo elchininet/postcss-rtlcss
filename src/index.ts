@@ -18,7 +18,7 @@ const transformer = (options: PluginOptions = {}): Transformer  => (
         }
 
         const keyFramesStringMap = getKeyFramesStringMap(keyframes);
-
+        
         const keyFrameData: KeyFramesData = {
             length: keyframes.length,
             keyframes,

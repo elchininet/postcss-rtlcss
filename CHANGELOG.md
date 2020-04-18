@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.3] - 2020-04-18
+
+- Bug fix: flip animation names if they are surrounded by comas
+
 ## [1.2.2] - 2020-04-16
 
 - Bug fix: detect chainable override, e.g. border-bottom-color is overridden by border-bottom but also by border
