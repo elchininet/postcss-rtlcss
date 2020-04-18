@@ -299,7 +299,7 @@ All the options are optional, and a default value will be used, if any of them i
 | processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
 | useCalc            | `boolean`                 | `false`         | Flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
-| stringMap          | `PluginStringMap (array)` | Check below     | An array of strings maps that will be used to make the URL replacements |
+| stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the URL replacements |
 
 ---
 
