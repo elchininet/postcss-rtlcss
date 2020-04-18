@@ -3089,7 +3089,7 @@
 
 @font-face {
 	font-family: "codicon";
-	src: url(fonts/codicon.ttf) format("truetype");
+	src: url(../fonts/codicon.ttf) format("truetype");
 }
 
 .codicon[class*='codicon-'] {
