@@ -25,7 +25,7 @@ nmp install postcss-rtlcss --save-dev
 #### yarn
 
 ```bash
-yarn add postcss-rtlcss -d
+yarn add postcss-rtlcss -D
 ```
 
 Basic usage
