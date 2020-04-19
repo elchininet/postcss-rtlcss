@@ -30,14 +30,14 @@ export const Options = (): JSX.Element => {
                 { /* Mode */ }
                 <div css={stylesheet.panel}>
                     <Switch
-                        labels={['mode: combined', 'Mode: override']}
+                        labels={['mode: combined', 'mode: override']}
                         onChange={changeMode}
                     />
                 </div>
                 { /* Source */ }
                 <div css={stylesheet.panel}>
                     <Switch
-                        labels={['source: ltr', 'Source: rtl']}
+                        labels={['source: ltr', 'source: rtl']}
                         onChange={changeSource}
                     />
                 </div>
