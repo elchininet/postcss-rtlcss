@@ -75,13 +75,6 @@ export interface AtRulesStringMap {
     [key: string]: AtRulesStringMapObject;
 }
 
-export interface KeyFramesData {
-    length: number;
-    keyframes: AtRulesObject[];
-    stringMap: AtRulesStringMap;
-    regExp: RegExp;
-}
-
 export interface ShortHandsData {
     [key: string]: {
         overridden: string | null;

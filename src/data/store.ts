@@ -1,15 +1,38 @@
 import {
     PluginOptions,
     PluginOptionsNormalized,
-    PluginStringMap,
-    StringMap,
+    AtRulesObject,
+    AtRulesStringMap,
+    RulesObject,
+    strings,
     Mode,
     ModeValues,
     Source,
     SourceValues,
-    strings
+    StringMap,
+    PluginStringMap
 } from '@types';
+import { getKeyFramesStringMap, getKeyFramesRegExp } from '@parsers/atrules';
 import { BOOLEAN_TYPE } from '@constants';
+
+interface Store {
+    options: PluginOptionsNormalized;
+    keyframes: AtRulesObject[];
+    keyframesStringMap: AtRulesStringMap;
+    keyframesRegExp: RegExp;
+    rules: RulesObject[];
+}
+
+const defaultStringMap = [
+    {
+        search : ['left', 'Left', 'LEFT'],
+        replace : ['right', 'Right', 'RIGHT']
+    },
+    {
+        search  : ['ltr', 'Ltr', 'LTR'],
+        replace : ['rtl', 'Rtl', 'RTL'],
+    }
+];
 
 const getStringMapName = (map: PluginStringMap): string => {
     const search = Array.isArray(map.search) ? map.search[0] : map.search;
@@ -53,18 +76,7 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
     );
 };
 
-const defaultStringMap = [
-    {
-        search : ['left', 'Left', 'LEFT'],
-        replace : ['right', 'Right', 'RIGHT']
-    },
-    {
-        search  : ['ltr', 'Ltr', 'LTR'],
-        replace : ['rtl', 'Rtl', 'RTL'],
-    }
-];
-
-const defaultOptions: PluginOptionsNormalized = {
+const defaultOptions = {
     mode: Mode.combined,
     ltrPrefix: '[dir="ltr"]',
     rtlPrefix: '[dir="rtl"]',
@@ -74,6 +86,16 @@ const defaultOptions: PluginOptionsNormalized = {
     processKeyFrames: false,
     useCalc: false,
     stringMap: getRTLCSSStringMap(defaultStringMap)
+};
+
+const defaultKeyframesRegExp = new RegExp('$-^');
+
+const store: Store = {
+    options: {...defaultOptions},
+    keyframes: [],
+    keyframesStringMap: {},
+    keyframesRegExp: defaultKeyframesRegExp,
+    rules: []
 };
 
 export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
@@ -107,3 +129,18 @@ export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalize
     }
     return returnOptions;
 };
+
+const initStore = (options: PluginOptions): void => {
+    store.options = normalizeOptions(options);
+    store.keyframes = [];
+    store.keyframesStringMap = {};
+    store.keyframesRegExp = defaultKeyframesRegExp;
+    store.rules = [];
+};
+
+const initKeyframesData = (): void => {
+    store.keyframesStringMap = getKeyFramesStringMap(store.keyframes);
+    store.keyframesRegExp = getKeyFramesRegExp(store.keyframesStringMap);
+};
+
+export { store, initStore, initKeyframesData };
