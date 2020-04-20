@@ -1,6 +1,6 @@
 import { Rule, AtRule, Node } from 'postcss';
-import { RulesObject, AtRulesObject } from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_REGEXP, DECLARATION_TYPE, RULE_TYPE } from '@constants';
+import { store } from '@data/store';
 
 export const cleanRuleRawsBefore = (node: Node | void): void => {
     if (node && node.type === RULE_TYPE) {
@@ -27,7 +27,8 @@ export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void
     });
 };
 
-export const appendRules = (rules: RulesObject[]): void => {
+export const appendRules = (): void => {
+    const { rules } = store; 
     rules.forEach(({rule, ruleLTR, ruleRTL, ruleBoth}): void => {
         ruleBoth && ruleBoth.nodes.length && rule.after(ruleBoth);
         ruleRTL && ruleRTL.nodes.length && rule.after(ruleRTL);
@@ -39,8 +40,9 @@ export const appendRules = (rules: RulesObject[]): void => {
     }); 
 };
 
-export const appendKeyFrames = (rules: AtRulesObject[]): void => {
-    rules.forEach(({atRule, atRuleFlipped}): void => {
+export const appendKeyFrames = (): void => {
+    const { keyframes } = store;
+    keyframes.forEach(({atRule, atRuleFlipped}): void => {
         atRule.after(atRuleFlipped);
         cleanRules(atRule, atRuleFlipped);
     }); 

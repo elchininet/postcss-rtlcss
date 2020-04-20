@@ -1,19 +1,15 @@
 import postcss, { Rule, Node, Declaration, vendor } from 'postcss';
 import rtlcss from 'rtlcss';
-import { RulesObject, KeyFramesData, PluginOptionsNormalized, Source, Mode, ObjectWithProps } from '@types';
+import { Source, Mode, ObjectWithProps } from '@types';
 import { DECLARATION_TYPE, FLIP_PROPERTY_REGEXP, ANIMATION_PROP, ANIMATION_NAME_PROP } from '@constants';
+import { store } from '@data/store';
 import { addSelectorPrefixes } from '@utilities/selectors';
 import { shorthands } from '@utilities/shorthands';
 import { walkContainer } from '@utilities/containers';
 
-export const parseDeclarations = (
-    rules: RulesObject[],
-    keyFrameData: KeyFramesData,
-    rule: Rule,
-    options: PluginOptionsNormalized
-): void => {
+export const parseDeclarations = (rule: Rule): void => {
 
-    const { mode, ltrPrefix, rtlPrefix, bothPrefix, source, processUrls, useCalc, stringMap } = options;
+    const { mode, ltrPrefix, rtlPrefix, bothPrefix, source, processUrls, useCalc, stringMap } = store.options;
 
     const deleteDeclarations: Declaration[] = [];
 
@@ -61,8 +57,8 @@ export const parseDeclarations = (
                 (
                     isAnimation &&
                     (
-                        keyFrameData.length === 0 ||
-                        !keyFrameData.regExp.test(declValue)
+                        store.keyframes.length === 0 ||
+                        !store.keyframesRegExp.test(declValue)
                     )
                 )
             )
@@ -73,15 +69,15 @@ export const parseDeclarations = (
         if (isAnimation) {
 
             const declValue = decl.value.replace(
-                keyFrameData.regExp,
+                store.keyframesRegExp,
                 (_match: string, before: string, animation: string, after: string): string =>
-                    before + keyFrameData.stringMap[animation].name + after
+                    before + store.keyframesStringMap[animation].name + after
             );
 
             const declValueFlipped = decl.value.replace(
-                keyFrameData.regExp,
+                store.keyframesRegExp,
                 (_match: string, before: string, animation: string, after: string): string =>
-                    before + keyFrameData.stringMap[animation].nameFlipped + after
+                    before + store.keyframesStringMap[animation].nameFlipped + after
             );
 
             const declCloneFlipped = decl.clone();
@@ -151,7 +147,7 @@ export const parseDeclarations = (
 
         addSelectorPrefixes(ruleBoth, bothPrefix);
 
-        rules.push({
+        store.rules.push({
             rule,
             ruleLTR: ruleFlipped,
             ruleRTL: ruleFlippedSecond,

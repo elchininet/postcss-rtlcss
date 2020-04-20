@@ -1,7 +1,8 @@
 import postcss, { Root, Node, Rule, AtRule, vendor } from 'postcss';
 import rtlcss from 'rtlcss';
-import { RulesObject, AtRulesObject, AtRulesStringMap, KeyFramesData, PluginOptionsNormalized, Source } from '@types';
+import { AtRulesObject, AtRulesStringMap, Source } from '@types';
 import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME } from '@constants';
+import { store, initKeyframesData } from '@data/store';
 import { walkContainer } from '@utilities/containers';
 import { parseDeclarations } from './declarations';
 
@@ -18,12 +19,7 @@ export const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesString
 
 export const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new RegExp(`(^|[^\\w-]| )(${ Object.keys(stringMap).join('|') })( |[^\\w-]|$)`, 'g');
 
-export const parseAtRules = (
-    rules: RulesObject[],
-    keyFrameData: KeyFramesData,
-    css: Root,
-    options: PluginOptionsNormalized
-): void => {
+export const parseAtRules = (css: Root): void => {
 
     walkContainer(css, [ AT_RULE_TYPE, RULE_TYPE ], false, (node: Node): void => {
         
@@ -34,20 +30,16 @@ export const parseAtRules = (
         if (vendor.unprefixed(atRule.name) === KEYFRAMES_NAME) return;
 
         atRule.walkRules((rule: Rule): void => {
-            parseDeclarations(rules, keyFrameData, rule, options);
+            parseDeclarations(rule);
         });
 
     });
 
 };
 
-export const parseKeyFrames = (
-    keyframes: AtRulesObject[],
-    css: Root,
-    options: PluginOptionsNormalized
-): void => {
+export const parseKeyFrames = (css: Root): void => {
 
-    const { source, processUrls, useCalc, stringMap } = options;
+    const { source, processUrls, useCalc, stringMap } = store.options;
 
     walkContainer(css, [ AT_RULE_TYPE, RULE_TYPE ], false, (node: Node): void => {
 
@@ -72,12 +64,14 @@ export const parseKeyFrames = (
         atRule.params = source === Source.ltr ? ltr : rtl;
         atRuleFlipped.params = source === Source.ltr ? rtl : ltr;
 
-        keyframes.push({
+        store.keyframes.push({
             atRuleParams,
             atRule,
             atRuleFlipped
         });
         
     });
+
+    initKeyframesData();
 
 };
