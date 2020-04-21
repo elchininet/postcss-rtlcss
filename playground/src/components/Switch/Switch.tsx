@@ -1,16 +1,22 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { stylesheet } from './stylesheet';
 
+interface Attributes {
+    [key: string]: string | boolean;
+}
+
 export interface SwitchProps {
     labels: string | string[];
-    active?: boolean;
+    checkbox?: boolean;
+    attributes?: Attributes;
     onChange?: (checked: boolean) => void;
 }
 
 export const Switch = (props: SwitchProps): JSX.Element => {
 
-    const { labels, active = false, onChange } = props;
-    const [ checked, setChecked ] = useState(active);
+    const { labels, checkbox = true, attributes = {}, onChange } = props;
+    const { checked: active, ...rest } = attributes;
+    const [ checked, setChecked ] = useState(!!active);
     const label = typeof labels === 'string'
         ? labels
         : checked ? labels[1] : labels[0];
@@ -24,17 +30,18 @@ export const Switch = (props: SwitchProps): JSX.Element => {
     };
 
     useEffect(() => {
-        setChecked(active);
+        setChecked(!!active);
     }, [active]);
 
     return (
         <label css={stylesheet.label}>
             <input
-                type="checkbox"
+                type={checkbox ? 'checkbox' : 'radio'}
                 css={stylesheet.input}
                 checked={checked}
                 onChange={changeCallback}
                 aria-checked={checked}
+                { ...rest }
             />
             <div css={stylesheet.switch} data-checked={checked}></div>
             <span css={stylesheet.span}>{ label  }</span>

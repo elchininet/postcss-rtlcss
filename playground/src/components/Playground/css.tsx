@@ -56,4 +56,29 @@ export const cssLines = `.test1, .test2 {
     to {
         left: 100%;
     }
+}
+
+.test10-ltr {
+    color: #000;
+    width: 100%;
+}
+
+.test11-left::before {
+    content: "keyboard_arrow_left";
+}
+
+.test11-right::before {
+    content: "keyboard_arrow_right";
+}
+
+.testleft12 {
+    border: 1px solid gray;
+}
+
+.testleft13 {
+    content: "keyboard_arrow_left";
+}
+
+.testright14 {
+    content: "keyboard_arrow_right";
 }`;
