@@ -40,6 +40,7 @@ export interface StringMap {
 }
 
 export interface PluginStringMap {
+    name?: string;
     search: strings;
     replace: strings;
 }

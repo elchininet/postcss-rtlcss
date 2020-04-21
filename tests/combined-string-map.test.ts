@@ -14,7 +14,21 @@ describe('Combined Tests String Map', (): void => {
 
   it('Combined custom string map and processUrls: true', (): void => {
     const stringMap: PluginOptions['stringMap'] = [
-      {search: 'left', replace: 'right'}
+      {name: 'left-right', search: 'left', replace: 'right'},
+      {name: 'ltr-rtl', search: 'ltr', replace: 'rtl'},
+      {name: 'prev-next', search: 'prev', replace: 'next'}
+    ];
+    const options: PluginOptions = { ...baseOptions, processUrls: true, stringMap };
+    const output = postcss([postcssRTLCSS(options)]).process(input);
+    expect(output.css).toMatchSnapshot();
+    expect(output.warnings()).toHaveLength(0);
+  });
+
+  it('Combined custom string map without names and processUrls: true', (): void => {
+    const stringMap: PluginOptions['stringMap'] = [
+      {search: 'left', replace: 'right'},
+      {search: 'ltr', replace: 'rtl'},
+      {search: ['prev', 'Prev'], replace: ['next', 'Next']}
     ];
     const options: PluginOptions = { ...baseOptions, processUrls: true, stringMap };
     const output = postcss([postcssRTLCSS(options)]).process(input);

@@ -29,16 +29,19 @@ interface Store {
 
 const defaultStringMap = [
     {
+        name: 'left-right',
         search : ['left', 'Left', 'LEFT'],
         replace : ['right', 'Right', 'RIGHT']
     },
     {
+        name: 'ltr-rtl',
         search  : ['ltr', 'Ltr', 'LTR'],
         replace : ['rtl', 'Rtl', 'RTL'],
     }
 ];
 
 const getStringMapName = (map: PluginStringMap): string => {
+    if (map.name) { return map.name; }
     const search = Array.isArray(map.search) ? map.search[0] : map.search;
     const replace = Array.isArray(map.replace) ? map.replace[0] : map.replace;
     const reg = /[^\w]/g;
@@ -88,7 +91,7 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
     );
 };
 
-const defaultOptions = {
+const defaultOptions = (): PluginOptionsNormalized => ({
     mode: Mode.combined,
     ltrPrefix: '[dir="ltr"]',
     rtlPrefix: '[dir="rtl"]',
@@ -100,12 +103,12 @@ const defaultOptions = {
     stringMap: getRTLCSSStringMap(defaultStringMap),
     autoRename: Autorename.disabled,
     greedy: false
-};
+});
 
 const defaultKeyframesRegExp = new RegExp('$-^');
 
 const store: Store = {
-    options: {...defaultOptions},
+    options: {...defaultOptions()},
     keyframes: [],
     keyframesStringMap: {},
     keyframesRegExp: defaultKeyframesRegExp,
@@ -114,7 +117,7 @@ const store: Store = {
 };
 
 export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
-    const returnOptions: PluginOptionsNormalized = {...defaultOptions};
+    const returnOptions: PluginOptionsNormalized = {...defaultOptions()};
     if (options.mode && ModeValuesArray.includes(options.mode)) {
         returnOptions.mode = options.mode;
     }
@@ -146,7 +149,16 @@ export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalize
         returnOptions.useCalc = options.useCalc;
     }
     if (!isNotAcceptedStringMap(options.stringMap)) {
-        returnOptions.stringMap = getRTLCSSStringMap(options.stringMap);
+        const stringMap = getRTLCSSStringMap(options.stringMap);
+        stringMap.forEach((map: StringMap): void => {
+            if (map.name === defaultStringMap[0].name) {
+                returnOptions.stringMap.splice(0, 1, map);
+            } else if (map.name === defaultStringMap[1].name) {
+                returnOptions.stringMap.splice(1, 1, map);
+            } else {
+                returnOptions.stringMap.push(map);
+            }
+        });
     }
     return returnOptions;
 };
