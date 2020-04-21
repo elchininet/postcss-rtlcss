@@ -10,4 +10,4 @@ export const parseRules = (css: Root): void => {
         parseDeclarations(rule);
     });    
 
-}; 
+};

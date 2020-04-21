@@ -299,7 +299,9 @@ All the options are optional, and a default value will be used, if any of them i
 | processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
 | useCalc            | `boolean`                 | `false`         | Flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
-| stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the URL replacements |
+| stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the rules selectors replacements |
+| autoRename         | `Autorename (string)`     | `Autorename.disabled` | Flip or not the selectors names of the rules without directional properties using the `stringMap` |
+| greedy             | `boolean            `     | `false`         | When `autoRename` is enabled and greedy is `true`, the strings replacements will not take into account word boundaries |
 
 ---
 
@@ -796,7 +798,7 @@ const options = { useCalc: true };
 <details><summary>Expand</summary>
 <p>
 
-This options provides an array of strings maps that will be used to make the URL replacements:
+This options provides an array of strings maps that will be used to make the selectors replacements:
 
 ```javascript
 // This is the default string map object
@@ -812,6 +814,159 @@ const options = {
         }
     ]
 };
+```
+
+</p>
+
+</details>
+
+---
+
+#### autoRename
+
+<details><summary>Expand</summary>
+<p>
+
+Flip or not the selectors names of the rules without directional properties using the `stringMap`.
+
+##### input
+
+```css
+.test1-ltr {
+    color: #FFF;
+}
+
+.test2-left::before {
+    content: "\f007";
+}
+
+.test2-right::before {
+    content: "\f010";
+}
+```
+
+##### Using Autorename.flexible
+
+```javascript
+import { Autorename } from 'postcss-rtlcss';
+
+const options = {
+    autoRename: Autorename.flexible
+};
+```
+
+##### output
+
+```css
+.test1-rtl {
+    color: #FFF;
+}
+
+.test2-right::before {
+    content: "\f007";
+}
+
+.test2-left::before {
+    content: "\f010";
+}
+```
+
+##### Using Autorename.strict
+
+```javascript
+import { Autorename } from 'postcss-rtlcss';
+
+const options = {
+    autoRename: Autorename.strict
+};
+```
+
+##### output
+
+```css
+/* This selector will not be flipped because it doesn't have a counterpart */
+.test1-ltr {
+    color: #FFF;
+}
+
+.test2-right::before {
+    content: "\f007";
+}
+
+.test2-left::before {
+    content: "\f010";
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### greedy
+
+<details><summary>Expand</summary>
+<p>
+
+When `autoRename` is enabled and greedy is `true`, the strings replacements will not take into account word boundaries.
+
+##### input
+
+```css
+.test1-ltr {
+    color: #FFF;
+}
+
+.test2ltr {
+    width: 100%;
+}
+```
+
+##### greedy false
+
+```javascript
+import { Autorename } from 'postcss-rtlcss';
+
+const options = {
+    autoRename: Autorename.flexible,
+    greedy: false // This is the default value
+};
+```
+
+##### output
+
+```css
+.test1-rtl {
+    color: #FFF;
+}
+
+.test2ltr {
+    width: 100%;
+}
+```
+
+##### greedy true
+
+```javascript
+import { Autorename } from 'postcss-rtlcss';
+
+const options = {
+    autoRename: Autorename.flexible,
+    greedy: true
+};
+```
+
+##### output
+
+```css
+.test1-rtl {
+    color: #FFF;
+}
+
+.test2rtl {
+    width: 100%;
+}
 ```
 
 </p>

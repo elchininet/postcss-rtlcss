@@ -178,3 +178,52 @@
     border-bottom-color: #666;
     padding: 10px;
 }
+
+/* Automatic rename */
+.test25-ltr {
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 10px;
+    width: 100%;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-l.png") 
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-r.png") 
+}
+
+.test27 {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.test27-left::before {
+    content: "keyboard_arrow_left";
+}
+
+.test27-right::before {
+    content: "keyboard_arrow_right";
+}
+
+.testleft28 {
+    border: 1px solid gray;
+}
+
+.testleft29 {
+    content: "keyboard_arrow_left";
+}
+
+.testright29 {
+    content: "keyboard_arrow_right";
+}

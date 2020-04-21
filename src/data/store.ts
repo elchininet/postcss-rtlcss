@@ -1,3 +1,4 @@
+import { Rule } from 'postcss';
 import {
     PluginOptions,
     PluginOptionsNormalized,
@@ -9,6 +10,8 @@ import {
     ModeValues,
     Source,
     SourceValues,
+    Autorename,
+    AutorenameValues,
     StringMap,
     PluginStringMap
 } from '@types';
@@ -21,6 +24,7 @@ interface Store {
     keyframesStringMap: AtRulesStringMap;
     keyframesRegExp: RegExp;
     rules: RulesObject[];
+    rulesAutoRename: Rule[];
 }
 
 const defaultStringMap = [
@@ -57,12 +61,13 @@ const getRTLCSSStringMap = (stringMap: PluginStringMap[]): StringMap[] =>
 
 const ModeValuesArray = Object.keys(Mode).map((prop: ModeValues) => Mode[prop] as ModeValues);
 const SourceValuesArray = Object.keys(Source).map((prop: SourceValues) => Source[prop] as SourceValues);
-const isNotAcceptedPrefix = (prefix: strings): boolean => {
-    if (typeof prefix !== 'string' && !Array.isArray(prefix)) {
+const AutorenameValuesArray = Object.keys(Autorename).map((prop: AutorenameValues) => Autorename[prop] as AutorenameValues);
+const isNotStringOrStringArray = (value: strings): boolean => {
+    if (typeof value !== 'string' && !Array.isArray(value)) {
         return true;
     }
-    if (Array.isArray(prefix)) {
-        return prefix.some((item: string): boolean => typeof item !== 'string');
+    if (Array.isArray(value)) {
+        return value.some((item: string): boolean => typeof item !== 'string');
     }
     return false;
 };
@@ -72,7 +77,14 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
         return true;
     }
     return stringMap.some((map: PluginStringMap) =>
-        isNotAcceptedPrefix(map.search) || isNotAcceptedPrefix(map.replace)
+        typeof map.search !== typeof map.replace ||
+        isNotStringOrStringArray(map.search) ||
+        isNotStringOrStringArray(map.replace) ||
+        (
+            Array.isArray(map.search) &&
+            Array.isArray(map.replace) &&
+            map.search.length !== map.replace.length
+        )
     );
 };
 
@@ -85,7 +97,9 @@ const defaultOptions = {
     processUrls: false,
     processKeyFrames: false,
     useCalc: false,
-    stringMap: getRTLCSSStringMap(defaultStringMap)
+    stringMap: getRTLCSSStringMap(defaultStringMap),
+    autoRename: Autorename.disabled,
+    greedy: false
 };
 
 const defaultKeyframesRegExp = new RegExp('$-^');
@@ -95,7 +109,8 @@ const store: Store = {
     keyframes: [],
     keyframesStringMap: {},
     keyframesRegExp: defaultKeyframesRegExp,
-    rules: []
+    rules: [],
+    rulesAutoRename: []
 };
 
 export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
@@ -106,13 +121,19 @@ export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalize
     if (options.source && SourceValuesArray.includes(options.source)) {
         returnOptions.source = options.source;
     }
-    if (!isNotAcceptedPrefix(options.ltrPrefix)) {
+    if (options.autoRename && AutorenameValuesArray.includes(options.autoRename)) {
+        returnOptions.autoRename = options.autoRename;
+    }
+    if (typeof options.greedy === BOOLEAN_TYPE) {
+        returnOptions.greedy = options.greedy;
+    }
+    if (!isNotStringOrStringArray(options.ltrPrefix)) {
         returnOptions.ltrPrefix = options.ltrPrefix;
     }
-    if (!isNotAcceptedPrefix(options.rtlPrefix)) {
+    if (!isNotStringOrStringArray(options.rtlPrefix)) {
         returnOptions.rtlPrefix = options.rtlPrefix;
     }
-    if (!isNotAcceptedPrefix(options.bothPrefix)) {
+    if (!isNotStringOrStringArray(options.bothPrefix)) {
         returnOptions.bothPrefix = options.bothPrefix;
     }
     if (typeof options.processUrls === BOOLEAN_TYPE) {
@@ -136,6 +157,7 @@ const initStore = (options: PluginOptions): void => {
     store.keyframesStringMap = {};
     store.keyframesRegExp = defaultKeyframesRegExp;
     store.rules = [];
+    store.rulesAutoRename = [];
 };
 
 const initKeyframesData = (): void => {

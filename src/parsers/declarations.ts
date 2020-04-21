@@ -1,6 +1,6 @@
 import postcss, { Rule, Node, Declaration, vendor } from 'postcss';
 import rtlcss from 'rtlcss';
-import { Source, Mode, ObjectWithProps } from '@types';
+import { Source, Mode, Autorename, ObjectWithProps } from '@types';
 import { DECLARATION_TYPE, FLIP_PROPERTY_REGEXP, ANIMATION_PROP, ANIMATION_NAME_PROP } from '@constants';
 import { store } from '@data/store';
 import { addSelectorPrefixes } from '@utilities/selectors';
@@ -9,7 +9,18 @@ import { walkContainer } from '@utilities/containers';
 
 export const parseDeclarations = (rule: Rule): void => {
 
-    const { mode, ltrPrefix, rtlPrefix, bothPrefix, source, processUrls, useCalc, stringMap } = store.options;
+    const {
+        mode,
+        ltrPrefix,
+        rtlPrefix,
+        bothPrefix,
+        source,
+        processUrls,
+        useCalc,
+        stringMap,
+        autoRename,
+        greedy
+    } = store.options;
 
     const deleteDeclarations: Declaration[] = [];
 
@@ -26,12 +37,20 @@ export const parseDeclarations = (rule: Rule): void => {
     }, {});
 
     const declarationsProps: string[] = [];
-
+    let simetricRules = false;
+    
     walkContainer(rule, [ DECLARATION_TYPE ], true, (node: Node): void => {
         
         const decl = node as Declaration;
         const declString = `${decl.toString()};`;
-        const declFlippedString = rtlcss.process(declString, { processUrls, useCalc, stringMap });
+        const declFlippedString = rtlcss.process(declString, {
+            processUrls,
+            useCalc,
+            stringMap,
+            autoRename: autoRename !== Autorename.disabled,
+            autoRenameStrict: autoRename === Autorename.strict,
+            greedy
+        });
 
         const root = postcss.parse(declFlippedString);
         const declFlipped = root.first as Declaration;
@@ -108,6 +127,7 @@ export const parseDeclarations = (rule: Rule): void => {
                 deleteDeclarations.push(decl);
                 return;
             } else  if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
+                simetricRules = true;
                 return;
             }
 
@@ -153,6 +173,9 @@ export const parseDeclarations = (rule: Rule): void => {
             ruleRTL: ruleFlippedSecond,
             ruleBoth
         });
+
+    } else if (!simetricRules) {
+        store.rulesAutoRename.push(rule);
     }
 
 }; 

@@ -14,8 +14,15 @@ export enum Source {
     rtl = 'rtl'
 }
 
+export enum Autorename {
+    disabled = 'disabled',
+    flexible = 'flexible',
+    strict = 'strict'
+}
+
 export type ModeValues = keyof typeof Mode;
 export type SourceValues = keyof typeof Source;
+export type AutorenameValues = keyof typeof Autorename;
 
 export type strings = string | string[];
 
@@ -47,6 +54,8 @@ export interface PluginOptions {
     processKeyFrames?: boolean;
     useCalc?: boolean;
     stringMap?: PluginStringMap[];
+    autoRename?: Autorename;
+    greedy?: boolean;
 }
 
 export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, 'stringMap'> {
