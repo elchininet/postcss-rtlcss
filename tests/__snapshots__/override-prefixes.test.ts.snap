@@ -263,7 +263,15 @@ exports[`Override Tests Prefixes Override custom ltrPrefix and rtlPrefix propert
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -276,23 +284,23 @@ exports[`Override Tests Prefixes Override custom ltrPrefix and rtlPrefix propert
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -565,7 +573,15 @@ exports[`Override Tests Prefixes Override custom ltrPrefix and rtlPrefix propert
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -578,23 +594,23 @@ exports[`Override Tests Prefixes Override custom ltrPrefix and rtlPrefix propert
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -871,7 +887,15 @@ exports[`Override Tests Prefixes Override custom ltrPrefix, rtlPrefix, and bothP
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -884,23 +908,23 @@ exports[`Override Tests Prefixes Override custom ltrPrefix, rtlPrefix, and bothP
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;

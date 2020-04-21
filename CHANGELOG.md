@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.1] - 2020-04-21
+
+- The stringMap feature has been refactored to mimic RTLCSS behaviour
+
 ## [1.3.0] - 2020-04-21
 
 - Added autoRename option to rename rule selectors taking into account the string map

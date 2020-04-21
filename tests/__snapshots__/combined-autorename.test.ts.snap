@@ -289,7 +289,15 @@ exports[`Combined Tests Autorename Combined Autorename: flexible 1`] = `
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -302,23 +310,23 @@ exports[`Combined Tests Autorename Combined Autorename: flexible 1`] = `
     white-space: nowrap;
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -612,7 +620,15 @@ exports[`Combined Tests Autorename Combined Autorename: flexible with custom str
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-next {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-prev {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -625,23 +641,23 @@ exports[`Combined Tests Autorename Combined Autorename: flexible with custom str
     white-space: nowrap;
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -935,7 +951,15 @@ exports[`Combined Tests Autorename Combined Autorename: flexible, greedy: true 1
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -948,23 +972,23 @@ exports[`Combined Tests Autorename Combined Autorename: flexible, greedy: true 1
     white-space: nowrap;
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testright28 {
+.testright29 {
     border: 1px solid gray;
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -1258,7 +1282,15 @@ exports[`Combined Tests Autorename Combined Autorename: strict 1`] = `
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -1271,23 +1303,23 @@ exports[`Combined Tests Autorename Combined Autorename: strict 1`] = `
     white-space: nowrap;
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -1581,7 +1613,15 @@ exports[`Combined Tests Autorename Combined Autorename: strict, greedy: true 1`]
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -1594,23 +1634,23 @@ exports[`Combined Tests Autorename Combined Autorename: strict, greedy: true 1`]
     white-space: nowrap;
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;

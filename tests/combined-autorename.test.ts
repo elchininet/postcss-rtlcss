@@ -21,7 +21,8 @@ describe('Combined Tests Autorename', (): void => {
 
   it('Combined Autorename: flexible with custom string map', (): void => {
     const stringMap: PluginOptions['stringMap'] = [
-      {search: 'left', replace: 'right'}
+      {search: 'left', replace: 'right'},
+      {search: 'prev', replace: 'next'}
     ];
     const options: PluginOptions = { ...baseOptions, autoRename: Autorename.flexible, stringMap };
     const output = postcss([postcssRTLCSS(options)]).process(input);

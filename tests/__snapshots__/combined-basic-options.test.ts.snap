@@ -323,7 +323,15 @@ exports[`Combined Tests Basic Options Combined {processKeyFrames: true} 1`] = `
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -336,23 +344,23 @@ exports[`Combined Tests Basic Options Combined {processKeyFrames: true} 1`] = `
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -650,7 +658,15 @@ exports[`Combined Tests Basic Options Combined {processUrls: true} 1`] = `
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -663,23 +679,23 @@ exports[`Combined Tests Basic Options Combined {processUrls: true} 1`] = `
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -1007,7 +1023,15 @@ exports[`Combined Tests Basic Options Combined {source: rtl, processKeyFrames: t
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -1020,23 +1044,23 @@ exports[`Combined Tests Basic Options Combined {source: rtl, processKeyFrames: t
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -1330,7 +1354,15 @@ exports[`Combined Tests Basic Options Combined {source: rtl} 1`] = `
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -1343,23 +1375,23 @@ exports[`Combined Tests Basic Options Combined {source: rtl} 1`] = `
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -1655,7 +1687,15 @@ exports[`Combined Tests Basic Options Combined {useCalc: true} 1`] = `
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -1668,23 +1708,23 @@ exports[`Combined Tests Basic Options Combined {useCalc: true} 1`] = `
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;
@@ -1978,7 +2018,15 @@ exports[`Combined Tests Basic Options Combined Basic 1`] = `
     background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.test27 {
+.test27-prev {
+    background-image: url(\\"/icons/icon-p.png\\") 
+}
+
+.test27-next {
+    background-image: url(\\"/icons/icon-n.png\\") 
+}
+
+.test28 {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -1991,23 +2039,23 @@ exports[`Combined Tests Basic Options Combined Basic 1`] = `
     white-space: nowrap;
 }
 
-.test27-left::before {
+.test28-left::before {
     content: \\"keyboard_arrow_left\\";
 }
 
-.test27-right::before {
+.test28-right::before {
     content: \\"keyboard_arrow_right\\";
 }
 
-.testleft28 {
+.testleft29 {
     border: 1px solid gray;
 }
 
-.testleft29 {
+.testleft30 {
     content: \\"keyboard_arrow_left\\";
 }
 
-.testright29 {
+.testright30 {
     content: \\"keyboard_arrow_right\\";
 }"
 `;

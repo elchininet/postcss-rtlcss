@@ -299,7 +299,7 @@ All the options are optional, and a default value will be used, if any of them i
 | processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
 | useCalc            | `boolean`                 | `false`         | Flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
-| stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the rules selectors replacements |
+| stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the URLs and rules selectors names |
 | autoRename         | `Autorename (string)`     | `Autorename.disabled` | Flip or not the selectors names of the rules without directional properties using the `stringMap` |
 | greedy             | `boolean            `     | `false`         | When `autoRename` is enabled and greedy is `true`, the strings replacements will not take into account word boundaries |
 
@@ -798,17 +798,19 @@ const options = { useCalc: true };
 <details><summary>Expand</summary>
 <p>
 
-This options provides an array of strings maps that will be used to make the selectors replacements:
+An array of strings maps that will be used to make the replacements of the URLs and rules selectors names. The name parameter is optional, but if you want to override any of the default string maps, just add your own using the same name.
 
 ```javascript
 // This is the default string map object
 const options = {
     stringMap: [
         {
+            name: 'left-right',
             search : ['left', 'Left', 'LEFT'],
             replace : ['right', 'Right', 'RIGHT']
         },
         {
+            name: 'ltr-rtl',
             search  : ['ltr', 'Ltr', 'LTR'],
             replace : ['rtl', 'Rtl', 'RTL'],
         }
