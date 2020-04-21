@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.0] - 2020-04-21
+
+- Added autoRename option to rename rule selectors taking into account the string map
+- Added greedy option dependant on autoRename
+
 ## [1.2.3] - 2020-04-18
 
 - Bug fix: flip animation names if they are surrounded by comas

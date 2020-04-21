@@ -1,21 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Override Tests Override {processKeyFrames: true} 1`] = `
+exports[`Combined Tests Basic Options Combined {processKeyFrames: true} 1`] = `
 ".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    border-radius: 0 2px 0 8px;
     color: #666;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+    border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
-    width: 100%;
 }
 
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -23,11 +25,14 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 
 /* Comment not related to rtl */
 .test3 {
-    direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
     /* Property comment not related to rtl */
     text-align: center;
+}
+
+[dir=\\"ltr\\"] .test3 {
+    direction: ltr;
 }
 
 [dir=\\"rtl\\"] .test3 {
@@ -37,10 +42,13 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 .test4 {
     font-size: 10px;
     border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
     transform-origin: 10px 20px;
     transform: scale(0.5, 0.5);
+}
+
+[dir=\\"ltr\\"] .test4 {
+    border-radius: 2px 4px 8px 16px;
+    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
 [dir=\\"rtl\\"] .test4 {
@@ -51,12 +59,17 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 .test5,
 .test6,
 .test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
     box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
     position: absolute;
+}
+
+[dir=\\"ltr\\"] .test5,
+[dir=\\"ltr\\"] .test6,
+[dir=\\"ltr\\"] .test7 {
+    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #777 #888 #999;
+    border-width: 1px 2px 3px 4px;
     left: 100px;
     transform: translateX(5px);
 }
@@ -67,16 +80,18 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
     right: 100px;
     transform: translateX(-5px);
 }
 
 /*rtl:novalid:ignore*/
 .test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
     padding-left: 10%;
+}
+
+[dir=\\"ltr\\"] .test8 {
+    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
 [dir=\\"rtl\\"] .test8 {
@@ -84,23 +99,25 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 }
 
 .test9, .test10 {
+    padding: 0px 2px 3px 4px;
+}
+
+[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
-    padding: 0px 2px 3px 4px;
 }
 
 [dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
     right: 5px;
 }
 
-.test11:hover,
-.test11:active {
+[dir=\\"ltr\\"] .test11:hover,
+[dir=\\"ltr\\"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -146,9 +163,12 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 }
 
 .test18 {
+    font-size: 10px;
+}
+
+[dir=\\"ltr\\"] .test18 {
     animation: 5s flip-ltr 1s ease-in-out,
                3s my-animation-ltr 6s ease-in-out;
-    font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
 
@@ -178,8 +198,11 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 
 @media only screen and (min-device-width: 320px) {
     .test18 {
-        padding: 1px 2px 3px 4px;
         width: 100%;
+    }
+
+    [dir=\\"ltr\\"] .test18 {
+        padding: 1px 2px 3px 4px;
     }
 
     [dir=\\"rtl\\"] .test18 {
@@ -190,8 +213,11 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 .test19 {
     animation-delay: 1s;
     animation-duration: 3s;
-    animation-name: my-animation-ltr;
     animation-timing-function: ease-in-out;
+}
+
+[dir=\\"ltr\\"] .test19 {
+    animation-name: my-animation-ltr;
 }
 
 [dir=\\"rtl\\"] .test19 {
@@ -201,8 +227,11 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 .test20 {
     animation-delay: 2s;
     animation-duration: 4s;
-    animation-name: my-animation-ltr, no-flip;
     animation-timing-function: ease;
+}
+
+[dir=\\"ltr\\"] .test20 {
+    animation-name: my-animation-ltr, no-flip;
 }
 
 [dir=\\"rtl\\"] .test20 {
@@ -245,7 +274,7 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test22 {
+[dir=\\"ltr\\"] .test22 {
     left: 5px;
     right: 10px;
 }
@@ -263,8 +292,11 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 
 /* Chain override */
 .test24 {
-    border: 1px solid #FFF;
     padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test24 {
+    border: 1px solid #FFF;
 }
 
 [dir=\\"rtl\\"] .test24 {
@@ -273,24 +305,75 @@ exports[`Override Tests Override {processKeyFrames: true} 1`] = `
 
 [dir] .test24 {
     border-bottom-color: #666;
+}
+
+/* Automatic rename */
+.test25-ltr {
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 10px;
+    width: 100%;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url(\\"/icons/icon-l.png\\") 
+}
+
+.test26-rtl {
+    background-image: url(\\"/icons/icon-r.png\\") 
+}
+
+.test27 {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.test27-left::before {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.test27-right::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.testleft28 {
+    border: 1px solid gray;
+}
+
+.testleft29 {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.testright29 {
+    content: \\"keyboard_arrow_right\\";
 }"
 `;
 
-exports[`Override Tests Override {processUrls: true} 1`] = `
+exports[`Combined Tests Basic Options Combined {processUrls: true} 1`] = `
 ".test1, .test2 {
+    color: #666;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     border-radius: 0 2px 0 8px;
-    color: #666;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
-    width: 100%;
 }
 
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -303,11 +386,14 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 
 /* Comment not related to rtl */
 .test3 {
-    direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
     /* Property comment not related to rtl */
     text-align: center;
+}
+
+[dir=\\"ltr\\"] .test3 {
+    direction: ltr;
 }
 
 [dir=\\"rtl\\"] .test3 {
@@ -317,10 +403,13 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 .test4 {
     font-size: 10px;
     border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
     transform-origin: 10px 20px;
     transform: scale(0.5, 0.5);
+}
+
+[dir=\\"ltr\\"] .test4 {
+    border-radius: 2px 4px 8px 16px;
+    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
 [dir=\\"rtl\\"] .test4 {
@@ -331,12 +420,17 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 .test5,
 .test6,
 .test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
     box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
     position: absolute;
+}
+
+[dir=\\"ltr\\"] .test5,
+[dir=\\"ltr\\"] .test6,
+[dir=\\"ltr\\"] .test7 {
+    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #777 #888 #999;
+    border-width: 1px 2px 3px 4px;
     left: 100px;
     transform: translateX(5px);
 }
@@ -347,16 +441,18 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
     right: 100px;
     transform: translateX(-5px);
 }
 
 /*rtl:novalid:ignore*/
 .test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
     padding-left: 10%;
+}
+
+[dir=\\"ltr\\"] .test8 {
+    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
 [dir=\\"rtl\\"] .test8 {
@@ -364,23 +460,25 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 }
 
 .test9, .test10 {
+    padding: 0px 2px 3px 4px;
+}
+
+[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
-    padding: 0px 2px 3px 4px;
 }
 
 [dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
     right: 5px;
 }
 
-.test11:hover,
-.test11:active {
+[dir=\\"ltr\\"] .test11:hover,
+[dir=\\"ltr\\"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -429,6 +527,9 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
     animation: 5s flip 1s ease-in-out,
                3s my-animation 6s ease-in-out;
     font-size: 10px;
+}
+
+[dir=\\"ltr\\"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
@@ -447,8 +548,11 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 
 @media only screen and (min-device-width: 320px) {
     .test18 {
-        padding: 1px 2px 3px 4px;
         width: 100%;
+    }
+
+    [dir=\\"ltr\\"] .test18 {
+        padding: 1px 2px 3px 4px;
     }
 
     [dir=\\"rtl\\"] .test18 {
@@ -497,7 +601,7 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test22 {
+[dir=\\"ltr\\"] .test22 {
     left: 5px;
     right: 10px;
 }
@@ -515,8 +619,11 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 
 /* Chain override */
 .test24 {
-    border: 1px solid #FFF;
     padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test24 {
+    border: 1px solid #FFF;
 }
 
 [dir=\\"rtl\\"] .test24 {
@@ -525,25 +632,76 @@ exports[`Override Tests Override {processUrls: true} 1`] = `
 
 [dir] .test24 {
     border-bottom-color: #666;
+}
+
+/* Automatic rename */
+.test25-ltr {
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 10px;
+    width: 100%;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url(\\"/icons/icon-l.png\\") 
+}
+
+.test26-rtl {
+    background-image: url(\\"/icons/icon-r.png\\") 
+}
+
+.test27 {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.test27-left::before {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.test27-right::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.testleft28 {
+    border: 1px solid gray;
+}
+
+.testleft29 {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.testright29 {
+    content: \\"keyboard_arrow_right\\";
 }"
 `;
 
-exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
+exports[`Combined Tests Basic Options Combined {source: rtl, processKeyFrames: true} 1`] = `
 ".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    border-radius: 0 2px 0 8px;
     color: #666;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+    border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
-    width: 100%;
 }
 
 [dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -551,11 +709,14 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 
 /* Comment not related to rtl */
 .test3 {
-    direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
     /* Property comment not related to rtl */
     text-align: center;
+}
+
+[dir=\\"rtl\\"] .test3 {
+    direction: ltr;
 }
 
 [dir=\\"ltr\\"] .test3 {
@@ -565,10 +726,13 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 .test4 {
     font-size: 10px;
     border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
     transform-origin: 10px 20px;
     transform: scale(0.5, 0.5);
+}
+
+[dir=\\"rtl\\"] .test4 {
+    border-radius: 2px 4px 8px 16px;
+    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
 [dir=\\"ltr\\"] .test4 {
@@ -579,12 +743,17 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 .test5,
 .test6,
 .test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
     box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
     position: absolute;
+}
+
+[dir=\\"rtl\\"] .test5,
+[dir=\\"rtl\\"] .test6,
+[dir=\\"rtl\\"] .test7 {
+    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #777 #888 #999;
+    border-width: 1px 2px 3px 4px;
     left: 100px;
     transform: translateX(5px);
 }
@@ -595,16 +764,18 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
     right: 100px;
     transform: translateX(-5px);
 }
 
 /*rtl:novalid:ignore*/
 .test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
     padding-left: 10%;
+}
+
+[dir=\\"rtl\\"] .test8 {
+    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
 [dir=\\"ltr\\"] .test8 {
@@ -612,23 +783,25 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 }
 
 .test9, .test10 {
+    padding: 0px 2px 3px 4px;
+}
+
+[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
-    padding: 0px 2px 3px 4px;
 }
 
 [dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
     right: 5px;
 }
 
-.test11:hover,
-.test11:active {
+[dir=\\"rtl\\"] .test11:hover,
+[dir=\\"rtl\\"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -674,9 +847,12 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 }
 
 .test18 {
+    font-size: 10px;
+}
+
+[dir=\\"rtl\\"] .test18 {
     animation: 5s flip-rtl 1s ease-in-out,
                3s my-animation-rtl 6s ease-in-out;
-    font-size: 10px;
     padding: 10px 20px 40px 10px;
 }
 
@@ -706,8 +882,11 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 
 @media only screen and (min-device-width: 320px) {
     .test18 {
-        padding: 1px 2px 3px 4px;
         width: 100%;
+    }
+
+    [dir=\\"rtl\\"] .test18 {
+        padding: 1px 2px 3px 4px;
     }
 
     [dir=\\"ltr\\"] .test18 {
@@ -718,8 +897,11 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 .test19 {
     animation-delay: 1s;
     animation-duration: 3s;
-    animation-name: my-animation-rtl;
     animation-timing-function: ease-in-out;
+}
+
+[dir=\\"rtl\\"] .test19 {
+    animation-name: my-animation-rtl;
 }
 
 [dir=\\"ltr\\"] .test19 {
@@ -729,8 +911,11 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 .test20 {
     animation-delay: 2s;
     animation-duration: 4s;
-    animation-name: my-animation-rtl, no-flip;
     animation-timing-function: ease;
+}
+
+[dir=\\"rtl\\"] .test20 {
+    animation-name: my-animation-rtl, no-flip;
 }
 
 [dir=\\"ltr\\"] .test20 {
@@ -773,7 +958,7 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test22 {
+[dir=\\"rtl\\"] .test22 {
     left: 5px;
     right: 10px;
 }
@@ -791,8 +976,11 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 
 /* Chain override */
 .test24 {
-    border: 1px solid #FFF;
     padding: 10px;
+}
+
+[dir=\\"rtl\\"] .test24 {
+    border: 1px solid #FFF;
 }
 
 [dir=\\"ltr\\"] .test24 {
@@ -801,25 +989,76 @@ exports[`Override Tests Override {source: rtl, processKeyFrames: true} 1`] = `
 
 [dir] .test24 {
     border-bottom-color: #666;
+}
+
+/* Automatic rename */
+.test25-ltr {
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 10px;
+    width: 100%;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url(\\"/icons/icon-l.png\\") 
+}
+
+.test26-rtl {
+    background-image: url(\\"/icons/icon-r.png\\") 
+}
+
+.test27 {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.test27-left::before {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.test27-right::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.testleft28 {
+    border: 1px solid gray;
+}
+
+.testleft29 {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.testright29 {
+    content: \\"keyboard_arrow_right\\";
 }"
 `;
 
-exports[`Override Tests Override {source: rtl} 1`] = `
+exports[`Combined Tests Basic Options Combined {source: rtl} 1`] = `
 ".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    border-radius: 0 2px 0 8px;
     color: #666;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+    border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
-    width: 100%;
 }
 
 [dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -827,11 +1066,14 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 
 /* Comment not related to rtl */
 .test3 {
-    direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
     /* Property comment not related to rtl */
     text-align: center;
+}
+
+[dir=\\"rtl\\"] .test3 {
+    direction: ltr;
 }
 
 [dir=\\"ltr\\"] .test3 {
@@ -841,10 +1083,13 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 .test4 {
     font-size: 10px;
     border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
     transform-origin: 10px 20px;
     transform: scale(0.5, 0.5);
+}
+
+[dir=\\"rtl\\"] .test4 {
+    border-radius: 2px 4px 8px 16px;
+    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
 [dir=\\"ltr\\"] .test4 {
@@ -855,12 +1100,17 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 .test5,
 .test6,
 .test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
     box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
     position: absolute;
+}
+
+[dir=\\"rtl\\"] .test5,
+[dir=\\"rtl\\"] .test6,
+[dir=\\"rtl\\"] .test7 {
+    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #777 #888 #999;
+    border-width: 1px 2px 3px 4px;
     left: 100px;
     transform: translateX(5px);
 }
@@ -871,16 +1121,18 @@ exports[`Override Tests Override {source: rtl} 1`] = `
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
     right: 100px;
     transform: translateX(-5px);
 }
 
 /*rtl:novalid:ignore*/
 .test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
     padding-left: 10%;
+}
+
+[dir=\\"rtl\\"] .test8 {
+    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
 [dir=\\"ltr\\"] .test8 {
@@ -888,23 +1140,25 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 }
 
 .test9, .test10 {
+    padding: 0px 2px 3px 4px;
+}
+
+[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
-    padding: 0px 2px 3px 4px;
 }
 
 [dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
     right: 5px;
 }
 
-.test11:hover,
-.test11:active {
+[dir=\\"rtl\\"] .test11:hover,
+[dir=\\"rtl\\"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -953,6 +1207,9 @@ exports[`Override Tests Override {source: rtl} 1`] = `
     animation: 5s flip 1s ease-in-out,
                3s my-animation 6s ease-in-out;
     font-size: 10px;
+}
+
+[dir=\\"rtl\\"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
@@ -971,8 +1228,11 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 
 @media only screen and (min-device-width: 320px) {
     .test18 {
-        padding: 1px 2px 3px 4px;
         width: 100%;
+    }
+
+    [dir=\\"rtl\\"] .test18 {
+        padding: 1px 2px 3px 4px;
     }
 
     [dir=\\"ltr\\"] .test18 {
@@ -1021,7 +1281,7 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test22 {
+[dir=\\"rtl\\"] .test22 {
     left: 5px;
     right: 10px;
 }
@@ -1039,8 +1299,11 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 
 /* Chain override */
 .test24 {
-    border: 1px solid #FFF;
     padding: 10px;
+}
+
+[dir=\\"rtl\\"] .test24 {
+    border: 1px solid #FFF;
 }
 
 [dir=\\"ltr\\"] .test24 {
@@ -1049,26 +1312,77 @@ exports[`Override Tests Override {source: rtl} 1`] = `
 
 [dir] .test24 {
     border-bottom-color: #666;
+}
+
+/* Automatic rename */
+.test25-ltr {
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 10px;
+    width: 100%;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url(\\"/icons/icon-l.png\\") 
+}
+
+.test26-rtl {
+    background-image: url(\\"/icons/icon-r.png\\") 
+}
+
+.test27 {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.test27-left::before {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.test27-right::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.testleft28 {
+    border: 1px solid gray;
+}
+
+.testleft29 {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.testright29 {
+    content: \\"keyboard_arrow_right\\";
 }"
 `;
 
-exports[`Override Tests Override {useCalc: true} 1`] = `
+exports[`Combined Tests Basic Options Combined {useCalc: true} 1`] = `
 ".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
+    color: #666;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
-    color: #666;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
-    width: 100%;
 }
 
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
     background-position: calc(100% - 10px) 20px;
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -1076,11 +1390,14 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 
 /* Comment not related to rtl */
 .test3 {
-    direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
     /* Property comment not related to rtl */
     text-align: center;
+}
+
+[dir=\\"ltr\\"] .test3 {
+    direction: ltr;
 }
 
 [dir=\\"rtl\\"] .test3 {
@@ -1090,10 +1407,13 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 .test4 {
     font-size: 10px;
     border-color: red;
+    transform: scale(0.5, 0.5);
+}
+
+[dir=\\"ltr\\"] .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
     transform-origin: 10px 20px;
-    transform: scale(0.5, 0.5);
 }
 
 [dir=\\"rtl\\"] .test4 {
@@ -1105,12 +1425,17 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 .test5,
 .test6,
 .test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
     box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
     position: absolute;
+}
+
+[dir=\\"ltr\\"] .test5,
+[dir=\\"ltr\\"] .test6,
+[dir=\\"ltr\\"] .test7 {
+    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #777 #888 #999;
+    border-width: 1px 2px 3px 4px;
     left: 100px;
     transform: translateX(5px);
 }
@@ -1121,16 +1446,18 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
     right: 100px;
     transform: translateX(-5px);
 }
 
 /*rtl:novalid:ignore*/
 .test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
     padding-left: 10%;
+}
+
+[dir=\\"ltr\\"] .test8 {
+    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
 [dir=\\"rtl\\"] .test8 {
@@ -1138,23 +1465,25 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 }
 
 .test9, .test10 {
+    padding: 0px 2px 3px 4px;
+}
+
+[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
-    padding: 0px 2px 3px 4px;
 }
 
 [dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
     right: 5px;
 }
 
-.test11:hover,
-.test11:active {
+[dir=\\"ltr\\"] .test11:hover,
+[dir=\\"ltr\\"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -1203,6 +1532,9 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
     animation: 5s flip 1s ease-in-out,
                3s my-animation 6s ease-in-out;
     font-size: 10px;
+}
+
+[dir=\\"ltr\\"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
@@ -1221,8 +1553,11 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 
 @media only screen and (min-device-width: 320px) {
     .test18 {
-        padding: 1px 2px 3px 4px;
         width: 100%;
+    }
+
+    [dir=\\"ltr\\"] .test18 {
+        padding: 1px 2px 3px 4px;
     }
 
     [dir=\\"rtl\\"] .test18 {
@@ -1271,7 +1606,7 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test22 {
+[dir=\\"ltr\\"] .test22 {
     left: 5px;
     right: 10px;
 }
@@ -1289,8 +1624,11 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 
 /* Chain override */
 .test24 {
-    border: 1px solid #FFF;
     padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test24 {
+    border: 1px solid #FFF;
 }
 
 [dir=\\"rtl\\"] .test24 {
@@ -1299,25 +1637,76 @@ exports[`Override Tests Override {useCalc: true} 1`] = `
 
 [dir] .test24 {
     border-bottom-color: #666;
+}
+
+/* Automatic rename */
+.test25-ltr {
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 10px;
+    width: 100%;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url(\\"/icons/icon-l.png\\") 
+}
+
+.test26-rtl {
+    background-image: url(\\"/icons/icon-r.png\\") 
+}
+
+.test27 {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.test27-left::before {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.test27-right::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.testleft28 {
+    border: 1px solid gray;
+}
+
+.testleft29 {
+    content: \\"keyboard_arrow_left\\";
+}
+
+.testright29 {
+    content: \\"keyboard_arrow_right\\";
 }"
 `;
 
-exports[`Override Tests Override Basic 1`] = `
+exports[`Combined Tests Basic Options Combined Basic 1`] = `
 ".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
-    border-radius: 0 2px 0 8px;
     color: #666;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+    border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
-    width: 100%;
 }
 
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -1325,11 +1714,14 @@ exports[`Override Tests Override Basic 1`] = `
 
 /* Comment not related to rtl */
 .test3 {
-    direction: ltr;
     margin: 1px 2px 3px;
     padding: 10px 20px;
     /* Property comment not related to rtl */
     text-align: center;
+}
+
+[dir=\\"ltr\\"] .test3 {
+    direction: ltr;
 }
 
 [dir=\\"rtl\\"] .test3 {
@@ -1339,10 +1731,13 @@ exports[`Override Tests Override Basic 1`] = `
 .test4 {
     font-size: 10px;
     border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
     transform-origin: 10px 20px;
     transform: scale(0.5, 0.5);
+}
+
+[dir=\\"ltr\\"] .test4 {
+    border-radius: 2px 4px 8px 16px;
+    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
 [dir=\\"rtl\\"] .test4 {
@@ -1353,12 +1748,17 @@ exports[`Override Tests Override Basic 1`] = `
 .test5,
 .test6,
 .test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
     box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
     position: absolute;
+}
+
+[dir=\\"ltr\\"] .test5,
+[dir=\\"ltr\\"] .test6,
+[dir=\\"ltr\\"] .test7 {
+    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #777 #888 #999;
+    border-width: 1px 2px 3px 4px;
     left: 100px;
     transform: translateX(5px);
 }
@@ -1369,16 +1769,18 @@ exports[`Override Tests Override Basic 1`] = `
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
     right: 100px;
     transform: translateX(-5px);
 }
 
 /*rtl:novalid:ignore*/
 .test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
     display: flex;
     padding-left: 10%;
+}
+
+[dir=\\"ltr\\"] .test8 {
+    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
 [dir=\\"rtl\\"] .test8 {
@@ -1386,23 +1788,25 @@ exports[`Override Tests Override Basic 1`] = `
 }
 
 .test9, .test10 {
+    padding: 0px 2px 3px 4px;
+}
+
+[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
-    padding: 0px 2px 3px 4px;
 }
 
 [dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
     right: 5px;
 }
 
-.test11:hover,
-.test11:active {
+[dir=\\"ltr\\"] .test11:hover,
+[dir=\\"ltr\\"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -1451,6 +1855,9 @@ exports[`Override Tests Override Basic 1`] = `
     animation: 5s flip 1s ease-in-out,
                3s my-animation 6s ease-in-out;
     font-size: 10px;
+}
+
+[dir=\\"ltr\\"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
@@ -1469,8 +1876,11 @@ exports[`Override Tests Override Basic 1`] = `
 
 @media only screen and (min-device-width: 320px) {
     .test18 {
-        padding: 1px 2px 3px 4px;
         width: 100%;
+    }
+
+    [dir=\\"ltr\\"] .test18 {
+        padding: 1px 2px 3px 4px;
     }
 
     [dir=\\"rtl\\"] .test18 {
@@ -1519,7 +1929,7 @@ exports[`Override Tests Override Basic 1`] = `
 }
 
 /* Do not add reset values in override mode */
-.test22 {
+[dir=\\"ltr\\"] .test22 {
     left: 5px;
     right: 10px;
 }
@@ -1537,8 +1947,11 @@ exports[`Override Tests Override Basic 1`] = `
 
 /* Chain override */
 .test24 {
-    border: 1px solid #FFF;
     padding: 10px;
+}
+
+[dir=\\"ltr\\"] .test24 {
+    border: 1px solid #FFF;
 }
 
 [dir=\\"rtl\\"] .test24 {
@@ -1547,1015 +1960,54 @@ exports[`Override Tests Override Basic 1`] = `
 
 [dir] .test24 {
     border-bottom-color: #666;
-}"
-`;
-
-exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties 1`] = `
-".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
-    background-color: #FFF;
-    background-position: 10px 20px;
-    border-radius: 0 2px 0 8px;
-    color: #666;
-    padding-right: 20px;
-    text-align: left;
-    transform: translate(-50%, 50%);
-    width: 100%;
 }
 
-.rtl .test1, .rtl .test2 {
-    border-radius: 2px 0 8px 0;
-    padding-right: unset;
-    padding-left: 20px;
-    text-align: right;
-    transform: translate(50%, 50%);
-}
-
-/* Comment not related to rtl */
-.test3 {
-    direction: ltr;
-    margin: 1px 2px 3px;
-    padding: 10px 20px;
-    /* Property comment not related to rtl */
-    text-align: center;
-}
-
-.rtl .test3 {
-    direction: rtl;
-}
-
-.test4 {
-    font-size: 10px;
-    border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
-    transform-origin: 10px 20px;
-    transform: scale(0.5, 0.5);
-}
-
-.rtl .test4 {
-    border-radius: 4px 2px 16px 8px;
-    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
-}
-
-.test5,
-.test6,
-.test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
-    border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
+/* Automatic rename */
+.test25-ltr {
     box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
-    position: absolute;
-    left: 100px;
-    transform: translateX(5px);
-}
-
-.rtl .test5,
-.rtl .test6,
-.rtl .test7 {
-    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
-    border-color: #666 #999 #888 #777;
-    border-width: 1px 4px 3px 2px;
-    left: unset;
-    right: 100px;
-    transform: translateX(-5px);
-}
-
-/*rtl:novalid:ignore*/
-.test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
-    display: flex;
-    padding-left: 10%;
-}
-
-.rtl .test8 {
-    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
-}
-
-.test9, .test10 {
-    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: 5px;
-    padding: 0px 2px 3px 4px;
-}
-
-.rtl .test9, .rtl .test10 {
-    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
-    right: 5px;
-}
-
-.test11:hover,
-.test11:active {
-    font-family: Arial, Helvetica;
-    font-size: 20px;
-    color: '#FFF';
-    transform: translateY(10px);
-    padding: 10px;
-}
-
-.rtl .test11:hover,
-.rtl .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
-    font-size: 30px;
-    color: #000;
-    transform: translateY(10px) scaleX(-1);
-    padding: 10px 20px;
-}
-
-#test12, #test13 {
-    left: 10px;
-    position: relative;
-    text-align: right;
-}
-
-.test14 .test15 span {
-    border-left-color: #777;
-    margin: 10px 20px 30px 40px;
-    transform: translate(100%, 10%);
-}
-
-.test16 {
-    padding-right: 10px;
-}
-
-.test17 {
-    cursor: pointer;
-    padding: 10px 20px 40px 10px;
-    text-align: right;
-}
-
-@media only screen and (min-device-width: 320px) {
-    .test17 {
-        cursor: wait;
-    }
-}
-
-.test18 {
-    animation: 5s flip 1s ease-in-out,
-               3s my-animation 6s ease-in-out;
+    color: #FFF;
     font-size: 10px;
-    padding: 10px 20px 40px 10px;
-}
-
-.rtl .test18 {
-    padding: 10px 10px 40px 20px;
-}
-
-@keyframes flip {
-    from {
-        transform: translateX(100px);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@media only screen and (min-device-width: 320px) {
-    .test18 {
-        padding: 1px 2px 3px 4px;
-        width: 100%;
-    }
-
-    .rtl .test18 {
-        padding: 1px 4px 3px 2px;
-    }
-}
-
-.test19 {
-    animation-delay: 1s;
-    animation-duration: 3s;
-    animation-name: my-animation;
-    animation-timing-function: ease-in-out;
-}
-
-.test20 {
-    animation-delay: 2s;
-    animation-duration: 4s;
-    animation-name: my-animation, no-flip;
-    animation-timing-function: ease;
-}
-
-@keyframes my-animation {
-    from {
-        left: 0%;
-    }
-    to {
-        left: 100%;
-    }
-}
-
-.test21 {
-    animation-delay: 1s;
-    animation-duration: 3s;
-    animation-name: no-flip;
-    animation-timing-function: ease-in-out;
     width: 100%;
 }
 
-@keyframes no-flip {
-    from {
-        color: #000;
-    }
-    to {
-        color: #FFF;
-    }
+.test25, .test26-ltr, .test27 {
+    background-image: url(\\"/icons/icon-l.png\\") 
 }
 
-/* Do not add reset values in override mode */
-.test22 {
-    left: 5px;
-    right: 10px;
+.test26-rtl {
+    background-image: url(\\"/icons/icon-r.png\\") 
 }
 
-.rtl .test22 {
-    right: 5px;
-    left: 10px;
+.test27 {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
 }
 
-/* Do not create the RTL version if the result is the same */
-.test23 {
-    left: 10px;
-    right: 10px;
+.test27-left::before {
+    content: \\"keyboard_arrow_left\\";
 }
 
-/* Chain override */
-.test24 {
-    border: 1px solid #FFF;
-    padding: 10px;
+.test27-right::before {
+    content: \\"keyboard_arrow_right\\";
 }
 
-.rtl .test24 {
-    border: 1px solid #000;
+.testleft28 {
+    border: 1px solid gray;
 }
 
-[dir] .test24 {
-    border-bottom-color: #666;
-}"
-`;
-
-exports[`Override Tests Override custom ltrPrefix and rtlPrefix properties as arrays 1`] = `
-".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
-    background-color: #FFF;
-    background-position: 10px 20px;
-    border-radius: 0 2px 0 8px;
-    color: #666;
-    padding-right: 20px;
-    text-align: left;
-    transform: translate(-50%, 50%);
-    width: 100%;
-}
-
-.rtl .test1, .right-to-left .test1, .rtl .test2, .right-to-left .test2 {
-    border-radius: 2px 0 8px 0;
-    padding-right: unset;
-    padding-left: 20px;
-    text-align: right;
-    transform: translate(50%, 50%);
-}
-
-/* Comment not related to rtl */
-.test3 {
-    direction: ltr;
-    margin: 1px 2px 3px;
-    padding: 10px 20px;
-    /* Property comment not related to rtl */
-    text-align: center;
-}
-
-.rtl .test3, .right-to-left .test3 {
-    direction: rtl;
-}
-
-.test4 {
-    font-size: 10px;
-    border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
-    transform-origin: 10px 20px;
-    transform: scale(0.5, 0.5);
-}
-
-.rtl .test4, .right-to-left .test4 {
-    border-radius: 4px 2px 16px 8px;
-    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
-}
-
-.test5,
-.test6,
-.test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
-    border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
-    box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
-    position: absolute;
-    left: 100px;
-    transform: translateX(5px);
-}
-
-.rtl .test5,
-.right-to-left .test5,
-.rtl .test6,
-.right-to-left .test6,
-.rtl .test7,
-.right-to-left .test7 {
-    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
-    border-color: #666 #999 #888 #777;
-    border-width: 1px 4px 3px 2px;
-    left: unset;
-    right: 100px;
-    transform: translateX(-5px);
-}
-
-/*rtl:novalid:ignore*/
-.test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
-    display: flex;
-    padding-left: 10%;
-}
-
-.rtl .test8, .right-to-left .test8 {
-    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
-}
-
-.test9, .test10 {
-    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: 5px;
-    padding: 0px 2px 3px 4px;
-}
-
-.rtl .test9, .right-to-left .test9, .rtl .test10, .right-to-left .test10 {
-    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
-    right: 5px;
-}
-
-.test11:hover,
-.test11:active {
-    font-family: Arial, Helvetica;
-    font-size: 20px;
-    color: '#FFF';
-    transform: translateY(10px);
-    padding: 10px;
-}
-
-.rtl .test11:hover,
-.right-to-left .test11:hover,
-.rtl .test11:active,
-.right-to-left .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
-    font-size: 30px;
-    color: #000;
-    transform: translateY(10px) scaleX(-1);
-    padding: 10px 20px;
-}
-
-#test12, #test13 {
-    left: 10px;
-    position: relative;
-    text-align: right;
-}
-
-.test14 .test15 span {
-    border-left-color: #777;
-    margin: 10px 20px 30px 40px;
-    transform: translate(100%, 10%);
-}
-
-.test16 {
-    padding-right: 10px;
-}
-
-.test17 {
-    cursor: pointer;
-    padding: 10px 20px 40px 10px;
-    text-align: right;
-}
-
-@media only screen and (min-device-width: 320px) {
-    .test17 {
-        cursor: wait;
-    }
-}
-
-.test18 {
-    animation: 5s flip 1s ease-in-out,
-               3s my-animation 6s ease-in-out;
-    font-size: 10px;
-    padding: 10px 20px 40px 10px;
-}
-
-.rtl .test18, .right-to-left .test18 {
-    padding: 10px 10px 40px 20px;
-}
-
-@keyframes flip {
-    from {
-        transform: translateX(100px);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@media only screen and (min-device-width: 320px) {
-    .test18 {
-        padding: 1px 2px 3px 4px;
-        width: 100%;
-    }
-
-    .rtl .test18, .right-to-left .test18 {
-        padding: 1px 4px 3px 2px;
-    }
-}
-
-.test19 {
-    animation-delay: 1s;
-    animation-duration: 3s;
-    animation-name: my-animation;
-    animation-timing-function: ease-in-out;
-}
-
-.test20 {
-    animation-delay: 2s;
-    animation-duration: 4s;
-    animation-name: my-animation, no-flip;
-    animation-timing-function: ease;
-}
-
-@keyframes my-animation {
-    from {
-        left: 0%;
-    }
-    to {
-        left: 100%;
-    }
-}
-
-.test21 {
-    animation-delay: 1s;
-    animation-duration: 3s;
-    animation-name: no-flip;
-    animation-timing-function: ease-in-out;
-    width: 100%;
-}
-
-@keyframes no-flip {
-    from {
-        color: #000;
-    }
-    to {
-        color: #FFF;
-    }
-}
-
-/* Do not add reset values in override mode */
-.test22 {
-    left: 5px;
-    right: 10px;
-}
-
-.rtl .test22, .right-to-left .test22 {
-    right: 5px;
-    left: 10px;
-}
-
-/* Do not create the RTL version if the result is the same */
-.test23 {
-    left: 10px;
-    right: 10px;
-}
-
-/* Chain override */
-.test24 {
-    border: 1px solid #FFF;
-    padding: 10px;
-}
-
-.rtl .test24, .right-to-left .test24 {
-    border: 1px solid #000;
-}
-
-[dir] .test24 {
-    border-bottom-color: #666;
-}"
-`;
-
-exports[`Override Tests Override custom ltrPrefix, rtlPrefix, and bothPrefix properties as arrays and processUrls: true 1`] = `
-".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
-    border-radius: 0 2px 0 8px;
-    color: #666;
-    padding-right: 20px;
-    text-align: left;
-    transform: translate(-50%, 50%);
-    width: 100%;
-}
-
-.rtl .test1, .right-to-left .test1, .rtl .test2, .right-to-left .test2 {
-    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
-    border-radius: 2px 0 8px 0;
-    padding-right: unset;
-    padding-left: 20px;
-    text-align: right;
-    transform: translate(50%, 50%);
-}
-
-.ltr .test1, .left-to-right .test1, .rtl .test1, .right-to-left .test1, .ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
-    background-color: #FFF;
-    background-position: 10px 20px;
-}
-
-/* Comment not related to rtl */
-.test3 {
-    direction: ltr;
-    margin: 1px 2px 3px;
-    padding: 10px 20px;
-    /* Property comment not related to rtl */
-    text-align: center;
-}
-
-.rtl .test3, .right-to-left .test3 {
-    direction: rtl;
-}
-
-.test4 {
-    font-size: 10px;
-    border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
-    transform-origin: 10px 20px;
-    transform: scale(0.5, 0.5);
-}
-
-.rtl .test4, .right-to-left .test4 {
-    border-radius: 4px 2px 16px 8px;
-    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
-}
-
-.test5,
-.test6,
-.test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
-    border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
-    box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
-    position: absolute;
-    left: 100px;
-    transform: translateX(5px);
-}
-
-.rtl .test5,
-.right-to-left .test5,
-.rtl .test6,
-.right-to-left .test6,
-.rtl .test7,
-.right-to-left .test7 {
-    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
-    border-color: #666 #999 #888 #777;
-    border-width: 1px 4px 3px 2px;
-    left: unset;
-    right: 100px;
-    transform: translateX(-5px);
-}
-
-/*rtl:novalid:ignore*/
-.test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
-    display: flex;
-    padding-left: 10%;
-}
-
-.rtl .test8, .right-to-left .test8 {
-    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
-}
-
-.test9, .test10 {
-    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: 5px;
-    padding: 0px 2px 3px 4px;
-}
-
-.rtl .test9, .right-to-left .test9, .rtl .test10, .right-to-left .test10 {
-    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
-    right: 5px;
-}
-
-.test11:hover,
-.test11:active {
-    font-family: Arial, Helvetica;
-    font-size: 20px;
-    color: '#FFF';
-    transform: translateY(10px);
-    padding: 10px;
-}
-
-.rtl .test11:hover,
-.right-to-left .test11:hover,
-.rtl .test11:active,
-.right-to-left .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
-    font-size: 30px;
-    color: #000;
-    transform: translateY(10px) scaleX(-1);
-    padding: 10px 20px;
-}
-
-#test12, #test13 {
-    left: 10px;
-    position: relative;
-    text-align: right;
-}
-
-.test14 .test15 span {
-    border-left-color: #777;
-    margin: 10px 20px 30px 40px;
-    transform: translate(100%, 10%);
-}
-
-.test16 {
-    padding-right: 10px;
-}
-
-.test17 {
-    cursor: pointer;
-    padding: 10px 20px 40px 10px;
-    text-align: right;
-}
-
-@media only screen and (min-device-width: 320px) {
-    .test17 {
-        cursor: wait;
-    }
-}
-
-.test18 {
-    animation: 5s flip 1s ease-in-out,
-               3s my-animation 6s ease-in-out;
-    font-size: 10px;
-    padding: 10px 20px 40px 10px;
-}
-
-.rtl .test18, .right-to-left .test18 {
-    padding: 10px 10px 40px 20px;
-}
-
-@keyframes flip {
-    from {
-        transform: translateX(100px);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@media only screen and (min-device-width: 320px) {
-    .test18 {
-        padding: 1px 2px 3px 4px;
-        width: 100%;
-    }
-
-    .rtl .test18, .right-to-left .test18 {
-        padding: 1px 4px 3px 2px;
-    }
-}
-
-.test19 {
-    animation-delay: 1s;
-    animation-duration: 3s;
-    animation-name: my-animation;
-    animation-timing-function: ease-in-out;
-}
-
-.test20 {
-    animation-delay: 2s;
-    animation-duration: 4s;
-    animation-name: my-animation, no-flip;
-    animation-timing-function: ease;
-}
-
-@keyframes my-animation {
-    from {
-        left: 0%;
-    }
-    to {
-        left: 100%;
-    }
-}
-
-.test21 {
-    animation-delay: 1s;
-    animation-duration: 3s;
-    animation-name: no-flip;
-    animation-timing-function: ease-in-out;
-    width: 100%;
-}
-
-@keyframes no-flip {
-    from {
-        color: #000;
-    }
-    to {
-        color: #FFF;
-    }
-}
-
-/* Do not add reset values in override mode */
-.test22 {
-    left: 5px;
-    right: 10px;
-}
-
-.rtl .test22, .right-to-left .test22 {
-    right: 5px;
-    left: 10px;
-}
-
-/* Do not create the RTL version if the result is the same */
-.test23 {
-    left: 10px;
-    right: 10px;
-}
-
-/* Chain override */
-.test24 {
-    border: 1px solid #FFF;
-    padding: 10px;
-}
-
-.rtl .test24, .right-to-left .test24 {
-    border: 1px solid #000;
-}
-
-.ltr .test24, .left-to-right .test24, .rtl .test24, .right-to-left .test24 {
-    border-bottom-color: #666;
-}"
-`;
-
-exports[`Override Tests Override custom string map and processUrls: true 1`] = `
-".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
-    border-radius: 0 2px 0 8px;
-    color: #666;
-    padding-right: 20px;
-    text-align: left;
-    transform: translate(-50%, 50%);
-    width: 100%;
-}
-
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
-    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
-    border-radius: 2px 0 8px 0;
-    padding-right: unset;
-    padding-left: 20px;
-    text-align: right;
-    transform: translate(50%, 50%);
-}
-
-[dir] .test1, [dir] .test2 {
-    background-color: #FFF;
-    background-position: 10px 20px;
-}
-
-/* Comment not related to rtl */
-.test3 {
-    direction: ltr;
-    margin: 1px 2px 3px;
-    padding: 10px 20px;
-    /* Property comment not related to rtl */
-    text-align: center;
-}
-
-[dir=\\"rtl\\"] .test3 {
-    direction: rtl;
-}
-
-.test4 {
-    font-size: 10px;
-    border-color: red;
-    border-radius: 2px 4px 8px 16px;
-    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
-    transform-origin: 10px 20px;
-    transform: scale(0.5, 0.5);
-}
-
-[dir=\\"rtl\\"] .test4 {
-    border-radius: 4px 2px 16px 8px;
-    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
-}
-
-.test5,
-.test6,
-.test7 {
-    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
-    border: 1px solid 2px;
-    border-color: #666 #777 #888 #999;
-    box-sizing: border-box;
-    border-width: 1px 2px 3px 4px;
-    position: absolute;
-    left: 100px;
-    transform: translateX(5px);
-}
-
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
-    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
-    border-color: #666 #999 #888 #777;
-    border-width: 1px 4px 3px 2px;
-    left: unset;
-    right: 100px;
-    transform: translateX(-5px);
-}
-
-/*rtl:novalid:ignore*/
-.test8 {
-    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
-    display: flex;
-    padding-left: 10%;
-}
-
-[dir=\\"rtl\\"] .test8 {
-    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
-}
-
-.test9, .test10 {
-    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: 5px;
-    padding: 0px 2px 3px 4px;
-}
-
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
-    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
-    right: 5px;
-}
-
-.test11:hover,
-.test11:active {
-    font-family: Arial, Helvetica;
-    font-size: 20px;
-    color: '#FFF';
-    transform: translateY(10px);
-    padding: 10px;
-}
-
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
-    font-size: 30px;
-    color: #000;
-    transform: translateY(10px) scaleX(-1);
-    padding: 10px 20px;
-}
-
-#test12, #test13 {
-    left: 10px;
-    position: relative;
-    text-align: right;
-}
-
-.test14 .test15 span {
-    border-left-color: #777;
-    margin: 10px 20px 30px 40px;
-    transform: translate(100%, 10%);
-}
-
-.test16 {
-    padding-right: 10px;
-}
-
-.test17 {
-    cursor: pointer;
-    padding: 10px 20px 40px 10px;
-    text-align: right;
-}
-
-@media only screen and (min-device-width: 320px) {
-    .test17 {
-        cursor: wait;
-    }
-}
-
-.test18 {
-    animation: 5s flip 1s ease-in-out,
-               3s my-animation 6s ease-in-out;
-    font-size: 10px;
-    padding: 10px 20px 40px 10px;
-}
-
-[dir=\\"rtl\\"] .test18 {
-    padding: 10px 10px 40px 20px;
-}
-
-@keyframes flip {
-    from {
-        transform: translateX(100px);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@media only screen and (min-device-width: 320px) {
-    .test18 {
-        padding: 1px 2px 3px 4px;
-        width: 100%;
-    }
-
-    [dir=\\"rtl\\"] .test18 {
-        padding: 1px 4px 3px 2px;
-    }
-}
-
-.test19 {
-    animation-delay: 1s;
-    animation-duration: 3s;
-    animation-name: my-animation;
-    animation-timing-function: ease-in-out;
-}
-
-.test20 {
-    animation-delay: 2s;
-    animation-duration: 4s;
-    animation-name: my-animation, no-flip;
-    animation-timing-function: ease;
-}
-
-@keyframes my-animation {
-    from {
-        left: 0%;
-    }
-    to {
-        left: 100%;
-    }
-}
-
-.test21 {
-    animation-delay: 1s;
-    animation-duration: 3s;
-    animation-name: no-flip;
-    animation-timing-function: ease-in-out;
-    width: 100%;
-}
-
-@keyframes no-flip {
-    from {
-        color: #000;
-    }
-    to {
-        color: #FFF;
-    }
-}
-
-/* Do not add reset values in override mode */
-.test22 {
-    left: 5px;
-    right: 10px;
-}
-
-[dir=\\"rtl\\"] .test22 {
-    right: 5px;
-    left: 10px;
-}
-
-/* Do not create the RTL version if the result is the same */
-.test23 {
-    left: 10px;
-    right: 10px;
-}
-
-/* Chain override */
-.test24 {
-    border: 1px solid #FFF;
-    padding: 10px;
-}
-
-[dir=\\"rtl\\"] .test24 {
-    border: 1px solid #000;
+.testleft29 {
+    content: \\"keyboard_arrow_left\\";
 }
 
-[dir] .test24 {
-    border-bottom-color: #666;
+.testright29 {
+    content: \\"keyboard_arrow_right\\";
 }"
 `;
