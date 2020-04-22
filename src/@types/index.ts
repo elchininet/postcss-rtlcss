@@ -91,3 +91,9 @@ export interface ShortHandsData {
         overrides: string[];
     };
 }
+
+export interface ControlDirective {
+    block?: string;
+    directive: string;
+    raw?: string;
+}

@@ -8,7 +8,7 @@ export const KEYFRAMES_NAME = 'keyframes';
 export const ANIMATION_PROP = 'animation';
 export const ANIMATION_NAME_PROP = 'animation-name';
 export const RTL_COMMENT_REGEXP = /rtl:/;
-export const RTL_COMMENT_IGNORE_REGEXP = /^\/\*!? *rtl(?::(\w+))?:ignore *\*\/$/;
+export const RTL_CONTROL_DIRECTIVE_REG_EXP = /^\/\*!? *rtl:?(\w+)?:(\w+):?([^*]*?) *\*\/$/;
 export const FLIP_PROPERTY_REGEXP = /(right|left)/i;
 
 export enum IGNORE_MODE {
@@ -17,6 +17,11 @@ export enum IGNORE_MODE {
     BLOCK_MODE
 }
 
-export const IGNORE_NEXT = 'ignore';
-export const IGNORE_BEGIN = 'begin';
-export const IGNORE_END = 'end';
+export enum CONTROL_DIRECTIVE {
+    IGNORE = 'ignore'
+}
+
+export enum CONTROL_DIRECTIVE_BLOCK {
+    BEGIN = 'begin',
+    END = 'end'
+}
