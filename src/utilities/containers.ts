@@ -1,6 +1,6 @@
 import { Container, Node, Comment } from 'postcss';
-import { COMMENT_TYPE, IGNORE_MODE, IGNORE_BEGIN, IGNORE_END } from '@constants';
-import { getIgnoreComment } from '@utilities/comments';
+import { COMMENT_TYPE, IGNORE_MODE, CONTROL_DIRECTIVE, CONTROL_DIRECTIVE_BLOCK } from '@constants';
+import { getControlDirective } from '@utilities/comments';
 import { cleanRuleRawsBefore } from '@utilities/rules';
 
 type WalkContainerCallback = (node: Node) => void;
@@ -21,22 +21,27 @@ export const walkContainer = (
         if (node.type === COMMENT_TYPE) {
 
             const comment = node as Comment;
-            const ignore = getIgnoreComment(comment);
+            const controlDirective = getControlDirective(comment);
             
-            if (ignore) {
+            if (controlDirective) {
+                
                 if (removeComments) {
                     cleanRuleRawsBefore(comment.next());              
                     comment.remove(); 
-                }            
-                switch (ignore) {
-                    case IGNORE_BEGIN:
-                        ignoreMode = IGNORE_MODE.BLOCK_MODE;
-                        break;
-                    case IGNORE_END:
-                        ignoreMode = IGNORE_MODE.DISABLED;
-                        break;
-                    default:
-                        ignoreMode = IGNORE_MODE.NEXT_NODE;
+                }
+
+                switch (controlDirective.directive) {
+                    case CONTROL_DIRECTIVE.IGNORE:
+                        switch(controlDirective.block) {
+                            case CONTROL_DIRECTIVE_BLOCK.BEGIN:
+                                ignoreMode = IGNORE_MODE.BLOCK_MODE;
+                                break;
+                            case CONTROL_DIRECTIVE_BLOCK.END:
+                                ignoreMode = IGNORE_MODE.DISABLED;
+                                break;
+                            default:
+                                ignoreMode = IGNORE_MODE.NEXT_NODE;
+                        }
                         break;
                 }
                 return;
