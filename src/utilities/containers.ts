@@ -1,5 +1,6 @@
 import { Container, Node, Comment } from 'postcss';
-import { COMMENT_TYPE, IGNORE_MODE, CONTROL_DIRECTIVE, CONTROL_DIRECTIVE_BLOCK } from '@constants';
+import { ControlDirective } from '@types';
+import { COMMENT_TYPE, CONTROL_DIRECTIVE, CONTROL_DIRECTIVE_BLOCK } from '@constants';
 import { getControlDirective } from '@utilities/comments';
 import { cleanRuleRawsBefore } from '@utilities/rules';
 
@@ -12,7 +13,7 @@ export const walkContainer = (
     callback: WalkContainerCallback
 ): void => {
 
-    let ignoreMode = IGNORE_MODE.DISABLED;
+    let controlDirective: ControlDirective;
 
     container.each((node: Node): undefined | false => {
 
@@ -21,7 +22,7 @@ export const walkContainer = (
         if (node.type === COMMENT_TYPE) {
 
             const comment = node as Comment;
-            const controlDirective = getControlDirective(comment);
+            controlDirective = getControlDirective(comment);
             
             if (controlDirective) {
                 
@@ -29,33 +30,27 @@ export const walkContainer = (
                     cleanRuleRawsBefore(comment.next());              
                     comment.remove(); 
                 }
-
-                switch (controlDirective.directive) {
-                    case CONTROL_DIRECTIVE.IGNORE:
-                        switch(controlDirective.block) {
-                            case CONTROL_DIRECTIVE_BLOCK.BEGIN:
-                                ignoreMode = IGNORE_MODE.BLOCK_MODE;
-                                break;
-                            case CONTROL_DIRECTIVE_BLOCK.END:
-                                ignoreMode = IGNORE_MODE.DISABLED;
-                                break;
-                            default:
-                                ignoreMode = IGNORE_MODE.NEXT_NODE;
-                        }
-                        break;
-                }
+                
                 return;
             }
 
         } else {
 
-            if (ignoreMode === IGNORE_MODE.NEXT_NODE) {                
-                ignoreMode = IGNORE_MODE.DISABLED;
-                return;
-            }
+            if (controlDirective) {
 
-            if (ignoreMode === IGNORE_MODE.BLOCK_MODE) {
-                return;
+                const { directive, block } = controlDirective;
+
+                if (block !== CONTROL_DIRECTIVE_BLOCK.BEGIN) {
+                    controlDirective = null;
+                }
+
+                if (
+                    directive === CONTROL_DIRECTIVE.IGNORE &&
+                    block !== CONTROL_DIRECTIVE_BLOCK.END
+                ) {
+                    return;
+                }
+
             }
 
             callback(node);

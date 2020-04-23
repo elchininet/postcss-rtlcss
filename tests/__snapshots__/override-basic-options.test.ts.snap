@@ -133,6 +133,15 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
     padding-right: 10px;
 }
 
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -470,6 +479,15 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
     padding-right: 10px;
 }
 
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -773,6 +791,15 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
 
 .test16 {
     padding-right: 10px;
+}
+
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"ltr\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
 }
 
 .test17 {
@@ -1108,6 +1135,15 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
     padding-right: 10px;
 }
 
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"ltr\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -1415,6 +1451,15 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
     padding-right: 10px;
 }
 
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -1718,6 +1763,15 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
 
 .test16 {
     padding-right: 10px;
+}
+
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
 }
 
 .test17 {
