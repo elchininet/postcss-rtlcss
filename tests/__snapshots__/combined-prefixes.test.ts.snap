@@ -150,6 +150,14 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
     padding-right: 10px;
 }
 
+.ltr .test16:hover {
+    padding-right: 20px;
+}
+
+.rtl .test16:hover {
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -489,6 +497,14 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
 
 .test16 {
     padding-right: 10px;
+}
+
+.ltr .test16:hover, .left-to-right .test16:hover {
+    padding-right: 20px;
+}
+
+.rtl .test16:hover, .right-to-left .test16:hover {
+    padding-left: 20px;
 }
 
 .test17 {
@@ -834,6 +850,14 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
 
 .test16 {
     padding-right: 10px;
+}
+
+.ltr .test16:hover, .left-to-right .test16:hover {
+    padding-right: 20px;
+}
+
+.rtl .test16:hover, .right-to-left .test16:hover {
+    padding-left: 20px;
 }
 
 .test17 {

@@ -150,6 +150,14 @@ exports[`Combined Tests Autorename Combined Autorename: flexible 1`] = `
     padding-right: 10px;
 }
 
+[dir=\\"ltr\\"] .test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -479,6 +487,14 @@ exports[`Combined Tests Autorename Combined Autorename: flexible with custom str
 
 .test16 {
     padding-right: 10px;
+}
+
+[dir=\\"ltr\\"] .test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-left: 20px;
 }
 
 .test17 {
@@ -812,6 +828,14 @@ exports[`Combined Tests Autorename Combined Autorename: flexible, greedy: true 1
     padding-right: 10px;
 }
 
+[dir=\\"ltr\\"] .test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -1143,6 +1167,14 @@ exports[`Combined Tests Autorename Combined Autorename: strict 1`] = `
     padding-right: 10px;
 }
 
+[dir=\\"ltr\\"] .test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -1472,6 +1504,14 @@ exports[`Combined Tests Autorename Combined Autorename: strict, greedy: true 1`]
 
 .test16 {
     padding-right: 10px;
+}
+
+[dir=\\"ltr\\"] .test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-left: 20px;
 }
 
 .test17 {

@@ -137,6 +137,15 @@ exports[`Override Tests String Map Override custom no-valid string map and proce
     padding-right: 10px;
 }
 
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -444,6 +453,15 @@ exports[`Override Tests String Map Override custom no-valid string map and proce
 
 .test16 {
     padding-right: 10px;
+}
+
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
 }
 
 .test17 {
@@ -755,6 +773,15 @@ exports[`Override Tests String Map Override custom string map and processUrls: t
     padding-right: 10px;
 }
 
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
+}
+
 .test17 {
     cursor: pointer;
     padding: 10px 20px 40px 10px;
@@ -1062,6 +1089,15 @@ exports[`Override Tests String Map Override custom string map without names and 
 
 .test16 {
     padding-right: 10px;
+}
+
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir=\\"rtl\\"] .test16:hover {
+    padding-right: unset;
+    padding-left: 20px;
 }
 
 .test17 {

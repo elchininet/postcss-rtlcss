@@ -84,6 +84,10 @@
 }
 /*rtl:end:ignore*/
 
+.test16:hover {
+    padding-right: 20px;
+}
+
 /*rtl:ignore*/
 .test17 {
     cursor: pointer;

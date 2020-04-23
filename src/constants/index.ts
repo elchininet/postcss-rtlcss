@@ -11,12 +11,6 @@ export const RTL_COMMENT_REGEXP = /rtl:/;
 export const RTL_CONTROL_DIRECTIVE_REG_EXP = /^\/\*!? *rtl:?(\w+)?:(\w+):?([^*]*?) *\*\/$/;
 export const FLIP_PROPERTY_REGEXP = /(right|left)/i;
 
-export enum IGNORE_MODE {
-    DISABLED,
-    NEXT_NODE,
-    BLOCK_MODE
-}
-
 export enum CONTROL_DIRECTIVE {
     IGNORE = 'ignore'
 }
