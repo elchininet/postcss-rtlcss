@@ -39,7 +39,11 @@ export const parseAtRules = (css: Root): void => {
 
 export const parseKeyFrames = (css: Root): void => {
 
-    const { source, processUrls, useCalc, stringMap } = store.options;
+    const { source, processUrls, useCalc, stringMap, processKeyFrames } = store.options;
+
+    if (!processKeyFrames) {
+        return;
+    }
 
     walkContainer(css, [ AT_RULE_TYPE, RULE_TYPE ], false, (node: Node): void => {
 

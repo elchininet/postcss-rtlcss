@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.4.0] - 2020-04-24
+
+- Implemented RTL rename control directives for rules and declarations
+
 ## [1.3.1] - 2020-04-21
 
 - The stringMap feature has been refactored to mimic RTLCSS behaviour

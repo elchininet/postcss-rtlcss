@@ -12,7 +12,8 @@ export const RTL_CONTROL_DIRECTIVE_REG_EXP = /^\/\*!? *rtl:?(\w+)?:(\w+):?([^*]*
 export const FLIP_PROPERTY_REGEXP = /(right|left)/i;
 
 export enum CONTROL_DIRECTIVE {
-    IGNORE = 'ignore'
+    IGNORE = 'ignore',
+    RENAME = 'rename'
 }
 
 export enum CONTROL_DIRECTIVE_BLOCK {

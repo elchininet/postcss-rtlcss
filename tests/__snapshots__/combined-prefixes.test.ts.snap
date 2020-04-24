@@ -290,19 +290,19 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -322,7 +322,7 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -336,6 +336,32 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    border: 1px solid gray;
+}
+
+.ltr .test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+}
+
+.rtl .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+.ltr .test32 {
+    background-image: url(\\"/icons/icon-left.png\\");    
+}
+
+.rtl .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -639,19 +665,19 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -671,7 +697,7 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -685,6 +711,32 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    border: 1px solid gray;
+}
+
+.ltr .test31, .left-to-right .test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+}
+
+.rtl .test31, .right-to-left .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+.ltr .test32, .left-to-right .test32 {
+    background-image: url(\\"/icons/icon-left.png\\");    
+}
+
+.rtl .test32, .right-to-left .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -992,19 +1044,19 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -1024,7 +1076,7 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -1038,5 +1090,31 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    border: 1px solid gray;
+}
+
+.ltr .test31, .left-to-right .test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+}
+
+.rtl .test31, .right-to-left .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+.ltr .test32, .left-to-right .test32 {
+    background-image: url(\\"/icons/icon-left.png\\");    
+}
+
+.rtl .test32, .right-to-left .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;

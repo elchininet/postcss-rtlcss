@@ -12,6 +12,20 @@ describe('Combined Tests Autorename', (): void => {
     input = input || await readCSSFile('input.css');
   });
 
+  it('Combined Autorename: only control directives', (): void => {
+    const options: PluginOptions = { ...baseOptions, autoRename: Autorename.disabled };
+    const output = postcss([postcssRTLCSS(options)]).process(input);
+    expect(output.css).toMatchSnapshot();
+    expect(output.warnings()).toHaveLength(0);
+  });
+
+  it('Combined Autorename: only control directives, greedy: true', (): void => {
+    const options: PluginOptions = { ...baseOptions, autoRename: Autorename.disabled, greedy: true };
+    const output = postcss([postcssRTLCSS(options)]).process(input);
+    expect(output.css).toMatchSnapshot();
+    expect(output.warnings()).toHaveLength(0);
+  });
+
   it('Combined Autorename: flexible', (): void => {
     const options: PluginOptions = { ...baseOptions, autoRename: Autorename.flexible };
     const output = postcss([postcssRTLCSS(options)]).process(input);

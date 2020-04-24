@@ -1,13 +1,21 @@
 import postcss, { Rule, Node, Declaration, vendor } from 'postcss';
 import rtlcss from 'rtlcss';
-import { Source, Mode, Autorename, ObjectWithProps } from '@types';
-import { DECLARATION_TYPE, FLIP_PROPERTY_REGEXP, ANIMATION_PROP, ANIMATION_NAME_PROP } from '@constants';
+import { Source, Mode, Autorename, ObjectWithProps, ControlDirective } from '@types';
+import {
+    DECLARATION_TYPE,
+    FLIP_PROPERTY_REGEXP,
+    ANIMATION_PROP,
+    ANIMATION_NAME_PROP,
+    CONTROL_DIRECTIVE,
+    CONTROL_DIRECTIVE_BLOCK
+} from '@constants';
 import { store } from '@data/store';
+import { resetDirective } from '@utilities/directives'; 
 import { addSelectorPrefixes } from '@utilities/selectors';
 import { shorthands } from '@utilities/shorthands';
 import { walkContainer } from '@utilities/containers';
 
-export const parseDeclarations = (rule: Rule): void => {
+export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
 
     const {
         mode,
@@ -39,12 +47,23 @@ export const parseDeclarations = (rule: Rule): void => {
     const declarationsProps: string[] = [];
     let simetricRules = false;
     
-    walkContainer(rule, [ DECLARATION_TYPE ], true, (node: Node): void => {
+    walkContainer(rule, [ DECLARATION_TYPE ], true, (node: Node, containerDirectives?: ObjectWithProps<ControlDirective>): void => {
         
+        let processUrlDirective = false;
+        const RENAME = containerDirectives[CONTROL_DIRECTIVE.RENAME];
+
+        if (RENAME && RENAME.directive) {
+            const { block } = RENAME;
+            resetDirective(RENAME);
+            if (block !== CONTROL_DIRECTIVE_BLOCK.END) {
+                processUrlDirective = true;
+            }
+        }
+
         const decl = node as Declaration;
         const declString = `${decl.toString()};`;
         const declFlippedString = rtlcss.process(declString, {
-            processUrls,
+            processUrls: processUrls || processUrlDirective,
             useCalc,
             stringMap,
             autoRename: autoRename !== Autorename.disabled,
@@ -174,7 +193,7 @@ export const parseDeclarations = (rule: Rule): void => {
             ruleBoth
         });
 
-    } else if (!simetricRules) {
+    } else if (autoRename !== Autorename.disabled && !simetricRules && !autorenamed) {
         store.rulesAutoRename.push(rule);
     }
 

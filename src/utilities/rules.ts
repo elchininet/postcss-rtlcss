@@ -51,6 +51,10 @@ export const appendKeyFrames = (): void => {
 
 export const appendAutorenameRules = (): void => {
 
+    if (!store.rulesAutoRename.length) {
+        return;
+    }
+
     const replaceHash: ObjectWithProps<string> = store.options.stringMap.reduce((hash: ObjectWithProps<string>, map: StringMap): ObjectWithProps<string> => {
         const search = typeof map.search === 'string' ? [map.search] : map.search;
         const replace = typeof map.replace === 'string' ? [map.replace] : map.replace;
@@ -90,7 +94,7 @@ export const appendAutorenameRules = (): void => {
             const flip = selector.replace(replaceRegExp, (match: string, group: string): string => replaceHash[group]);
             
             if (
-                store.options.autoRename === Autorename.flexible ||
+                store.options.autoRename !== Autorename.strict ||
                 (store.options.autoRename === Autorename.strict && rulesHash[flip])
             ) {
                 return flip;
