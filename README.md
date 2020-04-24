@@ -1234,7 +1234,7 @@ These directives should be used together, they will provide the beginning and th
 Value Directives
 ---
 
-Value directives are placed any where inside the declaration value. They target the containing declaration node.
+Value directives are placed anywhere inside the declaration value. They target the containing declaration node.
 
 | Directive                | Description                                                                      |
 | ------------------------ | -------------------------------------------------------------------------------- |
