@@ -980,13 +980,16 @@ const options = {
 Control Directives
 ---
 
-Control directives are placed between rules or declaration. They can target a single node or a set of nodes.
+Control directives are placed between rules or declarations. They can target a single node or a set of nodes.
 
-| Directive                | Description                                                             |
-| ------------------------ | ----------------------------------------------------------------------- |
-| `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                 |
-| `/*rtl:begin:ignore*/`   | Starts an ignoring block that will ignore any rule or declaration       |
-| `/*rtl:end:ignore*/`     | Ends an ignoring block                                                  |
+| Directive                | Description                                                                        |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                            |
+| `/*rtl:begin:ignore*/`   | Starts an ignoring block                                                           |
+| `/*rtl:end:ignore*/`     | Ends an ignoring block                                                             |
+| `/*rtl:rename*/`         | This directive forces renaming in the next rule or declaration no mattering the value of the properties `processUrls` or `autoRename` |
+| `/*rtl:begin:rename*/`   | Starts a renaming block                                                            |
+| `/*rtl:end:rename*/`     | Ends a renaming block                                                              |
 
 ---
 
@@ -1120,6 +1123,105 @@ Ignoring multiple declarations:
 [dir="rtl"] .test1, [dir="rtl"] .test2 {
     right: 10px;
     text-align: right;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:rename*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive forces renaming in the next rule or declaration no mattering the value of the properties `processUrls` or `autoRename`:
+
+##### input
+
+```css
+/*rtl:rename*/
+.test-left {
+    width: 100%;
+}
+
+.test {
+    /*rtl:rename*/
+    background-image: url("/icons/icon-left.png");
+}
+```
+
+##### output
+
+```css
+.test-right {
+    width: 100%
+}
+
+[dir="ltr"] .test {
+    background-image: url("/icons/icon-left.png");
+}
+
+[dir="rtl"] .test {
+    background-image: url("/icons/icon-right.png");
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:begin:rename*/` and `/*rtl:end:rename*/`
+
+<details><summary>Expand</summary>
+<p>
+
+These directives should be used together, they will provide the beginning and the end for renaming rules or declarations.
+
+##### input
+
+```css
+/*rtl:begin:rename*/
+.icon-left {
+    content: "\\f40";
+}
+
+.icon-right {
+    content: "\\f56";
+}
+/*rtl:end:rename*/
+
+.test {
+    /*rtl:begin:rename*/
+    background-image: url("/images/background-left.png");
+    cursor: url("/images/cursor-ltr.png");
+    /*rtl:end:rename*/
+}
+```
+
+##### output
+
+```css
+.icon-right {
+    content: "\\f40";
+}
+
+.icon-left {
+    content: "\\f56";
+}
+
+[dir="ltr"] .test {
+    background-image: url("/images/background-left.png");
+    cursor: url("/images/cursor-ltr.png");
+}
+
+[dir="rtl"] .test {
+    background-image: url("/images/background-right.png");
+    cursor: url("/images/cursor-rtl.png");
 }
 ```
 

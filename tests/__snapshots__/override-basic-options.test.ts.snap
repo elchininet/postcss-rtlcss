@@ -293,19 +293,19 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -325,7 +325,7 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -339,6 +339,26 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+    border: 1px solid gray;
+}
+
+[dir=\\"rtl\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-image: url(\\"/icons/icon-left.png\\");
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"rtl\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -611,19 +631,19 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -643,7 +663,7 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -657,6 +677,26 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+    border: 1px solid gray;
+}
+
+[dir=\\"rtl\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-image: url(\\"/icons/icon-left.png\\");
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"rtl\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -953,19 +993,19 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -985,7 +1025,7 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -999,6 +1039,26 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+    border: 1px solid gray;
+}
+
+[dir=\\"ltr\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-image: url(\\"/icons/icon-left.png\\");
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"ltr\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -1267,19 +1327,19 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -1299,7 +1359,7 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -1313,6 +1373,26 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+    border: 1px solid gray;
+}
+
+[dir=\\"ltr\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-image: url(\\"/icons/icon-left.png\\");
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"ltr\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -1583,19 +1663,19 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -1615,7 +1695,7 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -1629,6 +1709,26 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+    border: 1px solid gray;
+}
+
+[dir=\\"rtl\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-image: url(\\"/icons/icon-left.png\\");
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"rtl\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -1897,19 +1997,19 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -1929,7 +2029,7 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -1943,5 +2043,25 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+    border: 1px solid gray;
+}
+
+[dir=\\"rtl\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-image: url(\\"/icons/icon-left.png\\");
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"rtl\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;

@@ -294,19 +294,19 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -326,7 +326,7 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -340,6 +340,32 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    border: 1px solid gray;
+}
+
+[dir=\\"ltr\\"] .test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+}
+
+[dir=\\"rtl\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"ltr\\"] .test32 {
+    background-image: url(\\"/icons/icon-left.png\\");    
+}
+
+[dir=\\"rtl\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -637,19 +663,19 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -669,7 +695,7 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -683,6 +709,32 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    border: 1px solid gray;
+}
+
+[dir=\\"ltr\\"] .test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+}
+
+[dir=\\"rtl\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"ltr\\"] .test32 {
+    background-image: url(\\"/icons/icon-left.png\\");    
+}
+
+[dir=\\"rtl\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -980,19 +1032,19 @@ exports[`Combined Tests String Map Combined custom string map and processUrls: t
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
-.test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+.test27-prev {
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -1012,7 +1064,7 @@ exports[`Combined Tests String Map Combined custom string map and processUrls: t
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -1026,6 +1078,32 @@ exports[`Combined Tests String Map Combined custom string map and processUrls: t
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    border: 1px solid gray;
+}
+
+[dir=\\"ltr\\"] .test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+}
+
+[dir=\\"rtl\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"ltr\\"] .test32 {
+    background-image: url(\\"/icons/icon-left.png\\");    
+}
+
+[dir=\\"rtl\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
 
@@ -1323,19 +1401,19 @@ exports[`Combined Tests String Map Combined custom string map without names and 
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\") 
+    background-image: url(\\"/icons/icon-l.png\\")
 }
 
-.test26-rtl {
-    background-image: url(\\"/icons/icon-r.png\\") 
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\") 
+    background-image: url(\\"/icons/icon-p.png\\")
 }
 
-.test27-next {
-    background-image: url(\\"/icons/icon-n.png\\") 
+.test27-prev {
+    background-image: url(\\"/icons/icon-n.png\\")
 }
 
 .test28 {
@@ -1355,7 +1433,7 @@ exports[`Combined Tests String Map Combined custom string map without names and 
     content: \\"keyboard_arrow_left\\";
 }
 
-.test28-right::before {
+.test28-left::before {
     content: \\"keyboard_arrow_right\\";
 }
 
@@ -1369,5 +1447,31 @@ exports[`Combined Tests String Map Combined custom string map without names and 
 
 .testright30 {
     content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    border: 1px solid gray;
+}
+
+[dir=\\"ltr\\"] .test31 {
+    background-image: url(\\"/icons/icon-left.png\\");
+}
+
+[dir=\\"rtl\\"] .test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    align-items: center;
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir=\\"ltr\\"] .test32 {
+    background-image: url(\\"/icons/icon-left.png\\");    
+}
+
+[dir=\\"rtl\\"] .test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
 }"
 `;
