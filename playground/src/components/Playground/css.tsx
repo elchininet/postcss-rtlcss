@@ -58,6 +58,7 @@ export const cssLines = `.test1, .test2 {
     }
 }
 
+/*rtl:rename*/
 .test10-ltr {
     color: #000;
     width: 100%;
@@ -81,4 +82,24 @@ export const cssLines = `.test1, .test2 {
 
 .testright14 {
     content: "keyboard_arrow_right";
-}`;
+}
+
+.test15 {
+    color: #EFEFEF;
+    left: 10px;
+    /*rtl:raw:
+    height: 50px;
+    width: 100px;*/
+}
+ 
+/*rtl:raw:.test16 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+ 
+.test17 {
+    transform: translate(10px, 20px);
+}
+*/
+`;
