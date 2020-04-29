@@ -1,32 +1,47 @@
-import { Root, Node, Rule } from 'postcss';
+import { Container, Node, Rule, Comment } from 'postcss';
 import { ObjectWithProps, ControlDirective } from '@types';
+import { RULE_TYPE, CONTROL_DIRECTIVE } from '@constants';
 import { store } from '@data/store';
-import { RULE_TYPE, CONTROL_DIRECTIVE, CONTROL_DIRECTIVE_BLOCK } from '@constants';
-import { resetDirective } from '@utilities/directives';
+import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
 import { walkContainer } from '@utilities/containers';
+import { cleanRuleRawsBefore } from '@utilities/rules';
 import { parseDeclarations } from './declarations';
 
-export const parseRules = (css: Root): void => {
+export const parseRules = (container: Container): void => {
 
-    walkContainer(css, [ RULE_TYPE ], true, (node: Node, containerDirectives?: ObjectWithProps<ControlDirective>): void => {
+    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+
+    walkContainer(
+        container,
+        [ RULE_TYPE ],
+        (comment: Comment, controlDirective: ControlDirective): void => {
+
+            cleanRuleRawsBefore(comment.next());              
+            comment.remove(); 
+
+            if (isIgnoreDirectiveInsideAnIgnoreBlock(controlDirective, controlDirectives)) {
+                return;
+            }
+
+            controlDirectives[controlDirective.directive] = controlDirective;
+
+        },
+        (node: Node): void => {
+
+            if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
+                return;
+            }
         
-        const rule = node as Rule;
+            const rule = node as Rule;
 
-        const RENAME = containerDirectives[CONTROL_DIRECTIVE.RENAME];
-
-        if (RENAME && RENAME.directive) {
-            const { block } = RENAME;
-            resetDirective(RENAME);
-            if (block !== CONTROL_DIRECTIVE_BLOCK.END) {
+            if (checkDirective(controlDirectives, CONTROL_DIRECTIVE.RENAME)) {
                 store.rulesAutoRename.push(rule);
                 parseDeclarations(rule, true);
             } else {
                 parseDeclarations(rule);
-            }
-        } else {
-            parseDeclarations(rule);
-        }
+            }           
         
-    });    
+        }
+    );    
 
 };

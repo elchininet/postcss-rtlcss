@@ -73,6 +73,7 @@
     text-align: right;
 }
 
+/*rtl:ignore*/
 .test14 .test15 span {
     border-left-color: #777;
     margin: 10px 20px 30px 40px;
@@ -106,6 +107,18 @@
                3s my-animation 6s ease-in-out;
     font-size: 10px;
     padding: 10px 20px 40px 10px;
+}
+
+.test18::after {
+    content: '';
+    left: 10px;
+    /*rtl:begin:ignore*/
+    text-align: left;
+    padding-left: 5px;
+    /*rtl:ignore*/
+    margin-left: 15px;
+    transform: translateX(5px);
+    /*rtl:end:ignore*/
 }
 
 @keyframes flip {

@@ -1,4 +1,4 @@
-import postcss, { Rule, Node, Declaration, vendor } from 'postcss';
+import postcss, { Rule, Node, Declaration, Comment, vendor } from 'postcss';
 import rtlcss from 'rtlcss';
 import { Source, Mode, Autorename, ObjectWithProps, ControlDirective } from '@types';
 import {
@@ -6,14 +6,14 @@ import {
     FLIP_PROPERTY_REGEXP,
     ANIMATION_PROP,
     ANIMATION_NAME_PROP,
-    CONTROL_DIRECTIVE,
-    CONTROL_DIRECTIVE_BLOCK
+    CONTROL_DIRECTIVE
 } from '@constants';
 import { store } from '@data/store';
-import { resetDirective } from '@utilities/directives'; 
 import { addSelectorPrefixes } from '@utilities/selectors';
+import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
 import { shorthands } from '@utilities/shorthands';
 import { walkContainer } from '@utilities/containers';
+import { cleanRuleRawsBefore } from '@utilities/rules';
 
 export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
 
@@ -46,129 +46,142 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
 
     const declarationsProps: string[] = [];
     let simetricRules = false;
+
+    const controlDirectives: ObjectWithProps<ControlDirective> = {};
     
-    walkContainer(rule, [ DECLARATION_TYPE ], true, (node: Node, containerDirectives?: ObjectWithProps<ControlDirective>): void => {
-        
-        let processUrlDirective = false;
-        const RENAME = containerDirectives[CONTROL_DIRECTIVE.RENAME];
+    walkContainer(
+        rule,
+        [ DECLARATION_TYPE ],
+        (comment: Comment, controlDirective: ControlDirective) => {
 
-        if (RENAME && RENAME.directive) {
-            const { block } = RENAME;
-            resetDirective(RENAME);
-            if (block !== CONTROL_DIRECTIVE_BLOCK.END) {
-                processUrlDirective = true;
+            cleanRuleRawsBefore(comment.next());              
+            comment.remove(); 
+
+            if (isIgnoreDirectiveInsideAnIgnoreBlock(controlDirective, controlDirectives)) {
+                return;
             }
-        }
 
-        const decl = node as Declaration;
-        const declString = `${decl.toString()};`;
-        const declFlippedString = rtlcss.process(declString, {
-            processUrls: processUrls || processUrlDirective,
-            useCalc,
-            stringMap,
-            autoRename: autoRename !== Autorename.disabled,
-            autoRenameStrict: autoRename === Autorename.strict,
-            greedy
-        });
+            controlDirectives[controlDirective.directive] = controlDirective;
 
-        const root = postcss.parse(declFlippedString);
-        const declFlipped = root.first as Declaration;
-        declFlipped.raws = decl.raws;
+        },
+        (node: Node): void => {
 
-        const declProp = decl.prop.trim();
-        const declPropUnprefixed = vendor.unprefixed(declProp);
-        const declValue = decl.value.trim();
-        const isAnimation = declPropUnprefixed === ANIMATION_PROP || declPropUnprefixed === ANIMATION_NAME_PROP;
-        const declFlippedProp = declFlipped.prop.trim();
-        const declFlippedValue = declFlipped.value.trim();
-        const overridenBy = shorthands[declPropUnprefixed];
-        const hasBeenOverriden = overridenBy
-            ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
-            : false;
-        
-        if (
-            !hasBeenOverriden &&
-            declProp === declFlippedProp &&
-            declValue === declFlippedValue &&
-            (
-                !isAnimation ||
+            if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
+                return;
+            }
+
+            const processUrlDirective = checkDirective(controlDirectives, CONTROL_DIRECTIVE.RENAME);
+
+            const decl = node as Declaration;
+            const declString = `${decl.toString()};`;
+            const declFlippedString = rtlcss.process(declString, {
+                processUrls: processUrls || processUrlDirective,
+                useCalc,
+                stringMap,
+                autoRename: autoRename !== Autorename.disabled,
+                autoRenameStrict: autoRename === Autorename.strict,
+                greedy
+            });
+
+            const root = postcss.parse(declFlippedString);
+            const declFlipped = root.first as Declaration;
+            declFlipped.raws = decl.raws;
+
+            const declProp = decl.prop.trim();
+            const declPropUnprefixed = vendor.unprefixed(declProp);
+            const declValue = decl.value.trim();
+            const isAnimation = declPropUnprefixed === ANIMATION_PROP || declPropUnprefixed === ANIMATION_NAME_PROP;
+            const declFlippedProp = declFlipped.prop.trim();
+            const declFlippedValue = declFlipped.value.trim();
+            const overridenBy = shorthands[declPropUnprefixed];
+            const hasBeenOverriden = overridenBy
+                ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
+                : false;
+            
+            if (
+                !hasBeenOverriden &&
+                declProp === declFlippedProp &&
+                declValue === declFlippedValue &&
                 (
-                    isAnimation &&
+                    !isAnimation ||
                     (
-                        store.keyframes.length === 0 ||
-                        !store.keyframesRegExp.test(declValue)
+                        isAnimation &&
+                        (
+                            store.keyframes.length === 0 ||
+                            !store.keyframesRegExp.test(declValue)
+                        )
                     )
                 )
-            )
-        ) {
-            return;
-        }
-        
-        if (isAnimation) {
-
-            const declValue = decl.value.replace(
-                store.keyframesRegExp,
-                (_match: string, before: string, animation: string, after: string): string =>
-                    before + store.keyframesStringMap[animation].name + after
-            );
-
-            const declValueFlipped = decl.value.replace(
-                store.keyframesRegExp,
-                (_match: string, before: string, animation: string, after: string): string =>
-                    before + store.keyframesStringMap[animation].nameFlipped + after
-            );
-
-            const declCloneFlipped = decl.clone();
-
-            if (mode === Mode.combined) {
-                const declClone = decl.clone();
-                declClone.value = declValue;
-                declCloneFlipped.value = declValueFlipped;
-                ruleFlipped.append(declClone);
-                ruleFlippedSecond.append(declCloneFlipped);
-                deleteDeclarations.push(decl);
-            } else {
-                const declCloneFlipped = decl.clone(); 
-                decl.value = declValue;                               
-                declCloneFlipped.value = declValueFlipped;
-                ruleFlipped.append(declCloneFlipped);                
-            }
-
-        } else {
-
-            if (
-                hasBeenOverriden &&
-                declProp === declFlippedProp &&
-                declValue === declFlippedValue
             ) {
-                const declClone = decl.clone();
-                ruleBoth.append(declClone);
-                deleteDeclarations.push(decl);
-                return;
-            } else  if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
-                simetricRules = true;
                 return;
             }
+            
+            if (isAnimation) {
 
-            if (mode === Mode.combined) {
-                const declClone = decl.clone();
-                ruleFlipped.append(declClone);
-                ruleFlippedSecond.append(declFlipped);
-                deleteDeclarations.push(decl);
-            } else {
-                if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
+                const declValue = decl.value.replace(
+                    store.keyframesRegExp,
+                    (_match: string, before: string, animation: string, after: string): string =>
+                        before + store.keyframesStringMap[animation].name + after
+                );
+
+                const declValueFlipped = decl.value.replace(
+                    store.keyframesRegExp,
+                    (_match: string, before: string, animation: string, after: string): string =>
+                        before + store.keyframesStringMap[animation].nameFlipped + after
+                );
+
+                const declCloneFlipped = decl.clone();
+
+                if (mode === Mode.combined) {
                     const declClone = decl.clone();
-                    declClone.value = 'unset';
+                    declClone.value = declValue;
+                    declCloneFlipped.value = declValueFlipped;
                     ruleFlipped.append(declClone);
+                    ruleFlippedSecond.append(declCloneFlipped);
+                    deleteDeclarations.push(decl);
+                } else {
+                    const declCloneFlipped = decl.clone(); 
+                    decl.value = declValue;                               
+                    declCloneFlipped.value = declValueFlipped;
+                    ruleFlipped.append(declCloneFlipped);                
                 }
-                ruleFlipped.append(declFlipped);
-            }
 
-            declarationsProps.push(declPropUnprefixed);
+            } else {
+
+                if (
+                    hasBeenOverriden &&
+                    declProp === declFlippedProp &&
+                    declValue === declFlippedValue
+                ) {
+                    const declClone = decl.clone();
+                    ruleBoth.append(declClone);
+                    deleteDeclarations.push(decl);
+                    return;
+                } else  if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
+                    simetricRules = true;
+                    return;
+                }
+
+                if (mode === Mode.combined) {
+                    const declClone = decl.clone();
+                    ruleFlipped.append(declClone);
+                    ruleFlippedSecond.append(declFlipped);
+                    deleteDeclarations.push(decl);
+                } else {
+                    if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
+                        const declClone = decl.clone();
+                        declClone.value = 'unset';
+                        ruleFlipped.append(declClone);
+                    }
+                    ruleFlipped.append(declFlipped);
+                }
+
+                declarationsProps.push(declPropUnprefixed);
+
+            }
 
         }
-
-    });
+    );
 
     if (deleteDeclarations.length) {
         deleteDeclarations.forEach((decl: Declaration): Declaration => decl.remove());

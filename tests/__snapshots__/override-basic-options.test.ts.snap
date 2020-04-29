@@ -167,6 +167,20 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
+}
+
 @keyframes flip-ltr {
     from {
         transform: translateX(100px);
@@ -531,6 +545,20 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -865,6 +893,20 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
     animation: 5s flip-ltr 1s ease-in-out,
                3s my-animation-ltr 6s ease-in-out;
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: unset;
+    right: 10px;
 }
 
 @keyframes flip-rtl {
@@ -1227,6 +1269,20 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: unset;
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -1563,6 +1619,20 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -1895,6 +1965,20 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
 
 [dir=\\"rtl\\"] .test18 {
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
 }
 
 @keyframes flip {

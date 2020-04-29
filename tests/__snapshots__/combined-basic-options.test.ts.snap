@@ -186,6 +186,22 @@ exports[`Combined Tests Basic Options Combined {processKeyFrames: true} 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
+}
+
 @keyframes flip-ltr {
     from {
         transform: translateX(100px);
@@ -587,6 +603,22 @@ exports[`Combined Tests Basic Options Combined {processUrls: true} 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -952,6 +984,22 @@ exports[`Combined Tests Basic Options Combined {source: rtl, processKeyFrames: t
     animation: 5s flip-ltr 1s ease-in-out,
                3s my-animation-ltr 6s ease-in-out;
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    right: 10px;
 }
 
 @keyframes flip-rtl {
@@ -1351,6 +1399,22 @@ exports[`Combined Tests Basic Options Combined {source: rtl} 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -1718,6 +1782,22 @@ exports[`Combined Tests Basic Options Combined {useCalc: true} 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -2081,6 +2161,22 @@ exports[`Combined Tests Basic Options Combined Basic 1`] = `
 
 [dir=\\"rtl\\"] .test18 {
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
 }
 
 @keyframes flip {
