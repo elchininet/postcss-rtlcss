@@ -184,6 +184,22 @@ exports[`Combined Tests Autorename Combined Autorename: flexible 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -547,6 +563,22 @@ exports[`Combined Tests Autorename Combined Autorename: flexible with custom str
 
 [dir=\\"rtl\\"] .test18 {
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
 }
 
 @keyframes flip {
@@ -914,6 +946,22 @@ exports[`Combined Tests Autorename Combined Autorename: flexible, greedy: true 1
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -1277,6 +1325,22 @@ exports[`Combined Tests Autorename Combined Autorename: only control directives 
 
 [dir=\\"rtl\\"] .test18 {
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
 }
 
 @keyframes flip {
@@ -1644,6 +1708,22 @@ exports[`Combined Tests Autorename Combined Autorename: only control directives,
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -2009,6 +2089,22 @@ exports[`Combined Tests Autorename Combined Autorename: strict 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -2372,6 +2468,22 @@ exports[`Combined Tests Autorename Combined Autorename: strict, greedy: true 1`]
 
 [dir=\\"rtl\\"] .test18 {
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"ltr\\"] .test18::after {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    right: 10px;
 }
 
 @keyframes flip {

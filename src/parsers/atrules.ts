@@ -1,10 +1,11 @@
-import postcss, { Root, Node, Rule, AtRule, vendor } from 'postcss';
+import postcss, { Root, Node, AtRule, Comment, vendor } from 'postcss';
 import rtlcss from 'rtlcss';
-import { AtRulesObject, AtRulesStringMap, Source } from '@types';
-import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME } from '@constants';
+import { AtRulesObject, AtRulesStringMap, Source, ControlDirective, ObjectWithProps } from '@types';
+import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME, CONTROL_DIRECTIVE } from '@constants';
 import { store, initKeyframesData } from '@data/store';
 import { walkContainer } from '@utilities/containers';
-import { parseDeclarations } from './declarations';
+import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
+import { parseRules } from '@parsers/rules';
 
 export const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesStringMap => {    
     const stringMap: AtRulesStringMap = {};    
@@ -21,19 +22,36 @@ export const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new R
 
 export const parseAtRules = (css: Root): void => {
 
-    walkContainer(css, [ AT_RULE_TYPE, RULE_TYPE ], false, (node: Node): void => {
+    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+
+    walkContainer(
+        css,
+        [ AT_RULE_TYPE, RULE_TYPE ],
+        (_comment: Comment, controlDirective: ControlDirective): void => {
+
+            if (isIgnoreDirectiveInsideAnIgnoreBlock(controlDirective, controlDirectives)) {
+                return;
+            }
+
+            controlDirectives[controlDirective.directive] = controlDirective;
+
+        },
+        (node: Node): void => {
+
+            if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
+                return;
+            }
         
-        if (node.type !== AT_RULE_TYPE) return;
+            if (node.type !== AT_RULE_TYPE) return;
 
-        const atRule = node as AtRule;
+            const atRule = node as AtRule;
 
-        if (vendor.unprefixed(atRule.name) === KEYFRAMES_NAME) return;
+            if (vendor.unprefixed(atRule.name) === KEYFRAMES_NAME) return;
 
-        atRule.walkRules((rule: Rule): void => {
-            parseDeclarations(rule);
-        });
+            parseRules(atRule);
 
-    });
+        }
+    );
 
 };
 
@@ -45,36 +63,55 @@ export const parseKeyFrames = (css: Root): void => {
         return;
     }
 
-    walkContainer(css, [ AT_RULE_TYPE, RULE_TYPE ], false, (node: Node): void => {
+    const controlDirectives: ObjectWithProps<ControlDirective> = {};
 
-        if (node.type !== AT_RULE_TYPE) return;
+    walkContainer(
+        css,
+        [ AT_RULE_TYPE, RULE_TYPE ],
+        (_comment: Comment, controlDirective: ControlDirective): void => {
 
-        const atRule = node as AtRule;
+            if (isIgnoreDirectiveInsideAnIgnoreBlock(controlDirective, controlDirectives)) {
+                return;
+            }
+
+            controlDirectives[controlDirective.directive] = controlDirective;
+
+        },
+        (node: Node): void => {
+
+            if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
+                return;
+            }
+
+            if (node.type !== AT_RULE_TYPE) return;
+
+            const atRule = node as AtRule;
+            
+            if (vendor.unprefixed(atRule.name) !== KEYFRAMES_NAME) return;
+            
+            const atRuleString = atRule.toString();
+            const atRuleFlippedString = rtlcss.process(atRuleString, { processUrls, useCalc, stringMap });
+            
+            if (atRuleString === atRuleFlippedString) return;
+
+            const rootFlipped = postcss.parse(atRuleFlippedString);
+            const atRuleFlipped = rootFlipped.first as AtRule;
+
+            const atRuleParams = atRule.params;
+            const ltr = `${atRuleParams}-${Source.ltr}`;
+            const rtl = `${atRuleParams}-${Source.rtl}`;
+
+            atRule.params = source === Source.ltr ? ltr : rtl;
+            atRuleFlipped.params = source === Source.ltr ? rtl : ltr;
+
+            store.keyframes.push({
+                atRuleParams,
+                atRule,
+                atRuleFlipped
+            });
         
-        if (vendor.unprefixed(atRule.name) !== KEYFRAMES_NAME) return;
-        
-        const atRuleString = atRule.toString();
-        const atRuleFlippedString = rtlcss.process(atRuleString, { processUrls, useCalc, stringMap });
-        
-        if (atRuleString === atRuleFlippedString) return;
-
-        const rootFlipped = postcss.parse(atRuleFlippedString);
-        const atRuleFlipped = rootFlipped.first as AtRule;
-
-        const atRuleParams = atRule.params;
-        const ltr = `${atRuleParams}-${Source.ltr}`;
-        const rtl = `${atRuleParams}-${Source.rtl}`;
-
-        atRule.params = source === Source.ltr ? ltr : rtl;
-        atRuleFlipped.params = source === Source.ltr ? rtl : ltr;
-
-        store.keyframes.push({
-            atRuleParams,
-            atRule,
-            atRuleFlipped
-        });
-        
-    });
+        }
+    );
 
     initKeyframesData();
 

@@ -8,13 +8,13 @@ export { PluginOptions, Mode, Source, PluginStringMap, Autorename } from '@types
 
 const transformer = (options: PluginOptions = {}): Transformer  => (
     (css: Root): void => {
-        initStore(options);     
+        initStore(options);
         parseKeyFrames(css);
         parseAtRules(css);
         parseRules(css);
         appendRules();
         appendKeyFrames();
-        appendAutorenameRules();      
+        appendAutorenameRules();
     }
 );
 

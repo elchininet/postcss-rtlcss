@@ -165,6 +165,20 @@ exports[`Override Tests Autorename Override Autorename: flexible 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -497,6 +511,20 @@ exports[`Override Tests Autorename Override Autorename: flexible with custom str
 
 [dir=\\"rtl\\"] .test18 {
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
 }
 
 @keyframes flip {
@@ -833,6 +861,20 @@ exports[`Override Tests Autorename Override Autorename: flexible, greedy: true 1
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -1165,6 +1207,20 @@ exports[`Override Tests Autorename Override Autorename: only control directives 
 
 [dir=\\"rtl\\"] .test18 {
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
 }
 
 @keyframes flip {
@@ -1501,6 +1557,20 @@ exports[`Override Tests Autorename Override Autorename: only control directives,
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -1835,6 +1905,20 @@ exports[`Override Tests Autorename Override Autorename: strict 1`] = `
     padding: 10px 10px 40px 20px;
 }
 
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
+}
+
 @keyframes flip {
     from {
         transform: translateX(100px);
@@ -2167,6 +2251,20 @@ exports[`Override Tests Autorename Override Autorename: strict, greedy: true 1`]
 
 [dir=\\"rtl\\"] .test18 {
     padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir=\\"rtl\\"] .test18::after {
+    left: unset;
+    right: 10px;
 }
 
 @keyframes flip {

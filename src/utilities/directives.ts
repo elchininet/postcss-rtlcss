@@ -1,5 +1,5 @@
 import { Comment } from 'postcss';
-import { ControlDirective } from '@types';
+import { ObjectWithProps, ControlDirective } from '@types';
 import { RTL_CONTROL_DIRECTIVE_REG_EXP, CONTROL_DIRECTIVE, CONTROL_DIRECTIVE_BLOCK } from '@constants';
 
 const CONTROL_DIRECTIVE_VALUES = Object.values(CONTROL_DIRECTIVE) as string[];
@@ -7,10 +7,10 @@ const CONTROL_DIRECTIVE_BLOCK_VALUES = Object.values(CONTROL_DIRECTIVE_BLOCK) as
 
 export const isValidMatchDirective = (match: (string | number | undefined)[]): boolean =>
     CONTROL_DIRECTIVE_VALUES.includes(`${match[2]}`) &&
-        (
-            match[1] === undefined ||
-            CONTROL_DIRECTIVE_BLOCK_VALUES.includes(`${match[1]}`)
-        );  
+    (
+        match[1] === undefined ||
+        CONTROL_DIRECTIVE_BLOCK_VALUES.includes(`${match[1]}`)
+    );  
 
 export const getControlDirective = (comment: Comment): ControlDirective | null => {
     const commentStr = comment.toString();
@@ -30,14 +30,34 @@ export const getControlDirective = (comment: Comment): ControlDirective | null =
     return null;
 };
 
-export const resetDirective = (directive: ControlDirective): void => {
-    if (directive.block === CONTROL_DIRECTIVE_BLOCK.END) {
-        directive.directive = null;
-        directive.block = null;
-    } else {
-        if (directive.block !== CONTROL_DIRECTIVE_BLOCK.BEGIN) {
-            directive.directive = null;
-            directive.block = null;
+export const isIgnoreDirectiveInsideAnIgnoreBlock = (
+    controlDirective: ControlDirective,
+    controlDirectives: ObjectWithProps<ControlDirective>
+): boolean => (
+    controlDirective.directive === CONTROL_DIRECTIVE.IGNORE &&
+    !controlDirective.block &&
+    controlDirectives[CONTROL_DIRECTIVE.IGNORE] &&
+    controlDirectives[CONTROL_DIRECTIVE.IGNORE].block === CONTROL_DIRECTIVE_BLOCK.BEGIN
+);
+
+export const checkDirective = (controlDirectives: ObjectWithProps<ControlDirective>, directiveType: string): boolean => {
+
+    const directive = controlDirectives[directiveType];
+
+    if (directive) {
+
+        const { block } = directive;
+
+        if (block !== CONTROL_DIRECTIVE_BLOCK.BEGIN) {
+            delete controlDirectives[directiveType];
         }
+
+        if (block !== CONTROL_DIRECTIVE_BLOCK.END) {
+            return true;
+        }
+
     }
+
+    return false;
+
 };

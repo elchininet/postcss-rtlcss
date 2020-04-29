@@ -1,21 +1,17 @@
 import { Container, Node, Comment } from 'postcss';
-import { ControlDirective, ObjectWithProps } from '@types';
-import { COMMENT_TYPE, CONTROL_DIRECTIVE, CONTROL_DIRECTIVE_BLOCK } from '@constants';
-import { getControlDirective, resetDirective } from '@utilities/directives';
-import { cleanRuleRawsBefore } from '@utilities/rules';
+import { ControlDirective } from '@types';
+import { COMMENT_TYPE } from '@constants';
+import { getControlDirective } from '@utilities/directives';
 
-type WalkContainerCallback = (node: Node, containerDirectives?: ObjectWithProps<ControlDirective>) => void;
+type WalkContainerControlDirectiveCallback = (comment: Comment, controlDirective: ControlDirective) => void;
+type WalkContainerNodeCallback = (node: Node) => void;
 
 export const walkContainer = (
     container: Container,
     filter: string [],
-    removeComments: boolean,
-    callback: WalkContainerCallback
+    directiveCallback: WalkContainerControlDirectiveCallback,
+    nodeCallback: WalkContainerNodeCallback
 ): void => {
-
-    let controlDirective: ControlDirective;
-
-    const containerDirectives: ObjectWithProps<ControlDirective> = {};
 
     container.each((node: Node): undefined | false => {
 
@@ -24,36 +20,16 @@ export const walkContainer = (
         if (node.type === COMMENT_TYPE) {
 
             const comment = node as Comment;
-            controlDirective = getControlDirective(comment);
+            const controlDirective = getControlDirective(comment);
             
             if (controlDirective) {
-                
-                if (removeComments) {
-                    cleanRuleRawsBefore(comment.next());              
-                    comment.remove(); 
-                }
-
-                containerDirectives[controlDirective.directive] = { ...controlDirective };
-
-                controlDirective = null;
-                
-                return;
+                directiveCallback(comment, controlDirective);
             }
 
         } else {
 
-            const IGNORE = containerDirectives[CONTROL_DIRECTIVE.IGNORE];
-
-            if (IGNORE && IGNORE.directive) {
-                const { block } = IGNORE;
-                resetDirective(IGNORE);
-                if (block !== CONTROL_DIRECTIVE_BLOCK.END) {
-                    return;
-                }
-            }
-
-            callback(node, containerDirectives);
-
+            nodeCallback(node);
+            
         }
 
     });
