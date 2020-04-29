@@ -57,6 +57,16 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
             cleanRuleRawsBefore(comment.next());              
             comment.remove(); 
 
+            if (controlDirective.directive === CONTROL_DIRECTIVE.RAW && controlDirective.raw) {
+                const root = postcss.parse(controlDirective.raw);
+                if (mode === Mode.combined) {
+                    ruleFlippedSecond.append(root.nodes);
+                } else {
+                    ruleFlipped.append(root.nodes);
+                }
+                
+            }
+
             if (isIgnoreDirectiveInsideAnIgnoreBlock(controlDirective, controlDirectives)) {
                 return;
             }

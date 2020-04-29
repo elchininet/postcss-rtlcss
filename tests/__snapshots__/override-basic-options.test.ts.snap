@@ -373,6 +373,28 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    left: unset;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -725,6 +747,28 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    left: unset;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1101,6 +1145,28 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
 
 [dir=\\"ltr\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: unset;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"ltr\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"ltr\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1449,6 +1515,28 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
 
 [dir=\\"ltr\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: unset;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"ltr\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"ltr\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1799,6 +1887,28 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    left: unset;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -2147,5 +2257,27 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    left: unset;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;

@@ -13,7 +13,8 @@ export const FLIP_PROPERTY_REGEXP = /(right|left)/i;
 
 export enum CONTROL_DIRECTIVE {
     IGNORE = 'ignore',
-    RENAME = 'rename'
+    RENAME = 'rename',
+    RAW = 'raw'
 }
 
 export enum CONTROL_DIRECTIVE_BLOCK {

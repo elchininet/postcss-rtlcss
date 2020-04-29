@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.5.0] - 2020-04-30
+
+- Implemented RTL raw control directives for rules and declarations
+
 ## [1.4.0] - 2020-04-24
 
 - Implemented RTL rename control directives for rules and declarations

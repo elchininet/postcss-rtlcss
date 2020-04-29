@@ -378,6 +378,30 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
 
 .rtl .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+.ltr .test33 {
+    left: 10px;
+}
+
+.rtl .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.rtl .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.rtl .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -769,6 +793,30 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
 
 .rtl .test32, .right-to-left .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+.ltr .test33, .left-to-right .test33 {
+    left: 10px;
+}
+
+.rtl .test33, .right-to-left .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.rtl .example34, .right-to-left .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.rtl .example35, .right-to-left .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1164,5 +1212,29 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
 
 .rtl .test32, .right-to-left .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+.ltr .test33, .left-to-right .test33 {
+    left: 10px;
+}
+
+.rtl .test33, .right-to-left .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.rtl .example34, .right-to-left .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.rtl .example35, .right-to-left .example35 {
+    transform: translate(10px, 20px);
 }"
 `;

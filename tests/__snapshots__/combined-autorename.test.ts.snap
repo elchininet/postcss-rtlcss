@@ -378,6 +378,30 @@ exports[`Combined Tests Autorename Combined Autorename: flexible 1`] = `
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -759,6 +783,30 @@ exports[`Combined Tests Autorename Combined Autorename: flexible with custom str
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1140,6 +1188,30 @@ exports[`Combined Tests Autorename Combined Autorename: flexible, greedy: true 1
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1521,6 +1593,30 @@ exports[`Combined Tests Autorename Combined Autorename: only control directives 
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1902,6 +1998,30 @@ exports[`Combined Tests Autorename Combined Autorename: only control directives,
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -2283,6 +2403,30 @@ exports[`Combined Tests Autorename Combined Autorename: strict 1`] = `
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -2664,5 +2808,29 @@ exports[`Combined Tests Autorename Combined Autorename: strict, greedy: true 1`]
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;

@@ -982,14 +982,15 @@ Control Directives
 
 Control directives are placed between rules or declarations. They can target a single node or a set of nodes.
 
-| Directive                | Description                                                                        |
-| ------------------------ | ---------------------------------------------------------------------------------- |
-| `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                            |
-| `/*rtl:begin:ignore*/`   | Starts an ignoring block                                                           |
-| `/*rtl:end:ignore*/`     | Ends an ignoring block                                                             |
-| `/*rtl:rename*/`         | This directive forces renaming in the next rule or declaration no mattering the value of the properties `processUrls` or `autoRename` |
-| `/*rtl:begin:rename*/`   | Starts a renaming block                                                            |
-| `/*rtl:end:rename*/`     | Ends a renaming block                                                              |
+| Directive                | Description                                                                                                                                    |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                                                                                        |
+| `/*rtl:begin:ignore*/`   | Starts an ignoring block                                                                                                                       |
+| `/*rtl:end:ignore*/`     | Ends an ignoring block                                                                                                                         |
+| `/*rtl:rename*/`         | This directive forces renaming in the next rule or declaration no mattering the value of the properties `processUrls` or `autoRename`          |
+| `/*rtl:begin:rename*/`   | Starts a renaming block                                                                                                                        |
+| `/*rtl:end:rename*/`     | Ends a renaming block                                                                                                                          |
+| `/*rtl:raw:{CSS}*/`      | Parses the `CSS` parameter and inserts it in its place. Depending on the `source` parameter the parsed `CSS` will be treated as `rtl` or `ltr` |
 
 ---
 
@@ -1222,6 +1223,70 @@ These directives should be used together, they will provide the beginning and th
 [dir="rtl"] .test {
     background-image: url("/images/background-right.png");
     cursor: url("/images/cursor-rtl.png");
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:raw:{CSS}*/`
+
+<details><summary>Expand</summary>
+<p>
+
+Parses the `CSS` parameter and inserts it in its place. Depending on the `source` parameter the parsed CSS will be treated as `rtl` or `ltr`:
+
+##### input
+
+```css
+.test1 {
+    color: #EFEFEF;
+    left: 10px;
+    /*rtl:raw:
+    height: 50px;
+    width: 100px;*/
+}
+
+/*rtl:raw:.test2 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.test3 {
+    transform: translate(10px, 20px);
+}
+*/
+```
+
+##### output
+
+```css
+.test1 {
+    color: #EFEFEF;
+}
+
+[dir="ltr"] .test1 {
+    left: 10px;
+}
+
+[dir="rtl"] .test1 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir="rtl"] .test2 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir="rtl"] .test3 {
+    transform: translate(10px, 20px);
 }
 ```
 

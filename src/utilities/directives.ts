@@ -22,9 +22,9 @@ export const getControlDirective = (comment: Comment): ControlDirective | null =
         if (match[1]) {
             controlDirective.block = match[1];
         }
-        /*if (match[3]) {
+        if (match[3]) {
             controlDirective.raw = match[3];
-        }*/
+        }
         return controlDirective;
     }
     return null;
