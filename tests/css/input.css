@@ -273,3 +273,22 @@
     /*rtl:end:rename*/
     border: 1px solid gray;    
 }
+
+.test33 {
+    color: #EFEFEF;
+    left: 10px;
+    /*rtl:raw:
+    height: 50px;
+    width: 100px;*/
+}
+
+/*rtl:raw:.example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.example35 {
+    transform: translate(10px, 20px);
+}
+*/

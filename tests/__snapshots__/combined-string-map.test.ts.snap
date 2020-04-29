@@ -382,6 +382,30 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -767,6 +791,30 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1152,6 +1200,30 @@ exports[`Combined Tests String Map Combined custom string map and processUrls: t
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
 
@@ -1537,5 +1609,29 @@ exports[`Combined Tests String Map Combined custom string map without names and 
 
 [dir=\\"rtl\\"] .test32 {
     background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    color: #EFEFEF;
+}
+
+[dir=\\"ltr\\"] .test33 {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test33 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir=\\"rtl\\"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir=\\"rtl\\"] .example35 {
+    transform: translate(10px, 20px);
 }"
 `;
