@@ -17,6 +17,7 @@ export interface AppProviderContext {
     setOptionsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     changeOptionsMode: (mode: Mode) => void;
     changeOptionsSource: (source: Source) => void;
+    changeOptionsSafeBothPrefix: (safeBothPrefix: boolean) => void;
     changeOptionsProcessUrls: (processUrls: boolean) => void;
     changeOptionsProcessKeyframes: (processKeyFrames: boolean) => void;
     changeOptionsUseCalc: (useCalc: boolean) => void;
@@ -48,19 +49,7 @@ const defaultOptions: PluginOptions = {};
 
 const windowSizes = getWindowSizes();
 
-export const AppContext = createContext<AppProviderContext>({
-    optionsOpen: false,
-    options: defaultOptions,
-    windowSizes,    
-    setOptionsOpen: (): void => {},
-    changeOptionsMode: (mode: Mode): void => {},
-    changeOptionsSource: (source: Source): void => {},
-    changeOptionsProcessUrls: (processUrls: boolean): void => {},
-    changeOptionsProcessKeyframes: (processKeyFrames: boolean) => {},
-    changeOptionsUseCalc: (useCalc: boolean) => {},
-    changeOptionsAutoRename: (value: Autorename) => {},
-    changeOptionsGreedy: (greedy: boolean) => {}
-});
+export const AppContext = createContext<AppProviderContext>({} as AppProviderContext);
 
 export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
 
@@ -87,6 +76,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
 
     const changeOptionsMode = (mode: Mode): void => setOptions({ ...options, mode });
     const changeOptionsSource = (source: Source): void => setOptions({ ...options, source });
+    const changeOptionsSafeBothPrefix = (safeBothPrefix: boolean): void => setOptions({...options, safeBothPrefix});
     const changeOptionsProcessUrls = (processUrls: boolean): void => setOptions({ ...options, processUrls });
     const changeOptionsProcessKeyframes = (processKeyFrames: boolean): void => setOptions({ ...options, processKeyFrames });
     const changeOptionsUseCalc = (useCalc: boolean): void => setOptions({ ...options, useCalc });
@@ -99,6 +89,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
         setOptionsOpen,
         changeOptionsMode,
         changeOptionsSource,
+        changeOptionsSafeBothPrefix,
         changeOptionsProcessUrls,
         changeOptionsProcessKeyframes,
         changeOptionsUseCalc,
