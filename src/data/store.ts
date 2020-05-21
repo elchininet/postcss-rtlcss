@@ -96,6 +96,7 @@ const defaultOptions = (): PluginOptionsNormalized => ({
     ltrPrefix: '[dir="ltr"]',
     rtlPrefix: '[dir="rtl"]',
     bothPrefix: '[dir]',
+    safeBothPrefix: false,
     source: Source.ltr,
     processUrls: false,
     processKeyFrames: false,
@@ -138,6 +139,9 @@ export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalize
     }
     if (!isNotStringOrStringArray(options.bothPrefix)) {
         returnOptions.bothPrefix = options.bothPrefix;
+    }
+    if (typeof options.safeBothPrefix === BOOLEAN_TYPE) {
+        returnOptions.safeBothPrefix = options.safeBothPrefix;
     }
     if (typeof options.processUrls === BOOLEAN_TYPE) {
         returnOptions.processUrls = options.processUrls;

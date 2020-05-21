@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.6.0] - 2020-05-21
+
+- Implemented the safeBothPrefix option
+- Fixed minor bugs
+
 ## [1.5.0] - 2020-04-30
 
 - Implemented RTL raw control directives for rules and declarations

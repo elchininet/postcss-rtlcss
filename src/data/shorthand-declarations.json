@@ -1,0 +1,132 @@
+{
+    "animation": {
+        "overridden": null,
+        "overrides": [
+            "animation-direction",
+            "animation-duration",
+            "animation-delay",
+            "animation-name",
+            "animation-fill-mode",
+            "animation-iteration-count",
+            "animation-play-state",
+            "animation-timing-function"
+        ]
+    },
+    "background": {
+        "overridden": null,
+        "overrides": [
+            "background-attachment",
+            "background-clip",
+            "background-color",            
+            "background-image",
+            "background-repeat",
+            "background-size"
+        ]
+    },
+    "background-position": {
+        "overridden": "background",
+        "overrides": [
+            "background-position-x",
+            "background-position-y"
+        ]
+    },
+    "border": {
+        "overridden": null,
+        "overrides": []
+    },
+    "border-bottom": {
+        "overridden": "border",
+        "overrides": [
+            "border-bottom-color",
+            "border-bottom-style",
+            "border-bottom-width"
+        ]
+    },
+    "border-left": {
+        "overridden": "border",
+        "overrides": [
+            "border-left-color",
+            "border-left-style",
+            "border-left-width"
+        ]
+    },
+    "border-right": {
+        "overridden": "border",
+        "overrides": [
+            "border-right-color",
+            "border-right-style",
+            "border-right-width"
+        ]
+    },
+    "border-top": {
+        "overridden": "border",
+        "overrides": [
+            "border-top-color",
+            "border-top-style",
+            "border-top-width"
+        ]
+    },
+    "border-color": {
+        "overridden": "border",
+        "overrides": [
+            "border-bottom-color",
+            "border-left-color",
+            "border-right-color",
+            "border-top-color"
+        ]
+    },
+    "border-style": {
+        "overridden": "border",
+        "overrides": [
+            "border-bottom-style",
+            "border-left-style",
+            "border-right-style",
+            "border-top-style"
+        ]
+    },
+    "border-width": {
+        "overridden": "border",
+        "overrides": [
+            "border-bottom-width",
+            "border-left-width",
+            "border-right-width",
+            "border-top-width"
+        ]
+    },
+    "border-radius": {
+        "overridden": null,
+        "overrides": [
+            "border-bottom-left-radius",
+            "border-bottom-right-radius",
+            "border-top-left-radius",
+            "border-top-right-radius"
+        ]
+    },
+    "margin": {
+        "overridden": null,
+        "overrides": [
+            "margin-bottom",
+            "margin-left",
+            "margin-top",
+            "margin-right"
+        ]
+    },
+    "padding": {
+        "overridden": null,
+        "overrides": [
+            "padding-bottom",
+            "padding-left",
+            "padding-top",
+            "padding-right"
+        ]
+    },
+    "transition": {
+        "overridden": null,
+        "overrides": [
+            "transition-delay",
+            "transition-duration",
+            "transition-property",
+            "transition-timing-function"
+        ]
+    }
+}

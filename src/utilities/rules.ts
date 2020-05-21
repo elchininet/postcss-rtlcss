@@ -30,14 +30,16 @@ export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void
 
 export const appendRules = (): void => {
     const { rules } = store; 
-    rules.forEach(({rule, ruleLTR, ruleRTL, ruleBoth}): void => {
+    rules.forEach(({rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe}): void => {
         ruleBoth && ruleBoth.nodes.length && rule.after(ruleBoth);
         ruleRTL && ruleRTL.nodes.length && rule.after(ruleRTL);
-        ruleLTR && ruleLTR.nodes.length && rule.after(ruleLTR);        
-        if (rule.nodes.length === 0) {
+        ruleLTR && ruleLTR.nodes.length && rule.after(ruleLTR);
+        ruleSafe && ruleSafe.nodes.length && rule.after(ruleSafe);
+        const ruleHasDeclarations = rule.some((node: Node) => node.type === DECLARATION_TYPE);      
+        if (!ruleHasDeclarations) {
             rule.remove();
         }
-        cleanRules(rule, ruleLTR, ruleRTL, ruleBoth);
+        cleanRules(rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe);
     }); 
 };
 

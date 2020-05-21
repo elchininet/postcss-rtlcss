@@ -11,7 +11,7 @@ import {
 import { store } from '@data/store';
 import { addSelectorPrefixes } from '@utilities/selectors';
 import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
-import { shorthands } from '@utilities/shorthands';
+import { declarations, allDeclarations, appendDeclarationToRule, hasIgnoreDirectiveInRaws } from '@utilities/declarations';
 import { walkContainer } from '@utilities/containers';
 import { cleanRuleRawsBefore } from '@utilities/rules';
 
@@ -22,6 +22,7 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
         ltrPrefix,
         rtlPrefix,
         bothPrefix,
+        safeBothPrefix,
         source,
         processUrls,
         useCalc,
@@ -35,6 +36,7 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
     const ruleFlipped = rule.clone().removeAll();
     const ruleFlippedSecond = ruleFlipped.clone();
     const ruleBoth = ruleFlipped.clone();
+    const ruleSafe = ruleFlipped.clone();
 
     const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<string>, node: Node): object => {
         if (node.type === DECLARATION_TYPE) {
@@ -103,78 +105,96 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
             const isAnimation = declPropUnprefixed === ANIMATION_PROP || declPropUnprefixed === ANIMATION_NAME_PROP;
             const declFlippedProp = declFlipped.prop.trim();
             const declFlippedValue = declFlipped.value.trim();
-            const overridenBy = shorthands[declPropUnprefixed];
+            const overridenBy = declarations[declPropUnprefixed];
             const hasBeenOverriden = overridenBy
                 ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
+                : false;
+            const isConflictedDeclaration = safeBothPrefix
+                ? !!allDeclarations[declPropUnprefixed]
                 : false;
             
             if (
                 !hasBeenOverriden &&
+                !isConflictedDeclaration &&
                 declProp === declFlippedProp &&
                 declValue === declFlippedValue &&
-                (
-                    !isAnimation ||
-                    (
-                        isAnimation &&
-                        (
-                            store.keyframes.length === 0 ||
-                            !store.keyframesRegExp.test(declValue)
-                        )
-                    )
-                )
+                !isAnimation
             ) {
                 return;
             }
             
             if (isAnimation) {
 
-                const declValue = decl.value.replace(
-                    store.keyframesRegExp,
-                    (_match: string, before: string, animation: string, after: string): string =>
-                        before + store.keyframesStringMap[animation].name + after
-                );
+                if(
+                    declProp === declFlippedProp &&
+                    declValue === declFlippedValue &&
+                    (
+                        store.keyframes.length === 0 ||
+                        !store.keyframesRegExp.test(declValue)
+                    )
+                ) {
 
-                const declValueFlipped = decl.value.replace(
-                    store.keyframesRegExp,
-                    (_match: string, before: string, animation: string, after: string): string =>
-                        before + store.keyframesStringMap[animation].nameFlipped + after
-                );
+                    if (safeBothPrefix && !hasIgnoreDirectiveInRaws(decl)) {
+                        appendDeclarationToRule(decl, ruleSafe);
+                        deleteDeclarations.push(decl);
+                    }                    
 
-                const declCloneFlipped = decl.clone();
-
-                if (mode === Mode.combined) {
-                    const declClone = decl.clone();
-                    declClone.value = declValue;
-                    declCloneFlipped.value = declValueFlipped;
-                    ruleFlipped.append(declClone);
-                    ruleFlippedSecond.append(declCloneFlipped);
-                    deleteDeclarations.push(decl);
                 } else {
-                    const declCloneFlipped = decl.clone(); 
-                    decl.value = declValue;                               
-                    declCloneFlipped.value = declValueFlipped;
-                    ruleFlipped.append(declCloneFlipped);                
+                    const animationDeclValue = decl.value.replace(
+                        store.keyframesRegExp,
+                        (_match: string, before: string, animation: string, after: string): string =>
+                            before + store.keyframesStringMap[animation].name + after
+                    );
+    
+                    const animationDeclValueFlipped = decl.value.replace(
+                        store.keyframesRegExp,
+                        (_match: string, before: string, animation: string, after: string): string =>
+                            before + store.keyframesStringMap[animation].nameFlipped + after
+                    );
+    
+                    const declCloneFlipped = decl.clone();
+    
+                    if (mode === Mode.combined) {
+                        const declClone = decl.clone();
+                        declClone.value = animationDeclValue;
+                        declCloneFlipped.value = animationDeclValueFlipped;
+                        ruleFlipped.append(declClone);
+                        ruleFlippedSecond.append(declCloneFlipped);
+                        deleteDeclarations.push(decl);
+                    } else {
+                        const declCloneFlipped = decl.clone(); 
+                        decl.value = animationDeclValue;                            
+                        declCloneFlipped.value = animationDeclValueFlipped;
+                        ruleFlipped.append(declCloneFlipped);
+                        if (safeBothPrefix) {
+                            appendDeclarationToRule(decl, ruleSafe);                       
+                            deleteDeclarations.push(decl);
+                        }
+                    }
                 }
 
             } else {
 
                 if (
-                    hasBeenOverriden &&
                     declProp === declFlippedProp &&
-                    declValue === declFlippedValue
+                    declValue === declFlippedValue                    
                 ) {
-                    const declClone = decl.clone();
-                    ruleBoth.append(declClone);
-                    deleteDeclarations.push(decl);
-                    return;
+                    if ((hasBeenOverriden || isConflictedDeclaration) && !hasIgnoreDirectiveInRaws(decl)) {
+                        appendDeclarationToRule(decl, hasBeenOverriden ? ruleBoth : ruleSafe);                       
+                        deleteDeclarations.push(decl);
+                    }
+                    return;                   
                 } else  if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
                     simetricRules = true;
+                    if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
+                        appendDeclarationToRule(decl, ruleSafe);                       
+                        deleteDeclarations.push(decl);
+                    }
                     return;
                 }
 
                 if (mode === Mode.combined) {
-                    const declClone = decl.clone();
-                    ruleFlipped.append(declClone);
+                    appendDeclarationToRule(decl, ruleFlipped);
                     ruleFlippedSecond.append(declFlipped);
                     deleteDeclarations.push(decl);
                 } else {
@@ -182,6 +202,10 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
                         const declClone = decl.clone();
                         declClone.value = 'unset';
                         ruleFlipped.append(declClone);
+                    }
+                    if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
+                        appendDeclarationToRule(decl, ruleSafe);
+                        deleteDeclarations.push(decl);
                     }
                     ruleFlipped.append(declFlipped);
                 }
@@ -197,7 +221,7 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
         deleteDeclarations.forEach((decl: Declaration): Declaration => decl.remove());
     }
 
-    if (ruleFlipped.nodes.length || ruleFlippedSecond.nodes.length) {
+    if (ruleFlipped.nodes.length || ruleFlippedSecond.nodes.length || ruleBoth.nodes.length || ruleSafe.nodes.length) {
 
         if (mode === Mode.combined) {
             addSelectorPrefixes(ruleFlipped, source === Source.ltr ? ltrPrefix : rtlPrefix);
@@ -208,12 +232,14 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
         }
 
         addSelectorPrefixes(ruleBoth, bothPrefix);
+        addSelectorPrefixes(ruleSafe, bothPrefix);
 
         store.rules.push({
             rule,
             ruleLTR: ruleFlipped,
             ruleRTL: ruleFlippedSecond,
-            ruleBoth
+            ruleBoth,
+            ruleSafe
         });
 
     } else if (autoRename !== Autorename.disabled && !simetricRules && !autorenamed) {
