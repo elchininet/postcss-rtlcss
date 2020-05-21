@@ -295,6 +295,7 @@ All the options are optional, and a default value will be used, if any of them i
 | ltrPrefix          | `string` or `string[]`    | `[dir="ltr"]`   | Prefix to use in the left-to-right CSS rules                 |
 | rtlPrefix          | `string` or `string[]`    | `[dir="rtl"]`   | Prefix to use in the right-to-left CSS rules                 |
 | bothPrefix         | `string` or `string[]`    | `[dir]`         | Prefix to use for styles in both directions when the specificity of the ltr or rtl styles will override them |
+| safeBothPrefix     | `boolean`                 | `false`         | Add the `bothPrefix` to those declarations that can be flipped to avoid them being overridden by specificity |
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
 | processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
@@ -482,6 +483,81 @@ To solve this, another rule will be created at the end using the `bothPrefix` pa
 ```
 
 And no matter the direction, the `background-size` property is respected.
+
+</p>
+
+</details>
+
+---
+
+#### safeBothPrefix
+
+<details><summary>Expand</summary>
+<p>
+
+This option will add the `boxPrefix` option to those declarations that can be flipped, no matter if they are not overridden in the same rule. This avoids them being overridden by [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) of other flipped declarations contained in other rules. For example, let's consider that we have a `div` element with the next rules:
+
+```html
+<div class="test1 test2">
+    This is an example
+</div> 
+```
+
+```css
+.test1 {
+    color: #FFF;
+    padding: 4px 10px 4px 20px;
+    width: 100%;
+}
+
+.test2 {
+    padding: 0;
+}
+```
+
+The expecting result is that the `padding` of the element becomes `0` as it has been reset by `test2`. With `safeBothPrefix` in `false`, the generated CSS will be:
+
+```css
+.test1 {
+    color: #FFF;
+    width: 100%;
+}
+
+[dir="ltr"] .test1 {
+    padding: 4px 10px 4px 20px;
+}
+
+[dir="rtl"] .test1 {
+    padding: 4px 20px 4px 10px;
+}
+
+.test2 {
+    padding: 0;
+}
+```
+
+The result is that the `padding` properties of `test1` have more specificity than the same property in `tes2`, so it is not reset if both rules are applied at the same time. Let's check the result if `safeBothPrefix` is `true`: 
+
+```css
+.test1 {
+    color: #FFF;
+    width: 100%;
+}
+
+[dir="ltr"] .test1 {
+    padding: 4px 10px 4px 20px;
+}
+
+[dir="rtl"] .test1 {
+    padding: 4px 20px 4px 10px;
+}
+
+[dir] .test2 {
+    padding: 0;
+}
+```
+
+As `test2` has the same level of specificity as `test1`, now the result is that the `padding` is reset if both rules are used at the same time.
 
 </p>
 

@@ -50,6 +50,7 @@ export interface PluginOptions {
     ltrPrefix?: strings;
     rtlPrefix?: strings;
     bothPrefix?: strings;
+    safeBothPrefix?: boolean;
     source?: SourceValues;
     processUrls?: boolean;
     processKeyFrames?: boolean;
@@ -65,9 +66,10 @@ export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, '
 
 export interface RulesObject {
     rule: Rule;
-    ruleLTR: Rule | null;
-    ruleRTL: Rule | null;
-    ruleBoth: Rule | null;
+    ruleLTR: Rule;
+    ruleRTL: Rule;
+    ruleBoth: Rule;
+    ruleSafe: Rule;
 }
 
 export interface AtRulesObject {
@@ -85,7 +87,7 @@ export interface AtRulesStringMap {
     [key: string]: AtRulesStringMapObject;
 }
 
-export interface ShortHandsData {
+export interface DeclarationsData {
     [key: string]: {
         overridden: string | null;
         overrides: string[];
