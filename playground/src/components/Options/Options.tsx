@@ -11,6 +11,7 @@ export const Options = (): JSX.Element => {
         options,
         changeOptionsMode,
         changeOptionsSource,
+        changeOptionsSafeBothPrefix,
         changeOptionsProcessUrls,
         changeOptionsProcessKeyframes,
         changeOptionsUseCalc,
@@ -20,6 +21,7 @@ export const Options = (): JSX.Element => {
 
     const changeMode = (checked: boolean): void => changeOptionsMode(checked ? Mode.override : Mode.combined);
     const changeSource = (checked: boolean): void => changeOptionsSource(checked ? Source.rtl : Source.ltr);
+    const changeSafeBothPrefix = (checked: boolean) => changeOptionsSafeBothPrefix(checked);
     const changeProcessUrls = (checked: boolean): void => changeOptionsProcessUrls(checked);
     const changeProcessKeyframes = (checked: boolean): void => changeOptionsProcessKeyframes(checked);
     const changeUseCalc = (checked: boolean): void => changeOptionsUseCalc(checked);
@@ -46,6 +48,13 @@ export const Options = (): JSX.Element => {
                     <Switch
                         labels={['source: ltr', 'source: rtl']}
                         onChange={changeSource}
+                    />
+                </div>
+                { /* safeBothPrefix */ }
+                <div css={stylesheet.panel}>
+                    <Switch
+                        labels={['safeBothPrefix: false', 'safeBothPrefix: true']}
+                        onChange={changeSafeBothPrefix}
                     />
                 </div>
                 { /* processUrls */ }
