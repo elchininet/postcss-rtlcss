@@ -5060,7 +5060,7 @@ rsvp@^4.8.4:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
 
-rtlcss@^2.5.0:
+rtlcss@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/rtlcss/-/rtlcss-2.6.0.tgz#2c4fa65bb02d23479c291cad51fc07accd9242e5"
   integrity sha512-eRctJtYmVFgCUeGMm6uzrJE0P/1ipuaKHY9TaksDt+UZ7SLMVoatQZePPFAJeSNJ8eh3QJ/ROb44bl0wgaXksQ==

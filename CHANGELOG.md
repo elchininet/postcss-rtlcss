@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.6.1] - 2020-08-18
+
+- Updated multiple packages
+- Solve dependencies vulnerabilities
+
 ## [1.6.0] - 2020-05-21
 
 - Implemented the safeBothPrefix option
