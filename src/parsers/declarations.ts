@@ -38,7 +38,7 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
     const ruleBoth = ruleFlipped.clone();
     const ruleSafe = ruleFlipped.clone();
 
-    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<string>, node: Node): object => {
+    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<string>, node: Node): Record<string, string> => {
         if (node.type === DECLARATION_TYPE) {
             const decl = node as Declaration;
             obj[decl.prop] = decl.value.trim();

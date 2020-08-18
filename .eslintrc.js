@@ -5,31 +5,32 @@ module.exports = {
         node: true
     },
     extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
+        'eslint:recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended'
     ],
     globals: {
-        Atomics: "readonly",
-        SharedArrayBuffer: "readonly"
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly'
     },
-    parser: "@typescript-eslint/parser",
+    parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 2018,
-        sourceType: "module"
+        sourceType: 'module'
     },
-    plugins: ["@typescript-eslint"],
+    plugins: ['@typescript-eslint'],
     rules: {
-        quotes: ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
-        semi: ["error", "always"],
+        quotes: ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
+        semi: ['error', 'always'],
         '@typescript-eslint/no-var-requires': 0,
-        '@typescript-eslint/ban-ts-ignore': 0
+        '@typescript-eslint/ban-ts-ignore': 0,
+        '@typescript-eslint/ban-ts-comment': 0
     },
     overrides: [
         {
-            files: ["*.js"],
+            files: ['*.js'],
             rules: {
-                "@typescript-eslint/explicit-function-return-type": "off"
+                '@typescript-eslint/explicit-function-return-type': 'off'
             }
         }
     ]
