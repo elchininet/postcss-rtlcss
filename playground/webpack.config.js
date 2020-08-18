@@ -71,7 +71,11 @@ module.exports = {
             fav270: 'images/favicon-270x270.png',
             template: './demo.html'
         }),
-        new CopyWebpackPlugin([{ from: 'images', to: 'images' }]),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'images', to: 'images' }
+            ]
+        }),
         new MiniCssExtractPlugin({
             filename: 'styles/styles.css'
         }),
