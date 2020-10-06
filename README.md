@@ -71,8 +71,11 @@ rules: [
             {
                 loader: 'postcss-loader',
                 options: {
-                    ident: 'postcss',
-                    plugins: () => [ require('postcss-rtlcss')(options) ]
+                    postcssOptions: {
+                        plugins: [
+                            postcssRTLCSS(options)
+                        ]
+                    }
                 }
             }
         ]
