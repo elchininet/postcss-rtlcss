@@ -19,4 +19,4 @@ export const postcssRTLCSS = (options: PluginOptions = {}): Plugin => ({
     }
 });
 
-export const postcss = true;
+postcssRTLCSS.postcss = true;
