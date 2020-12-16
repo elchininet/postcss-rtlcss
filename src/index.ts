@@ -1,4 +1,4 @@
-import postcss, { Root, Transformer } from 'postcss';
+import { Root, Plugin } from 'postcss';
 import { PluginOptions } from '@types';
 import { initStore } from '@data/store';
 import { parseKeyFrames, parseAtRules } from '@parsers/atrules';
@@ -6,8 +6,9 @@ import { parseRules } from '@parsers/rules';
 import { appendRules, appendKeyFrames, appendAutorenameRules } from '@utilities/rules';
 export { PluginOptions, Mode, Source, PluginStringMap, Autorename } from '@types';
 
-const transformer = (options: PluginOptions = {}): Transformer  => (
-    (css: Root): void => {
+export const postcssRTLCSS = (options: PluginOptions = {}): Plugin => ({
+    postcssPlugin: 'postcss-rtlcss',
+    Once(css: Root): void {
         initStore(options);
         parseKeyFrames(css);
         parseAtRules(css);
@@ -16,6 +17,6 @@ const transformer = (options: PluginOptions = {}): Transformer  => (
         appendKeyFrames();
         appendAutorenameRules();
     }
-);
+});
 
-export const postcssRTLCSS = postcss.plugin<PluginOptions>('postcss-rtlcss', transformer);
+export const postcss = true;
