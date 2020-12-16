@@ -19,7 +19,7 @@ Install
 #### npm
 
 ```bash
-nmp install postcss-rtlcss --save-dev
+npm install postcss-rtlcss --save-dev
 ```
 
 #### yarn
@@ -297,7 +297,7 @@ All the options are optional, and a default value will be used, if any of them i
 | mode               | `Mode (string)`           | `Mode.combined` | Mode of generating the final CSS rules                       |
 | ltrPrefix          | `string` or `string[]`    | `[dir="ltr"]`   | Prefix to use in the left-to-right CSS rules                 |
 | rtlPrefix          | `string` or `string[]`    | `[dir="rtl"]`   | Prefix to use in the right-to-left CSS rules                 |
-| bothPrefix         | `string` or `string[]`    | `[dir]`         | Prefix to use for styles in both directions when the specificity of the ltr or rtl styles will override them |
+| bothPrefix         | `string` or `string[]`    | `[dir]`         | Prefix to create a new rule that affects both directions when the specificity of the ltr or rtl rules will override them |
 | safeBothPrefix     | `boolean`                 | `false`         | Add the `bothPrefix` to those declarations that can be flipped to avoid them being overridden by specificity |
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
 | processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
@@ -314,11 +314,11 @@ All the options are optional, and a default value will be used, if any of them i
 <details><summary>Expand</summary>
 <p>
 
-The mode option has been explained in the [Output using the combined mode](#output-using-the-combined-mode-default) and [Output using the override mode](#output-using-the-override-mode) sections. To avoid using magic strings, the package exposes an object with these values, but it is possible to using strings values:
+The mode option has been explained in the [Output using the combined mode](#output-using-the-combined-mode-default) and [Output using the override mode](#output-using-the-override-mode) sections. To avoid using magic strings, the package exposes an object with these values, but it is possible to use strings values:
 
 ```javascript
 import postcss from 'postcss';
-import { postcssRTLCSS, Mode } from 'postcss-trlcss';
+import { postcssRTLCSS, Mode } from 'postcss-rtlcss';
 
 const input = '... css code ...';
 const optionsCombined = { mode: Mode.combined }; // This is the default value
@@ -800,7 +800,7 @@ const options = { processKeyFrames: true };
 <details><summary>Expand</summary>
 <p>
 
-This options, when it is enabled, flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc):
+When this option is enabled, it flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc):
 
 ##### input
 
@@ -1217,7 +1217,7 @@ Ignoring multiple declarations:
 <details><summary>Expand</summary>
 <p>
 
-This directive forces renaming in the next rule or declaration no mattering the value of the properties `processUrls` or `autoRename`:
+This directive forces renaming of the following rule or declaration no mattering the value of the properties `processUrls` or `autoRename`:
 
 ##### input
 
