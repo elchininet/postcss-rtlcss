@@ -1,4 +1,4 @@
-import postcss, { Rule, Node, Declaration, Comment, vendor } from 'postcss';
+import postcss, { Rule, Node, Declaration, Comment } from 'postcss';
 import rtlcss from 'rtlcss';
 import { Source, Mode, Autorename, ObjectWithProps, ControlDirective } from '@types';
 import {
@@ -14,6 +14,7 @@ import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities
 import { declarations, allDeclarations, appendDeclarationToRule, hasIgnoreDirectiveInRaws } from '@utilities/declarations';
 import { walkContainer } from '@utilities/containers';
 import { cleanRuleRawsBefore } from '@utilities/rules';
+import { vendor } from '@utilities/vendor';
 
 export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
 

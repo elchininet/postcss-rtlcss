@@ -1,4 +1,4 @@
-import { Rule, AtRule, Node } from 'postcss';
+import { Rule, AtRule, Node, Declaration } from 'postcss';
 import { ObjectWithProps, StringMap, Autorename } from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_REGEXP, DECLARATION_TYPE, RULE_TYPE } from '@constants';
 import { store } from '@data/store';
@@ -17,11 +17,10 @@ export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void
         }
         rule.walk((node: Node): void => {
             if (node.type === DECLARATION_TYPE) {
-                // @ts-ignore
-                if (node.raws && node.raws.value && RTL_COMMENT_REGEXP.test(node.raws.value.raw)) {
-                    // @ts-ignore
-                    delete node.raws.value;
-                    node.value = node.value.trim();
+                const decl = node as Declaration;
+                if (decl.raws && decl.raws.value && RTL_COMMENT_REGEXP.test(decl.raws.value.raw)) {
+                    delete decl.raws.value;
+                    decl.value = decl.value.trim();
                 }
             }
         });

@@ -1,10 +1,11 @@
-import postcss, { Root, Node, AtRule, Comment, vendor } from 'postcss';
+import postcss, { Root, Node, AtRule, Comment } from 'postcss';
 import rtlcss from 'rtlcss';
 import { AtRulesObject, AtRulesStringMap, Source, ControlDirective, ObjectWithProps } from '@types';
 import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME, CONTROL_DIRECTIVE } from '@constants';
 import { store, initKeyframesData } from '@data/store';
 import { walkContainer } from '@utilities/containers';
 import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
+import { vendor } from '@utilities/vendor';
 import { parseRules } from '@parsers/rules';
 
 export const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesStringMap => {    
