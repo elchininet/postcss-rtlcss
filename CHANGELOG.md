@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.6.2] - 2020-12-16
+
+- Updated packages to the latest versions and solved vulnerabilities
+- Some minor changes in the README file
+
 ## [1.6.1] - 2020-08-18
 
 - Updated multiple packages
