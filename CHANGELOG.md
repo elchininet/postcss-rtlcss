@@ -2,13 +2,10 @@
 
 ## [2.0.0] - 2020-12-16
 
-- Updated postcss package to version 8
-- Created a vendor utility because it has been removed from postcss
-
-## [1.6.2] - 2020-12-16
-
 - Updated packages to the latest versions and solved vulnerabilities
 - Some minor changes in the README file
+- Updated postcss package to version 8
+- Created a vendor utility because it has been removed from postcss
 
 ## [1.6.1] - 2020-08-18
 
