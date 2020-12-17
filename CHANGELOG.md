@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.7.0] - 2020-12-16
+## [2.0.0] - 2020-12-16
 
 - Updated postcss package to version 8
 - Created a vendor utility because it has been removed from postcss
