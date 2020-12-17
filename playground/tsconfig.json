@@ -10,7 +10,7 @@
       "noImplicitAny": true,
       "removeComments": true,
       "baseUrl": "./src",
-      "types": ["node", "@emotion/core"],
+      "types": ["node", "@emotion/react"],
       "paths": {
         "@root": ["../../src"],
         "@types": ["@types"],
