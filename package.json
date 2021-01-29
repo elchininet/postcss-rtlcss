@@ -13,16 +13,25 @@
     "postcss-rtlcss",
     "rtlcss"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "files": [
-    "dist/**/*"
+    "@types/**/*",
+    "constants/**/*",
+    "data/**/*",
+    "parsers/**/*",
+    "utilities/**/*",
+    "index.d.ts",
+    "index.js",
+    "options.d.ts",
+    "options.js"
   ],
   "scripts": {
     "test": "jest --clearCache && jest --verbose",
     "lint": "eslint src/**/*.ts",
-    "build": "webpack && tscpaths -p tsconfig.json -s ./src -o ./dist",
-    "prepare": "npm run build",
+    "copy": "cp -r ./dist/. ./",
+    "build": "webpack && tscpaths -p tsconfig.json -s ./src -o ./dist && yarn copy",
+    "prepare": "yarn build && yarn copy",
     "prepublishOnly": "npm run lint && npm run test",
     "version": "git add .",
     "postversion": "git push && git push --tags"

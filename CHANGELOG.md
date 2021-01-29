@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.0] - 2021-01-29
+
+- Export the plugin as the default module to increase its compatibility
+- Export the options helpers in a separated options module
+- Get rid of the dist folder to publish the package
+
 ## [2.0.0] - 2020-12-16
 
 - Updated packages to the latest versions and solved vulnerabilities

@@ -7,11 +7,17 @@ const aliasReg = (str) => str.replace(/^(.*)\/\*$/, '$1');
 
 module.exports = {    
     mode: 'production',
-    entry: './src/index.ts',
+    entry: {
+        index: './src/index.ts',
+        options: './src/options.ts'
+    },
     output: {
-        filename: 'index.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, './dist'),
-        libraryTarget: 'commonjs'
+        library: 'postcss-rtlcss',
+        libraryTarget: 'umd',
+        libraryExport: 'default',
+        globalObject: 'this'
     },
     resolve: {
         extensions: ['.js', '.ts', '.json'],

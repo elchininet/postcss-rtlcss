@@ -4,9 +4,8 @@ import { initStore } from '@data/store';
 import { parseKeyFrames, parseAtRules } from '@parsers/atrules';
 import { parseRules } from '@parsers/rules';
 import { appendRules, appendKeyFrames, appendAutorenameRules } from '@utilities/rules';
-export { PluginOptions, Mode, Source, PluginStringMap, Autorename } from '@types';
 
-export const postcssRTLCSS = (options: PluginOptions = {}): Plugin => ({
+const postcssRTLCSS = (options: PluginOptions = {}): Plugin => ({
     postcssPlugin: 'postcss-rtlcss',
     Once(css: Root): void {
         initStore(options);
@@ -20,3 +19,5 @@ export const postcssRTLCSS = (options: PluginOptions = {}): Plugin => ({
 });
 
 postcssRTLCSS.postcss = true;
+
+export default postcssRTLCSS;

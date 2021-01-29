@@ -11,6 +11,7 @@ script:
   - rm -rf ./coverage
 before_deploy:
   - yarn build
+  - yarn copy
 deploy:
   edge: true
   provider: npm

@@ -35,7 +35,7 @@ Basic usage
 
 ```bash
 const postcss = require('postcss');
-const { postcssRTLCSS } = require('postcss-rtlcss');
+const postcssRTLCSS = require('postcss-rtlcss');
 
 const options = { ... available options ... };
 const result = postcss([
@@ -49,7 +49,7 @@ const rtlCSS = result.css;
 
 ```bash
 import postcss from 'postcss';
-import { postcssRTLCSS } from 'postcss-rtlcss';
+import postcssRTLCSS from 'postcss-rtlcss';
 
 const options = { ... available options ... };
 const result = postcss([
@@ -318,7 +318,8 @@ The mode option has been explained in the [Output using the combined mode](#outp
 
 ```javascript
 import postcss from 'postcss';
-import { postcssRTLCSS, Mode } from 'postcss-rtlcss';
+import postcssRTLCSS from 'postcss-rtlcss';
+import { Mode } from 'postcss-rtlcss/options';
 
 const input = '... css code ...';
 const optionsCombined = { mode: Mode.combined }; // This is the default value
@@ -586,7 +587,7 @@ This option manages if the conversion will be from `LTR` to `RTL` or vice versa.
 ##### Using Source.ltr in combined mode
 
 ```javascript
-import { Mode, Source } from 'postcss-rtlcss';
+import { Mode, Source } from 'postcss-rtlcss/options';
 
 const options = {
     mode: Mode.combined,
@@ -609,7 +610,7 @@ const options = {
 ##### Using Source.rtl in override mode
 
 ```javascript
-import { Mode, Source } from 'postcss-rtlcss';
+import { Mode, Source } from 'postcss-rtlcss/options';
 
 const options = {
     mode: Mode.override,
@@ -929,7 +930,7 @@ Flip or not the selectors names of the rules without directional properties usin
 ##### Using Autorename.flexible
 
 ```javascript
-import { Autorename } from 'postcss-rtlcss';
+import { Autorename } from 'postcss-rtlcss/options';
 
 const options = {
     autoRename: Autorename.flexible
@@ -955,7 +956,7 @@ const options = {
 ##### Using Autorename.strict
 
 ```javascript
-import { Autorename } from 'postcss-rtlcss';
+import { Autorename } from 'postcss-rtlcss/options';
 
 const options = {
     autoRename: Autorename.strict
@@ -1007,7 +1008,7 @@ When `autoRename` is enabled and greedy is `true`, the strings replacements will
 ##### greedy false
 
 ```javascript
-import { Autorename } from 'postcss-rtlcss';
+import { Autorename } from 'postcss-rtlcss/options';
 
 const options = {
     autoRename: Autorename.flexible,
@@ -1030,7 +1031,7 @@ const options = {
 ##### greedy true
 
 ```javascript
-import { Autorename } from 'postcss-rtlcss';
+import { Autorename } from 'postcss-rtlcss/options';
 
 const options = {
     autoRename: Autorename.flexible,
