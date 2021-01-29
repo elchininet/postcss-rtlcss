@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import postcss, { LazyResult, Result } from 'postcss';
-import { postcssRTLCSS, PluginOptions } from 'postcss-rtlcss';
+import postcssRTLCSS from 'postcss-rtlcss';
+import { PluginOptions } from 'postcss-rtlcss/@types';
 import { CSSPanel } from '@components/CSSPanel';
 import { useAppContext } from '@components/AppProvider';
 import { cssLines } from './css';
