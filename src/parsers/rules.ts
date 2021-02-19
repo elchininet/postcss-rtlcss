@@ -1,5 +1,5 @@
 import postcss, { Container, Node, Rule, Comment } from 'postcss';
-import { ObjectWithProps, ControlDirective, Source } from '@types';
+import { ControlDirective, Source } from '@types';
 import { RULE_TYPE, CONTROL_DIRECTIVE } from '@constants';
 import { store } from '@data/store';
 import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
@@ -10,7 +10,7 @@ import { parseDeclarations } from './declarations';
 
 export const parseRules = (container: Container): void => {
 
-    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+    const controlDirectives: Record<string, ControlDirective> = {};
     const { source, ltrPrefix, rtlPrefix } = store.options;
 
     walkContainer(

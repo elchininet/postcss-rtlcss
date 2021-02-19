@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.0.1] - 2021-02-19
+
+- In the override method change the `unset` value to override properties by the intial value of them to support the override method in Internet Explorer
+
 ## [3.0.0] - 2021-01-29
 
 - Export the plugin as the default module to increase its compatibility

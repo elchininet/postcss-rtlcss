@@ -1,5 +1,5 @@
 import { Rule, AtRule, Node, Declaration } from 'postcss';
-import { ObjectWithProps, StringMap, Autorename } from '@types';
+import { StringMap, Autorename } from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_REGEXP, DECLARATION_TYPE, RULE_TYPE } from '@constants';
 import { store } from '@data/store';
 
@@ -56,7 +56,7 @@ export const appendAutorenameRules = (): void => {
         return;
     }
 
-    const replaceHash: ObjectWithProps<string> = store.options.stringMap.reduce((hash: ObjectWithProps<string>, map: StringMap): ObjectWithProps<string> => {
+    const replaceHash: Record<string, string> = store.options.stringMap.reduce((hash: Record<string, string>, map: StringMap): Record<string, string> => {
         const search = typeof map.search === 'string' ? [map.search] : map.search;
         const replace = typeof map.replace === 'string' ? [map.replace] : map.replace;
         search.forEach((s: string, index: number): void => {
@@ -71,7 +71,7 @@ export const appendAutorenameRules = (): void => {
         ? new RegExp(`(${replaces})`, 'g')
         : new RegExp(`\\b(${replaces})\\b`, 'g');
 
-    const rulesHash: ObjectWithProps<boolean> = {};
+    const rulesHash: Record<string, boolean> = {};
     const rulesToProcess: Rule[] = [];
 
     store.rulesAutoRename.forEach((rule: Rule): void => {
