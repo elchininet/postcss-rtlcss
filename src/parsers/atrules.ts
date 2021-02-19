@@ -1,6 +1,6 @@
 import postcss, { Root, Node, AtRule, Comment } from 'postcss';
 import rtlcss from 'rtlcss';
-import { AtRulesObject, AtRulesStringMap, Source, ControlDirective, ObjectWithProps } from '@types';
+import { AtRulesObject, AtRulesStringMap, Source, ControlDirective } from '@types';
 import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME, CONTROL_DIRECTIVE } from '@constants';
 import { store, initKeyframesData } from '@data/store';
 import { walkContainer } from '@utilities/containers';
@@ -23,7 +23,7 @@ export const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new R
 
 export const parseAtRules = (css: Root): void => {
 
-    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+    const controlDirectives: Record<string, ControlDirective> = {};
 
     walkContainer(
         css,
@@ -64,7 +64,7 @@ export const parseKeyFrames = (css: Root): void => {
         return;
     }
 
-    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+    const controlDirectives: Record<string, ControlDirective> = {};
 
     walkContainer(
         css,

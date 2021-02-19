@@ -1,6 +1,6 @@
 import postcss, { Rule, Node, Declaration, Comment } from 'postcss';
 import rtlcss from 'rtlcss';
-import { Source, Mode, Autorename, ObjectWithProps, ControlDirective } from '@types';
+import { Source, Mode, Autorename, ControlDirective } from '@types';
 import {
     DECLARATION_TYPE,
     FLIP_PROPERTY_REGEXP,
@@ -11,7 +11,7 @@ import {
 import { store } from '@data/store';
 import { addSelectorPrefixes } from '@utilities/selectors';
 import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
-import { declarations, allDeclarations, appendDeclarationToRule, hasIgnoreDirectiveInRaws } from '@utilities/declarations';
+import { declarations, allDeclarations, initialValues, appendDeclarationToRule, hasIgnoreDirectiveInRaws } from '@utilities/declarations';
 import { walkContainer } from '@utilities/containers';
 import { cleanRuleRawsBefore } from '@utilities/rules';
 import { vendor } from '@utilities/vendor';
@@ -39,7 +39,7 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
     const ruleBoth = ruleFlipped.clone();
     const ruleSafe = ruleFlipped.clone();
 
-    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<string>, node: Node): Record<string, string> => {
+    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: Record<string, string>, node: Node): Record<string, string> => {
         if (node.type === DECLARATION_TYPE) {
             const decl = node as Declaration;
             obj[decl.prop] = decl.value.trim();
@@ -50,7 +50,7 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
     const declarationsProps: string[] = [];
     let simetricRules = false;
 
-    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+    const controlDirectives: Record<string, ControlDirective> = {};
     
     walkContainer(
         rule,
@@ -201,7 +201,8 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
                 } else {
                     if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
                         const declClone = decl.clone();
-                        declClone.value = 'unset';
+                        /* istanbul ignore next */
+                        declClone.value = initialValues[decl.prop] || 'unset';
                         ruleFlipped.append(declClone);
                     }
                     if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {

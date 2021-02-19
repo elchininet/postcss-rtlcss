@@ -1,13 +1,16 @@
 import { Rule, Declaration } from 'postcss';
-import { ObjectWithProps, DeclarationsData } from '@types';
+import { DeclarationsData } from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_IGNORE_REGEXP } from '@constants';
 import shorthandDeclarationsJson from '@data/shorthand-declarations.json';
 import notShorthandDeclarationsJson from '@data/not-shorthand-declarations.json';
+import initialValuesJson from '@data/initial-values.json';
 
 const declarationsData: DeclarationsData = shorthandDeclarationsJson;
 const notShorthandDeclarationsArray: string[] = notShorthandDeclarationsJson;
-const declarations: ObjectWithProps<string[]> = {};
-const allDeclarations: ObjectWithProps<string[]> = {};
+const initialValuesData: Record<string, string[]> = initialValuesJson;
+const declarations: Record<string, string[]> = {};
+const allDeclarations: Record<string, string[]> = {};
+const initialValues: Record<string, string> = {};
 
 const getOverrideTree = (prop: string): string[] => {
     const overridenProp = declarationsData[prop].overridden;
@@ -27,6 +30,12 @@ Object.assign(allDeclarations, declarations);
 
 notShorthandDeclarationsArray.forEach((declaration: string): void => {
     allDeclarations[declaration] = [];
+});
+
+Object.keys(initialValuesData).forEach((value: string): void => {
+    initialValuesData[value].forEach((prop: string): void => {
+        initialValues[prop] = value;
+    });
 });
 
 const appendDeclarationToRule = (decl: Declaration, rule: Rule): void => {
@@ -52,6 +61,7 @@ const hasIgnoreDirectiveInRaws = (decl: Declaration): boolean => {
 export {
     declarations,
     allDeclarations,
+    initialValues,
     appendDeclarationToRule,
     hasIgnoreDirectiveInRaws
 };

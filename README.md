@@ -167,7 +167,7 @@ This is the alternative method, it will generate less code because it lets the m
 
 [dir="rtl"] .test1, [dir="rtl"] .test2 {
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -244,7 +244,7 @@ However, using the override method the generated code will be the next one:
 }
 
 [dir="rtl"] .test2 {
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 10px;
 }
 ```
@@ -626,7 +626,7 @@ const options = {
 }
 
 [dir="ltr"] .test1, [dir="ltr"] .test2 {
-    left: unset;
+    left: auto;
     right: 10px;
 }
 ```

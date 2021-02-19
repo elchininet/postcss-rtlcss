@@ -1,5 +1,5 @@
 import { Comment } from 'postcss';
-import { ObjectWithProps, ControlDirective } from '@types';
+import { ControlDirective } from '@types';
 import { RTL_CONTROL_DIRECTIVE_REG_EXP, CONTROL_DIRECTIVE, CONTROL_DIRECTIVE_BLOCK } from '@constants';
 
 const CONTROL_DIRECTIVE_VALUES = Object.values(CONTROL_DIRECTIVE) as string[];
@@ -32,7 +32,7 @@ export const getControlDirective = (comment: Comment): ControlDirective | null =
 
 export const isIgnoreDirectiveInsideAnIgnoreBlock = (
     controlDirective: ControlDirective,
-    controlDirectives: ObjectWithProps<ControlDirective>
+    controlDirectives: Record<string, ControlDirective>
 ): boolean => (
     controlDirective.directive === CONTROL_DIRECTIVE.IGNORE &&
     !controlDirective.block &&
@@ -40,7 +40,7 @@ export const isIgnoreDirectiveInsideAnIgnoreBlock = (
     controlDirectives[CONTROL_DIRECTIVE.IGNORE].block === CONTROL_DIRECTIVE_BLOCK.BEGIN
 );
 
-export const checkDirective = (controlDirectives: ObjectWithProps<ControlDirective>, directiveType: string): boolean => {
+export const checkDirective = (controlDirectives: Record<string, ControlDirective>, directiveType: string): boolean => {
 
     const directive = controlDirectives[directiveType];
 
