@@ -23,7 +23,7 @@
     "@emotion/react": "^11.1.2",
     "monaco-editor": "^0.21.2",
     "postcss": "^8.2.1",
-    "postcss-rtlcss": "^3.0.0",
+    "postcss-rtlcss": "^3.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
