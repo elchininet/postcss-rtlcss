@@ -18,7 +18,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
 
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -78,7 +78,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
+    left: auto;
     right: 100px;
     transform: translateX(-5px);
 }
@@ -112,7 +112,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
+    left: auto;
     right: 5px;
 }
 
@@ -159,7 +159,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
 }
 
 [dir=\\"rtl\\"] .test16:hover {
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
 }
 
@@ -202,7 +202,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
 }
 
 [dir=\\"rtl\\"] .test18::after {
-    left: unset;
+    left: auto;
     right: 10px;
 }
 
@@ -392,7 +392,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
 }
 
 [dir=\\"rtl\\"] .test33 {
-    left: unset;
+    left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
@@ -427,7 +427,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -487,7 +487,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
+    left: auto;
     right: 100px;
     transform: translateX(-5px);
 }
@@ -521,7 +521,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
+    left: auto;
     right: 5px;
 }
 
@@ -568,7 +568,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"rtl\\"] .test16:hover {
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
 }
 
@@ -613,7 +613,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"rtl\\"] .test18::after {
-    left: unset;
+    left: auto;
     right: 10px;
 }
 
@@ -829,7 +829,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"rtl\\"] .test33 {
-    left: unset;
+    left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
@@ -863,7 +863,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 [dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -928,7 +928,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
+    left: auto;
     right: 100px;
     transform: translateX(-5px);
 }
@@ -962,7 +962,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
+    left: auto;
     right: 5px;
 }
 
@@ -1009,7 +1009,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"rtl\\"] .test16:hover {
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
 }
 
@@ -1052,7 +1052,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"rtl\\"] .test18::after {
-    left: unset;
+    left: auto;
     right: 10px;
 }
 
@@ -1242,7 +1242,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"rtl\\"] .test33 {
-    left: unset;
+    left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
@@ -1277,7 +1277,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 
 [dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
     border-radius: 2px 0 8px 0;
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
@@ -1337,7 +1337,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
-    left: unset;
+    left: auto;
     right: 100px;
     transform: translateX(-5px);
 }
@@ -1371,7 +1371,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    left: unset;
+    left: auto;
     right: 5px;
 }
 
@@ -1418,7 +1418,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"ltr\\"] .test16:hover {
-    padding-right: unset;
+    padding-right: 0;
     padding-left: 20px;
 }
 
@@ -1461,7 +1461,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"ltr\\"] .test18::after {
-    left: unset;
+    left: auto;
     right: 10px;
 }
 
@@ -1651,7 +1651,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 }
 
 [dir=\\"ltr\\"] .test33 {
-    left: unset;
+    left: auto;
     right: 10px;
     height: 50px;
     width: 100px;

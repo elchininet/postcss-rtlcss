@@ -11,7 +11,7 @@ import {
 import { store } from '@data/store';
 import { addSelectorPrefixes } from '@utilities/selectors';
 import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
-import { declarations, allDeclarations, appendDeclarationToRule, hasIgnoreDirectiveInRaws } from '@utilities/declarations';
+import { declarations, allDeclarations, initialValues, appendDeclarationToRule, hasIgnoreDirectiveInRaws } from '@utilities/declarations';
 import { walkContainer } from '@utilities/containers';
 import { cleanRuleRawsBefore } from '@utilities/rules';
 
@@ -200,7 +200,8 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
                 } else {
                     if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
                         const declClone = decl.clone();
-                        declClone.value = 'unset';
+                        /* istanbul ignore next */
+                        declClone.value = initialValues[decl.prop] || 'unset';
                         ruleFlipped.append(declClone);
                     }
                     if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
