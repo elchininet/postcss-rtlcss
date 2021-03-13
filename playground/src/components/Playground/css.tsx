@@ -102,4 +102,18 @@ export const cssLines = `.test1, .test2 {
     transform: translate(10px, 20px);
 }
 */
+
+.test18 {
+    left: 10px;
+    &.test19 {
+        color: black;
+        margin-left: 20px;
+    }
+    &.test20 {
+        padding: 5px;
+        span {
+            text-align: left;
+        }
+    }
+}
 `;

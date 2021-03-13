@@ -40,7 +40,7 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
                 enabled: false
             },
             scrollBeyondLastLine: false,
-            language: 'css'
+            language: 'scss'
         });
 
         panel.current.onDidChangeModelContent(() => {
