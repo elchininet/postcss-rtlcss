@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Override Tests Nested rules Override {source: ltr} 1`] = `
+".test1 {
+    color: red;
+    left: 10px;
+    .test2 {
+        text-align: left;
+        padding: 5px;
+        width: 100%;
+    }
+}
+
+[dir=\\"rtl\\"] .test1 {
+    left: auto;
+    right: 10px;
+    .test2 {
+        text-align: right;
+    }
+}
+
+.test3 {
+    left: 10px;
+    &.test4 {
+        color: black;
+        margin-left: 20px;
+    }
+    &.test5 {
+        padding: 5px;
+        span {
+            text-align: left;
+        }
+    }
+}
+
+[dir=\\"rtl\\"] .test3 {
+    left: auto;
+    right: 10px;
+    &.test4 {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+    &.test5 {
+        span {
+            text-align: right;
+        }
+    }
+}
+
+.test6 {
+    display: flex;
+    .global & {
+        color: white;
+        padding: 5px 10px 5px 5px;
+        border-left-color: #666;
+        div {
+            margin: 0 auto;
+            padding-left: 20px;
+        }
+    }
+    .test7 {
+        .global & {
+            background-color: #FFF;
+            ::after {
+                content: \\"\\";
+                display: block;
+                text-align: left;
+            }
+        }
+    }
+}
+
+[dir=\\"rtl\\"] .test6 {
+    .global & {
+        padding: 5px 5px 5px 10px;
+        border-left-color: currentcolor;
+        border-right-color: #666;
+        div {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+    }
+    .test7 {
+        .global & {
+            ::after {
+                text-align: right;
+            }
+        }
+    }
+}"
+`;
+
+exports[`Override Tests Nested rules Override {source: rtl} 1`] = `
+".test1 {
+    color: red;
+    left: 10px;
+    .test2 {
+        text-align: left;
+        padding: 5px;
+        width: 100%;
+    }
+}
+
+[dir=\\"ltr\\"] .test1 {
+    left: auto;
+    right: 10px;
+    .test2 {
+        text-align: right;
+    }
+}
+
+.test3 {
+    left: 10px;
+    &.test4 {
+        color: black;
+        margin-left: 20px;
+    }
+    &.test5 {
+        padding: 5px;
+        span {
+            text-align: left;
+        }
+    }
+}
+
+[dir=\\"ltr\\"] .test3 {
+    left: auto;
+    right: 10px;
+    &.test4 {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+    &.test5 {
+        span {
+            text-align: right;
+        }
+    }
+}
+
+.test6 {
+    display: flex;
+    .global & {
+        color: white;
+        padding: 5px 10px 5px 5px;
+        border-left-color: #666;
+        div {
+            margin: 0 auto;
+            padding-left: 20px;
+        }
+    }
+    .test7 {
+        .global & {
+            background-color: #FFF;
+            ::after {
+                content: \\"\\";
+                display: block;
+                text-align: left;
+            }
+        }
+    }
+}
+
+[dir=\\"ltr\\"] .test6 {
+    .global & {
+        padding: 5px 5px 5px 10px;
+        border-left-color: currentcolor;
+        border-right-color: #666;
+        div {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+    }
+    .test7 {
+        .global & {
+            ::after {
+                text-align: right;
+            }
+        }
+    }
+}"
+`;
