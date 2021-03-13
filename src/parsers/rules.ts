@@ -8,7 +8,7 @@ import { cleanRuleRawsBefore } from '@utilities/rules';
 import { addSelectorPrefixes } from '@utilities/selectors';
 import { parseDeclarations } from './declarations';
 
-export const parseRules = (container: Container): void => {
+export const parseRules = (container: Container, hasParentRule = false): void => {
 
     const controlDirectives: Record<string, ControlDirective> = {};
     const { source, ltrPrefix, rtlPrefix } = store.options;
@@ -47,10 +47,12 @@ export const parseRules = (container: Container): void => {
 
             if (checkDirective(controlDirectives, CONTROL_DIRECTIVE.RENAME)) {
                 store.rulesAutoRename.push(rule);
-                parseDeclarations(rule, true);
+                parseDeclarations(rule, hasParentRule, true);
             } else {
-                parseDeclarations(rule);
-            }           
+                parseDeclarations(rule, hasParentRule);
+            }
+            
+            parseRules(rule, true);
         
         }
     );    
