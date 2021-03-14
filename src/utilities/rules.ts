@@ -167,7 +167,7 @@ export const cleanRuleRawsBefore = (node: Node | void): void => {
 };
 
 export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void => {
-    rules.forEach((rule: Rule | undefined | null): void | undefined => {        
+    rules.forEach((rule: Rule | AtRule | undefined | null): void => {        
         const prev = rule.prev();
         if (prev && prev.type !== COMMENT_TYPE) {
             cleanRuleRawsBefore(rule);

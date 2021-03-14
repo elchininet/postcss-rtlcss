@@ -93,5 +93,5 @@ export interface DeclarationsData {
 export interface ControlDirective {
     block?: string;
     directive: string;
-    raw?: string;
+    option?: string;
 }

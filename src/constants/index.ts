@@ -15,6 +15,7 @@ export const FLIP_PROPERTY_REGEXP = /(right|left)/i;
 export enum CONTROL_DIRECTIVE {
     IGNORE = 'ignore',
     RENAME = 'rename',
+    SOURCE = 'source',
     RAW = 'raw'
 }
 

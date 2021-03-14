@@ -4,7 +4,11 @@ import { AtRulesObject, AtRulesStringMap, Source, ControlDirective } from '@type
 import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME, CONTROL_DIRECTIVE } from '@constants';
 import { store, initKeyframesData } from '@data/store';
 import { walkContainer } from '@utilities/containers';
-import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
+import {
+    isIgnoreDirectiveInsideAnIgnoreBlock,
+    checkDirective,
+    getSourceDirectiveValue
+} from '@utilities/directives';
 import { vendor } from '@utilities/vendor';
 import { parseRules } from '@parsers/rules';
 
@@ -49,7 +53,9 @@ export const parseAtRules = (css: Root): void => {
 
             if (vendor.unprefixed(atRule.name) === KEYFRAMES_NAME) return;
 
-            parseRules(atRule);
+            const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
+
+            parseRules(atRule, sourceDirectiveValue);
 
         }
     );
@@ -101,9 +107,33 @@ export const parseKeyFrames = (css: Root): void => {
             const atRuleParams = atRule.params;
             const ltr = `${atRuleParams}-${Source.ltr}`;
             const rtl = `${atRuleParams}-${Source.rtl}`;
-
-            atRule.params = source === Source.ltr ? ltr : rtl;
-            atRuleFlipped.params = source === Source.ltr ? rtl : ltr;
+            const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
+            
+            atRule.params = (
+                (
+                    !sourceDirectiveValue &&
+                    source === Source.ltr
+                ) ||
+                (
+                    sourceDirectiveValue &&
+                    sourceDirectiveValue === Source.ltr
+                )
+            )
+                ? ltr
+                : rtl;
+            
+            atRuleFlipped.params = (
+                (
+                    !sourceDirectiveValue &&
+                    source === Source.ltr
+                ) ||
+                (
+                    sourceDirectiveValue &&
+                    sourceDirectiveValue === Source.ltr
+                )
+            )
+                ? rtl
+                : ltr;
 
             store.keyframes.push({
                 atRuleParams,

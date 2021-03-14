@@ -395,6 +395,180 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
 
 [dir=\\"rtl\\"] .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+}
+
+[dir=\\"ltr\\"] .test37 {
+    text-align: right;
+}
+
+.test38 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+}
+
+[dir=\\"ltr\\"] .test38 {
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 10px;
+    width: 50%;
+}
+
+[dir=\\"ltr\\"] .test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+    left: 5px;
+}
+
+[dir=\\"ltr\\"] .test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+[dir=\\"ltr\\"] .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+[dir=\\"ltr\\"] .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip-ltr {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+@keyframes normalFlip-rtl {
+    from {
+        right: 0px;
+        top: 0px;
+    }
+    to {
+        right: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip-ltr 1s ease-in-out;
+}
+
+[dir=\\"rtl\\"] .test44 {
+    animation: 5s normalFlip-rtl 1s ease-in-out;
+}
+@keyframes inversedFlip-rtl {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+@keyframes inversedFlip-ltr {
+    from {
+        right: 0px;
+        top: 0px;
+    }
+    to {
+        right: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip-rtl 1s ease-in-out;
+}
+
+[dir=\\"ltr\\"] .test45 {
+    animation: 5s inversedFlip-ltr 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"rtl\\"] .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"ltr\\"] .test48 {
+        text-align: right;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;
 
@@ -769,6 +943,152 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
 
 [dir=\\"rtl\\"] .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+}
+
+[dir=\\"ltr\\"] .test37 {
+    text-align: right;
+}
+
+.test38 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+}
+
+[dir=\\"ltr\\"] .test38 {
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 10px;
+    width: 50%;
+}
+
+[dir=\\"ltr\\"] .test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+    left: 5px;
+}
+
+[dir=\\"ltr\\"] .test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+[dir=\\"ltr\\"] .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+[dir=\\"ltr\\"] .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+@keyframes inversedFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"rtl\\"] .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"ltr\\"] .test48 {
+        text-align: right;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;
 
@@ -1167,6 +1487,174 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
 
 [dir=\\"ltr\\"] .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 10px;
+    width: 50%;
+}
+
+[dir=\\"ltr\\"] .test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+    left: 5px;
+}
+
+[dir=\\"ltr\\"] .test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+[dir=\\"ltr\\"] .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+[dir=\\"ltr\\"] .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip-ltr {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+@keyframes normalFlip-rtl {
+    from {
+        right: 0px;
+        top: 0px;
+    }
+    to {
+        right: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip-ltr 1s ease-in-out;
+}
+
+[dir=\\"rtl\\"] .test44 {
+    animation: 5s normalFlip-rtl 1s ease-in-out;
+}
+@keyframes inversedFlip-rtl {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+@keyframes inversedFlip-ltr {
+    from {
+        right: 0px;
+        top: 0px;
+    }
+    to {
+        right: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip-rtl 1s ease-in-out;
+}
+
+[dir=\\"ltr\\"] .test45 {
+    animation: 5s inversedFlip-ltr 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"rtl\\"] .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"ltr\\"] .test48 {
+        text-align: right;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;
 
@@ -1537,6 +2025,146 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
 
 [dir=\\"ltr\\"] .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 10px;
+    width: 50%;
+}
+
+[dir=\\"ltr\\"] .test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+    left: 5px;
+}
+
+[dir=\\"ltr\\"] .test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+[dir=\\"ltr\\"] .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+[dir=\\"ltr\\"] .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+@keyframes inversedFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"rtl\\"] .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"ltr\\"] .test48 {
+        text-align: right;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;
 
@@ -1909,6 +2537,152 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
 
 [dir=\\"rtl\\"] .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+}
+
+[dir=\\"ltr\\"] .test37 {
+    text-align: right;
+}
+
+.test38 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+}
+
+[dir=\\"ltr\\"] .test38 {
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 10px;
+    width: 50%;
+}
+
+[dir=\\"ltr\\"] .test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+    left: 5px;
+}
+
+[dir=\\"ltr\\"] .test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+[dir=\\"ltr\\"] .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+[dir=\\"ltr\\"] .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+@keyframes inversedFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"rtl\\"] .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"ltr\\"] .test48 {
+        text-align: right;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;
 
@@ -2279,5 +3053,151 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
 
 [dir=\\"rtl\\"] .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"ltr\\"] .test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+}
+
+[dir=\\"ltr\\"] .test37 {
+    text-align: right;
+}
+
+.test38 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir=\\"rtl\\"] .test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+}
+
+[dir=\\"ltr\\"] .test38 {
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 10px;
+    width: 50%;
+}
+
+[dir=\\"ltr\\"] .test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+    left: 5px;
+}
+
+[dir=\\"ltr\\"] .test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir=\\"ltr\\"] .test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+[dir=\\"ltr\\"] .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+[dir=\\"ltr\\"] .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+@keyframes inversedFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"rtl\\"] .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir=\\"ltr\\"] .test48 {
+        text-align: right;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;
