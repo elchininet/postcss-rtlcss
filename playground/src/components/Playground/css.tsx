@@ -116,4 +116,11 @@ export const cssLines = `.test1, .test2 {
         }
     }
 }
+
+/*rtl:source:rtl*/
+.test19 {
+    left: 10px;
+    text-align: left;
+    width: 50%;
+}
 `;
