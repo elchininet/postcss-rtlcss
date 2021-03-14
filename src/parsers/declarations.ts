@@ -9,7 +9,11 @@ import {
     CONTROL_DIRECTIVE
 } from '@constants';
 import { store } from '@data/store';
-import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
+import {
+    isIgnoreDirectiveInsideAnIgnoreBlock,
+    checkDirective,
+    getSourceDirectiveValue
+} from '@utilities/directives';
 import {
     declarations,
     allDeclarations,
@@ -28,11 +32,13 @@ import { vendor } from '@utilities/vendor';
 export const parseDeclarations = (
     rule: Rule,
     hasParentRule: boolean,
-    autorenamed = false
+    ruleSourceDirectiveValue: string,
+    autorenamed = false    
 ): void => {
 
     const {
         mode,
+        source,
         safeBothPrefix,
         processUrls,
         useCalc,
@@ -64,14 +70,39 @@ export const parseDeclarations = (
         rule,
         [ DECLARATION_TYPE ],
         (comment: Comment, controlDirective: ControlDirective) => {
-
+            
             cleanRuleRawsBefore(comment.next());              
-            comment.remove(); 
-
-            if (controlDirective.directive === CONTROL_DIRECTIVE.RAW && controlDirective.raw) {
-                const root = postcss.parse(controlDirective.raw);
-                if (mode === Mode.combined) {
-                    ruleFlippedSecond.append(root.nodes);
+            comment.remove();
+            
+            if (
+                controlDirective.directive === CONTROL_DIRECTIVE.RAW &&
+                controlDirective.option
+            ) {
+                const sourceDirectiveValue = getSourceDirectiveValue(
+                    controlDirectives,
+                    ruleSourceDirectiveValue
+                );
+                const root = postcss.parse(controlDirective.option);
+                if (
+                    (
+                        mode === Mode.combined &&
+                        !sourceDirectiveValue                        
+                    ) ||
+                    (
+                        sourceDirectiveValue &&
+                        (
+                            (
+                                mode === Mode.combined &&
+                                sourceDirectiveValue === source
+                            ) ||
+                            (
+                                mode !== Mode.combined &&
+                                sourceDirectiveValue !== source
+                            )
+                        )
+                    )
+                ) {
+                    ruleFlippedSecond.append(root.nodes);                  
                 } else {
                     ruleFlipped.append(root.nodes);
                 }
@@ -121,6 +152,11 @@ export const parseDeclarations = (
             const isConflictedDeclaration = safeBothPrefix
                 ? !!allDeclarations[declPropUnprefixed]
                 : false;
+            const sourceDirectiveValue = getSourceDirectiveValue(
+                controlDirectives,
+                ruleSourceDirectiveValue
+            );
+            const normalFlip = !sourceDirectiveValue || sourceDirectiveValue === source;
             
             if (
                 !hasBeenOverriden &&
@@ -133,7 +169,7 @@ export const parseDeclarations = (
             }
             
             if (isAnimation) {
-
+                
                 if(
                     declProp === declFlippedProp &&
                     declValue === declFlippedValue &&
@@ -142,12 +178,10 @@ export const parseDeclarations = (
                         !store.keyframesRegExp.test(declValue)
                     )
                 ) {
-
                     if (safeBothPrefix && !hasIgnoreDirectiveInRaws(decl)) {
                         appendDeclarationToRule(decl, ruleSafe);
                         deleteDeclarations.push(decl);
-                    }                    
-
+                    }
                 } else {
                     const animationDeclValue = decl.value.replace(
                         store.keyframesRegExp,
@@ -167,14 +201,23 @@ export const parseDeclarations = (
                         const declClone = decl.clone();
                         declClone.value = animationDeclValue;
                         declCloneFlipped.value = animationDeclValueFlipped;
-                        ruleFlipped.append(declClone);
-                        ruleFlippedSecond.append(declCloneFlipped);
+                        if (normalFlip) {
+                            ruleFlipped.append(declClone);
+                            ruleFlippedSecond.append(declCloneFlipped);
+                        } else {
+                            ruleFlipped.append(declCloneFlipped);
+                            ruleFlippedSecond.append(declClone);
+                        }                        
                         deleteDeclarations.push(decl);
                     } else {
                         const declCloneFlipped = decl.clone(); 
                         decl.value = animationDeclValue;                            
                         declCloneFlipped.value = animationDeclValueFlipped;
-                        ruleFlipped.append(declCloneFlipped);
+                        if (normalFlip) {
+                            ruleFlipped.append(declCloneFlipped);
+                        } else {
+                            ruleFlippedSecond.append(declCloneFlipped);
+                        }                        
                         if (safeBothPrefix) {
                             appendDeclarationToRule(decl, ruleSafe);                       
                             deleteDeclarations.push(decl);
@@ -203,21 +246,34 @@ export const parseDeclarations = (
                 }
 
                 if (mode === Mode.combined) {
-                    appendDeclarationToRule(decl, ruleFlipped);
-                    ruleFlippedSecond.append(declFlipped);
+                    if (normalFlip) {
+                        appendDeclarationToRule(decl, ruleFlipped);
+                        ruleFlippedSecond.append(declFlipped);
+                    } else {
+                        appendDeclarationToRule(decl, ruleFlippedSecond);
+                        ruleFlipped.append(declFlipped);
+                    }                    
                     deleteDeclarations.push(decl);
                 } else {
                     if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
                         const declClone = decl.clone();
                         /* istanbul ignore next */
                         declClone.value = initialValues[decl.prop] || 'unset';
-                        ruleFlipped.append(declClone);
+                        if (normalFlip) {
+                            ruleFlipped.append(declClone);
+                        } else {
+                            ruleFlippedSecond.append(declClone);
+                        }                        
                     }
                     if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
                         appendDeclarationToRule(decl, ruleSafe);
                         deleteDeclarations.push(decl);
                     }
-                    ruleFlipped.append(declFlipped);
+                    if (normalFlip) {
+                        ruleFlipped.append(declFlipped);
+                    } else {
+                        ruleFlippedSecond.append(declFlipped);
+                    }                    
                 }
 
                 declarationsProps.push(declPropUnprefixed);
