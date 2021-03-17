@@ -13,7 +13,7 @@ const flipLines = (lines: string, options: PluginOptions = {}): LazyResult => {
 
 export const Playground = (): JSX.Element => {
     
-    const { options, windowSizes } = useAppContext();
+    const { ready, fetchCode, setCode, options, windowSizes } = useAppContext();
     const { isSmallScreen, panelHeight, panelWidth } = windowSizes;
     const [ lines, setLines ] = useState<string>(cssLines);
     const [ linesFlipped, setLinesFlipped ] = useState<string>('');
@@ -23,10 +23,11 @@ export const Playground = (): JSX.Element => {
             setLinesFlipped(result.css);
         }).catch((error): void => {           
             setLinesFlipped(`/* ${error.name}: ${error.message} */`);
-        }); 
+        });
+        setCode(lines);
     }, [ lines, options ]);
 
-    const onChangeCode = (code: string): void => {  
+    const onChangeCode = (code: string): void => {
         setLines(code);       
     };
 
@@ -40,7 +41,11 @@ export const Playground = (): JSX.Element => {
         <div css={stylesheet.wrapper}>
             <CSSPanel
                 title="css input"
-                lines={cssLines}
+                lines={
+                    ready
+                        ? fetchCode || cssLines
+                        : ''
+                }
                 readOnly={isSmallScreen}
                 onChange={onChangeCode}
                 { ...comonProps }

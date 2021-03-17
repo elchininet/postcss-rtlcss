@@ -16,7 +16,9 @@
         "@types": ["@types"],
         "@constants": ["constants"],
         "@components/*": ["components/*"],
-        "@utilities/*": ["utilities/*"]
+        "@hooks/*": ["hooks/*"],
+        "@utilities/*": ["utilities/*"],
+        "@icons/*": ["icons/*"]
       }
   },
   "include": ["src/**/*"],
