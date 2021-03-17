@@ -9,6 +9,7 @@ export const Header = (): JSX.Element => {
     const shareCallback = useCallback(() => {
         share(code);
     }, [share, code]);
+    const showShareButton = canShare && token && code && code !== cssLines;
     return (
         <header css={stylesheet.wrapper}>
             <div css={stylesheet.logo}>
@@ -17,7 +18,7 @@ export const Header = (): JSX.Element => {
                 <span>&nbsp;{ '}' }</span>
             </div>
             <div css={stylesheet.icons}>
-                {canShare && token && code !== cssLines && (
+                {showShareButton && (
                     <button css={stylesheet.button} onClick={shareCallback}>
                         <Share size={20} />
                     </button>
