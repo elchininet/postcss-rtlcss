@@ -28,6 +28,12 @@ module.exports = {
     },
     overrides: [
         {
+            files: ['*.ts', '*.tsx'],
+            rules: {
+                '@typescript-eslint/ban-types': 'off'
+            }
+        },
+        {
             files: ['*.js'],
             rules: {
                 '@typescript-eslint/explicit-function-return-type': 'off'

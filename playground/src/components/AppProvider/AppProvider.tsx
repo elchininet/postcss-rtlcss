@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, createContext, useContext, useState, useEffect } from 'react';
-import { PluginOptions, Mode, Source, Autorename } from 'postcss-rtlcss/options';
+import { PluginOptions, Mode, Source, Autorename } from 'postcss-rtlcss/@types';
 import { useApi } from '@hooks/useApi';
 import { breakpointSizes } from '@utilities/styles';
 
@@ -122,4 +122,4 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
     );
 };
 
-export const useAppContext = () => useContext(AppContext);
+export const useAppContext = (): AppProviderContext => useContext<AppProviderContext>(AppContext);
