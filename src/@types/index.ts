@@ -52,7 +52,7 @@ export interface PluginOptions {
     processKeyFrames?: boolean;
     useCalc?: boolean;
     stringMap?: PluginStringMap[];
-    autoRename?: Autorename;
+    autoRename?: AutorenameValues;
     greedy?: boolean;
 }
 
