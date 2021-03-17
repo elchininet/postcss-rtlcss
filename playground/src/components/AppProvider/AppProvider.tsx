@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, createContext, useContext, useState, useEffect } from 'react';
-import { PluginOptions, Mode, Source, Autorename } from 'postcss-rtlcss';
+import { PluginOptions, Mode, Source, Autorename } from 'postcss-rtlcss/options';
+import { useApi } from '@hooks/useApi';
 import { breakpointSizes } from '@utilities/styles';
 
 export interface WindowSizes {
@@ -11,9 +12,16 @@ export interface WindowSizes {
 }
 
 export interface AppProviderContext {
+    canShare: boolean;
+    ready: boolean;
+    token: string;
+    fetchCode: string;
+    code: string;
     optionsOpen: boolean;
     options: PluginOptions;
     windowSizes: WindowSizes;
+    setCode: (code: string) => void;
+    share: (code: string) => void;
     setOptionsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     changeOptionsMode: (mode: Mode) => void;
     changeOptionsSource: (source: Source) => void;
@@ -54,17 +62,11 @@ export const AppContext = createContext<AppProviderContext>({} as AppProviderCon
 export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
 
     let delay: number;
+    const [ code, setCode ] = useState<string>(null);
     const [ options, setOptions ] = useState<PluginOptions>(defaultOptions);
     const [ sizes, setSizes ] = useState<WindowSizes>(windowSizes);
     const [ optionsOpen, setOptionsOpen ] = useState<boolean>(false);
-    
-    const resize = (): void => {
-        if (delay) window.clearTimeout(delay);
-        delay = window.setTimeout((): void => {            
-            const windowSizes = getWindowSizes();
-            setSizes(windowSizes);       
-        }, 100);
-    };
+    const { canShare, ready, token, fetchCode, share } = useApi();
 
     useEffect(() => {
         window.removeEventListener('resize', resize);
@@ -73,6 +75,14 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
             window.removeEventListener('resize', resize);
         };
     }, []);
+
+    const resize = (): void => {
+        if (delay) window.clearTimeout(delay);
+        delay = window.setTimeout((): void => {            
+            const windowSizes = getWindowSizes();
+            setSizes(windowSizes);       
+        }, 100);
+    };
 
     const changeOptionsMode = (mode: Mode): void => setOptions({ ...options, mode });
     const changeOptionsSource = (source: Source): void => setOptions({ ...options, source });
@@ -84,8 +94,15 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
     const changeOptionsGreedy = (greedy: boolean): void => setOptions({ ...options, greedy });
 
     const providerData = {
+        canShare,
+        ready,
+        token,
+        fetchCode,
+        code,
         options,
         optionsOpen,
+        setCode,
+        share,
         setOptionsOpen,
         changeOptionsMode,
         changeOptionsSource,

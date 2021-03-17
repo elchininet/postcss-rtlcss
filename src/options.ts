@@ -1,4 +1,4 @@
-import { Mode, Source, Autorename } from '@types';
+import { PluginOptions, Mode, Source, Autorename } from '@types';
 
 export default {
     Mode,
