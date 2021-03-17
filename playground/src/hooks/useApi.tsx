@@ -60,6 +60,32 @@ const fetchApi = (data?: Record<string, string>): Promise<FetchResponse> => {
     });
 };
 
+const getToken = () => new Promise((resolve, reject) => {
+    fetchApi()
+        .then((data: FetchResponse) => {
+            if (data.success && data.token) {
+                resolve(data.token);
+            } else {
+                reject();
+            }
+        })
+        .catch(() => reject());
+});
+
+const getCode = (code: string, token: string) => new Promise((resolve, reject) => {
+    fetchApi({code, token})
+        .then((data: FetchResponse) => {
+            if (data.success && data.id) {
+                resolve(data.id);
+            } else {
+                reject();
+            }
+        })
+        .catch(() => {
+            console.log('Error sharing code');
+        });
+});
+
 export const useApi = (): UseApiProps => {
 
     const [ id, setId ] = useState<string>(null);
@@ -84,26 +110,28 @@ export const useApi = (): UseApiProps => {
 
     const share = useCallback((code: string): void => {
         if (token) {
-            fetchApi({code, token})
-                .then((data: FetchResponse) => {
-                    if (data.success && data.id && history) {
-                        history.replaceState('', '', `#${data.id}`);
-                    }
+            getCode(code, token)
+                .then((id: string) => {
+                    history.replaceState('', '', `#${id}`);
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(window.location.href);
+                    }                    
+                })
+                .catch(() => {
+                    setToken(null);
                 });
         }
     }, [token]);
 
     useEffect(() => {
-        fetchApi()
-            .then((data: FetchResponse) => {
-                if (data.success && data.token) {
-                    setToken(data.token);
-                } else {
-                    setReady(true);
-                }
-            })
-            .catch(() => setReady(true));
-    }, []);
+        if (!token) {
+            getToken()
+                .then((newToken: string) => {
+                    setToken(newToken);
+                })
+                .catch(() => setReady(true));
+        }        
+    }, [token]);
 
     useEffect(() => {
         if (token) {
