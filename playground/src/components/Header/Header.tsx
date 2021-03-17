@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { Share } from '@icons/Share';
 import { useAppContext } from '@components/AppProvider';
+import { cssLines } from '@components/Playground/css';
 import { stylesheet } from './stylesheet';
 
 export const Header = (): JSX.Element => {
@@ -16,7 +17,7 @@ export const Header = (): JSX.Element => {
                 <span>&nbsp;{ '}' }</span>
             </div>
             <div css={stylesheet.icons}>
-                {canShare && token && (
+                {canShare && token && code !== cssLines && (
                     <button css={stylesheet.button} onClick={shareCallback}>
                         <Share size={20} />
                     </button>
