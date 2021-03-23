@@ -38,6 +38,12 @@ module.exports = {
             rules: {
                 '@typescript-eslint/explicit-function-return-type': 'off'
             }
+        },
+        {
+            files: ['*config.js'],
+            rules: {
+                '@typescript-eslint/no-var-requires': 'off'
+            }
         }
     ]
 };
