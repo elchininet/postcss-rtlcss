@@ -19,13 +19,21 @@ Install
 #### npm
 
 ```bash
+## Latest version (postcss@^8.0.0)
 npm install postcss-rtlcss --save-dev
+
+## Latest legacy version (postcss@^7.0.0)
+npm install postcss-rtlcss@legacy --save-dev
 ```
 
 #### yarn
 
 ```bash
+## Latest version (postcss@^8.0.0)
 yarn add postcss-rtlcss -D
+
+## Latest legacy version (postcss@^7.0.0)
+yarn add postcss-rtlcss@legacy -D
 ```
 
 Basic usage
