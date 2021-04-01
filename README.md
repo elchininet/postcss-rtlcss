@@ -33,7 +33,7 @@ Basic usage
 
 #### Usage with commonJS
 
-```bash
+```javascript
 const postcss = require('postcss');
 const postcssRTLCSS = require('postcss-rtlcss');
 
@@ -45,9 +45,14 @@ const result = postcss([
 const rtlCSS = result.css;
 ```
 
+##### commonJS with the legacy version (1.x.x)
+```javascript
+const { postcssRTLCSS } = require('postcss-rtlcss');
+```
+
 #### Usage with ES6 modules
 
-```bash
+```javascript
 import postcss from 'postcss';
 import postcssRTLCSS from 'postcss-rtlcss';
 
@@ -59,9 +64,15 @@ const result = postcss([
 const rtlCSS = result.css;
 ```
 
+##### ES6 modules with the legacy version (1.x.x)
+
+```javascript
+import { postcssRTLCSS } from 'postcss-rtlcss';
+```
+
 #### Usage in Webpack with postcss-loader
 
-```bash
+```javascript
 rules: [
     {
         test: /\.css$/,
