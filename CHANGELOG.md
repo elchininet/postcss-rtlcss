@@ -8,7 +8,7 @@
 
 - Add basic support for nested rules (SCSS)
 
-## [3.0.1] - 2021-02-19
+## [3.0.1 / 1.6.5] - 2021-02-19
 
 - In the override method change the `unset` value to override properties by the intial value of them to support the override method in Internet Explorer
 
