@@ -1,10 +1,10 @@
 # Changelog
 
-## [3.3.0] - 2021-03-14
+## [3.3.0 / 1.6.7] - 2021-03-14
 
 - Implemented `/*rtl:source:{source}*/`, `/*rtl:begin:source:{source}*/`, and `/*rtl:end:source*/`
 
-## [3.2.0] - 2021-03-13
+## [3.2.0 / 1.6.6] - 2021-03-13
 
 - Add basic support for nested rules (SCSS)
 
