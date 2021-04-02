@@ -1,6 +1,6 @@
-import postcss, { Rule, Node, Declaration, Comment, vendor } from 'postcss';
+import postcss, { Rule, Node, Declaration, Comment } from 'postcss';
 import rtlcss from 'rtlcss';
-import { Source, Mode, Autorename, ObjectWithProps, ControlDirective } from '@types';
+import { Mode, Autorename, ControlDirective } from '@types';
 import {
     DECLARATION_TYPE,
     FLIP_PROPERTY_REGEXP,
@@ -9,21 +9,31 @@ import {
     CONTROL_DIRECTIVE
 } from '@constants';
 import { store } from '@data/store';
-import { addSelectorPrefixes } from '@utilities/selectors';
 import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
-import { declarations, allDeclarations, initialValues, appendDeclarationToRule, hasIgnoreDirectiveInRaws } from '@utilities/declarations';
+import {
+    declarations,
+    allDeclarations,
+    initialValues,
+    appendDeclarationToRule,
+    hasIgnoreDirectiveInRaws
+} from '@utilities/declarations';
 import { walkContainer } from '@utilities/containers';
-import { cleanRuleRawsBefore } from '@utilities/rules';
+import {
+    cleanRuleRawsBefore,
+    insertRuleIntoStore,
+    appendParentRuleToStore
+} from '@utilities/rules';
+import { vendor } from 'postcss';
 
-export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
+export const parseDeclarations = (
+    rule: Rule,
+    hasParentRule: boolean,
+    autorenamed = false
+): void => {
 
     const {
         mode,
-        ltrPrefix,
-        rtlPrefix,
-        bothPrefix,
         safeBothPrefix,
-        source,
         processUrls,
         useCalc,
         stringMap,
@@ -32,13 +42,12 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
     } = store.options;
 
     const deleteDeclarations: Declaration[] = [];
-
     const ruleFlipped = rule.clone().removeAll();
     const ruleFlippedSecond = ruleFlipped.clone();
     const ruleBoth = ruleFlipped.clone();
-    const ruleSafe = ruleFlipped.clone();
+    const ruleSafe = ruleFlipped.clone();   
 
-    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: ObjectWithProps<string>, node: Node): Record<string, string> => {
+    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: Record<string, string>, node: Node): Record<string, string> => {
         if (node.type === DECLARATION_TYPE) {
             const decl = node as Declaration;
             obj[decl.prop] = decl.value.trim();
@@ -49,7 +58,7 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
     const declarationsProps: string[] = [];
     let simetricRules = false;
 
-    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+    const controlDirectives: Record<string, ControlDirective> = {};
     
     walkContainer(
         rule,
@@ -222,29 +231,37 @@ export const parseDeclarations = (rule: Rule, autorenamed = false): void => {
         deleteDeclarations.forEach((decl: Declaration): Declaration => decl.remove());
     }
 
-    if (ruleFlipped.nodes.length || ruleFlippedSecond.nodes.length || ruleBoth.nodes.length || ruleSafe.nodes.length) {
+    if (
+        ruleFlipped.nodes.length ||
+        ruleFlippedSecond.nodes.length ||
+        ruleBoth.nodes.length ||
+        ruleSafe.nodes.length
+    ) {
 
-        if (mode === Mode.combined) {
-            addSelectorPrefixes(ruleFlipped, source === Source.ltr ? ltrPrefix : rtlPrefix);
-            addSelectorPrefixes(ruleFlippedSecond, source === Source.rtl ? ltrPrefix : rtlPrefix);
+        if (hasParentRule) {            
+            appendParentRuleToStore(
+                rule,
+                ruleFlipped,
+                ruleFlippedSecond,
+                ruleBoth,
+                ruleSafe
+            );
         } else {
-            addSelectorPrefixes(ruleFlipped, source === Source.ltr ? rtlPrefix : ltrPrefix);
-            addSelectorPrefixes(ruleFlippedSecond, source === Source.rtl ? rtlPrefix : ltrPrefix);
+            insertRuleIntoStore(
+                rule,
+                ruleFlipped,
+                ruleFlippedSecond,
+                ruleBoth,
+                ruleSafe
+            );
         }
 
-        addSelectorPrefixes(ruleBoth, bothPrefix);
-        addSelectorPrefixes(ruleSafe, bothPrefix);
-
-        store.rules.push({
-            rule,
-            ruleLTR: ruleFlipped,
-            ruleRTL: ruleFlippedSecond,
-            ruleBoth,
-            ruleSafe
-        });
-
-    } else if (autoRename !== Autorename.disabled && !simetricRules && !autorenamed) {
+    } else if (
+        autoRename !== Autorename.disabled &&
+        !simetricRules &&
+        !autorenamed
+    ) {
         store.rulesAutoRename.push(rule);
     }
 
-}; 
+};

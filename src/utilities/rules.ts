@@ -1,7 +1,164 @@
-import { Rule, AtRule, Node } from 'postcss';
-import { ObjectWithProps, StringMap, Autorename } from '@types';
-import { COMMENT_TYPE, RTL_COMMENT_REGEXP, DECLARATION_TYPE, RULE_TYPE } from '@constants';
+import { Rule, AtRule, Node, Declaration } from 'postcss';
+import { StringMap, Autorename, RulesObject } from '@types';
+import {
+    COMMENT_TYPE,
+    RTL_COMMENT_REGEXP,
+    DECLARATION_TYPE,
+    RULE_TYPE
+} from '@constants';
 import { store } from '@data/store';
+import { addProperSelectorPrefixes } from '@utilities/selectors';
+
+export const ruleHasDeclarations = (rule: Rule): boolean => {
+    return rule.some(
+        (node: Node) => node.type === DECLARATION_TYPE
+    );
+};
+
+export const ruleHasChildren = (rule: Rule): boolean => {
+    return rule.some(
+        (node: Node) => (
+            node.type === DECLARATION_TYPE ||
+            (
+                node.type === RULE_TYPE &&
+                ruleHasChildren(node as Rule)
+            )
+        )
+    );
+};
+
+export const getParentRules = (rule: Rule): Rule[] => {
+    const rules: Rule[] = [];
+    while (rule.type === RULE_TYPE) {
+        rules.push(rule);
+        rule = rule.parent as Rule;  
+    }
+    rules.shift();
+    return rules.reverse();
+};
+
+export const insertRules = (
+    parent: Rule,
+    rule: Rule,
+    rules: Rule[]
+): void => {
+    if (ruleHasDeclarations(rule)) {
+        rules = [...rules];
+        let parentRule: Rule;
+        while (rules.length) {
+            parentRule = rules.shift();
+            const innerRule = parent.nodes.find((node: Node): boolean => {
+                if (
+                    node.type === RULE_TYPE &&
+                    (node as Rule).selector === parentRule.selector
+                ) {
+                    return true;
+                }
+            }) as Rule | undefined;
+            if (innerRule) {
+                parentRule = innerRule;
+            } else {
+                parentRule = parentRule.clone().removeAll();
+                parent.append(parentRule);
+            }
+            parent = parentRule;
+        }
+        parent.append(rule);
+    }
+};
+
+export const appendRulesToRuleObject = (
+    ruleFlipped: Rule,
+    ruleFlippedSecond: Rule,
+    ruleBoth: Rule,
+    ruleSafe: Rule,
+    ruleObject: RulesObject,
+    rules: Rule[]
+): void => {
+    insertRules(
+        ruleObject.ruleLTR,
+        ruleFlipped,
+        rules
+    );
+    insertRules(
+        ruleObject.ruleRTL,
+        ruleFlippedSecond,
+        rules
+    );
+    insertRules(
+        ruleObject.ruleBoth,
+        ruleBoth,
+        rules
+    );
+    insertRules(
+        ruleObject.ruleSafe,
+        ruleSafe,
+        rules
+    );
+};
+
+export const insertRuleIntoStore = (
+    rule: Rule,
+    ruleFlipped: Rule,
+    ruleFlippedSecond: Rule,
+    ruleBoth: Rule,
+    ruleSafe: Rule
+): RulesObject => {
+    const rulesObject = {
+        rule,
+        ruleLTR: ruleFlipped,
+        ruleRTL: ruleFlippedSecond,
+        ruleBoth,
+        ruleSafe
+    };
+    addProperSelectorPrefixes(
+        ruleFlipped,
+        ruleFlippedSecond,
+        ruleBoth,
+        ruleSafe
+    );
+    store.rules.push(rulesObject);
+    return rulesObject;
+};
+
+export const appendParentRuleToStore = (
+    rule: Rule,
+    ruleFlipped: Rule,
+    ruleFlippedSecond: Rule,
+    ruleBoth: Rule,
+    ruleSafe: Rule
+): void => {
+    
+    const rules = getParentRules(rule);
+    const root = rules.shift();
+
+    let rootRulesObject: RulesObject | undefined = store.rules.find(
+        (rObject: RulesObject) => rObject.rule === root
+    );
+    if (!rootRulesObject) {
+        const rootRuleFlipped = root.clone().removeAll();
+        const rootRuleFlippedSecond = rootRuleFlipped.clone();
+        const rootRuleBoth = rootRuleFlipped.clone();
+        const rootRruleSafe = rootRuleFlipped.clone();
+        rootRulesObject = insertRuleIntoStore(
+            root,
+            rootRuleFlipped,
+            rootRuleFlippedSecond,
+            rootRuleBoth,
+            rootRruleSafe
+        );    
+    }
+
+    appendRulesToRuleObject(
+        ruleFlipped,
+        ruleFlippedSecond,
+        ruleBoth,
+        ruleSafe,
+        rootRulesObject,
+        rules
+    );
+    
+};
 
 export const cleanRuleRawsBefore = (node: Node | void): void => {
     if (node && node.type === RULE_TYPE) {
@@ -17,15 +174,29 @@ export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void
         }
         rule.walk((node: Node): void => {
             if (node.type === DECLARATION_TYPE) {
+                const decl = node as Declaration;
                 // @ts-ignore
-                if (node.raws && node.raws.value && RTL_COMMENT_REGEXP.test(node.raws.value.raw)) {
+                if (decl.raws && decl.raws.value && RTL_COMMENT_REGEXP.test(decl.raws.value.raw)) {
                     // @ts-ignore
-                    delete node.raws.value;
-                    node.value = node.value.trim();
+                    delete decl.raws.value;
+                    decl.value = decl.value.trim();
                 }
             }
         });
     });
+};
+
+export const removeEmptyRules = (rule: Rule): void => {
+    if (ruleHasChildren(rule)) {
+        rule.walkRules((r: Rule): void => {
+            removeEmptyRules(r);
+            if (!ruleHasChildren(r)) {
+                r.remove();
+            }
+        });
+    } else {
+        rule.remove();
+    }
 };
 
 export const appendRules = (): void => {
@@ -35,10 +206,7 @@ export const appendRules = (): void => {
         ruleRTL && ruleRTL.nodes.length && rule.after(ruleRTL);
         ruleLTR && ruleLTR.nodes.length && rule.after(ruleLTR);
         ruleSafe && ruleSafe.nodes.length && rule.after(ruleSafe);
-        const ruleHasDeclarations = rule.some((node: Node) => node.type === DECLARATION_TYPE);      
-        if (!ruleHasDeclarations) {
-            rule.remove();
-        }
+        removeEmptyRules(rule);
         cleanRules(rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe);
     }); 
 };
@@ -57,7 +225,7 @@ export const appendAutorenameRules = (): void => {
         return;
     }
 
-    const replaceHash: ObjectWithProps<string> = store.options.stringMap.reduce((hash: ObjectWithProps<string>, map: StringMap): ObjectWithProps<string> => {
+    const replaceHash: Record<string, string> = store.options.stringMap.reduce((hash: Record<string, string>, map: StringMap): Record<string, string> => {
         const search = typeof map.search === 'string' ? [map.search] : map.search;
         const replace = typeof map.replace === 'string' ? [map.replace] : map.replace;
         search.forEach((s: string, index: number): void => {
@@ -72,7 +240,7 @@ export const appendAutorenameRules = (): void => {
         ? new RegExp(`(${replaces})`, 'g')
         : new RegExp(`\\b(${replaces})\\b`, 'g');
 
-    const rulesHash: ObjectWithProps<boolean> = {};
+    const rulesHash: Record<string, boolean> = {};
     const rulesToProcess: Rule[] = [];
 
     store.rulesAutoRename.forEach((rule: Rule): void => {
