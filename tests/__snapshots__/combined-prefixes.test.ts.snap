@@ -402,6 +402,164 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
 
 .rtl .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test36 {
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.rtl .test36 {
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+}
+
+.test37 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test37 {
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: right;
+}
+
+.rtl .test37 {
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: left;
+}
+
+.test38 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test38 {
+    border-left: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.rtl .test38 {
+    border-right: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+}
+
+.test39 {
+    width: 50%;
+}
+
+.ltr .test39 {
+    margin-right: 10px;
+}
+
+.rtl .test39 {
+    margin-left: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+}
+
+.ltr .test40 {
+    right: 5px;
+}
+
+.rtl .test40 {
+    left: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+}
+
+.ltr .test41 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.rtl .test41 {
+    left: 10px;
+}
+.ltr .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+.ltr .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+@keyframes inversedFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+    }
+
+    .ltr .test46 {
+        text-align: left;
+    }
+
+    .rtl .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+    }
+
+    .ltr .test48 {
+        text-align: right;
+    }
+
+    .rtl .test48 {
+        text-align: left;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;
 
@@ -817,6 +975,164 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
 
 .rtl .example35, .right-to-left .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test36, .left-to-right .test36 {
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.rtl .test36, .right-to-left .test36 {
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+}
+
+.test37 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test37, .left-to-right .test37 {
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: right;
+}
+
+.rtl .test37, .right-to-left .test37 {
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: left;
+}
+
+.test38 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test38, .left-to-right .test38 {
+    border-left: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.rtl .test38, .right-to-left .test38 {
+    border-right: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+}
+
+.test39 {
+    width: 50%;
+}
+
+.ltr .test39, .left-to-right .test39 {
+    margin-right: 10px;
+}
+
+.rtl .test39, .right-to-left .test39 {
+    margin-left: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+}
+
+.ltr .test40, .left-to-right .test40 {
+    right: 5px;
+}
+
+.rtl .test40, .right-to-left .test40 {
+    left: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+}
+
+.ltr .test41, .left-to-right .test41 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.rtl .test41, .right-to-left .test41 {
+    left: 10px;
+}
+.ltr .test42, .left-to-right .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+.ltr .test43, .left-to-right .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+@keyframes inversedFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+    }
+
+    .ltr .test46, .left-to-right .test46 {
+        text-align: left;
+    }
+
+    .rtl .test46, .right-to-left .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+    }
+
+    .ltr .test48, .left-to-right .test48 {
+        text-align: right;
+    }
+
+    .rtl .test48, .right-to-left .test48 {
+        text-align: left;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;
 
@@ -1236,5 +1552,163 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
 
 .rtl .example35, .right-to-left .example35 {
     transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test36, .left-to-right .test36 {
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.rtl .test36, .right-to-left .test36 {
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+}
+
+.test37 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test37, .left-to-right .test37 {
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: right;
+}
+
+.rtl .test37, .right-to-left .test37 {
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: left;
+}
+
+.test38 {
+    color: #FFF;
+    width: 100%;
+}
+
+.ltr .test38, .left-to-right .test38 {
+    border-left: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.rtl .test38, .right-to-left .test38 {
+    border-right: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+}
+
+.test39 {
+    width: 50%;
+}
+
+.ltr .test39, .left-to-right .test39 {
+    margin-right: 10px;
+}
+
+.rtl .test39, .right-to-left .test39 {
+    margin-left: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+}
+
+.ltr .test40, .left-to-right .test40 {
+    right: 5px;
+}
+
+.rtl .test40, .right-to-left .test40 {
+    left: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+}
+
+.ltr .test41, .left-to-right .test41 {
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.rtl .test41, .right-to-left .test41 {
+    left: 10px;
+}
+.ltr .test42, .left-to-right .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+.ltr .test43, .left-to-right .test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+@keyframes inversedFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+    }
+
+    .ltr .test46, .left-to-right .test46 {
+        text-align: left;
+    }
+
+    .rtl .test46, .right-to-left .test46 {
+        text-align: right;
+    }
+    .test47 {
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+    }
+
+    .ltr .test48, .left-to-right .test48 {
+        text-align: right;
+    }
+
+    .rtl .test48, .right-to-left .test48 {
+        text-align: left;
+    }
+    .test49 {
+        color: white;
+    }
 }"
 `;

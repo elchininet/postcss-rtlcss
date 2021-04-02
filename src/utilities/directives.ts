@@ -1,6 +1,10 @@
 import { Comment } from 'postcss';
-import { ObjectWithProps, ControlDirective } from '@types';
-import { RTL_CONTROL_DIRECTIVE_REG_EXP, CONTROL_DIRECTIVE, CONTROL_DIRECTIVE_BLOCK } from '@constants';
+import { ControlDirective } from '@types';
+import {
+    RTL_CONTROL_DIRECTIVE_REG_EXP,
+    CONTROL_DIRECTIVE,
+    CONTROL_DIRECTIVE_BLOCK
+} from '@constants';
 
 const CONTROL_DIRECTIVE_VALUES = Object.values(CONTROL_DIRECTIVE) as string[];
 const CONTROL_DIRECTIVE_BLOCK_VALUES = Object.values(CONTROL_DIRECTIVE_BLOCK) as string[];
@@ -23,7 +27,7 @@ export const getControlDirective = (comment: Comment): ControlDirective | null =
             controlDirective.block = match[1];
         }
         if (match[3]) {
-            controlDirective.raw = match[3];
+            controlDirective.option = match[3];
         }
         return controlDirective;
     }
@@ -32,7 +36,7 @@ export const getControlDirective = (comment: Comment): ControlDirective | null =
 
 export const isIgnoreDirectiveInsideAnIgnoreBlock = (
     controlDirective: ControlDirective,
-    controlDirectives: ObjectWithProps<ControlDirective>
+    controlDirectives: Record<string, ControlDirective>
 ): boolean => (
     controlDirective.directive === CONTROL_DIRECTIVE.IGNORE &&
     !controlDirective.block &&
@@ -40,7 +44,10 @@ export const isIgnoreDirectiveInsideAnIgnoreBlock = (
     controlDirectives[CONTROL_DIRECTIVE.IGNORE].block === CONTROL_DIRECTIVE_BLOCK.BEGIN
 );
 
-export const checkDirective = (controlDirectives: ObjectWithProps<ControlDirective>, directiveType: string): boolean => {
+export const checkDirective = (
+    controlDirectives: Record<string, ControlDirective>,
+    directiveType: string
+): boolean => {
 
     const directive = controlDirectives[directiveType];
 
@@ -60,4 +67,15 @@ export const checkDirective = (controlDirectives: ObjectWithProps<ControlDirecti
 
     return false;
 
+};
+
+export const getSourceDirectiveValue = (
+    controlDirectives: Record<string, ControlDirective>,
+    parentValue?: string
+): string | undefined => {
+    const sourceControlDirective = controlDirectives[CONTROL_DIRECTIVE.SOURCE];
+    const sourceDirective = checkDirective(controlDirectives, CONTROL_DIRECTIVE.SOURCE);
+    return sourceControlDirective && sourceDirective
+        ? sourceControlDirective.option
+        : parentValue || undefined;
 };

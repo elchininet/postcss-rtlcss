@@ -167,7 +167,7 @@ export const cleanRuleRawsBefore = (node: Node | void): void => {
 };
 
 export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void => {
-    rules.forEach((rule: Rule | undefined | null): void | undefined => {        
+    rules.forEach((rule: Rule | AtRule | undefined | null): void => {        
         const prev = rule.prev();
         if (prev && prev.type !== COMMENT_TYPE) {
             cleanRuleRawsBefore(rule);
@@ -175,9 +175,9 @@ export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void
         rule.walk((node: Node): void => {
             if (node.type === DECLARATION_TYPE) {
                 const decl = node as Declaration;
-                // @ts-ignore
+                //@ts-ignore
                 if (decl.raws && decl.raws.value && RTL_COMMENT_REGEXP.test(decl.raws.value.raw)) {
-                    // @ts-ignore
+                    //@ts-ignore
                     delete decl.raws.value;
                     decl.value = decl.value.trim();
                 }

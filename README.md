@@ -1060,12 +1060,15 @@ Control directives are placed between rules or declarations. They can target a s
 
 | Directive                | Description                                                                                                                                    |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                                                                                        |
-| `/*rtl:begin:ignore*/`   | Starts an ignoring block                                                                                                                       |
-| `/*rtl:end:ignore*/`     | Ends an ignoring block                                                                                                                         |
-| `/*rtl:rename*/`         | This directive forces renaming in the next rule or declaration no mattering the value of the properties `processUrls` or `autoRename`          |
-| `/*rtl:begin:rename*/`   | Starts a renaming block                                                                                                                        |
-| `/*rtl:end:rename*/`     | Ends a renaming block                                                                                                                          |
+| `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                                                           |
+| `/*rtl:begin:ignore*/`   | Starts an ignoring block                                                                                          |
+| `/*rtl:end:ignore*/`     | Ends an ignoring block                                                                                            |
+| `/*rtl:rename*/`         | This directive forces renaming in the next rule or declaration no mattering the value of the properties `processUrls` or `autoRename`  |
+| `/*rtl:begin:rename*/`   | Starts a renaming block                                                                                           |
+| `/*rtl:end:rename*/`     | Ends a renaming block                                                                                             |
+| `/*rtl:source:{source}*/`| Set the source of a rule or a declaration no mattering the value of the `source` property                         |
+| `/*rtl:begin:source:{source}*/` | Starts a source block                                                                                      |
+| `/*rtl:end:source*/`     | Ends a source block                                                                                               |
 | `/*rtl:raw:{CSS}*/`      | Parses the `CSS` parameter and inserts it in its place. Depending on the `source` parameter the parsed `CSS` will be treated as `rtl` or `ltr` |
 
 ---
@@ -1299,6 +1302,101 @@ These directives should be used together, they will provide the beginning and th
 [dir="rtl"] .test {
     background-image: url("/images/background-right.png");
     cursor: url("/images/cursor-rtl.png");
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:source:{source}*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive sets the source of a rule or a directive ignoring the value of the `source` property:
+
+##### input
+
+```css
+/*rtl:source:rtl*/
+.test {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+```
+
+##### output
+
+```css
+.test {
+    color: #FFF;
+    width: 100%;
+}
+
+[dir="ltr"] .test {
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+[dir="rtl"] .test {
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:begin:source:{source}*/` and `/*rtl:end:source*/`
+
+<details><summary>Expand</summary>
+<p>
+
+These directives should be used together, they will provide the beginning and the end of source blocks for rules or declarations:
+
+##### input
+
+```css
+.test {
+    color: #FFF;
+    border-left: 1px solid #666;
+    /*rtl:begin:source:rtl*/
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    /*rtl:end:source*/
+    width: 100%;
+}
+```
+
+##### output
+
+```css
+.test {
+    color: #FFF;
+    width: 100%;
+}
+
+[dir="ltr"] .test {
+    border-left: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+[dir="rtl"] .test {
+    border-right: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
 }
 ```
 

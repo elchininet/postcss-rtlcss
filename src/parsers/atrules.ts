@@ -1,10 +1,14 @@
 import postcss, { Root, Node, AtRule, Comment, vendor } from 'postcss';
 import rtlcss from 'rtlcss';
-import { AtRulesObject, AtRulesStringMap, Source, ControlDirective, ObjectWithProps } from '@types';
+import { AtRulesObject, AtRulesStringMap, Source, ControlDirective } from '@types';
 import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME, CONTROL_DIRECTIVE } from '@constants';
 import { store, initKeyframesData } from '@data/store';
 import { walkContainer } from '@utilities/containers';
-import { isIgnoreDirectiveInsideAnIgnoreBlock, checkDirective } from '@utilities/directives';
+import {
+    isIgnoreDirectiveInsideAnIgnoreBlock,
+    checkDirective,
+    getSourceDirectiveValue
+} from '@utilities/directives';
 import { parseRules } from '@parsers/rules';
 
 export const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesStringMap => {    
@@ -22,7 +26,7 @@ export const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new R
 
 export const parseAtRules = (css: Root): void => {
 
-    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+    const controlDirectives: Record<string, ControlDirective> = {};
 
     walkContainer(
         css,
@@ -48,7 +52,9 @@ export const parseAtRules = (css: Root): void => {
 
             if (vendor.unprefixed(atRule.name) === KEYFRAMES_NAME) return;
 
-            parseRules(atRule);
+            const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
+
+            parseRules(atRule, sourceDirectiveValue);
 
         }
     );
@@ -63,7 +69,7 @@ export const parseKeyFrames = (css: Root): void => {
         return;
     }
 
-    const controlDirectives: ObjectWithProps<ControlDirective> = {};
+    const controlDirectives: Record<string, ControlDirective> = {};
 
     walkContainer(
         css,
@@ -100,9 +106,33 @@ export const parseKeyFrames = (css: Root): void => {
             const atRuleParams = atRule.params;
             const ltr = `${atRuleParams}-${Source.ltr}`;
             const rtl = `${atRuleParams}-${Source.rtl}`;
-
-            atRule.params = source === Source.ltr ? ltr : rtl;
-            atRuleFlipped.params = source === Source.ltr ? rtl : ltr;
+            const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
+            
+            atRule.params = (
+                (
+                    !sourceDirectiveValue &&
+                    source === Source.ltr
+                ) ||
+                (
+                    sourceDirectiveValue &&
+                    sourceDirectiveValue === Source.ltr
+                )
+            )
+                ? ltr
+                : rtl;
+            
+            atRuleFlipped.params = (
+                (
+                    !sourceDirectiveValue &&
+                    source === Source.ltr
+                ) ||
+                (
+                    sourceDirectiveValue &&
+                    sourceDirectiveValue === Source.ltr
+                )
+            )
+                ? rtl
+                : ltr;
 
             store.keyframes.push({
                 atRuleParams,
