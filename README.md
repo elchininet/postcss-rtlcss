@@ -44,6 +44,7 @@ Basic usage
 ```javascript
 const postcss = require('postcss');
 const postcssRTLCSS = require('postcss-rtlcss');
+const { Mode, Source, Autorename } = require('postcss-rtlcss/options');
 
 const options = { ... available options ... };
 const result = postcss([
@@ -53,9 +54,9 @@ const result = postcss([
 const rtlCSS = result.css;
 ```
 
-##### commonJS with the legacy version (1.x.x)
+##### commonJS with the versions 1.x.x - 2.x.x
 ```javascript
-const { postcssRTLCSS } = require('postcss-rtlcss');
+const { postcssRTLCSS, Mode, Source, Autorename } = require('postcss-rtlcss');
 ```
 
 #### Usage with ES6 modules
@@ -63,6 +64,9 @@ const { postcssRTLCSS } = require('postcss-rtlcss');
 ```javascript
 import postcss from 'postcss';
 import postcssRTLCSS from 'postcss-rtlcss';
+import postcssRTLCSSOptions from 'postcss-rtlcss/options';
+
+const { Mode, Source, Autorename } = postcssRTLCSSOptions;
 
 const options = { ... available options ... };
 const result = postcss([
@@ -72,10 +76,10 @@ const result = postcss([
 const rtlCSS = result.css;
 ```
 
-##### ES6 modules with the legacy version (1.x.x)
+##### ES6 modules with the versions 1.x.x - 2.x.x
 
 ```javascript
-import { postcssRTLCSS } from 'postcss-rtlcss';
+import { postcssRTLCSS, Mode, Source, Autorename } from 'postcss-rtlcss';
 ```
 
 #### Usage in Webpack with postcss-loader
