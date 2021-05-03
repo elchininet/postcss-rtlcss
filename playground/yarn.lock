@@ -5576,12 +5576,12 @@ postcss-modules-values@^4.0.0:
   dependencies:
     icss-utils "^5.0.0"
 
-postcss-rtlcss@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.3.0.tgz#37e55330841523f3be55da67a517797e8ed9048c"
-  integrity sha512-mg2cRpTbkGOEQYlKEYR0BL49AJ/vDamOIDU/oRgvwrSQP1OIcViknIlN6qHHkAh6bP08Kqtq5QRzCmQQImDCsg==
+postcss-rtlcss@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.3.1.tgz#5cb4a844267d6e217c24c1bbe8bb4491bcb958fe"
+  integrity sha512-pb2BxN0Eyx2clyg9U9knmdQxZI2yP6hGTAEls4cwRos5VOgsj9JXi6OKCSuwSxRDEcFQQkenYxfRL5ENGk/+7Q==
   dependencies:
-    rtlcss "^3.0.0"
+    rtlcss "^3.1.2"
 
 postcss-selector-parser@^6.0.2:
   version "6.0.3"
@@ -5607,15 +5607,6 @@ postcss-value-parser@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
-
-postcss@^8.2.1:
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.1.tgz#eabc5557c4558059b9d9e5b15bce7ffa9089c2a8"
-  integrity sha512-RhsqOOAQzTgh1UB/IZdca7F9WDb7SUCR2Vnv1x7DbvuuggQIpoDwjK+q0rzoPffhYvWNKX5JSwS4so4K3UC6vA==
-  dependencies:
-    colorette "^1.2.1"
-    nanoid "^3.1.20"
-    source-map "^0.6.1"
 
 postcss@^8.2.4, postcss@^8.2.8:
   version "8.2.8"
@@ -6030,15 +6021,15 @@ rimraf@^3.0.0, rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rtlcss@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/rtlcss/-/rtlcss-3.0.0.tgz#d6b8c40dda07d3364f75fb20cdf2d08acb5c2257"
-  integrity sha512-loscJGYHzENxRo6ZT9q9bmHw2P0c8LcC4J4GQitWX2AJFii5il+qfnEWLXy7RkWez7yBOrAsnbD7frBsjnaZJw==
+rtlcss@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/rtlcss/-/rtlcss-3.1.2.tgz#4800d3d03525791a720f676a8ad2c6acf8efdfb2"
+  integrity sha512-b04YSX37siupPOWUEguEBReWX2w4QT89C0PI9g2JzZycbq7zrgPmTr1DA1pizSWpKRFdCjjnrx/SSvU4fOHmGg==
   dependencies:
     chalk "^4.1.0"
     find-up "^5.0.0"
     mkdirp "^1.0.4"
-    postcss "^8.2.1"
+    postcss "^8.2.4"
     strip-json-comments "^3.1.1"
 
 run-async@^2.4.0:
