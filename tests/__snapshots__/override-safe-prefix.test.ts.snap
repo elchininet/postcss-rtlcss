@@ -24,6 +24,22 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
     transform: translate(50%, 50%);
 }
 
+.test2 {
+    color: red;
+}
+
+[dir] .test2 {
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 [dir] .test3 {
     direction: ltr;
@@ -595,6 +611,22 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
+}
+
+.test2 {
+    color: red;
+}
+
+[dir] .test2 {
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */
@@ -1230,6 +1262,22 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     background-position: 10px 20px;
 }
 
+.test2 {
+    color: red;
+}
+
+[dir] .test2 {
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 [dir] .test3 {
     direction: ltr;
@@ -1801,6 +1849,22 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
+}
+
+.test2 {
+    color: red;
+}
+
+[dir] .test2 {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */

@@ -21,6 +21,19 @@ exports[`Override Tests Autorename Override Autorename: flexible 1`] = `
     transform: translate(50%, 50%);
 }
 
+.test2 {
+    color: red;
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 .test3 {
     direction: ltr;
@@ -535,6 +548,19 @@ exports[`Override Tests Autorename Override Autorename: flexible with custom str
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
+}
+
+.test2 {
+    color: red;
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */
@@ -1053,6 +1079,19 @@ exports[`Override Tests Autorename Override Autorename: flexible, greedy: true 1
     transform: translate(50%, 50%);
 }
 
+.test2 {
+    color: red;
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 .test3 {
     direction: ltr;
@@ -1567,6 +1606,19 @@ exports[`Override Tests Autorename Override Autorename: only control directives 
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
+}
+
+.test2 {
+    color: red;
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */
@@ -2085,6 +2137,19 @@ exports[`Override Tests Autorename Override Autorename: only control directives,
     transform: translate(50%, 50%);
 }
 
+.test2 {
+    color: red;
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 .test3 {
     direction: ltr;
@@ -2601,6 +2666,19 @@ exports[`Override Tests Autorename Override Autorename: strict 1`] = `
     transform: translate(50%, 50%);
 }
 
+.test2 {
+    color: red;
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 .test3 {
     direction: ltr;
@@ -3115,6 +3193,19 @@ exports[`Override Tests Autorename Override Autorename: strict, greedy: true 1`]
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
+}
+
+.test2 {
+    color: red;
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */

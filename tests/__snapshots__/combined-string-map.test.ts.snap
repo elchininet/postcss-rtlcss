@@ -27,6 +27,22 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
     background-position: 10px 20px;
 }
 
+.test2 {
+    color: red;
+}
+
+[dir=\\"ltr\\"] .test2 {
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 .test3 {
     margin: 1px 2px 3px;
@@ -592,6 +608,22 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 [dir] .test1, [dir] .test2 {
     background-color: #FFF;
     background-position: 10px 20px;
+}
+
+.test2 {
+    color: red;
+}
+
+[dir=\\"ltr\\"] .test2 {
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */
@@ -1161,6 +1193,22 @@ exports[`Combined Tests String Map Combined custom string map and processUrls: t
     background-position: 10px 20px;
 }
 
+.test2 {
+    color: red;
+}
+
+[dir=\\"ltr\\"] .test2 {
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 .test3 {
     margin: 1px 2px 3px;
@@ -1726,6 +1774,22 @@ exports[`Combined Tests String Map Combined custom string map without names and 
 [dir] .test1, [dir] .test2 {
     background-color: #FFF;
     background-position: 10px 20px;
+}
+
+.test2 {
+    color: red;
+}
+
+[dir=\\"ltr\\"] .test2 {
+    text-align: left;
+}
+
+[dir=\\"rtl\\"] .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */

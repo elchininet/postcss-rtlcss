@@ -146,9 +146,11 @@ export const parseDeclarations = (
             const declFlippedProp = declFlipped.prop.trim();
             const declFlippedValue = declFlipped.value.trim();
             const overridenBy = declarations[declPropUnprefixed];
-            const hasBeenOverriden = overridenBy
-                ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
-                : false;
+            const hasBeenOverriden = declarationsProps.includes(declPropUnprefixed) || (
+                overridenBy
+                    ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
+                    : false
+            );
             const isConflictedDeclaration = safeBothPrefix
                 ? !!allDeclarations[declPropUnprefixed]
                 : false;

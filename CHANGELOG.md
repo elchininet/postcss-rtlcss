@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.3.1 / 1.6.8] - 2021-05-03
+
+- Fix multiple declarations overriding order
+
 ## [3.3.0 / 1.6.7] - 2021-03-14
 
 - Implemented `/*rtl:source:{source}*/`, `/*rtl:begin:source:{source}*/`, and `/*rtl:end:source*/`
