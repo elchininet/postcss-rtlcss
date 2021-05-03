@@ -10,6 +10,12 @@
     width: 100%;
 }
 
+.test2 {
+    color: red;
+    text-align: left;
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 .test3 {
     direction: ltr;

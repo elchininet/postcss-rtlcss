@@ -50,7 +50,6 @@ const appendDeclarationToRule = (decl: Declaration, rule: Rule): void => {
 };
 
 const hasIgnoreDirectiveInRaws = (decl: Declaration): boolean => {
-    // @ts-ignore
     const raws = !!decl.raws && !!decl.raws.value && decl.raws.value.raw;
     if (raws && RTL_COMMENT_IGNORE_REGEXP.test(raws)) {
         return true;

@@ -23,6 +23,22 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
     transform: translate(50%, 50%);
 }
 
+.test2 {
+    color: red;
+}
+
+.ltr .test2 {
+    text-align: left;
+}
+
+.rtl .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
+}
+
 /* Comment not related to rtl */
 .test3 {
     margin: 1px 2px 3px;
@@ -584,6 +600,22 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
+}
+
+.test2 {
+    color: red;
+}
+
+.ltr .test2, .left-to-right .test2 {
+    text-align: left;
+}
+
+.rtl .test2, .right-to-left .test2 {
+    text-align: right;
+}
+
+[dir] .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */
@@ -1161,6 +1193,22 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
 .ltr .test1, .left-to-right .test1, .rtl .test1, .right-to-left .test1, .ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     background-color: #FFF;
     background-position: 10px 20px;
+}
+
+.test2 {
+    color: red;
+}
+
+.ltr .test2, .left-to-right .test2 {
+    text-align: left;
+}
+
+.rtl .test2, .right-to-left .test2 {
+    text-align: right;
+}
+
+.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
+    text-align: center;
 }
 
 /* Comment not related to rtl */
