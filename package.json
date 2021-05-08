@@ -28,7 +28,7 @@
     "postversion": "git push && git push --tags"
   },
   "author": "ElChiniNet",
-  "license": "GNU GPL V3",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elchininet/postcss-rtlcss"

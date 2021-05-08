@@ -18,7 +18,7 @@
     "build": "webpack --config webpack.config.js"
   },
   "author": "ElChiniNet",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "monaco-editor": "^0.20.0",
