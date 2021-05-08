@@ -313,17 +313,17 @@ So, the generated code will be:
 Options
 ---
 
-All the options are optional, and a default value will be used, if any of them is omitted or de type or format of them is wrong
+All the options are optional, and a default value will be used if any of them is omitted or the type or format of them is wrong
 
 | Option             | Type                      | Default         | Description                                                  |
 | ------------------ | ------------------------- | --------------- | ------------------------------------------------------------ |
 | mode               | `Mode (string)`           | `Mode.combined` | Mode of generating the final CSS rules                       |
 | ltrPrefix          | `string` or `string[]`    | `[dir="ltr"]`   | Prefix to use in the left-to-right CSS rules                 |
 | rtlPrefix          | `string` or `string[]`    | `[dir="rtl"]`   | Prefix to use in the right-to-left CSS rules                 |
-| bothPrefix         | `string` or `string[]`    | `[dir]`         | Prefix to create a new rule that affects both directions when the specificity of the ltr or rtl rules will override them |
-| safeBothPrefix     | `boolean`                 | `false`         | Add the `bothPrefix` to those declarations that can be flipped to avoid them being overridden by specificity |
+| bothPrefix         | `string` or `string[]`    | `[dir]`         | Prefix to create a new rule that affects both directions when the specificity of the ltr or rtl rules will override its declarations |
+| safeBothPrefix     | `boolean`                 | `false`         | Add the `bothPrefix` to those declarations that can be affected by the direction to avoid them being overridden by specificity |
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
-| processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
+| processUrls        | `boolean`                 | `false`         | Change the strings in URLs using the string map         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
 | useCalc            | `boolean`                 | `false`         | Flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
 | stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the URLs and rules selectors names |
