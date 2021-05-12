@@ -582,6 +582,24 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -1115,6 +1133,24 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -1694,6 +1730,24 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -2217,6 +2271,24 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -2748,6 +2820,24 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -3277,5 +3367,23 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;

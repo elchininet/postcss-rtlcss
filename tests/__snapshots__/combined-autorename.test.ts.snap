@@ -576,6 +576,26 @@ exports[`Combined Tests Autorename Combined Autorename: flexible 1`] = `
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -1155,6 +1175,26 @@ exports[`Combined Tests Autorename Combined Autorename: flexible with custom str
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -1734,6 +1774,26 @@ exports[`Combined Tests Autorename Combined Autorename: flexible, greedy: true 1
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -2313,6 +2373,26 @@ exports[`Combined Tests Autorename Combined Autorename: only control directives 
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -2892,6 +2972,26 @@ exports[`Combined Tests Autorename Combined Autorename: only control directives,
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -3471,6 +3571,26 @@ exports[`Combined Tests Autorename Combined Autorename: strict 1`] = `
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -4050,5 +4170,25 @@ exports[`Combined Tests Autorename Combined Autorename: strict, greedy: true 1`]
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
