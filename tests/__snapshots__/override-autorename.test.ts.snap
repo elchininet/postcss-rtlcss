@@ -526,6 +526,24 @@ exports[`Override Tests Autorename Override Autorename: flexible 1`] = `
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -1055,6 +1073,24 @@ exports[`Override Tests Autorename Override Autorename: flexible with custom str
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -1584,6 +1620,24 @@ exports[`Override Tests Autorename Override Autorename: flexible, greedy: true 1
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -2113,6 +2167,24 @@ exports[`Override Tests Autorename Override Autorename: only control directives 
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -2642,6 +2714,24 @@ exports[`Override Tests Autorename Override Autorename: only control directives,
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -3171,6 +3261,24 @@ exports[`Override Tests Autorename Override Autorename: strict 1`] = `
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -3700,5 +3808,23 @@ exports[`Override Tests Autorename Override Autorename: strict, greedy: true 1`]
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;

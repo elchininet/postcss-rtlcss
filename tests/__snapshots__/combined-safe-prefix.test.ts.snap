@@ -599,6 +599,26 @@ exports[`Combined Tests safeBothPrefix Option Combined {safeBothPrefix: true} 1`
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -1260,6 +1280,26 @@ exports[`Combined Tests safeBothPrefix Option Combined {safeBothPrefix: true} an
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -1863,6 +1903,26 @@ exports[`Combined Tests safeBothPrefix Option Combined {safeBothPrefix: true} an
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -2465,5 +2525,25 @@ exports[`Combined Tests safeBothPrefix Option Combined {safeBothPrefix: true} an
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    right: 10px;
 }"
 `;

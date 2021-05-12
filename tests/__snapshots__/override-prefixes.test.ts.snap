@@ -526,6 +526,24 @@ exports[`Override Tests Prefixes Override custom ltrPrefix and rtlPrefix propert
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+.ltr:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html.rtl .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -1060,6 +1078,24 @@ exports[`Override Tests Prefixes Override custom ltrPrefix and rtlPrefix propert
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+.ltr:root, .left-to-right:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html.rtl .test50, html.right-to-left .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -1598,5 +1634,23 @@ exports[`Override Tests Prefixes Override custom ltrPrefix, rtlPrefix, and bothP
     .test49 {
         color: white;
     }
+}
+
+:root {
+    text-align: left;
+}
+
+.ltr:root, .left-to-right:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html.rtl .test50, html.right-to-left .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;

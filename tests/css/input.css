@@ -413,3 +413,12 @@
         color: white;
     }
 }
+
+:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
