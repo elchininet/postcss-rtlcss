@@ -586,6 +586,27 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
     .test49 {
         color: white;
     }
+}
+
+[dir]:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -1231,6 +1252,27 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     .test49 {
         color: white;
     }
+}
+
+[dir]:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -1824,6 +1866,27 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     .test49 {
         color: white;
     }
+}
+
+[dir]:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;
 
@@ -2407,5 +2470,26 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
     .test49 {
         color: white;
     }
+}
+
+[dir]:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: auto;
+    right: 10px;
 }"
 `;

@@ -638,6 +638,26 @@ exports[`Combined Tests Basic Options Combined {processKeyFrames: true} 1`] = `
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -1221,6 +1241,26 @@ exports[`Combined Tests Basic Options Combined {processUrls: true} 1`] = `
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -1862,6 +1902,26 @@ exports[`Combined Tests Basic Options Combined {source: rtl, processKeyFrames: t
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -2441,6 +2501,26 @@ exports[`Combined Tests Basic Options Combined {source: rtl} 1`] = `
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -3022,6 +3102,26 @@ exports[`Combined Tests Basic Options Combined {useCalc: true} 1`] = `
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;
 
@@ -3601,5 +3701,25 @@ exports[`Combined Tests Basic Options Combined Basic 1`] = `
     .test49 {
         color: white;
     }
+}
+
+[dir=\\"ltr\\"]:root {
+    text-align: right;
+}
+
+[dir=\\"rtl\\"]:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html[dir=\\"ltr\\"] .test50 {
+    left: 10px;
+}
+
+html[dir=\\"rtl\\"] .test50 {
+    right: 10px;
 }"
 `;

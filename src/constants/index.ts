@@ -11,6 +11,8 @@ export const RTL_COMMENT_REGEXP = /rtl:/;
 export const RTL_COMMENT_IGNORE_REGEXP = /rtl:ignore/;
 export const RTL_CONTROL_DIRECTIVE_REG_EXP = /^\/\*!? *rtl:?(begin|end)?:(\w+):?([^*]*?) *\*\/$/;
 export const FLIP_PROPERTY_REGEXP = /(right|left)/i;
+export const HTML_SELECTOR_REGEXP = /^(html)(?=\W|$)/;
+export const ROOT_SELECTOR_REGEXP = /(:root)(?=\W|$)/;
 
 export enum CONTROL_DIRECTIVE {
     IGNORE = 'ignore',

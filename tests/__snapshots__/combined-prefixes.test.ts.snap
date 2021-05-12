@@ -576,6 +576,26 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
     .test49 {
         color: white;
     }
+}
+
+.ltr:root {
+    text-align: right;
+}
+
+.rtl:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html.ltr .test50 {
+    left: 10px;
+}
+
+html.rtl .test50 {
+    right: 10px;
 }"
 `;
 
@@ -1165,6 +1185,26 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
     .test49 {
         color: white;
     }
+}
+
+.ltr:root, .left-to-right:root {
+    text-align: right;
+}
+
+.rtl:root, .right-to-left:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html.ltr .test50, html.left-to-right .test50 {
+    left: 10px;
+}
+
+html.rtl .test50, html.right-to-left .test50 {
+    right: 10px;
 }"
 `;
 
@@ -1758,5 +1798,25 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
     .test49 {
         color: white;
     }
+}
+
+.ltr:root, .left-to-right:root {
+    text-align: right;
+}
+
+.rtl:root, .right-to-left:root {
+    text-align: left;
+}
+
+html .test50 {
+    color: red;
+}
+
+html.ltr .test50, html.left-to-right .test50 {
+    left: 10px;
+}
+
+html.rtl .test50, html.right-to-left .test50 {
+    right: 10px;
 }"
 `;

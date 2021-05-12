@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.3.2 / 1.6.9] - 2021-05-12
+
+- Fix a bug with :root and html rules
+
 ## [3.3.1 / 1.6.8] - 2021-05-03
 
 - Fix multiple declarations overriding order
