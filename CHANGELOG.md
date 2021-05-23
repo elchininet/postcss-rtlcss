@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.3 / 1.7.0] - 2021-05-23
+## [3.3.3 / 1.7.2] - 2021-05-23
 
 - Added a new option to ignore rules already prefixed
 
