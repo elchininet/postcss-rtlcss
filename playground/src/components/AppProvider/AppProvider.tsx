@@ -26,6 +26,7 @@ export interface AppProviderContext {
     changeOptionsMode: (mode: Mode) => void;
     changeOptionsSource: (source: Source) => void;
     changeOptionsSafeBothPrefix: (safeBothPrefix: boolean) => void;
+    changeOptionsIgnorePrefixedRules: (ignorePrefixedRules: boolean) => void;
     changeOptionsProcessUrls: (processUrls: boolean) => void;
     changeOptionsProcessKeyframes: (processKeyFrames: boolean) => void;
     changeOptionsUseCalc: (useCalc: boolean) => void;
@@ -87,6 +88,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
     const changeOptionsMode = (mode: Mode): void => setOptions({ ...options, mode });
     const changeOptionsSource = (source: Source): void => setOptions({ ...options, source });
     const changeOptionsSafeBothPrefix = (safeBothPrefix: boolean): void => setOptions({...options, safeBothPrefix});
+    const changeOptionsIgnorePrefixedRules = (ignorePrefixedRules: boolean) => setOptions({...options, ignorePrefixedRules});
     const changeOptionsProcessUrls = (processUrls: boolean): void => setOptions({ ...options, processUrls });
     const changeOptionsProcessKeyframes = (processKeyFrames: boolean): void => setOptions({ ...options, processKeyFrames });
     const changeOptionsUseCalc = (useCalc: boolean): void => setOptions({ ...options, useCalc });
@@ -107,6 +109,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
         changeOptionsMode,
         changeOptionsSource,
         changeOptionsSafeBothPrefix,
+        changeOptionsIgnorePrefixedRules,
         changeOptionsProcessUrls,
         changeOptionsProcessKeyframes,
         changeOptionsUseCalc,

@@ -12,6 +12,7 @@ export const Options = (): JSX.Element => {
         changeOptionsMode,
         changeOptionsSource,
         changeOptionsSafeBothPrefix,
+        changeOptionsIgnorePrefixedRules,
         changeOptionsProcessUrls,
         changeOptionsProcessKeyframes,
         changeOptionsUseCalc,
@@ -22,6 +23,7 @@ export const Options = (): JSX.Element => {
     const changeMode = (checked: boolean): void => changeOptionsMode(checked ? PluginOptions.Mode.override : PluginOptions.Mode.combined);
     const changeSource = (checked: boolean): void => changeOptionsSource(checked ? PluginOptions.Source.rtl : PluginOptions.Source.ltr);
     const changeSafeBothPrefix = (checked: boolean) => changeOptionsSafeBothPrefix(checked);
+    const changeIgnorePrefixedRules = (checked: boolean) => changeOptionsIgnorePrefixedRules(checked);
     const changeProcessUrls = (checked: boolean): void => changeOptionsProcessUrls(checked);
     const changeProcessKeyframes = (checked: boolean): void => changeOptionsProcessKeyframes(checked);
     const changeUseCalc = (checked: boolean): void => changeOptionsUseCalc(checked);
@@ -55,6 +57,14 @@ export const Options = (): JSX.Element => {
                     <Switch
                         labels={['safeBothPrefix: false', 'safeBothPrefix: true']}
                         onChange={changeSafeBothPrefix}
+                    />
+                </div>
+                { /* ignorePrefixedRules */ }
+                <div css={stylesheet.panel}>
+                    <Switch
+                        labels={['ignorePrefixedRules: false', 'ignorePrefixedRules: true']}
+                        attributes={{ checked: true }}
+                        onChange={changeIgnorePrefixedRules}
                     />
                 </div>
                 { /* processUrls */ }
