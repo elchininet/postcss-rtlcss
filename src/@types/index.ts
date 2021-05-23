@@ -55,6 +55,7 @@ export interface PluginOptions {
     stringMap?: PluginStringMap[];
     autoRename?: AutorenameValues;
     greedy?: boolean;
+    aliases?: Record<string, string>;
 }
 
 export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, 'stringMap'> {

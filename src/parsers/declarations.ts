@@ -44,7 +44,8 @@ export const parseDeclarations = (
         useCalc,
         stringMap,
         autoRename,
-        greedy
+        greedy,
+        aliases
     } = store.options;
 
     const deleteDeclarations: Declaration[] = [];
@@ -132,7 +133,8 @@ export const parseDeclarations = (
                 stringMap,
                 autoRename: autoRename !== Autorename.disabled,
                 autoRenameStrict: autoRename === Autorename.strict,
-                greedy
+                greedy,
+                aliases
             });
 
             const root = postcss.parse(declFlippedString);

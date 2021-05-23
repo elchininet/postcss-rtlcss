@@ -4018,10 +4018,10 @@ rsvp@^4.8.4:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
 
-rtlcss@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/rtlcss/-/rtlcss-3.1.2.tgz#4800d3d03525791a720f676a8ad2c6acf8efdfb2"
-  integrity sha512-b04YSX37siupPOWUEguEBReWX2w4QT89C0PI9g2JzZycbq7zrgPmTr1DA1pizSWpKRFdCjjnrx/SSvU4fOHmGg==
+rtlcss@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/rtlcss/-/rtlcss-3.2.0.tgz#2139734ac45302891182f23f13448c51c07fccaf"
+  integrity sha512-nV3UmaTmA5TkP2dYOR16ULu6FkMOqZRbiXbFZnmWIN9coPfx3gin31VGOPV7vrVMPjNds7pCS2UYy0mwQUdFCQ==
   dependencies:
     chalk "^4.1.0"
     find-up "^5.0.0"

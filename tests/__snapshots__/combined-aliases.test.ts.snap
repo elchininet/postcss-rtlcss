@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Aliases Tests Aliases default 1`] = `
+":root {
+    --small-padding: 2px 4px 8px 16px;
+    --large-padding: 4px 8px 16px 32px;
+    --custom-margin: 2px;
+    --small-margin: 2px 4px 8px 16px;
+    --large-margin: 4px 8px 16px 32px;
+}
+
+.test1 {
+    margin: var(--small-margin);
+    padding: var(--small-padding);
+}
+
+.test1.large {
+    margin: var(--large-margin);
+    padding: var(--large-padding);
+}
+
+[dir=\\"ltr\\"] .test1.large {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test1.large {
+    right: 10px;
+}
+
+.test2 {
+    margin: var(--custom-margin);
+}"
+`;
+
+exports[`Aliases Tests Aliases map 1`] = `
+":root {
+    --custom-margin: 2px;
+}
+
+[dir=\\"ltr\\"]:root {
+    --small-padding: 2px 4px 8px 16px;
+    --large-padding: 4px 8px 16px 32px;
+    --small-margin: 2px 4px 8px 16px;
+    --large-margin: 4px 8px 16px 32px;
+}
+
+[dir=\\"rtl\\"]:root {
+    --small-padding: 2px 16px 8px 4px;
+    --large-padding: 4px 32px 16px 8px;
+    --small-margin: 2px 16px 8px 4px;
+    --large-margin: 4px 32px 16px 8px;
+}
+
+.test1 {
+    margin: var(--small-margin);
+    padding: var(--small-padding);
+}
+
+.test1.large {
+    margin: var(--large-margin);
+    padding: var(--large-padding);
+}
+
+[dir=\\"ltr\\"] .test1.large {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test1.large {
+    right: 10px;
+}
+
+.test2 {
+    margin: var(--custom-margin);
+}"
+`;
+
+exports[`Aliases Tests Wrong aliases 1`] = `
+":root {
+    --small-padding: 2px 4px 8px 16px;
+    --large-padding: 4px 8px 16px 32px;
+    --custom-margin: 2px;
+    --small-margin: 2px 4px 8px 16px;
+    --large-margin: 4px 8px 16px 32px;
+}
+
+.test1 {
+    margin: var(--small-margin);
+    padding: var(--small-padding);
+}
+
+.test1.large {
+    margin: var(--large-margin);
+    padding: var(--large-padding);
+}
+
+[dir=\\"ltr\\"] .test1.large {
+    left: 10px;
+}
+
+[dir=\\"rtl\\"] .test1.large {
+    right: 10px;
+}
+
+.test2 {
+    margin: var(--custom-margin);
+}"
+`;
