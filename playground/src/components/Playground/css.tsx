@@ -123,4 +123,12 @@ export const cssLines = `.test1, .test2 {
     text-align: left;
     width: 50%;
 }
+
+.test20[dir="ltr"] {
+    text-align: left;
+}
+
+.test20[dir="rtl"] {
+    text-align: right;
+}
 `;
