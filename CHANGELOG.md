@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.7.2] - 2021-05-23
+
+- Added a new option to ignore rules already prefixed
+
 ## [1.6.9] - 2021-05-12
 
 - Fix a bug with :root and html rules

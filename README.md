@@ -296,6 +296,7 @@ All the options are optional, and a default value will be used, if any of them i
 | rtlPrefix          | `string` or `string[]`    | `[dir="rtl"]`   | Prefix to use in the right-to-left CSS rules                 |
 | bothPrefix         | `string` or `string[]`    | `[dir]`         | Prefix to use for styles in both directions when the specificity of the ltr or rtl styles will override them |
 | safeBothPrefix     | `boolean`                 | `false`         | Add the `bothPrefix` to those declarations that can be flipped to avoid them being overridden by specificity |
+| ignorePrefixedRules| `boolean`                 | true            | Ignores rules that have been prefixed with some of the prefixes contained in `ltrPrefix`, `rtlPrefix`, or `bothPrefix` |
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
 | processUrls        | `boolean`                 | `false`         | Change the strings using the string map also in URLs         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
@@ -558,6 +559,70 @@ The result is that the `padding` properties of `test1` have more specificity tha
 ```
 
 As `test2` has the same level of specificity as `test1`, now the result is that the `padding` is reset if both rules are used at the same time.
+
+</p>
+
+</details>
+
+---
+
+#### ignorePrefixedRules
+
+<details><summary>Expand</summary>
+<p>
+
+This option is to ignore the rules that have been prefixed with one of the prefixes contained in `ltrPrefix`, `rtlPrefix`, or `bothPrefix`:
+
+##### input
+
+```css
+[dir="ltr"] test {
+    left: 10px;
+}
+[dir="rtl"] test {
+    right: 10px;
+}
+```
+
+##### ignorePrefixedRules true
+
+```javascript
+const options = { ignorePrefixedRules: true }; // This is the default value
+```
+
+##### output
+
+```css
+[dir="ltr"] test {
+    left: 10px;
+}
+[dir="rtl"] test {
+    right: 10px;
+}
+```
+
+##### ignorePrefixedRules false
+
+```javascript
+const options = { ignorePrefixedRules: false };
+```
+
+##### output
+
+```css
+[dir="ltr"] [dir="ltr"] test {
+    left: 10px;
+}
+[dir="rtl"] [dir="ltr"] test {
+    right: 10px;
+}
+[dir="ltr"] [dir="rtl"] test {
+    right: 10px;
+}
+[dir="rtl"] [dir="rtl"] test {
+    left: 10px;
+}
+```
 
 </p>
 

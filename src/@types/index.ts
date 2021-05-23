@@ -51,6 +51,7 @@ export interface PluginOptions {
     rtlPrefix?: strings;
     bothPrefix?: strings;
     safeBothPrefix?: boolean;
+    ignorePrefixedRules?: boolean;
     source?: SourceValues;
     processUrls?: boolean;
     processKeyFrames?: boolean;

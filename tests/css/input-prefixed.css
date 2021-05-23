@@ -1,0 +1,58 @@
+.test {
+    color: red;
+}
+
+.rtl .test {
+    left: 10px;
+}
+
+.ltr .test {
+    right: 10px;
+}
+
+.rtlignore .test2 {
+    padding: 2px 4px 8px 16px;
+}
+
+.ltrignore .test2 {
+    margin: 2px 4px 8px 16px;
+}
+
+[dir="ltr"] .test3 {
+    text-align: left;
+}
+
+[dir="rtl"] .test3 {
+    text-align: right;
+}
+
+/*rtl:raw:.ltr .test4 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+[dir="rtl"] .test5 {
+    transform: translate(10px, 20px);
+}
+.test6 {
+    left: 5px;
+}
+*/
+
+/*rtl:begin:rename*/
+.ltr .test7-ltr {
+    background-image: url("/icons/icon-left.png");
+}
+
+.rtl .test7-rtl {
+    background-image: url("/icons/icon-right.png");
+}
+
+[dir="ltr"] .test8-ltr {
+    background-image: url("/icons/icon-ltr.png");
+}
+
+[dir="rtl"] .test8-rtl {
+    background-image: url("/icons/icon-rtl.png");
+}
+/*rtl:end:rename*/

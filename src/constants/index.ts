@@ -13,6 +13,8 @@ export const RTL_CONTROL_DIRECTIVE_REG_EXP = /^\/\*!? *rtl:?(begin|end)?:(\w+):?
 export const FLIP_PROPERTY_REGEXP = /(right|left)/i;
 export const HTML_SELECTOR_REGEXP = /^(html)(?=\W|$)/;
 export const ROOT_SELECTOR_REGEXP = /(:root)(?=\W|$)/;
+export const REG_EXP_CHARACTERS_REG_EXP = /[.?*+^$[\]\\(){}|-]/g;
+export const LAST_WORD_CHARACTER_REG_EXP = /\w$/;
 
 export enum CONTROL_DIRECTIVE {
     IGNORE = 'ignore',
