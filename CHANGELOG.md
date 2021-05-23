@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.3.4 / 1.7.3] - 2021-05-23
+## [3.3.4] - 2021-05-23
 
 - Added a new option to support declarations aliases
 
