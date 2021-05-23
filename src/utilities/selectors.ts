@@ -15,11 +15,27 @@ const addPrefix = (prefix: string, selector: string): string => {
 
 export const addSelectorPrefixes = (rule: Rule, prefixes: strings): void => {
     rule.selectors = typeof prefixes === 'string'
-        ? rule.selectors.map((selector: string): string => addPrefix(prefixes, selector))
+        ? rule.selectors.map((selector: string): string => {
+            if (store.rulesPrefixRegExp.test(selector)) {
+                return selector;
+            }
+            return addPrefix(prefixes, selector);
+        })
         : rule.selectors.reduce((selectors: string[], selector: string): string[] => {
-            selectors = selectors.concat(prefixes.map((prefix: string): string => addPrefix(prefix, selector)));
+            if (store.rulesPrefixRegExp.test(selector)) {
+                selectors = [...selectors, selector];
+            } else {
+                selectors = selectors.concat(
+                    prefixes.map((prefix: string): string => addPrefix(prefix, selector))
+                );
+            }
             return selectors;
         }, []);
+};
+
+export const hasSelectorsPrefixed = (rule: Rule): boolean => {
+    const prefixed = rule.selectors.find((selector: string) => store.rulesPrefixRegExp.test(selector));
+    return !!prefixed;
 };
 
 export const addProperSelectorPrefixes = (

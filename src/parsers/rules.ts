@@ -9,7 +9,7 @@ import {
 } from '@utilities/directives';
 import { walkContainer } from '@utilities/containers';
 import { cleanRuleRawsBefore } from '@utilities/rules';
-import { addSelectorPrefixes } from '@utilities/selectors';
+import { addSelectorPrefixes, hasSelectorsPrefixed } from '@utilities/selectors';
 import { parseDeclarations } from './declarations';
 
 export const parseRules = (
@@ -77,19 +77,23 @@ export const parseRules = (
             );
 
             if (checkDirective(controlDirectives, CONTROL_DIRECTIVE.RENAME)) {
-                store.rulesAutoRename.push(rule);
-                parseDeclarations(
-                    rule,
-                    hasParentRule,
-                    sourceDirectiveValue,
-                    true
-                );
+                if (!hasSelectorsPrefixed(rule)) {
+                    store.rulesAutoRename.push(rule);
+                    parseDeclarations(
+                        rule,
+                        hasParentRule,
+                        sourceDirectiveValue,
+                        true
+                    );
+                }                
             } else {
-                parseDeclarations(
-                    rule,
-                    hasParentRule,
-                    sourceDirectiveValue
-                );
+                if (!hasSelectorsPrefixed(rule)) {
+                    parseDeclarations(
+                        rule,
+                        hasParentRule,
+                        sourceDirectiveValue
+                    );
+                }                
             }
             
             parseRules(

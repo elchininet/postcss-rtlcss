@@ -16,7 +16,11 @@ import {
     PluginStringMap
 } from '@types';
 import { getKeyFramesStringMap, getKeyFramesRegExp } from '@parsers/atrules';
-import { BOOLEAN_TYPE } from '@constants';
+import {
+    BOOLEAN_TYPE,
+    REG_EXP_CHARACTERS_REG_EXP,
+    LAST_WORD_CHARACTER_REG_EXP
+} from '@constants';
 
 interface Store {
     options: PluginOptionsNormalized;
@@ -25,7 +29,10 @@ interface Store {
     keyframesRegExp: RegExp;
     rules: RulesObject[];
     rulesAutoRename: Rule[];
+    rulesPrefixRegExp: RegExp;
 }
+
+const defaultRegExp = new RegExp('$-^');
 
 const defaultStringMap = [
     {
@@ -91,12 +98,35 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
     );
 };
 
+const spreadArrayOfStrings = (arr: string[], item: strings): string[] => {
+    return typeof item === 'string'
+        ? [...arr, item]
+        : [...arr, ...item];
+};
+
+const createRulesPrefixesRegExp = (options: PluginOptionsNormalized): RegExp => {
+    const { ltrPrefix, rtlPrefix, bothPrefix, ignorePrefixedRules } = options;
+    if (!ignorePrefixedRules) return defaultRegExp;
+    let prefixes: string[] = [];
+    prefixes = spreadArrayOfStrings(prefixes, ltrPrefix);
+    prefixes = spreadArrayOfStrings(prefixes, rtlPrefix);
+    prefixes = spreadArrayOfStrings(prefixes, bothPrefix);
+    prefixes = prefixes.map((p: string): string => {
+        const escaped = p.replace(REG_EXP_CHARACTERS_REG_EXP, '\\$&');
+        return LAST_WORD_CHARACTER_REG_EXP.test(p)
+            ? `${escaped}(?:\\W|$)`
+            : escaped;
+    });
+    return new RegExp(`(${prefixes.join('|')})`);
+};
+
 const defaultOptions = (): PluginOptionsNormalized => ({
     mode: Mode.combined,
     ltrPrefix: '[dir="ltr"]',
     rtlPrefix: '[dir="rtl"]',
     bothPrefix: '[dir]',
     safeBothPrefix: false,
+    ignorePrefixedRules: true,
     source: Source.ltr,
     processUrls: false,
     processKeyFrames: false,
@@ -106,15 +136,14 @@ const defaultOptions = (): PluginOptionsNormalized => ({
     greedy: false
 });
 
-const defaultKeyframesRegExp = new RegExp('$-^');
-
 const store: Store = {
     options: {...defaultOptions()},
     keyframes: [],
     keyframesStringMap: {},
-    keyframesRegExp: defaultKeyframesRegExp,
+    keyframesRegExp: defaultRegExp,
     rules: [],
-    rulesAutoRename: []
+    rulesAutoRename: [],
+    rulesPrefixRegExp: defaultRegExp
 };
 
 export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
@@ -127,6 +156,9 @@ export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalize
     }
     if (options.autoRename && AutorenameValuesArray.includes(options.autoRename)) {
         returnOptions.autoRename = options.autoRename;
+    }
+    if (typeof options.ignorePrefixedRules === BOOLEAN_TYPE) {
+        returnOptions.ignorePrefixedRules = options.ignorePrefixedRules;
     }
     if (typeof options.greedy === BOOLEAN_TYPE) {
         returnOptions.greedy = options.greedy;
@@ -171,9 +203,10 @@ const initStore = (options: PluginOptions): void => {
     store.options = normalizeOptions(options);
     store.keyframes = [];
     store.keyframesStringMap = {};
-    store.keyframesRegExp = defaultKeyframesRegExp;
+    store.keyframesRegExp = defaultRegExp;
     store.rules = [];
     store.rulesAutoRename = [];
+    store.rulesPrefixRegExp = createRulesPrefixesRegExp(store.options);
 };
 
 const initKeyframesData = (): void => {
