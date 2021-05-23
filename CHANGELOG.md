@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.3.4 / 1.7.3] - 2021-05-23
+
+- Added a new option to support declarations aliases
+
 ## [3.3.3 / 1.7.2] - 2021-05-23
 
 - Added a new option to ignore rules already prefixed

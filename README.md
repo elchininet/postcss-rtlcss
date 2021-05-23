@@ -329,7 +329,8 @@ All the options are optional, and a default value will be used if any of them is
 | useCalc            | `boolean`                 | `false`         | Flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
 | stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the URLs and rules selectors names |
 | autoRename         | `Autorename (string)`     | `Autorename.disabled` | Flip or not the selectors names of the rules without directional properties using the `stringMap` |
-| greedy             | `boolean            `     | `false`         | When `autoRename` is enabled and greedy is `true`, the strings replacements will not take into account word boundaries |
+| greedy             | `boolean`                 | `false`         | When `autoRename` is enabled and greedy is `true`, the strings replacements will not take into account word boundaries |
+| aliases            | `Record<string, string>`  | `{}`            | A strings map to treat some declarations as others |
 
 ---
 
@@ -1141,6 +1142,71 @@ const options = {
 
 .test2rtl {
     width: 100%;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### aliases
+
+<details><summary>Expand</summary>
+<p>
+
+This property consists of a string map to treat some declarations as others, very useful to flip the values of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+
+##### input
+
+```css
+:root {
+    --my-padding: 1rem 1rem 1.5rem 1.5rem;
+}
+
+.test {
+    padding: var(--my-padding);
+}
+```
+
+##### No aliases string map (default)
+
+##### output
+
+```css
+:root {
+    --my-padding: 1rem 1rem 1.5rem 1.5rem;
+}
+
+.test {
+    padding: var(--my-padding);
+}
+```
+
+##### Set an aliases string map
+
+```javascript
+const options = {
+    aliases: {
+        '--my-padding': 'padding'
+    }
+};
+```
+
+##### output
+
+```css
+[dir="ltr"]:root {
+    --my-padding: 1rem 1rem 1.5rem 1.5rem;
+}
+
+[dir="rtl"]:root {
+    --my-padding: 1rem 1.5rem 1.5rem 1rem;
+}
+
+.test {
+    padding: var(--my-padding);
 }
 ```
 

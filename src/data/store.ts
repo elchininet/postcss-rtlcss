@@ -98,6 +98,12 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
     );
 };
 
+const isObjectWithStringKeys = (obj: Record<string, unknown>): boolean =>
+    !Object.entries(obj).some(
+        (entry: [string, unknown]): boolean =>
+            typeof entry[1] !== 'string'
+    );
+
 const spreadArrayOfStrings = (arr: string[], item: strings): string[] => {
     return typeof item === 'string'
         ? [...arr, item]
@@ -133,7 +139,8 @@ const defaultOptions = (): PluginOptionsNormalized => ({
     useCalc: false,
     stringMap: getRTLCSSStringMap(defaultStringMap),
     autoRename: Autorename.disabled,
-    greedy: false
+    greedy: false,
+    aliases: {}
 });
 
 const store: Store = {
@@ -195,6 +202,9 @@ export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalize
                 returnOptions.stringMap.push(map);
             }
         });
+    }
+    if (options.aliases && isObjectWithStringKeys(options.aliases)) {
+        returnOptions.aliases = options.aliases;
     }
     return returnOptions;
 };
