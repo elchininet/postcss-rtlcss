@@ -1,27 +1,26 @@
 import postcss from 'postcss';
 import postcssRTLCSS from '../src';
-import { PluginOptions } from '../src/@types';
-import { readCSSFile } from './test-utils';
+import { PluginOptions, Mode } from '../src/@types';
+import { readCSSFile, runTests } from './utils';
 
-describe('Combined Tests', (): void => {
+runTests({}, (pluginOptions: PluginOptions): void => {
 
-  let input = '';
+  describe(`[[Mode: ${pluginOptions.mode}]] Combined Tests: `, (): void => {
 
-  beforeEach(async (): Promise<void> => {
-    input = input || await readCSSFile('input-noflip.css');
-  });
-
-  it('Combined No Flip', (): void => {
-    const output = postcss([postcssRTLCSS()]).process(input);
-    expect(output.css).toMatchSnapshot();
-    expect(output.warnings()).toHaveLength(0);
-  });
-
-  it('Override No Flip', (): void => {
-    const options: PluginOptions = {mode: 'override'}; 
-    const output = postcss([postcssRTLCSS(options)]).process(input);
-    expect(output.css).toMatchSnapshot();
-    expect(output.warnings()).toHaveLength(0);
+    let input = '';
+  
+    beforeEach(async (): Promise<void> => {
+      input = input || await readCSSFile('input-noflip.css');
+    });
+  
+    it('No Flip', (): void => {
+      const output = pluginOptions.mode === Mode.combined
+        ? postcss([postcssRTLCSS()]).process(input)
+        : postcss([postcssRTLCSS(pluginOptions)]).process(input);
+      expect(output.css).toMatchSnapshot();
+      expect(output.warnings()).toHaveLength(0);
+    });
+  
   });
 
 });
