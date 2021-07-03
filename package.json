@@ -30,7 +30,7 @@
     "test": "jest --clearCache && jest --verbose",
     "lint": "eslint src/**/*.ts",
     "copy": "cp -r ./dist/. ./",
-    "build": "webpack && tscpaths -p tsconfig.json -s ./src -o ./dist && yarn copy",
+    "build": "webpack && tsconfig-replace-paths -p tsconfig.json -s ./src -o ./dist && yarn copy",
     "prepare": "yarn build && yarn copy",
     "prepublishOnly": "npm run lint && npm run test",
     "version": "git add .",
@@ -60,7 +60,7 @@
     "postcss": "^8.2.4",
     "ts-jest": "^26.5.6",
     "ts-loader": "^9.1.2",
-    "tscpaths": "^0.0.9",
+    "tsconfig-replace-paths": "^0.0.5",
     "typescript": "^4.2.4",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.7.0"
