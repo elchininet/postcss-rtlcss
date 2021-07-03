@@ -1156,7 +1156,9 @@ const options = {
 <details><summary>Expand</summary>
 <p>
 
-This property consists of a string map to treat some declarations as others, very useful to flip the values of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+This property consists of a string map to treat some declarations as others, very useful to flip the values of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+
+>Note: This property is not available in the legacy version of the package
 
 ##### input
 
