@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.3.5] - 2021-08-25
+
+- Support for nested at-rules
+
 ## [3.3.4] - 2021-05-23
 
 - Added a new option to support declarations aliases
