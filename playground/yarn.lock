@@ -5275,10 +5275,10 @@ postcss-modules-values@^4.0.0:
   dependencies:
     icss-utils "^5.0.0"
 
-postcss-rtlcss@^3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.3.4.tgz#561548366562209ee6d40e6d6224e6dc1650b478"
-  integrity sha512-3UM3E1uJvtc5mR5UIXYX1bgUxZgupgUi8cfk0alOT0rwHQ5evoJPFDYbGsaUsj6PWLJpWuh3zCY3zYFtS2sHTw==
+postcss-rtlcss@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.3.5.tgz#40aed81f0440287e229ac5372bc4cc8c2ce74048"
+  integrity sha512-b5ZCyK+OE9qkt0LugVpzjurKbEipcDm4uGsa55T635akN+q9gdzkoyOJBTg08OSLEV9Nufjga1YXnOtWDm5xLQ==
   dependencies:
     rtlcss "^3.2.0"
 
