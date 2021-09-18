@@ -274,16 +274,19 @@
 	vertical-align: middle;
 }
 
+.monaco-hover .hover-contents a.code-link:hover,
+.monaco-hover .hover-contents a.code-link {
+	color: inherit;
+}
+
 .monaco-hover .hover-contents a.code-link:before {
 	content: '(';
 }
+
 .monaco-hover .hover-contents a.code-link:after {
 	content: ')';
 }
 
-.monaco-hover .hover-contents a.code-link {
-	color: inherit;
-}
 .monaco-hover .hover-contents a.code-link > span {
 	text-decoration: underline;
 	/** Hack to force underline to show **/
@@ -300,6 +303,12 @@
 .monaco-hover-content .action-container a {
 	-webkit-user-select: none;
 	user-select: none;
+}
+
+.monaco-hover-content .action-container.disabled {
+	pointer-events: none;
+	opacity: 0.4;
+	cursor: default;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -469,12 +478,15 @@
 	opacity: 0.6;
 	color: inherit;
 }
+
 .monaco-editor .marker-widget .descriptioncontainer .message a.code-link:before {
 	content: '(';
 }
+
 .monaco-editor .marker-widget .descriptioncontainer .message a.code-link:after {
 	content: ')';
 }
+
 .monaco-editor .marker-widget .descriptioncontainer .message a.code-link > span {
 	text-decoration: underline;
 	/** Hack to force underline to show **/
@@ -551,6 +563,10 @@
 
 .monaco-editor .peekview-widget .head .peekview-title .codicon {
 	margin-right: 4px;
+}
+
+.monaco-editor .peekview-widget .monaco-list .monaco-list-row.focused .codicon {
+	color: inherit !important;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -1321,7 +1337,7 @@
 	padding-left: 0px;
 	padding-right: 0px;
 	line-height: 16px;
-	margin-left: -4px;
+	margin-left: -3px;
 }
 
 .monaco-dropdown-with-primary > .dropdown-action-container > .monaco-dropdown > .dropdown-label > .action-label {
@@ -1350,6 +1366,11 @@
 	cursor: pointer;
 	text-decoration: underline;
 	text-underline-position: under;
+}
+
+.monaco-editor .ghost-text-hidden {
+	opacity: 0;
+	font-size: 0;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -1525,8 +1546,6 @@
 
 /** signature, qualifier, type/details opacity **/
 
-.monaco-editor .suggest-widget .monaco-list .monaco-list-row>.contents>.main>.left>.signature-label,
-.monaco-editor .suggest-widget .monaco-list .monaco-list-row>.contents>.main>.left>.qualifier-label,
 .monaco-editor .suggest-widget .monaco-list .monaco-list-row>.contents>.main>.right>.details-label {
 	opacity: 0.7;
 }
@@ -1534,12 +1553,14 @@
 .monaco-editor .suggest-widget .monaco-list .monaco-list-row>.contents>.main>.left>.signature-label {
 	overflow: hidden;
 	text-overflow: ellipsis;
+	opacity: 0.6;
 }
 
 .monaco-editor .suggest-widget .monaco-list .monaco-list-row>.contents>.main>.left>.qualifier-label {
-	margin-left: 4px;
+	margin-left: 12px;
 	opacity: 0.4;
-	font-size: 90%;
+	font-size: 85%;
+	line-height: initial;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	align-self: center;
@@ -1548,6 +1569,7 @@
 /** Type Info and icon next to the label in the focused completion item **/
 
 .monaco-editor .suggest-widget .monaco-list .monaco-list-row>.contents>.main>.right>.details-label {
+	font-size: 85%;
 	margin-left: 1.1em;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -1676,10 +1698,6 @@
 	margin-right: 4px;
 }
 
-.monaco-editor .suggest-widget .monaco-list .monaco-list-row.focused .suggest-icon {
-	color: inherit;
-}
-
 .monaco-editor .suggest-widget.no-icons .monaco-list .monaco-list-row .icon, .monaco-editor .suggest-widget.no-icons .monaco-list .monaco-list-row .suggest-icon::before {
 	display: none;
 }
@@ -1800,7 +1818,7 @@
 
 @font-face {
 	font-family: "codicon";
-	src: url(../fonts/codicon.ttf) format("truetype");
+	src: url(../6f75249988833dd9f429.ttf) format("truetype");
 }
 
 .codicon[class*='codicon-'] {
@@ -1907,10 +1925,6 @@
 .monaco-list.selection-single,
 .monaco-list.selection-multiple {
 	outline: 0 !important;
-}
-
-.monaco-list:focus .monaco-list-row.selected .codicon {
-	color: inherit;
 }
 
 /* Dnd */
@@ -2107,7 +2121,7 @@
 	opacity: 0.75;
 	font-size: 90%;
 	font-weight: 600;
-	padding: 0 16px 0 5px;
+	margin: 0 16px 0 5px;
 	text-align: center;
 }
 
@@ -2146,7 +2160,7 @@
 	display: flex;
 	height: 24px;
 	position: relative;
-	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTZEaa/1AAAAHUlEQVQYV2PYvXu3JAi7uLiAMaYAjAGTQBPYLQkAa/0Zef3qRswAAAAASUVORK5CYII=");
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTZEaa/1AAAAHUlEQVQYV2PYvXu3JAi7uLiAMaYAjAGTQBPYLQkAa/0Zef3qRswAAAAASUVORK5CYII=);
 	background-size: 9px 9px;
 	image-rendering: pixelated;
 }
@@ -2219,7 +2233,7 @@
 	position: relative;
 	margin-left: 8px;
 	cursor: grab;
-	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTZEaa/1AAAAHUlEQVQYV2PYvXu3JAi7uLiAMaYAjAGTQBPYLQkAa/0Zef3qRswAAAAASUVORK5CYII=");
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTZEaa/1AAAAHUlEQVQYV2PYvXu3JAi7uLiAMaYAjAGTQBPYLQkAa/0Zef3qRswAAAAASUVORK5CYII=);
 	background-size: 9px 9px;
 	image-rendering: pixelated;
 }
@@ -2380,7 +2394,6 @@
 	display: flex !important;
 	align-items: center;
 	justify-content: center;
-	color: inherit !important;
 	transform: translateX(3px);
 }
 
@@ -3052,13 +3065,13 @@
 	position: absolute;
 	resize: none;
 	overflow: hidden;
-	background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTMiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA1MyAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiPg0KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00OC4wMzY0IDQuMDEwNDJINC4wMDc3OUw0LjAwNzc5IDMyLjAyODZINDguMDM2NFY0LjAxMDQyWk00LjAwNzc5IDAuMDA3ODEyNUMxLjc5NzIxIDAuMDA3ODEyNSAwLjAwNTE4Nzk5IDEuNzk5ODQgMC4wMDUxODc5OSA0LjAxMDQyVjMyLjAyODZDMC4wMDUxODc5OSAzNC4yMzkyIDEuNzk3MjEgMzYuMDMxMiA0LjAwNzc5IDM2LjAzMTJINDguMDM2NEM1MC4yNDcgMzYuMDMxMiA1Mi4wMzkgMzQuMjM5MiA1Mi4wMzkgMzIuMDI4NlY0LjAxMDQyQzUyLjAzOSAxLjc5OTg0IDUwLjI0NyAwLjAwNzgxMjUgNDguMDM2NCAwLjAwNzgxMjVINC4wMDc3OVpNOC4wMTA0MiA4LjAxMzAySDEyLjAxM1YxMi4wMTU2SDguMDEwNDJWOC4wMTMwMlpNMjAuMDE4MiA4LjAxMzAySDE2LjAxNTZWMTIuMDE1NkgyMC4wMTgyVjguMDEzMDJaTTI0LjAyMDggOC4wMTMwMkgyOC4wMjM0VjEyLjAxNTZIMjQuMDIwOFY4LjAxMzAyWk0zNi4wMjg2IDguMDEzMDJIMzIuMDI2VjEyLjAxNTZIMzYuMDI4NlY4LjAxMzAyWk00MC4wMzEyIDguMDEzMDJINDQuMDMzOVYxMi4wMTU2SDQwLjAzMTJWOC4wMTMwMlpNMTYuMDE1NiAxNi4wMTgySDguMDEwNDJWMjAuMDIwOEgxNi4wMTU2VjE2LjAxODJaTTIwLjAxODIgMTYuMDE4MkgyNC4wMjA4VjIwLjAyMDhIMjAuMDE4MlYxNi4wMTgyWk0zMi4wMjYgMTYuMDE4MkgyOC4wMjM0VjIwLjAyMDhIMzIuMDI2VjE2LjAxODJaTTQ0LjAzMzkgMTYuMDE4MlYyMC4wMjA4SDM2LjAyODZWMTYuMDE4Mkg0NC4wMzM5Wk0xMi4wMTMgMjQuMDIzNEg4LjAxMDQyVjI4LjAyNkgxMi4wMTNWMjQuMDIzNFpNMTYuMDE1NiAyNC4wMjM0SDM2LjAyODZWMjguMDI2SDE2LjAxNTZWMjQuMDIzNFpNNDQuMDMzOSAyNC4wMjM0SDQwLjAzMTJWMjguMDI2SDQ0LjAzMzlWMjQuMDIzNFoiIGZpbGw9IiM0MjQyNDIiLz4NCjwvZz4NCjxkZWZzPg0KPGNsaXBQYXRoIGlkPSJjbGlwMCI+DQo8cmVjdCB3aWR0aD0iNTMiIGhlaWdodD0iMzYiIGZpbGw9IndoaXRlIi8+DQo8L2NsaXBQYXRoPg0KPC9kZWZzPg0KPC9zdmc+DQo=") center center no-repeat;
+	background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTMiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA1MyAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiPg0KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00OC4wMzY0IDQuMDEwNDJINC4wMDc3OUw0LjAwNzc5IDMyLjAyODZINDguMDM2NFY0LjAxMDQyWk00LjAwNzc5IDAuMDA3ODEyNUMxLjc5NzIxIDAuMDA3ODEyNSAwLjAwNTE4Nzk5IDEuNzk5ODQgMC4wMDUxODc5OSA0LjAxMDQyVjMyLjAyODZDMC4wMDUxODc5OSAzNC4yMzkyIDEuNzk3MjEgMzYuMDMxMiA0LjAwNzc5IDM2LjAzMTJINDguMDM2NEM1MC4yNDcgMzYuMDMxMiA1Mi4wMzkgMzQuMjM5MiA1Mi4wMzkgMzIuMDI4NlY0LjAxMDQyQzUyLjAzOSAxLjc5OTg0IDUwLjI0NyAwLjAwNzgxMjUgNDguMDM2NCAwLjAwNzgxMjVINC4wMDc3OVpNOC4wMTA0MiA4LjAxMzAySDEyLjAxM1YxMi4wMTU2SDguMDEwNDJWOC4wMTMwMlpNMjAuMDE4MiA4LjAxMzAySDE2LjAxNTZWMTIuMDE1NkgyMC4wMTgyVjguMDEzMDJaTTI0LjAyMDggOC4wMTMwMkgyOC4wMjM0VjEyLjAxNTZIMjQuMDIwOFY4LjAxMzAyWk0zNi4wMjg2IDguMDEzMDJIMzIuMDI2VjEyLjAxNTZIMzYuMDI4NlY4LjAxMzAyWk00MC4wMzEyIDguMDEzMDJINDQuMDMzOVYxMi4wMTU2SDQwLjAzMTJWOC4wMTMwMlpNMTYuMDE1NiAxNi4wMTgySDguMDEwNDJWMjAuMDIwOEgxNi4wMTU2VjE2LjAxODJaTTIwLjAxODIgMTYuMDE4MkgyNC4wMjA4VjIwLjAyMDhIMjAuMDE4MlYxNi4wMTgyWk0zMi4wMjYgMTYuMDE4MkgyOC4wMjM0VjIwLjAyMDhIMzIuMDI2VjE2LjAxODJaTTQ0LjAzMzkgMTYuMDE4MlYyMC4wMjA4SDM2LjAyODZWMTYuMDE4Mkg0NC4wMzM5Wk0xMi4wMTMgMjQuMDIzNEg4LjAxMDQyVjI4LjAyNkgxMi4wMTNWMjQuMDIzNFpNMTYuMDE1NiAyNC4wMjM0SDM2LjAyODZWMjguMDI2SDE2LjAxNTZWMjQuMDIzNFpNNDQuMDMzOSAyNC4wMjM0SDQwLjAzMTJWMjguMDI2SDQ0LjAzMzlWMjQuMDIzNFoiIGZpbGw9IiM0MjQyNDIiLz4NCjwvZz4NCjxkZWZzPg0KPGNsaXBQYXRoIGlkPSJjbGlwMCI+DQo8cmVjdCB3aWR0aD0iNTMiIGhlaWdodD0iMzYiIGZpbGw9IndoaXRlIi8+DQo8L2NsaXBQYXRoPg0KPC9kZWZzPg0KPC9zdmc+DQo=) center center no-repeat;
 	border: 4px solid #F6F6F6;
 	border-radius: 4px;
 }
 
 .monaco-editor.vs-dark .iPadShowKeyboard {
-	background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTMiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA1MyAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiPg0KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00OC4wMzY0IDQuMDEwNDJINC4wMDc3OUw0LjAwNzc5IDMyLjAyODZINDguMDM2NFY0LjAxMDQyWk00LjAwNzc5IDAuMDA3ODEyNUMxLjc5NzIxIDAuMDA3ODEyNSAwLjAwNTE4Nzk5IDEuNzk5ODQgMC4wMDUxODc5OSA0LjAxMDQyVjMyLjAyODZDMC4wMDUxODc5OSAzNC4yMzkyIDEuNzk3MjEgMzYuMDMxMiA0LjAwNzc5IDM2LjAzMTJINDguMDM2NEM1MC4yNDcgMzYuMDMxMiA1Mi4wMzkgMzQuMjM5MiA1Mi4wMzkgMzIuMDI4NlY0LjAxMDQyQzUyLjAzOSAxLjc5OTg0IDUwLjI0NyAwLjAwNzgxMjUgNDguMDM2NCAwLjAwNzgxMjVINC4wMDc3OVpNOC4wMTA0MiA4LjAxMzAySDEyLjAxM1YxMi4wMTU2SDguMDEwNDJWOC4wMTMwMlpNMjAuMDE4MiA4LjAxMzAySDE2LjAxNTZWMTIuMDE1NkgyMC4wMTgyVjguMDEzMDJaTTI0LjAyMDggOC4wMTMwMkgyOC4wMjM0VjEyLjAxNTZIMjQuMDIwOFY4LjAxMzAyWk0zNi4wMjg2IDguMDEzMDJIMzIuMDI2VjEyLjAxNTZIMzYuMDI4NlY4LjAxMzAyWk00MC4wMzEyIDguMDEzMDJINDQuMDMzOVYxMi4wMTU2SDQwLjAzMTJWOC4wMTMwMlpNMTYuMDE1NiAxNi4wMTgySDguMDEwNDJWMjAuMDIwOEgxNi4wMTU2VjE2LjAxODJaTTIwLjAxODIgMTYuMDE4MkgyNC4wMjA4VjIwLjAyMDhIMjAuMDE4MlYxNi4wMTgyWk0zMi4wMjYgMTYuMDE4MkgyOC4wMjM0VjIwLjAyMDhIMzIuMDI2VjE2LjAxODJaTTQ0LjAzMzkgMTYuMDE4MlYyMC4wMjA4SDM2LjAyODZWMTYuMDE4Mkg0NC4wMzM5Wk0xMi4wMTMgMjQuMDIzNEg4LjAxMDQyVjI4LjAyNkgxMi4wMTNWMjQuMDIzNFpNMTYuMDE1NiAyNC4wMjM0SDM2LjAyODZWMjguMDI2SDE2LjAxNTZWMjQuMDIzNFpNNDQuMDMzOSAyNC4wMjM0SDQwLjAzMTJWMjguMDI2SDQ0LjAzMzlWMjQuMDIzNFoiIGZpbGw9IiNDNUM1QzUiLz4NCjwvZz4NCjxkZWZzPg0KPGNsaXBQYXRoIGlkPSJjbGlwMCI+DQo8cmVjdCB3aWR0aD0iNTMiIGhlaWdodD0iMzYiIGZpbGw9IndoaXRlIi8+DQo8L2NsaXBQYXRoPg0KPC9kZWZzPg0KPC9zdmc+DQo=") center center no-repeat;
+	background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTMiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA1MyAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiPg0KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00OC4wMzY0IDQuMDEwNDJINC4wMDc3OUw0LjAwNzc5IDMyLjAyODZINDguMDM2NFY0LjAxMDQyWk00LjAwNzc5IDAuMDA3ODEyNUMxLjc5NzIxIDAuMDA3ODEyNSAwLjAwNTE4Nzk5IDEuNzk5ODQgMC4wMDUxODc5OSA0LjAxMDQyVjMyLjAyODZDMC4wMDUxODc5OSAzNC4yMzkyIDEuNzk3MjEgMzYuMDMxMiA0LjAwNzc5IDM2LjAzMTJINDguMDM2NEM1MC4yNDcgMzYuMDMxMiA1Mi4wMzkgMzQuMjM5MiA1Mi4wMzkgMzIuMDI4NlY0LjAxMDQyQzUyLjAzOSAxLjc5OTg0IDUwLjI0NyAwLjAwNzgxMjUgNDguMDM2NCAwLjAwNzgxMjVINC4wMDc3OVpNOC4wMTA0MiA4LjAxMzAySDEyLjAxM1YxMi4wMTU2SDguMDEwNDJWOC4wMTMwMlpNMjAuMDE4MiA4LjAxMzAySDE2LjAxNTZWMTIuMDE1NkgyMC4wMTgyVjguMDEzMDJaTTI0LjAyMDggOC4wMTMwMkgyOC4wMjM0VjEyLjAxNTZIMjQuMDIwOFY4LjAxMzAyWk0zNi4wMjg2IDguMDEzMDJIMzIuMDI2VjEyLjAxNTZIMzYuMDI4NlY4LjAxMzAyWk00MC4wMzEyIDguMDEzMDJINDQuMDMzOVYxMi4wMTU2SDQwLjAzMTJWOC4wMTMwMlpNMTYuMDE1NiAxNi4wMTgySDguMDEwNDJWMjAuMDIwOEgxNi4wMTU2VjE2LjAxODJaTTIwLjAxODIgMTYuMDE4MkgyNC4wMjA4VjIwLjAyMDhIMjAuMDE4MlYxNi4wMTgyWk0zMi4wMjYgMTYuMDE4MkgyOC4wMjM0VjIwLjAyMDhIMzIuMDI2VjE2LjAxODJaTTQ0LjAzMzkgMTYuMDE4MlYyMC4wMjA4SDM2LjAyODZWMTYuMDE4Mkg0NC4wMzM5Wk0xMi4wMTMgMjQuMDIzNEg4LjAxMDQyVjI4LjAyNkgxMi4wMTNWMjQuMDIzNFpNMTYuMDE1NiAyNC4wMjM0SDM2LjAyODZWMjguMDI2SDE2LjAxNTZWMjQuMDIzNFpNNDQuMDMzOSAyNC4wMjM0SDQwLjAzMTJWMjguMDI2SDQ0LjAzMzlWMjQuMDIzNFoiIGZpbGw9IiNDNUM1QzUiLz4NCjwvZz4NCjxkZWZzPg0KPGNsaXBQYXRoIGlkPSJjbGlwMCI+DQo8cmVjdCB3aWR0aD0iNTMiIGhlaWdodD0iMzYiIGZpbGw9IndoaXRlIi8+DQo8L2NsaXBQYXRoPg0KPC9kZWZzPg0KPC9zdmc+DQo=) center center no-repeat;
 	border: 4px solid #252526;
 }
 /*---------------------------------------------------------------------------------------------
@@ -3284,6 +3297,7 @@
 /* See https://github.com/microsoft/monaco-editor/issues/2168#issuecomment-780078600 */
 .monaco-aria-container {
 	position: absolute !important;
+	top: 0; /* avoid being placed underneath a sibling element */
 	height: 1px;
 	width: 1px;
 	margin: -1px;
@@ -3931,7 +3945,7 @@
 }
 
 .quick-input-list .quick-input-list-rows > .quick-input-list-row .codicon[class*='codicon-'] {
-	vertical-align: sub;
+	vertical-align: text-bottom;
 }
 
 .quick-input-list .quick-input-list-rows .monaco-highlighted-label span {
@@ -3973,7 +3987,7 @@
 
 .quick-input-list .quick-input-list-entry-action-bar .action-label.codicon {
 	margin-right: 4px;
-	padding: 2px;
+	padding: 0px 2px 2px 2px;
 }
 
 .quick-input-list .quick-input-list-entry-action-bar {
@@ -3992,9 +4006,7 @@
 
 /* focused items in quick pick */
 .quick-input-list .monaco-list-row.focused .monaco-keybinding-key,
-.quick-input-list .monaco-list-row.focused .quick-input-list-entry .quick-input-list-separator,
-.quick-input-list .monaco-list-row.focused .quick-input-list-rows .quick-input-list-row .codicon,
-.quick-input-list .monaco-list-row.focused .quick-input-list-entry-action-bar .codicon {
+.quick-input-list .monaco-list-row.focused .quick-input-list-entry .quick-input-list-separator {
 	color: inherit
 }
 .quick-input-list .monaco-list-row.focused .monaco-keybinding-key {
