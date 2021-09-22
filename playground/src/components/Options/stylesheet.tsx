@@ -38,7 +38,7 @@ export const stylesheet = parse({
     },
     container: {
         flexGrow: 1,
-        flexShrink: 0,
+        flexShrink: 1,
         overflowY: 'auto',
         padding: 20,
         scrollBehavior: 'smooth'
