@@ -1,6 +1,6 @@
 {
   "name": "postcss-rtlcss",
-  "version": "3.3.5",
+  "version": "3.4.0",
   "description": "PostCSS plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules",
   "keywords": [
     "postcss",
