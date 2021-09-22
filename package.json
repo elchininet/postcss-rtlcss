@@ -43,7 +43,7 @@
     "url": "git+https://github.com/elchininet/postcss-rtlcss"
   },
   "dependencies": {
-    "rtlcss": "^3.2.0"
+    "rtlcss": "^3.3.0"
   },
   "devDependencies": {
     "@types/eslint": "^7.28.0",

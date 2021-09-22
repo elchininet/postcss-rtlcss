@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.4.1] - 2021-09-22
+
+- Upgraded the RTLCSS library to the version 3.3.0 to support the processEnv option
+
 ## [3.4.0] - 2021-09-22
 
 - Added support for RTLCSS processEnv option
