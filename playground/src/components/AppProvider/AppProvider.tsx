@@ -29,6 +29,7 @@ export interface AppProviderContext {
     changeOptionsIgnorePrefixedRules: (ignorePrefixedRules: boolean) => void;
     changeOptionsProcessUrls: (processUrls: boolean) => void;
     changeOptionsProcessKeyframes: (processKeyFrames: boolean) => void;
+    changeOptionsProcessEnv: (processEnv: boolean) => void;
     changeOptionsUseCalc: (useCalc: boolean) => void;
     changeOptionsAutoRename: (value: Autorename) => void;
     changeOptionsGreedy: (greedy: boolean) => void;
@@ -91,6 +92,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
     const changeOptionsIgnorePrefixedRules = (ignorePrefixedRules: boolean) => setOptions({...options, ignorePrefixedRules});
     const changeOptionsProcessUrls = (processUrls: boolean): void => setOptions({ ...options, processUrls });
     const changeOptionsProcessKeyframes = (processKeyFrames: boolean): void => setOptions({ ...options, processKeyFrames });
+    const changeOptionsProcessEnv = (processEnv: boolean): void => setOptions({ ...options, processEnv });
     const changeOptionsUseCalc = (useCalc: boolean): void => setOptions({ ...options, useCalc });
     const changeOptionsAutoRename = (value: Autorename): void => setOptions({ ...options, autoRename: value });
     const changeOptionsGreedy = (greedy: boolean): void => setOptions({ ...options, greedy });
@@ -112,6 +114,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
         changeOptionsIgnorePrefixedRules,
         changeOptionsProcessUrls,
         changeOptionsProcessKeyframes,
+        changeOptionsProcessEnv,
         changeOptionsUseCalc,
         changeOptionsAutoRename,
         changeOptionsGreedy,

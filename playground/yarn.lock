@@ -5443,12 +5443,12 @@ postcss-modules-values@^4.0.0:
   dependencies:
     icss-utils "^5.0.0"
 
-postcss-rtlcss@^3.3.5:
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.3.5.tgz#40aed81f0440287e229ac5372bc4cc8c2ce74048"
-  integrity sha512-b5ZCyK+OE9qkt0LugVpzjurKbEipcDm4uGsa55T635akN+q9gdzkoyOJBTg08OSLEV9Nufjga1YXnOtWDm5xLQ==
+postcss-rtlcss@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.4.1.tgz#2a54a2bd8724d848446544ed24e960d1d44a5ff3"
+  integrity sha512-4SOkC34IJ086dYjmqGCeIOqQe4JTDk+jwETvq1M/57+bQA6CXEWAjGtqifjcSH75nd0vfW7+hve0Ec4ZYHmMtA==
   dependencies:
-    rtlcss "^3.2.0"
+    rtlcss "^3.3.0"
 
 postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4:
   version "6.0.5"
@@ -5836,10 +5836,10 @@ rimraf@^3.0.0, rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rtlcss@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/rtlcss/-/rtlcss-3.2.0.tgz#2139734ac45302891182f23f13448c51c07fccaf"
-  integrity sha512-nV3UmaTmA5TkP2dYOR16ULu6FkMOqZRbiXbFZnmWIN9coPfx3gin31VGOPV7vrVMPjNds7pCS2UYy0mwQUdFCQ==
+rtlcss@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/rtlcss/-/rtlcss-3.3.0.tgz#fa9d29b071a863fe959704da6a93de3076aeeca4"
+  integrity sha512-XZ2KEatH2nU5yPlts1Wu8SGIuZ3ndN025HQX5MqtUCUiOn5WkCDbcpJ2VJWjpuFmM2cUTQ1xtH21fhMCSseI5A==
   dependencies:
     chalk "^4.1.0"
     find-up "^5.0.0"
