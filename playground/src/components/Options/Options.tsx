@@ -15,6 +15,7 @@ export const Options = (): JSX.Element => {
         changeOptionsIgnorePrefixedRules,
         changeOptionsProcessUrls,
         changeOptionsProcessKeyframes,
+        changeOptionsProcessEnv,
         changeOptionsUseCalc,
         changeOptionsAutoRename,
         changeOptionsGreedy
@@ -26,6 +27,7 @@ export const Options = (): JSX.Element => {
     const changeIgnorePrefixedRules = (checked: boolean) => changeOptionsIgnorePrefixedRules(checked);
     const changeProcessUrls = (checked: boolean): void => changeOptionsProcessUrls(checked);
     const changeProcessKeyframes = (checked: boolean): void => changeOptionsProcessKeyframes(checked);
+    const changeProcessEnv = (checked: boolean): void => changeOptionsProcessEnv(checked);
     const changeUseCalc = (checked: boolean): void => changeOptionsUseCalc(checked);
     const changeAutoRenameDisabled = (): void => changeOptionsAutoRename(PluginOptions.Autorename.disabled);
     const changeAutoRenameFlexible = (): void => changeOptionsAutoRename(PluginOptions.Autorename.flexible);
@@ -77,8 +79,16 @@ export const Options = (): JSX.Element => {
                 { /* processKeyFrames */ }
                 <div css={stylesheet.panel}>
                     <Switch
-                        labels={['processKeyFrames: false', 'processKeyFrames: true']}
+                        labels={['processKeyFrames: false', 'processKeyFrames: true']}                        
                         onChange={changeProcessKeyframes}
+                    />
+                </div>
+                { /* processEnv */ }
+                <div css={stylesheet.panel}>
+                    <Switch
+                        labels={['processEnv: false', 'processEnv: true']}
+                        attributes={{ checked: true }}
+                        onChange={changeProcessEnv}
                     />
                 </div>
                 { /* useCalc */ }

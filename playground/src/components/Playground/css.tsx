@@ -131,4 +131,18 @@ export const cssLines = `.test1, .test2 {
 .test20[dir="rtl"] {
     text-align: right;
 }
+
+.test21 {
+    padding:
+        env(safe-area-inset-top, 10px)
+        env(safe-area-inset-right, 20px)
+        env(safe-area-inset-bottom, 30px)
+        env(safe-area-inset-left, 40px)
+    ;
+}
+
+.test22 {
+    margin-right: env(safe-area-inset-right, 10px);
+    margin-left: env(safe-area-inset-left, 20px);
+}
 `;
