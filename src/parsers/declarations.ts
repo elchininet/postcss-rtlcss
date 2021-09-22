@@ -41,6 +41,7 @@ export const parseDeclarations = (
         source,
         safeBothPrefix,
         processUrls,
+        processEnv,
         useCalc,
         stringMap,
         autoRename,
@@ -129,6 +130,7 @@ export const parseDeclarations = (
             const declString = `${decl.toString()};`;
             const declFlippedString = rtlcss.process(declString, {
                 processUrls: processUrls || processUrlDirective,
+                processEnv,
                 useCalc,
                 stringMap,
                 autoRename: autoRename !== Autorename.disabled,

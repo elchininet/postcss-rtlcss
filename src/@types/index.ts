@@ -51,6 +51,7 @@ export interface PluginOptions {
     source?: SourceValues;
     processUrls?: boolean;
     processKeyFrames?: boolean;
+    processEnv?: boolean;
     useCalc?: boolean;
     stringMap?: PluginStringMap[];
     autoRename?: AutorenameValues;

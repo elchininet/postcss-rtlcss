@@ -326,6 +326,7 @@ All the options are optional, and a default value will be used if any of them is
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
 | processUrls        | `boolean`                 | `false`         | Change the strings in URLs using the string map         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
+| processEnv         | `boolean`                 | `true`          | When processEnv is false, it prevents flipping agent-defined environment variables (`safe-area-inset-left` and `safe-area-inset-right`) |
 | useCalc            | `boolean`                 | `false`         | Flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
 | stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the URLs and rules selectors names |
 | autoRename         | `Autorename (string)`     | `Autorename.disabled` | Flip or not the selectors names of the rules without directional properties using the `stringMap` |
@@ -881,6 +882,111 @@ const options = { processKeyFrames: true };
     to {
         transform: translateX(0);
     }
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### processEnv
+
+<details><summary>Expand</summary>
+<p>
+
+This options manages if the agent-defined environment variables should be flipped:
+
+##### input
+
+```css
+body {
+    padding:
+        env(safe-area-inset-top, 10px)
+        env(safe-area-inset-right, 20px)
+        env(safe-area-inset-bottom, 30px)
+        env(safe-area-inset-left, 40px)
+    ;
+}
+
+.test1 {
+    margin-right: env(safe-area-inset-right, 10px);
+    margin-left: env(safe-area-inset-left, 20px);
+}
+```
+
+##### processEnv true
+
+```javascript
+const options = { processEnv: true }; // This is the default value
+```
+
+##### output
+
+```css
+[dir=\\"ltr\\"] body {
+    padding:
+        env(safe-area-inset-top, 10px)
+        env(safe-area-inset-right, 20px)
+        env(safe-area-inset-bottom, 30px)
+        env(safe-area-inset-left, 40px)
+    ;
+}
+
+[dir=\\"rtl\\"] body {
+    padding:
+        env(safe-area-inset-top, 10px)
+        env(safe-area-inset-right, 40px)
+        env(safe-area-inset-bottom, 30px)
+        env(safe-area-inset-left, 20px);
+}
+
+[dir=\\"ltr\\"] .test1 {
+    margin-right: env(safe-area-inset-right, 10px);
+    margin-left: env(safe-area-inset-left, 20px);
+}
+
+[dir=\\"rtl\\"] .test1 {
+    margin-left: env(safe-area-inset-left, 10px);
+    margin-right: env(safe-area-inset-right, 20px);
+}
+```
+
+##### processEnv false
+
+```javascript
+const options = { processEnv: false };
+```
+
+##### output
+
+```css
+[dir=\\"ltr\\"] body {
+    padding:
+        env(safe-area-inset-top, 10px)
+        env(safe-area-inset-right, 20px)
+        env(safe-area-inset-bottom, 30px)
+        env(safe-area-inset-left, 40px)
+    ;
+}
+
+[dir=\\"rtl\\"] body {
+    padding:
+        env(safe-area-inset-top, 10px)
+        env(safe-area-inset-left, 40px)
+        env(safe-area-inset-bottom, 30px)
+        env(safe-area-inset-right, 20px);
+}
+
+[dir=\\"ltr\\"] .test1 {
+    margin-right: env(safe-area-inset-right, 10px);
+    margin-left: env(safe-area-inset-left, 20px);
+}
+
+[dir=\\"rtl\\"] .test1 {
+    margin-left: env(safe-area-inset-right, 10px);
+    margin-right: env(safe-area-inset-left, 20px);
 }
 ```
 

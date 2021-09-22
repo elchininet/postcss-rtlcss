@@ -136,6 +136,7 @@ const defaultOptions = (): PluginOptionsNormalized => ({
     source: Source.ltr,
     processUrls: false,
     processKeyFrames: false,
+    processEnv: true,
     useCalc: false,
     stringMap: getRTLCSSStringMap(defaultStringMap),
     autoRename: Autorename.disabled,
@@ -187,6 +188,9 @@ export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalize
     }
     if (typeof options.processKeyFrames === BOOLEAN_TYPE) {
         returnOptions.processKeyFrames = options.processKeyFrames;
+    }
+    if (typeof options.processEnv === BOOLEAN_TYPE) {
+        returnOptions.processEnv = options.processEnv;
     }
     if (typeof options.useCalc === BOOLEAN_TYPE) {
         returnOptions.useCalc = options.useCalc;

@@ -8,7 +8,7 @@ const baseOptions: PluginOptions = { aliases };
 
 runTests(baseOptions, (pluginOptions: PluginOptions): void => {
 
-  describe(`[[Mode: ${pluginOptions.mode}]] Aliases Tests:`, (): void => {
+  describe(`[[Mode: ${pluginOptions.mode}]] Variables Tests:`, (): void => {
 
     let input = '';
   
@@ -35,6 +35,20 @@ runTests(baseOptions, (pluginOptions: PluginOptions): void => {
       const output = postcss([postcssRTLCSS(options)]).process(input);
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);
+    });
+
+    it('processEnv = true', (): void => {
+      const options: PluginOptions = { ...pluginOptions };
+      const output = postcss([postcssRTLCSS(options)]).process(input);
+      expect(output.css).toMatchSnapshot();
+      expect(output.warnings()).toHaveLength(0);
+    });
+
+    it('processEnv = false', (): void => {
+        const options: PluginOptions = { ...pluginOptions, processEnv: false };
+        const output = postcss([postcssRTLCSS(options)]).process(input);
+        expect(output.css).toMatchSnapshot();
+        expect(output.warnings()).toHaveLength(0);
     });
   
   });

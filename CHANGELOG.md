@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.4.0] - 2021-09-22
+
+- Added support for RTLCSS processEnv option
+
 ## [3.3.5] - 2021-08-25
 
 - Support for nested at-rules
