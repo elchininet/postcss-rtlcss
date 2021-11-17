@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.5.0] - 2021-11-18
+
+- Upgraded the RTLCSS library to version 3.5.0 to support object-position
+
 ## [3.4.1] - 2021-09-22
 
 - Upgraded the RTLCSS library to the version 3.3.0 to support the processEnv option
