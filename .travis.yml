@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - 12
+  - 16
+  - 17
 os: linux
 dist: xenial
 cache:
