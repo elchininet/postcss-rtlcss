@@ -141,6 +141,7 @@ export const parseDeclarations = (
 
             const root = postcss.parse(declFlippedString);
             const declFlipped = root.first as Declaration;
+            declFlipped.source = decl.source;
             declFlipped.raws = decl.raws;
 
             const declProp = decl.prop.trim();
@@ -216,7 +217,6 @@ export const parseDeclarations = (
                         }                        
                         deleteDeclarations.push(decl);
                     } else {
-                        const declCloneFlipped = decl.clone(); 
                         decl.value = animationDeclValue;                            
                         declCloneFlipped.value = animationDeclValueFlipped;
                         if (normalFlip) {
