@@ -160,14 +160,17 @@ export const appendParentRuleToStore = (
     
 };
 
-export const cleanRuleRawsBefore = (node: Node | void): void => {
+export const cleanRuleRawsBefore = (node: Node | undefined): void => {
     if (node && node.type === RULE_TYPE) {
-        const { before } = node.raws;
-        node.raws.before = '\n\n' + (before ? before.replace(/\n/g, '') : '');
+        node.raws.before = `\n\n${
+            node.raws.before
+                ? node.raws.before.replace(/\n/g, '')
+                : ''
+        }`;
     }
 };
 
-export const cleanRules = (...rules: (Rule | AtRule | undefined | null)[]): void => {
+export const cleanRules = (...rules: (Rule | AtRule)[]): void => {
     rules.forEach((rule: Rule | AtRule | undefined | null): void => {        
         const prev = rule.prev();
         if (prev && prev.type !== COMMENT_TYPE) {
