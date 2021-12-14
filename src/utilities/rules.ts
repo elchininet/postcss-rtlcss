@@ -162,7 +162,8 @@ export const appendParentRuleToStore = (
 
 export const cleanRuleRawsBefore = (node: Node | void): void => {
     if (node && node.type === RULE_TYPE) {
-        node.raws.before = '\n\n' + node.raws.before.replace(/\n/g, '');      
+        const { before } = node.raws;
+        node.raws.before = '\n\n' + (before ? before.replace(/\n/g, '') : '');
     }
 };
 
