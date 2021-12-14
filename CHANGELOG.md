@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.5.1] - 2021-12-14
+
+- Fix a bug in the cleanRuleRawsBefore utility method
+
 ## [3.5.0] - 2021-11-18
 
 - Upgraded the RTLCSS library to version 3.5.0 to support object-position
