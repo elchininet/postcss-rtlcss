@@ -14,14 +14,14 @@ runTests({}, (pluginOptions: PluginOptions): void => {
     });
   
     it('custom ltrPrefix and rtlPrefix', (): void => {
-      const options: PluginOptions = { ...pluginOptions, ltrPrefix: '.ltr', rtlPrefix: '.rtl' };
+      const options: PluginOptions = { ...pluginOptions, ltrPrefix: '.ltr', rtlPrefix: '.rtl', bothPrefix: ['.ltr', '.rtl'] };
       const output = postcss([postcssRTLCSS(options)]).process(input);
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);
     });
   
     it('custom ltrPrefix and rtlPrefix properties as arrays', (): void => {
-      const options: PluginOptions = { ...pluginOptions, ltrPrefix: ['.ltr', '.left-to-right'], rtlPrefix: ['.rtl', '.right-to-left'] };
+      const options: PluginOptions = { ...pluginOptions, ltrPrefix: ['.ltr', '.left-to-right'], rtlPrefix: ['.rtl', '.right-to-left'], bothPrefix: ['.ltr', '.left-to-right', '.rtl', '.right-to-left'] };
       const output = postcss([postcssRTLCSS(options)]).process(input);
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);

@@ -57,10 +57,15 @@ const hasIgnoreDirectiveInRaws = (decl: Declaration): boolean => {
     return false;
 };
 
+const checkOverrides = (decl: string, decls: string[]): boolean => {
+    return decls.some((d: string): boolean => declarations[d] && declarations[d].includes(decl));
+};
+
 export {
     declarations,
     allDeclarations,
     initialValues,
     appendDeclarationToRule,
-    hasIgnoreDirectiveInRaws
+    hasIgnoreDirectiveInRaws,
+    checkOverrides
 };

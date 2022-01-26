@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.5.2] - 2022-01-26
+
+- Move inside the both-rules-prefix, rules which override previous flipped rules
+
 ## [3.5.1] - 2021-12-14
 
 - Fix a bug in the cleanRuleRawsBefore utility method

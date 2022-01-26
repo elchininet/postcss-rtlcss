@@ -19,7 +19,8 @@ import {
     allDeclarations,
     initialValues,
     appendDeclarationToRule,
-    hasIgnoreDirectiveInRaws
+    hasIgnoreDirectiveInRaws,
+    checkOverrides
 } from '@utilities/declarations';
 import { walkContainer } from '@utilities/containers';
 import {
@@ -156,6 +157,7 @@ export const parseDeclarations = (
                     ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
                     : false
             );
+            const overridesPrevious = checkOverrides(declPropUnprefixed, declarationsProps);
             const isConflictedDeclaration = safeBothPrefix
                 ? !!allDeclarations[declPropUnprefixed]
                 : false;
@@ -166,10 +168,11 @@ export const parseDeclarations = (
             const normalFlip = !sourceDirectiveValue || sourceDirectiveValue === source;
             
             if (
-                !hasBeenOverriden &&
-                !isConflictedDeclaration &&
                 declProp === declFlippedProp &&
                 declValue === declFlippedValue &&
+                !hasBeenOverriden &&
+                !overridesPrevious &&
+                !isConflictedDeclaration &&
                 !isAnimation
             ) {
                 return;
@@ -237,8 +240,15 @@ export const parseDeclarations = (
                     declProp === declFlippedProp &&
                     declValue === declFlippedValue                    
                 ) {
-                    if ((hasBeenOverriden || isConflictedDeclaration) && !hasIgnoreDirectiveInRaws(decl)) {
-                        appendDeclarationToRule(decl, hasBeenOverriden ? ruleBoth : ruleSafe);                       
+                    if (
+                        (
+                            hasBeenOverriden ||
+                            isConflictedDeclaration ||
+                            overridesPrevious
+                        ) &&
+                        !hasIgnoreDirectiveInRaws(decl)
+                    ) {
+                        appendDeclarationToRule(decl, hasBeenOverriden || overridesPrevious ? ruleBoth : ruleSafe);                       
                         deleteDeclarations.push(decl);
                     }
                     return;                   

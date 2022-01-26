@@ -424,3 +424,8 @@ html .test50 {
     color: red;
     left: 10px;
 }
+
+.test51 {
+    border-left: 1px solid #FFF;
+    border: none;
+}

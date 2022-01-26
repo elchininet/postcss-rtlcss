@@ -35,7 +35,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     text-align: right;
 }
 
-[dir] .test2 {
+.ltr .test2, .rtl .test2 {
     text-align: center;
 }
 
@@ -309,7 +309,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     border: 1px solid #000;
 }
 
-[dir] .test24 {
+.ltr .test24, .rtl .test24 {
     border-bottom-color: #666;
 }
 
@@ -596,6 +596,18 @@ html.ltr .test50 {
 
 html.rtl .test50 {
     right: 10px;
+}
+
+.ltr .test51 {
+    border-left: 1px solid #FFF;
+}
+
+.rtl .test51 {
+    border-right: 1px solid #FFF;
+}
+
+.ltr .test51, .rtl .test51 {
+    border: none;
 }"
 `;
 
@@ -634,7 +646,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     text-align: right;
 }
 
-[dir] .test2 {
+.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     text-align: center;
 }
 
@@ -918,7 +930,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     border: 1px solid #000;
 }
 
-[dir] .test24 {
+.ltr .test24, .left-to-right .test24, .rtl .test24, .right-to-left .test24 {
     border-bottom-color: #666;
 }
 
@@ -1205,6 +1217,18 @@ html.ltr .test50, html.left-to-right .test50 {
 
 html.rtl .test50, html.right-to-left .test50 {
     right: 10px;
+}
+
+.ltr .test51, .left-to-right .test51 {
+    border-left: 1px solid #FFF;
+}
+
+.rtl .test51, .right-to-left .test51 {
+    border-right: 1px solid #FFF;
+}
+
+.ltr .test51, .left-to-right .test51, .rtl .test51, .right-to-left .test51 {
+    border: none;
 }"
 `;
 
@@ -1818,6 +1842,18 @@ html.ltr .test50, html.left-to-right .test50 {
 
 html.rtl .test50, html.right-to-left .test50 {
     right: 10px;
+}
+
+.ltr .test51, .left-to-right .test51 {
+    border-left: 1px solid #FFF;
+}
+
+.rtl .test51, .right-to-left .test51 {
+    border-right: 1px solid #FFF;
+}
+
+.ltr .test51, .left-to-right .test51, .rtl .test51, .right-to-left .test51 {
+    border: none;
 }"
 `;
 
@@ -1851,7 +1887,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     text-align: right;
 }
 
-[dir] .test2 {
+.ltr .test2, .rtl .test2 {
     text-align: center;
 }
 
@@ -2100,7 +2136,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     border: 1px solid #000;
 }
 
-[dir] .test24 {
+.ltr .test24, .rtl .test24 {
     border-bottom-color: #666;
 }
 
@@ -2365,6 +2401,19 @@ html .test50 {
 html.rtl .test50 {
     left: auto;
     right: 10px;
+}
+
+.test51 {
+    border-left: 1px solid #FFF;
+}
+
+.rtl .test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+}
+
+.ltr .test51, .rtl .test51 {
+    border: none;
 }"
 `;
 
@@ -2398,7 +2447,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     text-align: right;
 }
 
-[dir] .test2 {
+.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     text-align: center;
 }
 
@@ -2652,7 +2701,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     border: 1px solid #000;
 }
 
-[dir] .test24 {
+.ltr .test24, .left-to-right .test24, .rtl .test24, .right-to-left .test24 {
     border-bottom-color: #666;
 }
 
@@ -2917,6 +2966,19 @@ html .test50 {
 html.rtl .test50, html.right-to-left .test50 {
     left: auto;
     right: 10px;
+}
+
+.test51 {
+    border-left: 1px solid #FFF;
+}
+
+.rtl .test51, .right-to-left .test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+}
+
+.ltr .test51, .left-to-right .test51, .rtl .test51, .right-to-left .test51 {
+    border: none;
 }"
 `;
 
@@ -3473,5 +3535,18 @@ html .test50 {
 html.rtl .test50, html.right-to-left .test50 {
     left: auto;
     right: 10px;
+}
+
+.test51 {
+    border-left: 1px solid #FFF;
+}
+
+.rtl .test51, .right-to-left .test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+}
+
+.ltr .test51, .left-to-right .test51, .rtl .test51, .right-to-left .test51 {
+    border: none;
 }"
 `;
