@@ -4,7 +4,8 @@ import {
     COMMENT_TYPE,
     RTL_COMMENT_REGEXP,
     DECLARATION_TYPE,
-    RULE_TYPE
+    RULE_TYPE,
+    AT_RULE_TYPE
 } from '@constants';
 import { store } from '@data/store';
 import { addProperSelectorPrefixes } from '@utilities/selectors';
@@ -15,13 +16,17 @@ export const ruleHasDeclarations = (rule: Rule): boolean => {
     );
 };
 
-export const ruleHasChildren = (rule: Rule): boolean => {
+export const ruleHasChildren = (rule: Rule | AtRule): boolean => {
     return rule.some(
         (node: Node) => (
             node.type === DECLARATION_TYPE ||
             (
                 node.type === RULE_TYPE &&
                 ruleHasChildren(node as Rule)
+            ) ||
+            (
+                node.type === AT_RULE_TYPE &&
+                ruleHasChildren(node as AtRule)
             )
         )
     );

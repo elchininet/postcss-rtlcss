@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.5.3] - 2022-03-11
+
+- Fixed a bug that was removing rules without declarations but with atRules
+
 ## [3.5.2] - 2022-01-26
 
 - Move inside the both-rules-prefix, rules which override previous flipped rules

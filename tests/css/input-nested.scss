@@ -65,3 +65,14 @@
         }
     }
 }
+
+.test11 {
+    .test12 {
+        @media screen and (min-width: 800px) {
+            color: red;
+        }
+    }
+    .test13 {
+        text-align: right;
+    }
+}
