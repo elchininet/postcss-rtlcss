@@ -144,6 +144,26 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
             padding: 0 1.7em 0 0.6em;
         }
     }
+}
+
+.test11 {
+    .test12 {
+        @media screen and (min-width: 800px) {
+            color: red;
+        }
+    }
+}
+
+[dir=\\"ltr\\"] .test11 {
+    .test13 {
+        text-align: right;
+    }
+}
+
+[dir=\\"rtl\\"] .test11 {
+    .test13 {
+        text-align: left;
+    }
 }"
 `;
 
@@ -291,6 +311,26 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
             padding: 0 1.7em 0 0.6em;
         }
     }
+}
+
+.test11 {
+    .test12 {
+        @media screen and (min-width: 800px) {
+            color: red;
+        }
+    }
+}
+
+[dir=\\"rtl\\"] .test11 {
+    .test13 {
+        text-align: right;
+    }
+}
+
+[dir=\\"ltr\\"] .test11 {
+    .test13 {
+        text-align: left;
+    }
 }"
 `;
 
@@ -416,6 +456,23 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
             padding: 0 1.7em 0 0.6em;
         }
     }
+}
+
+.test11 {
+    .test12 {
+        @media screen and (min-width: 800px) {
+            color: red;
+        }
+    }
+    .test13 {
+        text-align: right;
+    }
+}
+
+[dir=\\"rtl\\"] .test11 {
+    .test13 {
+        text-align: left;
+    }
 }"
 `;
 
@@ -540,6 +597,23 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
         [dir=\\"ltr\\"] .test10 {
             padding: 0 1.7em 0 0.6em;
         }
+    }
+}
+
+.test11 {
+    .test12 {
+        @media screen and (min-width: 800px) {
+            color: red;
+        }
+    }
+    .test13 {
+        text-align: right;
+    }
+}
+
+[dir=\\"ltr\\"] .test11 {
+    .test13 {
+        text-align: left;
     }
 }"
 `;
