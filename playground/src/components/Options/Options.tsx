@@ -1,5 +1,5 @@
 import React from 'react';
-import PluginOptions from 'postcss-rtlcss/options';
+import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
 import { useAppContext } from '@components/AppProvider';
 import { Switch } from '@components/Switch';
 import { stylesheet } from './stylesheet';
@@ -21,17 +21,17 @@ export const Options = (): JSX.Element => {
         changeOptionsGreedy
     } = useAppContext();
 
-    const changeMode = (checked: boolean): void => changeOptionsMode(checked ? PluginOptions.Mode.override : PluginOptions.Mode.combined);
-    const changeSource = (checked: boolean): void => changeOptionsSource(checked ? PluginOptions.Source.rtl : PluginOptions.Source.ltr);
+    const changeMode = (checked: boolean): void => changeOptionsMode(checked ? Mode.override : Mode.combined);
+    const changeSource = (checked: boolean): void => changeOptionsSource(checked ? Source.rtl : Source.ltr);
     const changeSafeBothPrefix = (checked: boolean) => changeOptionsSafeBothPrefix(checked);
     const changeIgnorePrefixedRules = (checked: boolean) => changeOptionsIgnorePrefixedRules(checked);
     const changeProcessUrls = (checked: boolean): void => changeOptionsProcessUrls(checked);
     const changeProcessKeyframes = (checked: boolean): void => changeOptionsProcessKeyframes(checked);
     const changeProcessEnv = (checked: boolean): void => changeOptionsProcessEnv(checked);
     const changeUseCalc = (checked: boolean): void => changeOptionsUseCalc(checked);
-    const changeAutoRenameDisabled = (): void => changeOptionsAutoRename(PluginOptions.Autorename.disabled);
-    const changeAutoRenameFlexible = (): void => changeOptionsAutoRename(PluginOptions.Autorename.flexible);
-    const changeAutoRenameStrict = (): void => changeOptionsAutoRename(PluginOptions.Autorename.strict);
+    const changeAutoRenameDisabled = (): void => changeOptionsAutoRename(Autorename.disabled);
+    const changeAutoRenameFlexible = (): void => changeOptionsAutoRename(Autorename.flexible);
+    const changeAutoRenameStrict = (): void => changeOptionsAutoRename(Autorename.strict);
     const changeGreedy = (checked: boolean): void => changeOptionsGreedy(checked);
     
     return (
@@ -104,7 +104,7 @@ export const Options = (): JSX.Element => {
                         labels="autoRename: disabled"
                         checkbox={false}
                         attributes={{
-                            checked: !options.autoRename || options.autoRename === PluginOptions.Autorename.disabled,
+                            checked: !options.autoRename || options.autoRename === Autorename.disabled,
                             name: 'autoRename',
                             value: 'disabled'
                         }}
@@ -116,7 +116,7 @@ export const Options = (): JSX.Element => {
                         labels="autoRename: flexible"
                         checkbox={false}
                         attributes={{
-                            checked: options.autoRename === PluginOptions.Autorename.flexible,
+                            checked: options.autoRename === Autorename.flexible,
                             name: 'autoRename',
                             value: 'flexible'
                         }}
@@ -128,7 +128,7 @@ export const Options = (): JSX.Element => {
                         labels="autoRename: strict"
                         checkbox={false}
                         attributes={{
-                            checked: options.autoRename === PluginOptions.Autorename.strict,
+                            checked: options.autoRename === Autorename.strict,
                             name: 'autoRename',
                             value: 'strict'
                         }}
