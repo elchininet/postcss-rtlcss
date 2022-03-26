@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, createContext, useContext, useState, useEffect } from 'react';
-import { PluginOptions, Mode, Source, Autorename } from 'postcss-rtlcss/@types';
+import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
+import { PluginOptions } from '@types';
 import { useApi } from '@hooks/useApi';
 import { breakpointSizes } from '@utilities/styles';
 
