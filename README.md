@@ -64,9 +64,7 @@ const { postcssRTLCSS, Mode, Source, Autorename } = require('postcss-rtlcss');
 ```javascript
 import postcss from 'postcss';
 import postcssRTLCSS from 'postcss-rtlcss';
-import postcssRTLCSSOptions from 'postcss-rtlcss/options';
-
-const { Mode, Source, Autorename } = postcssRTLCSSOptions;
+import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
 
 const options = { ... available options ... };
 const result = postcss([

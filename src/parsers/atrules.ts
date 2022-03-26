@@ -1,8 +1,19 @@
 import postcss, { Root, Container, Node, AtRule, Comment } from 'postcss';
 import rtlcss from 'rtlcss';
-import { AtRulesObject, AtRulesStringMap, Source, ControlDirective } from '@types';
-import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME, CONTROL_DIRECTIVE } from '@constants';
-import { store, initKeyframesData } from '@data/store';
+import {
+    Source,
+    ControlDirective
+} from '@types';
+import {
+    AT_RULE_TYPE,
+    RULE_TYPE,
+    KEYFRAMES_NAME,
+    CONTROL_DIRECTIVE
+} from '@constants';
+import {
+    store,
+    initKeyframesData
+} from '@data/store';
 import { walkContainer } from '@utilities/containers';
 import {
     isIgnoreDirectiveInsideAnIgnoreBlock,
@@ -11,19 +22,6 @@ import {
 } from '@utilities/directives';
 import { vendor } from '@utilities/vendor';
 import { parseRules } from '@parsers/rules';
-
-export const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesStringMap => {    
-    const stringMap: AtRulesStringMap = {};    
-    keyframes.forEach((obj: AtRulesObject): void => {
-        stringMap[obj.atRuleParams] = {
-            name: obj.atRule.params,
-            nameFlipped: obj.atRuleFlipped.params
-        };
-    });
-    return stringMap;
-};
-
-export const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new RegExp(`(^|[^\\w-]| )(${ Object.keys(stringMap).join('|') })( |[^\\w-]|$)`, 'g');
 
 export const parseAtRules = (container: Container): void => {
 

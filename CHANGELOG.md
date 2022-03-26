@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.5.4] - 2022-03-26
+
+- Build the package bundle using rollup and created an ESM version of the package
+
 ## [3.5.3] - 2022-03-11
 
 - Fixed a bug that was removing rules without declarations but with atRules
