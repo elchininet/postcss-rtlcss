@@ -15,7 +15,6 @@ import {
     StringMap,
     PluginStringMap
 } from '@types';
-import { getKeyFramesStringMap, getKeyFramesRegExp } from '@parsers/atrules';
 import {
     BOOLEAN_TYPE,
     REG_EXP_CHARACTERS_REG_EXP,
@@ -154,7 +153,7 @@ const store: Store = {
     rulesPrefixRegExp: defaultRegExp
 };
 
-export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
+const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     const returnOptions: PluginOptionsNormalized = {...defaultOptions()};
     if (options.mode && ModeValuesArray.includes(options.mode)) {
         returnOptions.mode = options.mode;
@@ -222,6 +221,19 @@ const initStore = (options: PluginOptions): void => {
     store.rulesAutoRename = [];
     store.rulesPrefixRegExp = createRulesPrefixesRegExp(store.options);
 };
+
+const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesStringMap => {    
+    const stringMap: AtRulesStringMap = {};    
+    keyframes.forEach((obj: AtRulesObject): void => {
+        stringMap[obj.atRuleParams] = {
+            name: obj.atRule.params,
+            nameFlipped: obj.atRuleFlipped.params
+        };
+    });
+    return stringMap;
+};
+
+const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new RegExp(`(^|[^\\w-]| )(${ Object.keys(stringMap).join('|') })( |[^\\w-]|$)`, 'g');
 
 const initKeyframesData = (): void => {
     store.keyframesStringMap = getKeyFramesStringMap(store.keyframes);

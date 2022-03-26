@@ -2,11 +2,7 @@ node_modules/
 dist/
 .DS_Store
 coverage/
-/@types/
-/constants/
-/data/
-/parsers/
-/utilities/
+/esm/
 /index.d.ts
 /index.js
 /options.d.ts

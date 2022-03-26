@@ -1,6 +1,6 @@
 import { Mode, Source, Autorename } from '@types';
 
-export default {
+export {
     Mode,
     Source,
     Autorename

@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
       "outDir": "./dist/",
-      "module": "commonjs",
+      "module": "esnext",
       "target": "ES5",
       "moduleResolution": "node",
       "esModuleInterop": true,
