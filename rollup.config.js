@@ -1,20 +1,14 @@
-import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
+import ts from 'rollup-plugin-ts';
 import { terser } from "rollup-plugin-terser";
 
 const getPlugins = (includeJson) => {
     const plugins = includeJson
-        ? [
-            json()
-        ]
+        ? [ json() ]
         : [];
     return [
         ...plugins,
-        typescript({
-            tsconfig: './tsconfig.json',
-            declaration: true,
-            outDir: './'
-        }),
+        ts(),
         terser({
             output: {
                 comments: false
@@ -37,8 +31,7 @@ const getConfig = (name, defaults = true) => ({
         },
         {
             file: `dist/esm/${name}.js`,
-            format: 'es',
-            exports: defaults ? 'default' : 'named'
+            format: 'es'
         }
     ]
 });
