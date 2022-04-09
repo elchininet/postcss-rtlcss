@@ -62,7 +62,7 @@ export const parseAtRules = (container: Container): void => {
 
             parseRules(atRule, sourceDirectiveValue);
 
-            parseAtRules(atRule);            
+            parseAtRules(atRule);
 
         }
     );

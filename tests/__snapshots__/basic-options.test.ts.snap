@@ -222,6 +222,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -231,6 +232,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -282,6 +284,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -291,6 +294,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -308,6 +312,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -543,29 +548,35 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-ltr {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -579,21 +590,25 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
 [dir=\\"rtl\\"] .test44 {
     animation: 5s normalFlip-rtl 1s ease-in-out;
 }
+
 @keyframes inversedFlip-rtl {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -607,6 +622,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
 [dir=\\"rtl\\"] .test45 {
     animation: 5s inversedFlip-rtl 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -619,10 +635,12 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -635,6 +653,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -897,6 +916,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -934,6 +954,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -951,6 +972,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -1186,19 +1208,23 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1208,11 +1234,13 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1222,6 +1250,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -1234,10 +1263,12 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -1250,6 +1281,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -1510,6 +1542,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -1519,6 +1552,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -1570,6 +1604,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -1579,6 +1614,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -1596,6 +1632,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -1831,29 +1868,35 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-ltr {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -1867,21 +1910,25 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
 [dir=\\"ltr\\"] .test44 {
     animation: 5s normalFlip-ltr 1s ease-in-out;
 }
+
 @keyframes inversedFlip-rtl {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -1895,6 +1942,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
 [dir=\\"ltr\\"] .test45 {
     animation: 5s inversedFlip-ltr 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -1907,10 +1955,12 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     [dir=\\"ltr\\"] .test46 {
         text-align: left;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -1923,6 +1973,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -2181,6 +2232,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -2218,6 +2270,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -2235,6 +2288,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -2470,19 +2524,23 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -2492,11 +2550,13 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -2506,6 +2566,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -2518,10 +2579,12 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
     [dir=\\"ltr\\"] .test46 {
         text-align: left;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -2534,6 +2597,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -2794,6 +2858,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -2831,6 +2896,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -2848,6 +2914,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -3083,19 +3150,23 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -3105,11 +3176,13 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -3119,6 +3192,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -3131,10 +3205,12 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -3147,6 +3223,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -3405,6 +3482,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -3442,6 +3520,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -3459,6 +3538,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -3694,19 +3774,23 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -3716,11 +3800,13 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -3730,6 +3816,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -3742,10 +3829,12 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -3758,6 +3847,7 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -3797,9 +3887,7 @@ html[dir=\\"rtl\\"] .test50 {
 `;
 
 exports[`[[Mode: diff]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -3873,13 +3961,13 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -3897,6 +3985,7 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -3992,11 +4081,13 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
 .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -4006,11 +4097,13 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
 .test44 {
     animation: 5s normalFlip-rtl 1s ease-in-out;
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -4020,14 +4113,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
 .test45 {
     animation: 5s inversedFlip-ltr 1s ease-in-out;
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -4050,9 +4143,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] Basic Options Tests:  {processUrls: true} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -4124,7 +4215,6 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processUrls: true} 1`] = `
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -4220,14 +4310,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processUrls: true} 1`] = `
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -4250,9 +4340,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl, processKeyFrames: true} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4326,13 +4414,13 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl, processKeyFrames: tr
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -4350,6 +4438,7 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl, processKeyFrames: tr
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -4445,11 +4534,13 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl, processKeyFrames: tr
 .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -4459,11 +4550,13 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl, processKeyFrames: tr
 .test44 {
     animation: 5s normalFlip-rtl 1s ease-in-out;
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -4473,14 +4566,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl, processKeyFrames: tr
 .test45 {
     animation: 5s inversedFlip-ltr 1s ease-in-out;
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -4503,9 +4596,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4574,7 +4665,6 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl} 1`] = `
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -4670,14 +4760,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl} 1`] = `
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -4700,9 +4790,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] Basic Options Tests:  {useCalc: true} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background-position: calc(100% - 10px) 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
@@ -4773,7 +4861,6 @@ exports[`[[Mode: diff]] Basic Options Tests:  {useCalc: true} 1`] = `
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -4869,14 +4956,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {useCalc: true} 1`] = `
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -4899,9 +4986,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] Basic Options Tests:  Basic 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4970,7 +5055,6 @@ exports[`[[Mode: diff]] Basic Options Tests:  Basic 1`] = `
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -5066,14 +5150,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  Basic 1`] = `
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -5293,6 +5377,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -5302,6 +5387,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -5344,6 +5430,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -5353,6 +5440,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -5370,6 +5458,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -5588,29 +5677,35 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-ltr {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -5624,21 +5719,25 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
 [dir=\\"rtl\\"] .test44 {
     animation: 5s normalFlip-rtl 1s ease-in-out;
 }
+
 @keyframes inversedFlip-rtl {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -5652,6 +5751,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
 [dir=\\"ltr\\"] .test45 {
     animation: 5s inversedFlip-ltr 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -5661,10 +5761,12 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -5674,6 +5776,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -5911,6 +6014,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -5945,6 +6049,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -5962,6 +6067,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -6180,19 +6286,23 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -6202,11 +6312,13 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -6216,6 +6328,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -6225,10 +6338,12 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -6238,6 +6353,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -6473,6 +6589,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -6482,6 +6599,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -6524,6 +6642,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -6533,6 +6652,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -6550,6 +6670,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -6762,29 +6883,35 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-ltr {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -6798,21 +6925,25 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
 [dir=\\"rtl\\"] .test44 {
     animation: 5s normalFlip-rtl 1s ease-in-out;
 }
+
 @keyframes inversedFlip-rtl {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -6826,6 +6957,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
 [dir=\\"ltr\\"] .test45 {
     animation: 5s inversedFlip-ltr 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -6835,10 +6967,12 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -6848,6 +6982,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -7081,6 +7216,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -7115,6 +7251,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -7132,6 +7269,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -7344,19 +7482,23 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -7366,11 +7508,13 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -7380,6 +7524,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -7389,10 +7534,12 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -7402,6 +7549,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -7637,6 +7785,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -7671,6 +7820,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -7688,6 +7838,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -7906,19 +8057,23 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -7928,11 +8083,13 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -7942,6 +8099,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -7951,10 +8109,12 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -7964,6 +8124,7 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -8197,6 +8358,7 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -8231,6 +8393,7 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -8248,6 +8411,7 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -8466,19 +8630,23 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -8488,11 +8656,13 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -8502,6 +8672,7 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -8511,10 +8682,12 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -8524,6 +8697,7 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }

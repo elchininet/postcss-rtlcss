@@ -337,9 +337,7 @@ exports[`[[Mode: combined]] Prefixed Tests:  ignorePrefixedRules false 1`] = `
 `;
 
 exports[`[[Mode: diff]] Prefixed Tests:  Custom prefixes 1`] = `
-"
-
-.rtlignore .test2 {
+".rtlignore .test2 {
     padding: 2px 16px 8px 4px;
 }
 
@@ -379,9 +377,7 @@ exports[`[[Mode: diff]] Prefixed Tests:  Custom prefixes 1`] = `
 `;
 
 exports[`[[Mode: diff]] Prefixed Tests:  Prefixed default 1`] = `
-"
-
-.rtl .test {
+".rtl .test {
     left: auto;
     right: 10px;
 }
@@ -423,9 +419,7 @@ exports[`[[Mode: diff]] Prefixed Tests:  Prefixed default 1`] = `
 `;
 
 exports[`[[Mode: diff]] Prefixed Tests:  Prefixed with array 1`] = `
-"
-
-.rtlignore .test2 {
+".rtlignore .test2 {
     padding: 2px 16px 8px 4px;
 }
 
@@ -449,9 +443,7 @@ exports[`[[Mode: diff]] Prefixed Tests:  Prefixed with array 1`] = `
 `;
 
 exports[`[[Mode: diff]] Prefixed Tests:  ignorePrefixedRules false 1`] = `
-"
-
-.rtl .test {
+".rtl .test {
     left: auto;
     right: 10px;
 }

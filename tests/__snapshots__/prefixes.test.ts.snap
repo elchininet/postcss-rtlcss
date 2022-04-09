@@ -220,6 +220,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -257,6 +258,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -274,6 +276,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -509,19 +512,23 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 .rtl .test41 {
     left: 10px;
 }
+
 .ltr .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 .ltr .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -531,11 +538,13 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -545,6 +554,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -557,10 +567,12 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     .rtl .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -573,6 +585,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     .rtl .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -841,6 +854,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -878,6 +892,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -895,6 +910,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -1130,19 +1146,23 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 .rtl .test41, .right-to-left .test41 {
     left: 10px;
 }
+
 .ltr .test42, .left-to-right .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 .ltr .test43, .left-to-right .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1152,11 +1172,13 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1166,6 +1188,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -1178,10 +1201,12 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     .rtl .test46, .right-to-left .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -1194,6 +1219,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     .rtl .test48, .right-to-left .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -1466,6 +1492,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -1503,6 +1530,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -1520,6 +1548,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -1755,19 +1784,23 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 .rtl .test41, .right-to-left .test41 {
     left: 10px;
 }
+
 .ltr .test42, .left-to-right .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 .ltr .test43, .left-to-right .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1777,11 +1810,13 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1791,6 +1826,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -1803,10 +1839,12 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     .rtl .test46, .right-to-left .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -1819,6 +1857,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     .rtl .test48, .right-to-left .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -1858,9 +1897,7 @@ html.rtl .test50, html.right-to-left .test50 {
 `;
 
 exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -1929,7 +1966,6 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -2025,14 +2061,14 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -2055,9 +2091,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properties as arrays 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -2126,7 +2160,6 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properti
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -2222,14 +2255,14 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properti
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -2252,9 +2285,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPrefix properties as arrays and processUrls: true 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -2326,7 +2357,6 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPr
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -2422,14 +2452,14 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPr
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -2647,6 +2677,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -2681,6 +2712,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -2698,6 +2730,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -2916,19 +2949,23 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     height: 50px;
     width: 100px;
 }
+
 .ltr .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 .ltr .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -2938,11 +2975,13 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -2952,6 +2991,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -2961,10 +3001,12 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     .rtl .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -2974,6 +3016,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     .ltr .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -3212,6 +3255,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -3246,6 +3290,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -3263,6 +3308,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -3481,19 +3527,23 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     height: 50px;
     width: 100px;
 }
+
 .ltr .test42, .left-to-right .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 .ltr .test43, .left-to-right .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -3503,11 +3553,13 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -3517,6 +3569,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -3526,10 +3579,12 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     .rtl .test46, .right-to-left .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -3539,6 +3594,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     .ltr .test48, .left-to-right .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -3781,6 +3837,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -3815,6 +3872,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -3832,6 +3890,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -4050,19 +4109,23 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     height: 50px;
     width: 100px;
 }
+
 .ltr .test42, .left-to-right .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 .ltr .test43, .left-to-right .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -4072,11 +4135,13 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -4086,6 +4151,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -4095,10 +4161,12 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     .rtl .test46, .right-to-left .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -4108,6 +4176,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     .ltr .test48, .left-to-right .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }

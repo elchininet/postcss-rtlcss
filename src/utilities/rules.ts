@@ -47,7 +47,7 @@ export const getParentRules = (rule: Rule): Rule[] => {
     const rules: Rule[] = [];
     while (rule.type === RULE_TYPE) {
         rules.push(rule);
-        rule = rule.parent as Rule;  
+        rule = rule.parent as Rule;
     }
     rules.shift();
     return rules.reverse();
@@ -134,7 +134,7 @@ export const insertRuleIntoStore = (
             ruleBoth,
             ruleSafe
         );
-    }    
+    }
     store.rules.push(rulesObject);
     return rulesObject;
 };
@@ -164,7 +164,7 @@ export const appendParentRuleToStore = (
             rootRuleFlippedSecond,
             rootRuleBoth,
             rootRruleSafe
-        );    
+        );
     }
 
     appendRulesToRuleObject(
@@ -178,9 +178,15 @@ export const appendParentRuleToStore = (
     
 };
 
-export const cleanRuleRawsBefore = (node: Node | undefined): void => {
-    if (node && node.type === RULE_TYPE) {
-        node.raws.before = `\n\n${
+export const cleanRuleRawsBefore = (node: Node | undefined, prefix = '\n\n'): void => {
+    if (
+        node &&
+        (
+            node.type === RULE_TYPE ||
+            node.type === AT_RULE_TYPE
+        )
+    ) {
+        node.raws.before = `${prefix}${
             node.raws.before
                 ? node.raws.before.replace(/\n/g, '')
                 : ''
@@ -189,7 +195,7 @@ export const cleanRuleRawsBefore = (node: Node | undefined): void => {
 };
 
 export const cleanRules = (...rules: (Rule | AtRule)[]): void => {
-    rules.forEach((rule: Rule | AtRule | undefined | null): void => {        
+    rules.forEach((rule: Rule | AtRule | undefined | null): void => {
         const prev = rule.prev();
         if (prev && prev.type !== COMMENT_TYPE) {
             cleanRuleRawsBefore(rule);
@@ -220,7 +226,7 @@ export const removeEmptyRules = (rule: Container): void => {
 };
 
 export const appendRules = (): void => {
-    const { rules } = store; 
+    const { rules } = store;
     rules.forEach(({rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe}): void => {
         ruleBoth && ruleBoth.nodes.length && rule.after(ruleBoth);
         ruleRTL && ruleRTL.nodes.length && rule.after(ruleRTL);
@@ -228,7 +234,7 @@ export const appendRules = (): void => {
         ruleSafe && ruleSafe.nodes.length && rule.after(ruleSafe);
         removeEmptyRules(rule);
         cleanRules(rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe);
-    }); 
+    });
 };
 
 export const appendKeyFrames = (): void => {
@@ -236,7 +242,7 @@ export const appendKeyFrames = (): void => {
     keyframes.forEach(({atRule, atRuleFlipped}): void => {
         atRule.after(atRuleFlipped);
         cleanRules(atRule, atRuleFlipped);
-    }); 
+    });
 };
 
 export const appendAutorenameRules = (): void => {
