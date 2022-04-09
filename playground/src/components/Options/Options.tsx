@@ -2,6 +2,7 @@ import React from 'react';
 import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
 import { useAppContext } from '@components/AppProvider';
 import { Switch } from '@components/Switch';
+import { SwitchGroup } from '@components/SwitchGroup';
 import { stylesheet } from './stylesheet';
 
 export const Options = (): JSX.Element => {
@@ -21,7 +22,15 @@ export const Options = (): JSX.Element => {
         changeOptionsGreedy
     } = useAppContext();
 
-    const changeMode = (checked: boolean): void => changeOptionsMode(checked ? Mode.override : Mode.combined);
+    const changeMode = (value: string): void => {
+        if (value === 'combined') {
+            changeOptionsMode(Mode.combined);
+        } else if (value === 'override') {
+            changeOptionsMode(Mode.override);
+        } else {
+            changeOptionsMode(Mode.diff);
+        }
+    };
     const changeSource = (checked: boolean): void => changeOptionsSource(checked ? Source.rtl : Source.ltr);
     const changeSafeBothPrefix = (checked: boolean) => changeOptionsSafeBothPrefix(checked);
     const changeIgnorePrefixedRules = (checked: boolean) => changeOptionsIgnorePrefixedRules(checked);
@@ -29,9 +38,15 @@ export const Options = (): JSX.Element => {
     const changeProcessKeyframes = (checked: boolean): void => changeOptionsProcessKeyframes(checked);
     const changeProcessEnv = (checked: boolean): void => changeOptionsProcessEnv(checked);
     const changeUseCalc = (checked: boolean): void => changeOptionsUseCalc(checked);
-    const changeAutoRenameDisabled = (): void => changeOptionsAutoRename(Autorename.disabled);
-    const changeAutoRenameFlexible = (): void => changeOptionsAutoRename(Autorename.flexible);
-    const changeAutoRenameStrict = (): void => changeOptionsAutoRename(Autorename.strict);
+    const changeAutoRename = (value: string): void => {
+        if (value === 'disabled') {
+            changeOptionsAutoRename(Autorename.disabled)
+        } else if (value === 'flexible') {
+            changeOptionsAutoRename(Autorename.flexible);
+        } else {
+            changeOptionsAutoRename(Autorename.strict);
+        }
+    };
     const changeGreedy = (checked: boolean): void => changeOptionsGreedy(checked);
     
     return (
@@ -42,8 +57,10 @@ export const Options = (): JSX.Element => {
             <div css={stylesheet.container}>
                 { /* Mode */ }
                 <div css={stylesheet.panel}>
-                    <Switch
-                        labels={['mode: combined', 'mode: override']}
+                    <SwitchGroup
+                        label="Mode"
+                        name="mode"
+                        values={['combined', 'override', 'diff']}
                         onChange={changeMode}
                     />
                 </div>
@@ -100,39 +117,11 @@ export const Options = (): JSX.Element => {
                 </div>
                 { /* autoRename */ }
                 <div css={stylesheet.panel}>
-                    <Switch
-                        labels="autoRename: disabled"
-                        checkbox={false}
-                        attributes={{
-                            checked: !options.autoRename || options.autoRename === Autorename.disabled,
-                            name: 'autoRename',
-                            value: 'disabled'
-                        }}
-                        onChange={changeAutoRenameDisabled}
-                    />
-                </div>
-                <div css={stylesheet.panel}>
-                    <Switch
-                        labels="autoRename: flexible"
-                        checkbox={false}
-                        attributes={{
-                            checked: options.autoRename === Autorename.flexible,
-                            name: 'autoRename',
-                            value: 'flexible'
-                        }}
-                        onChange={changeAutoRenameFlexible}
-                    />
-                </div>
-                <div css={stylesheet.panel}>
-                    <Switch
-                        labels="autoRename: strict"
-                        checkbox={false}
-                        attributes={{
-                            checked: options.autoRename === Autorename.strict,
-                            name: 'autoRename',
-                            value: 'strict'
-                        }}
-                        onChange={changeAutoRenameStrict}
+                    <SwitchGroup
+                        label="autoRename"
+                        name="auto-rename"
+                        values={['disabled', 'flexible', 'strict']}
+                        onChange={changeAutoRename}
                     />
                 </div>
                 { /* greedy */ }
