@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.6.0] - 2022-04-09
+
+- Added a new diff mode to output only flipped rules with the intention of using them in a separate stylesheet file to override the main stylesheet
+
 ## [3.5.4] - 2022-03-26
 
 - Build the package bundle using rollup and created an ESM version of the package

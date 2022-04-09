@@ -14,4 +14,5 @@ export const readCSSFile = (name: string): Promise<string> => new Promise((resol
 export const runTests = (options: PluginOptions, callback: (options: PluginOptions) => void): void => {
     callback({...options, mode: Mode.combined});
     callback({...options, mode: Mode.override});
+    callback({...options, mode: Mode.diff});
 };

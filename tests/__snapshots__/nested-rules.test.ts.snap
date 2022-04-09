@@ -334,6 +334,156 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
 }"
 `;
 
+exports[`[[Mode: diff]] Nested rules tests:  {source: ltr} 1`] = `
+"
+
+.test1 {
+    left: auto;
+    right: 10px;
+    .test2 {
+        text-align: right;
+    }
+}
+
+.test3 {
+    left: auto;
+    right: 10px;
+    &.test4 {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+    &.test5 {
+        span {
+            text-align: right;
+        }
+    }
+}
+
+.test6 {
+    .global & {
+        padding: 5px 5px 5px 10px;
+        border-left-color: currentcolor;
+        border-right-color: #666;
+        div {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+    }
+    .test7 {
+        .global & {
+            ::after {
+                text-align: right;
+            }
+        }
+    }
+}
+
+@supports (display: contents) and (display: grid) {
+
+    .test8 {
+        left: auto;
+        right: 10px;
+        text-align: right;
+    }
+    @media screen and (max-width: 800px) {
+
+        .test9 {
+            padding: 0 1.7em 0 0.6em;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    @supports (display: contents) and (display: grid) {
+
+        .test10 {
+            padding: 0 1.7em 0 0.6em;
+        }
+    }
+}
+
+.test11 {
+    .test13 {
+        text-align: left;
+    }
+}"
+`;
+
+exports[`[[Mode: diff]] Nested rules tests:  {source: rtl} 1`] = `
+"
+
+.test1 {
+    left: auto;
+    right: 10px;
+    .test2 {
+        text-align: right;
+    }
+}
+
+.test3 {
+    left: auto;
+    right: 10px;
+    &.test4 {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+    &.test5 {
+        span {
+            text-align: right;
+        }
+    }
+}
+
+.test6 {
+    .global & {
+        padding: 5px 5px 5px 10px;
+        border-left-color: currentcolor;
+        border-right-color: #666;
+        div {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+    }
+    .test7 {
+        .global & {
+            ::after {
+                text-align: right;
+            }
+        }
+    }
+}
+
+@supports (display: contents) and (display: grid) {
+
+    .test8 {
+        left: auto;
+        right: 10px;
+        text-align: right;
+    }
+    @media screen and (max-width: 800px) {
+
+        .test9 {
+            padding: 0 1.7em 0 0.6em;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    @supports (display: contents) and (display: grid) {
+
+        .test10 {
+            padding: 0 1.7em 0 0.6em;
+        }
+    }
+}
+
+.test11 {
+    .test13 {
+        text-align: left;
+    }
+}"
+`;
+
 exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
 ".test1 {
     color: red;

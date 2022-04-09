@@ -3796,6 +3796,1305 @@ html[dir=\\"rtl\\"] .test50 {
 }"
 `;
 
+exports[`[[Mode: diff]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
+"
+
+.test1, .test2 {
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.test2 {
+    text-align: right;
+    text-align: center;
+}
+
+.test3 {
+    direction: rtl;
+}
+
+.test4 {
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+}
+
+.test5,
+.test6,
+.test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    left: auto;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+.test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: auto;
+    right: 5px;
+}
+
+.test11:hover,
+.test11:active {
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+.test16:hover {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.test18 {
+    animation: 5s flip-rtl 1s ease-in-out,
+               3s my-animation-rtl 6s ease-in-out;
+    padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    left: auto;
+    right: 10px;
+}
+
+@keyframes flip-rtl {
+    from {
+        transform: translateX(-100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (min-device-width: 320px) {
+
+    .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test19 {
+    animation-name: my-animation-rtl;
+}
+
+.test20 {
+    animation-name: my-animation-rtl, no-flip;
+}
+
+@keyframes my-animation-rtl {
+    from {
+        right: 0%;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.test22 {
+    right: 5px;
+    left: 10px;
+}
+
+.test24 {
+    border: 1px solid #000;
+    border-bottom-color: #666;
+}
+
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
+}
+
+.test28-left::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.example35 {
+    transform: translate(10px, 20px);
+}
+
+.test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip-rtl {
+    from {
+        right: 0px;
+        top: 0px;
+    }
+    to {
+        right: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip-rtl 1s ease-in-out;
+}
+@keyframes inversedFlip-ltr {
+    from {
+        right: 0px;
+        top: 0px;
+    }
+    to {
+        right: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip-ltr 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test46 {
+        text-align: right;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test48 {
+        text-align: right;
+    }
+}
+
+:root {
+    text-align: right;
+}
+
+html .test50 {
+    left: auto;
+    right: 10px;
+}
+
+.test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+    border: none;
+}"
+`;
+
+exports[`[[Mode: diff]] Basic Options Tests:  {processUrls: true} 1`] = `
+"
+
+.test1, .test2 {
+    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
+    background-color: #FFF;
+    background-position: 10px 20px;
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.test2 {
+    text-align: right;
+    text-align: center;
+}
+
+.test3 {
+    direction: rtl;
+}
+
+.test4 {
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+}
+
+.test5,
+.test6,
+.test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    left: auto;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+.test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: auto;
+    right: 5px;
+}
+
+.test11:hover,
+.test11:active {
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+.test16:hover {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.test18 {
+    padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    left: auto;
+    right: 10px;
+}
+
+@media only screen and (min-device-width: 320px) {
+
+    .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test22 {
+    right: 5px;
+    left: 10px;
+}
+
+.test24 {
+    border: 1px solid #000;
+    border-bottom-color: #666;
+}
+
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
+}
+
+.test28-left::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.example35 {
+    transform: translate(10px, 20px);
+}
+
+.test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.test43 {
+    transform: translate(10px, 20px);
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test46 {
+        text-align: right;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test48 {
+        text-align: right;
+    }
+}
+
+:root {
+    text-align: right;
+}
+
+html .test50 {
+    left: auto;
+    right: 10px;
+}
+
+.test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+    border: none;
+}"
+`;
+
+exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl, processKeyFrames: true} 1`] = `
+"
+
+.test1, .test2 {
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.test2 {
+    text-align: right;
+    text-align: center;
+}
+
+.test3 {
+    direction: rtl;
+}
+
+.test4 {
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+}
+
+.test5,
+.test6,
+.test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    left: auto;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+.test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: auto;
+    right: 5px;
+}
+
+.test11:hover,
+.test11:active {
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+.test16:hover {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.test18 {
+    animation: 5s flip-ltr 1s ease-in-out,
+               3s my-animation-ltr 6s ease-in-out;
+    padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    left: auto;
+    right: 10px;
+}
+
+@keyframes flip-ltr {
+    from {
+        transform: translateX(-100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (min-device-width: 320px) {
+
+    .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test19 {
+    animation-name: my-animation-ltr;
+}
+
+.test20 {
+    animation-name: my-animation-ltr, no-flip;
+}
+
+@keyframes my-animation-ltr {
+    from {
+        right: 0%;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.test22 {
+    right: 5px;
+    left: 10px;
+}
+
+.test24 {
+    border: 1px solid #000;
+    border-bottom-color: #666;
+}
+
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
+}
+
+.test28-left::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.example35 {
+    transform: translate(10px, 20px);
+}
+
+.test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.test43 {
+    transform: translate(10px, 20px);
+}
+@keyframes normalFlip-rtl {
+    from {
+        right: 0px;
+        top: 0px;
+    }
+    to {
+        right: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip-rtl 1s ease-in-out;
+}
+@keyframes inversedFlip-ltr {
+    from {
+        right: 0px;
+        top: 0px;
+    }
+    to {
+        right: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip-ltr 1s ease-in-out;
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test46 {
+        text-align: right;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test48 {
+        text-align: right;
+    }
+}
+
+:root {
+    text-align: right;
+}
+
+html .test50 {
+    left: auto;
+    right: 10px;
+}
+
+.test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+    border: none;
+}"
+`;
+
+exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl} 1`] = `
+"
+
+.test1, .test2 {
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.test2 {
+    text-align: right;
+    text-align: center;
+}
+
+.test3 {
+    direction: rtl;
+}
+
+.test4 {
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+}
+
+.test5,
+.test6,
+.test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    left: auto;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+.test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: auto;
+    right: 5px;
+}
+
+.test11:hover,
+.test11:active {
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+.test16:hover {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.test18 {
+    padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    left: auto;
+    right: 10px;
+}
+
+@media only screen and (min-device-width: 320px) {
+
+    .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test22 {
+    right: 5px;
+    left: 10px;
+}
+
+.test24 {
+    border: 1px solid #000;
+    border-bottom-color: #666;
+}
+
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
+}
+
+.test28-left::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.example35 {
+    transform: translate(10px, 20px);
+}
+
+.test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.test43 {
+    transform: translate(10px, 20px);
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test46 {
+        text-align: right;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test48 {
+        text-align: right;
+    }
+}
+
+:root {
+    text-align: right;
+}
+
+html .test50 {
+    left: auto;
+    right: 10px;
+}
+
+.test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+    border: none;
+}"
+`;
+
+exports[`[[Mode: diff]] Basic Options Tests:  {useCalc: true} 1`] = `
+"
+
+.test1, .test2 {
+    background-position: calc(100% - 10px) 20px;
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.test2 {
+    text-align: right;
+    text-align: center;
+}
+
+.test3 {
+    direction: rtl;
+}
+
+.test4 {
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+    transform-origin: calc(100% - 10px) 20px;
+}
+
+.test5,
+.test6,
+.test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    left: auto;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+.test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: auto;
+    right: 5px;
+}
+
+.test11:hover,
+.test11:active {
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+.test16:hover {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.test18 {
+    padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    left: auto;
+    right: 10px;
+}
+
+@media only screen and (min-device-width: 320px) {
+
+    .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test22 {
+    right: 5px;
+    left: 10px;
+}
+
+.test24 {
+    border: 1px solid #000;
+    border-bottom-color: #666;
+}
+
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
+}
+
+.test28-left::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.example35 {
+    transform: translate(10px, 20px);
+}
+
+.test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.test43 {
+    transform: translate(10px, 20px);
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test46 {
+        text-align: right;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test48 {
+        text-align: right;
+    }
+}
+
+:root {
+    text-align: right;
+}
+
+html .test50 {
+    left: auto;
+    right: 10px;
+}
+
+.test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+    border: none;
+}"
+`;
+
+exports[`[[Mode: diff]] Basic Options Tests:  Basic 1`] = `
+"
+
+.test1, .test2 {
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.test2 {
+    text-align: right;
+    text-align: center;
+}
+
+.test3 {
+    direction: rtl;
+}
+
+.test4 {
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+}
+
+.test5,
+.test6,
+.test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    left: auto;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+.test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: auto;
+    right: 5px;
+}
+
+.test11:hover,
+.test11:active {
+    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+.test16:hover {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.test18 {
+    padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    left: auto;
+    right: 10px;
+}
+
+@media only screen and (min-device-width: 320px) {
+
+    .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test22 {
+    right: 5px;
+    left: 10px;
+}
+
+.test24 {
+    border: 1px solid #000;
+    border-bottom-color: #666;
+}
+
+.test26-ltr {
+    background-image: url(\\"/icons/icon-r.png\\")
+}
+
+.test28-left::before {
+    content: \\"keyboard_arrow_right\\";
+}
+
+.test31 {
+    background-image: url(\\"/icons/icon-right.png\\");
+}
+
+.test32 {
+    background-image: url(\\"/icons/icon-right.png\\");    
+}
+
+.test33 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.example35 {
+    transform: translate(10px, 20px);
+}
+
+.test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.test43 {
+    transform: translate(10px, 20px);
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test46 {
+        text-align: right;
+    }
+}
+@media only screen and (min-device-width: 320px) {
+
+    .test48 {
+        text-align: right;
+    }
+}
+
+:root {
+    text-align: right;
+}
+
+html .test50 {
+    left: auto;
+    right: 10px;
+}
+
+.test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+    border: none;
+}"
+`;
+
 exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
 ".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
