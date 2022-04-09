@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.6.1] - 2022-04-09
+
+- Improved the cleaning process
+
 ## [3.6.0] - 2022-04-09
 
 - Added a new diff mode to output only flipped rules with the intention of using them in a separate stylesheet file to override the main stylesheet

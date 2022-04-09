@@ -326,9 +326,7 @@ exports[`[[Mode: combined]] Variables Tests: wrong aliases 1`] = `
 `;
 
 exports[`[[Mode: diff]] Variables Tests: aliases default 1`] = `
-"
-
-.test1.large {
+".test1.large {
     left: auto;
     right: 10px;
 }
@@ -348,9 +346,7 @@ exports[`[[Mode: diff]] Variables Tests: aliases default 1`] = `
 `;
 
 exports[`[[Mode: diff]] Variables Tests: aliases map 1`] = `
-"
-
-:root {
+":root {
     --small-padding: 2px 16px 8px 4px;
     --large-padding: 4px 32px 16px 8px;
     --small-margin: 2px 16px 8px 4px;
@@ -377,9 +373,7 @@ exports[`[[Mode: diff]] Variables Tests: aliases map 1`] = `
 `;
 
 exports[`[[Mode: diff]] Variables Tests: processEnv = false 1`] = `
-"
-
-:root {
+":root {
     --small-padding: 2px 16px 8px 4px;
     --large-padding: 4px 32px 16px 8px;
     --small-margin: 2px 16px 8px 4px;
@@ -406,9 +400,7 @@ exports[`[[Mode: diff]] Variables Tests: processEnv = false 1`] = `
 `;
 
 exports[`[[Mode: diff]] Variables Tests: processEnv = true 1`] = `
-"
-
-:root {
+":root {
     --small-padding: 2px 16px 8px 4px;
     --large-padding: 4px 32px 16px 8px;
     --small-margin: 2px 16px 8px 4px;
@@ -435,9 +427,7 @@ exports[`[[Mode: diff]] Variables Tests: processEnv = true 1`] = `
 `;
 
 exports[`[[Mode: diff]] Variables Tests: wrong aliases 1`] = `
-"
-
-.test1.large {
+".test1.large {
     left: auto;
     right: 10px;
 }

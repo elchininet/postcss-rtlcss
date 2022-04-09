@@ -234,6 +234,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -271,6 +272,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -291,6 +293,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -532,19 +535,23 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -554,11 +561,13 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -568,6 +577,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test46 {
         cursor: wait;
@@ -580,10 +590,12 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test48 {
         cursor: wait;
@@ -596,6 +608,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -867,6 +880,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -876,6 +890,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -927,6 +942,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -936,6 +952,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -956,6 +973,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -1197,29 +1215,35 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-ltr {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -1233,21 +1257,25 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir=\\"rtl\\"] .test44 {
     animation: 5s normalFlip-rtl 1s ease-in-out;
 }
+
 @keyframes inversedFlip-rtl {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -1261,6 +1289,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir=\\"rtl\\"] .test45 {
     animation: 5s inversedFlip-rtl 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test46 {
         cursor: wait;
@@ -1273,10 +1302,12 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test48 {
         cursor: wait;
@@ -1289,6 +1320,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -1562,6 +1594,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -1599,6 +1632,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -1619,6 +1653,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -1860,19 +1895,23 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1882,11 +1921,13 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1896,6 +1937,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test46 {
         cursor: wait;
@@ -1908,10 +1950,12 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test48 {
         cursor: wait;
@@ -1924,6 +1968,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -2196,6 +2241,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -2233,6 +2279,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -2253,6 +2300,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -2494,19 +2542,23 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -2516,11 +2568,13 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -2530,6 +2584,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test46 {
         cursor: wait;
@@ -2542,10 +2597,12 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"ltr\\"] .test46 {
         text-align: left;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test48 {
         cursor: wait;
@@ -2558,6 +2615,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -2597,9 +2655,7 @@ html[dir=\\"ltr\\"] .test50 {
 `;
 
 exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -2686,7 +2742,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} 1`]
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -2833,15 +2888,15 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} 1`]
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
         text-align: right;
@@ -2865,9 +2920,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and {processKeyFrames: true} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -2959,13 +3012,13 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -2991,6 +3044,7 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -3115,11 +3169,13 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -3130,11 +3186,13 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
     animation: 5s normalFlip-rtl 1s ease-in-out;
     animation: 5s normalFlip-ltr 1s ease-in-out;
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -3145,15 +3203,15 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
     animation: 5s inversedFlip-ltr 1s ease-in-out;
     animation: 5s inversedFlip-rtl 1s ease-in-out;
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
         text-align: right;
@@ -3177,9 +3235,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and {processUrls: true} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -3266,7 +3322,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -3413,15 +3468,15 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
         text-align: right;
@@ -3445,9 +3500,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and {source: rtl} 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -3534,7 +3587,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -3681,15 +3733,15 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
         text-align: right;
@@ -3938,6 +3990,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -3975,6 +4028,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -3995,6 +4049,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -4237,19 +4292,23 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -4259,11 +4318,13 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -4273,6 +4334,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test46 {
         cursor: wait;
@@ -4282,10 +4344,12 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test48 {
         cursor: wait;
@@ -4295,6 +4359,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -4563,6 +4628,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -4572,6 +4638,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(-100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -4617,6 +4684,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -4626,6 +4694,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         right: 0%;
     }
+
     to {
         right: 100%;
     }
@@ -4646,6 +4715,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -4888,29 +4958,35 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip-ltr {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes normalFlip-rtl {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -4924,21 +5000,25 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir=\\"rtl\\"] .test44 {
     animation: 5s normalFlip-rtl 1s ease-in-out;
 }
+
 @keyframes inversedFlip-rtl {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
     }
 }
+
 @keyframes inversedFlip-ltr {
     from {
         right: 0px;
         top: 0px;
     }
+
     to {
         right: 100px;
         top: -100px;
@@ -4952,6 +5032,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir=\\"ltr\\"] .test45 {
     animation: 5s inversedFlip-ltr 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test46 {
         cursor: wait;
@@ -4961,10 +5042,12 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test48 {
         cursor: wait;
@@ -4974,6 +5057,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -5244,6 +5328,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -5281,6 +5366,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -5301,6 +5387,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -5543,19 +5630,23 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -5565,11 +5656,13 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -5579,6 +5672,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test46 {
         cursor: wait;
@@ -5588,10 +5682,12 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test48 {
         cursor: wait;
@@ -5601,6 +5697,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -5867,6 +5964,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -5904,6 +6002,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -5924,6 +6023,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -6160,19 +6260,23 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -6182,11 +6286,13 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -6196,6 +6302,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 [dir] .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test46 {
         cursor: wait;
@@ -6205,10 +6312,12 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     [dir] .test48 {
         cursor: wait;
@@ -6218,6 +6327,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }

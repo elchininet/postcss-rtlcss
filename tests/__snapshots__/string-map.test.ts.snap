@@ -224,6 +224,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -261,6 +262,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -278,6 +280,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -513,19 +516,23 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -535,11 +542,13 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -549,6 +558,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -561,10 +571,12 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -577,6 +589,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -839,6 +852,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -876,6 +890,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -893,6 +908,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -1128,19 +1144,23 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1150,11 +1170,13 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1164,6 +1186,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -1176,10 +1199,12 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -1192,6 +1217,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -1454,6 +1480,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -1491,6 +1518,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -1508,6 +1536,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -1743,19 +1772,23 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1765,11 +1798,13 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -1779,6 +1814,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -1791,10 +1827,12 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -1807,6 +1845,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -2069,6 +2108,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -2106,6 +2146,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -2123,6 +2164,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -2358,19 +2400,23 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
 [dir=\\"rtl\\"] .test41 {
     left: 10px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -2380,11 +2426,13 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -2394,6 +2442,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -2406,10 +2455,12 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -2422,6 +2473,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
     [dir=\\"rtl\\"] .test48 {
         text-align: left;
     }
+
     .test49 {
         color: white;
     }
@@ -2461,9 +2513,7 @@ html[dir=\\"rtl\\"] .test50 {
 `;
 
 exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and processUrls: true (different lenghts) 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -2535,7 +2585,6 @@ exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and proces
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -2631,14 +2680,14 @@ exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and proces
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -2661,9 +2710,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and processUrls: true (different types) 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -2735,7 +2782,6 @@ exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and proces
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -2831,14 +2877,14 @@ exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and proces
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -2861,9 +2907,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] String Map Tests:  custom string map and processUrls: true 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -2935,7 +2979,6 @@ exports[`[[Mode: diff]] String Map Tests:  custom string map and processUrls: tr
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -3035,14 +3078,14 @@ exports[`[[Mode: diff]] String Map Tests:  custom string map and processUrls: tr
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -3065,9 +3108,7 @@ html .test50 {
 `;
 
 exports[`[[Mode: diff]] String Map Tests:  custom string map without names and processUrls: true 1`] = `
-"
-
-.test1, .test2 {
+".test1, .test2 {
     background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
     background-color: #FFF;
     background-position: 10px 20px;
@@ -3139,7 +3180,6 @@ exports[`[[Mode: diff]] String Map Tests:  custom string map without names and p
 }
 
 @media only screen and (min-device-width: 320px) {
-
     .test18 {
         padding: 1px 4px 3px 2px;
     }
@@ -3239,14 +3279,14 @@ exports[`[[Mode: diff]] String Map Tests:  custom string map without names and p
 .test43 {
     transform: translate(10px, 20px);
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test46 {
         text-align: right;
     }
 }
-@media only screen and (min-device-width: 320px) {
 
+@media only screen and (min-device-width: 320px) {
     .test48 {
         text-align: right;
     }
@@ -3468,6 +3508,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -3502,6 +3543,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -3519,6 +3561,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -3737,19 +3780,23 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -3759,11 +3806,13 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -3773,6 +3822,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -3782,10 +3832,12 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -3795,6 +3847,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -4032,6 +4085,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -4066,6 +4120,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -4083,6 +4138,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -4301,19 +4357,23 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -4323,11 +4383,13 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -4337,6 +4399,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -4346,10 +4409,12 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -4359,6 +4424,7 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -4596,6 +4662,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -4630,6 +4697,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -4647,6 +4715,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -4865,19 +4934,23 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -4887,11 +4960,13 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -4901,6 +4976,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -4910,10 +4986,12 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -4923,6 +5001,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }
@@ -5160,6 +5239,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
     from {
         transform: translateX(100px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -5194,6 +5274,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
     from {
         left: 0%;
     }
+
     to {
         left: 100%;
     }
@@ -5211,6 +5292,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
     from {
         color: #000;
     }
+
     to {
         color: #FFF;
     }
@@ -5429,19 +5511,23 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
     height: 50px;
     width: 100px;
 }
+
 [dir=\\"ltr\\"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
+
 [dir=\\"ltr\\"] .test43 {
     transform: translate(10px, 20px);
 }
+
 @keyframes normalFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -5451,11 +5537,13 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
 .test44 {
     animation: 5s normalFlip 1s ease-in-out;
 }
+
 @keyframes inversedFlip {
     from {
         left: 0px;
         top: 0px;
     }
+
     to {
         left: 100px;
         top: -100px;
@@ -5465,6 +5553,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
 .test45 {
     animation: 5s inversedFlip 1s ease-in-out;
 }
+
 @media only screen and (min-device-width: 320px) {
     .test46 {
         cursor: wait;
@@ -5474,10 +5563,12 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
     [dir=\\"rtl\\"] .test46 {
         text-align: right;
     }
+
     .test47 {
         color: white;
     }
 }
+
 @media only screen and (min-device-width: 320px) {
     .test48 {
         cursor: wait;
@@ -5487,6 +5578,7 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
     [dir=\\"ltr\\"] .test48 {
         text-align: right;
     }
+
     .test49 {
         color: white;
     }

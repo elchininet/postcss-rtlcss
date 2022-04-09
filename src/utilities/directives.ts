@@ -14,7 +14,7 @@ export const isValidMatchDirective = (match: (string | number | undefined)[]): b
     (
         match[1] === undefined ||
         CONTROL_DIRECTIVE_BLOCK_VALUES.includes(`${match[1]}`)
-    );  
+    );
 
 export const getControlDirective = (comment: Comment): ControlDirective | null => {
     const commentStr = comment.toString();

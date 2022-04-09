@@ -24,7 +24,7 @@ import { parseDeclarations } from './declarations';
 const addToIgnoreRulesInDiffMode = (node: Node): void => {
     if (store.options.mode === Mode.diff) {
         store.rulesToRemove.push(node as Rule);
-    }  
+    }
 };
 
 export const parseRules = (
@@ -75,8 +75,8 @@ export const parseRules = (
                 return;
             }
 
-            cleanRuleRawsBefore(comment.next());              
-            comment.remove(); 
+            cleanRuleRawsBefore(comment.next());
+            comment.remove();
 
             if (isIgnoreDirectiveInsideAnIgnoreBlock(controlDirective, controlDirectives)) {
                 return;
@@ -88,7 +88,7 @@ export const parseRules = (
         (node: Node): void => {
 
             if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
-                addToIgnoreRulesInDiffMode(node);               
+                addToIgnoreRulesInDiffMode(node);
                 return;
             }
         
@@ -110,7 +110,7 @@ export const parseRules = (
                     );
                 } else {
                     addToIgnoreRulesInDiffMode(rule);
-                }             
+                }
             } else {
                 if (!hasSelectorsPrefixed(rule)) {
                     parseDeclarations(
@@ -120,7 +120,7 @@ export const parseRules = (
                     );
                 } else {
                     addToIgnoreRulesInDiffMode(rule);
-                }              
+                }
             }
             
             parseRules(
@@ -130,6 +130,6 @@ export const parseRules = (
             );
         
         }
-    );    
+    );
 
 };

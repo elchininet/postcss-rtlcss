@@ -43,7 +43,7 @@ export const parseDeclarations = (
     rule: Rule,
     hasParentRule: boolean,
     ruleSourceDirectiveValue: string,
-    autorenamed = false    
+    autorenamed = false
 ): void => {
 
     const {
@@ -83,7 +83,7 @@ export const parseDeclarations = (
         [ DECLARATION_TYPE ],
         (comment: Comment, controlDirective: ControlDirective) => {
             
-            cleanRuleRawsBefore(comment.next());              
+            cleanRuleRawsBefore(comment.next());
             comment.remove();
             
             if (
@@ -98,7 +98,7 @@ export const parseDeclarations = (
                 if (
                     (
                         mode === Mode.combined &&
-                        !sourceDirectiveValue                        
+                        !sourceDirectiveValue
                     ) ||
                     (
                         sourceDirectiveValue &&
@@ -114,7 +114,7 @@ export const parseDeclarations = (
                         )
                     )
                 ) {
-                    ruleFlippedSecond.append(root.nodes);                  
+                    ruleFlippedSecond.append(root.nodes);
                 } else {
                     ruleFlipped.append(root.nodes);
                 }
@@ -205,7 +205,7 @@ export const parseDeclarations = (
                             appendDeclarationToRule(decl, ruleFlipped);
                         } else {
                             appendDeclarationToRule(decl, ruleSafe);
-                        }                        
+                        }
                         deleteDeclarations.push(decl);
                     }
                 } else {
@@ -233,22 +233,22 @@ export const parseDeclarations = (
                         } else {
                             ruleFlipped.append(declCloneFlipped);
                             ruleFlippedSecond.append(declClone);
-                        }                        
+                        }
                         deleteDeclarations.push(decl);
                     } else {
-                        decl.value = animationDeclValue;                            
+                        decl.value = animationDeclValue;
                         declCloneFlipped.value = animationDeclValueFlipped;
                         if (normalFlip) {
                             ruleFlipped.append(declCloneFlipped);
                         } else {
                             ruleFlippedSecond.append(declCloneFlipped);
-                        }                        
+                        }
                         if (safeBothPrefix) {
                             if (mode === Mode.diff) {
-                                appendDeclarationToRule(decl, ruleFlipped); 
+                                appendDeclarationToRule(decl, ruleFlipped);
                             } else {
                                 appendDeclarationToRule(decl, ruleSafe);
-                            }                                                  
+                            }
                             deleteDeclarations.push(decl);
                         }
                     }
@@ -258,7 +258,7 @@ export const parseDeclarations = (
 
                 if (
                     declProp === declFlippedProp &&
-                    declValue === declFlippedValue                    
+                    declValue === declFlippedValue
                 ) {
                     if (
                         (
@@ -280,7 +280,7 @@ export const parseDeclarations = (
                         }
                         deleteDeclarations.push(decl);
                     }
-                    return;                   
+                    return;
                 } else  if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
                     simetricRules = true;
                     if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
@@ -288,7 +288,7 @@ export const parseDeclarations = (
                             appendDeclarationToRule(decl, ruleFlipped);
                         } else {
                             appendDeclarationToRule(decl, ruleSafe);
-                        }                                             
+                        }
                         deleteDeclarations.push(decl);
                     }
                     return;
@@ -301,7 +301,7 @@ export const parseDeclarations = (
                     } else {
                         appendDeclarationToRule(decl, ruleFlippedSecond);
                         ruleFlipped.append(declFlipped);
-                    }                    
+                    }
                     deleteDeclarations.push(decl);
                 } else {
                     if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
@@ -312,14 +312,14 @@ export const parseDeclarations = (
                             ruleFlipped.append(declClone);
                         } else {
                             ruleFlippedSecond.append(declClone);
-                        }                        
+                        }
                     }
                     if (
                         isConflictedDeclaration &&
                         !hasIgnoreDirectiveInRaws(decl) &&
                         mode !== Mode.diff
                     ) {
-                        appendDeclarationToRule(decl, ruleSafe);               
+                        appendDeclarationToRule(decl, ruleSafe);
                         deleteDeclarations.push(decl);
                     }
                     if (normalFlip) {
@@ -348,7 +348,7 @@ export const parseDeclarations = (
         ruleSafe.nodes.length
     ) {
 
-        if (hasParentRule) {            
+        if (hasParentRule) {
             appendParentRuleToStore(
                 rule,
                 ruleFlipped,
@@ -379,4 +379,4 @@ export const parseDeclarations = (
         store.rulesToRemove.push(rule);
     }
 
-}; 
+};

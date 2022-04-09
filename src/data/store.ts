@@ -228,8 +228,8 @@ const initStore = (options: PluginOptions): void => {
     store.rulesPrefixRegExp = createRulesPrefixesRegExp(store.options);
 };
 
-const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesStringMap => {    
-    const stringMap: AtRulesStringMap = {};    
+const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesStringMap => {
+    const stringMap: AtRulesStringMap = {};
     keyframes.forEach((obj: AtRulesObject): void => {
         stringMap[obj.atRuleParams] = {
             name: obj.atRule.params,
