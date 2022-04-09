@@ -3,7 +3,12 @@ import { PluginOptions } from '@types';
 import { initStore } from '@data/store';
 import { parseKeyFrames, parseAtRules } from '@parsers/atrules';
 import { parseRules } from '@parsers/rules';
-import { appendRules, appendKeyFrames, appendAutorenameRules } from '@utilities/rules';
+import {
+    appendRules,
+    appendKeyFrames,
+    appendAutorenameRules
+} from '@utilities/rules';
+import { clean } from '@utilities/clean';
 
 function postcssRTLCSS (options: PluginOptions = {}): Plugin {
     return ({
@@ -16,6 +21,7 @@ function postcssRTLCSS (options: PluginOptions = {}): Plugin {
             appendRules();
             appendKeyFrames();
             appendAutorenameRules();
+            clean(css);
         }
     });
 };

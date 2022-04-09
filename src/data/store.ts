@@ -1,4 +1,4 @@
-import { Rule } from 'postcss';
+import { Rule, AtRule } from 'postcss';
 import {
     PluginOptions,
     PluginOptionsNormalized,
@@ -24,10 +24,12 @@ import {
 interface Store {
     options: PluginOptionsNormalized;
     keyframes: AtRulesObject[];
+    keyframesToRemove: AtRule[];
     keyframesStringMap: AtRulesStringMap;
     keyframesRegExp: RegExp;
     rules: RulesObject[];
     rulesAutoRename: Rule[];
+    rulesToRemove: Rule[];
     rulesPrefixRegExp: RegExp;
 }
 
@@ -146,10 +148,12 @@ const defaultOptions = (): PluginOptionsNormalized => ({
 const store: Store = {
     options: {...defaultOptions()},
     keyframes: [],
+    keyframesToRemove: [],
     keyframesStringMap: {},
     keyframesRegExp: defaultRegExp,
     rules: [],
     rulesAutoRename: [],
+    rulesToRemove: [],
     rulesPrefixRegExp: defaultRegExp
 };
 
@@ -215,10 +219,12 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
 const initStore = (options: PluginOptions): void => {
     store.options = normalizeOptions(options);
     store.keyframes = [];
+    store.keyframesToRemove = [];
     store.keyframesStringMap = {};
     store.keyframesRegExp = defaultRegExp;
     store.rules = [];
     store.rulesAutoRename = [];
+    store.rulesToRemove = [];
     store.rulesPrefixRegExp = createRulesPrefixesRegExp(store.options);
 };
 

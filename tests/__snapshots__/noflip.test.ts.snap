@@ -21,6 +21,8 @@ exports[`[[Mode: combined]] Combined Tests:  No Flip 1`] = `
 }"
 `;
 
+exports[`[[Mode: diff]] Combined Tests:  No Flip 1`] = `""`;
+
 exports[`[[Mode: override]] Combined Tests:  No Flip 1`] = `
 ".test1 {
     color: #000;

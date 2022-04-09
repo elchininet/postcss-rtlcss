@@ -1,5 +1,16 @@
-import { Rule, AtRule, Node, Declaration } from 'postcss';
-import { StringMap, Autorename, RulesObject } from '@types';
+import {
+    Container,
+    Rule,
+    AtRule,
+    Node,
+    Declaration
+} from 'postcss';
+import {
+    StringMap,
+    Autorename,
+    RulesObject,
+    Mode
+} from '@types';
 import {
     COMMENT_TYPE,
     RTL_COMMENT_REGEXP,
@@ -16,7 +27,7 @@ export const ruleHasDeclarations = (rule: Rule): boolean => {
     );
 };
 
-export const ruleHasChildren = (rule: Rule | AtRule): boolean => {
+export const ruleHasChildren = (rule: Container): boolean => {
     return rule.some(
         (node: Node) => (
             node.type === DECLARATION_TYPE ||
@@ -116,12 +127,14 @@ export const insertRuleIntoStore = (
         ruleBoth,
         ruleSafe
     };
-    addProperSelectorPrefixes(
-        ruleFlipped,
-        ruleFlippedSecond,
-        ruleBoth,
-        ruleSafe
-    );
+    if (store.options.mode !== Mode.diff) {
+        addProperSelectorPrefixes(
+            ruleFlipped,
+            ruleFlippedSecond,
+            ruleBoth,
+            ruleSafe
+        );
+    }    
     store.rules.push(rulesObject);
     return rulesObject;
 };
@@ -193,7 +206,7 @@ export const cleanRules = (...rules: (Rule | AtRule)[]): void => {
     });
 };
 
-export const removeEmptyRules = (rule: Rule): void => {
+export const removeEmptyRules = (rule: Container): void => {
     if (ruleHasChildren(rule)) {
         rule.walkRules((r: Rule): void => {
             removeEmptyRules(r);
@@ -261,10 +274,14 @@ export const appendAutorenameRules = (): void => {
         });
         if (process) {
             rulesToProcess.push(rule);
+        } else if (store.options.mode === Mode.diff) {
+            store.rulesToRemove.push(rule);
         }
     });
 
     rulesToProcess.forEach((rule: Rule): void => {
+
+        const selectorsBackup = rule.selectors.join('|');
 
         rule.selectors = rule.selectors.map((selector: string): string => {
 
@@ -280,6 +297,13 @@ export const appendAutorenameRules = (): void => {
             return selector;
 
         });
+
+        if (
+            rule.selectors.join('|') === selectorsBackup &&
+            store.options.mode === Mode.diff
+        ) {
+            store.rulesToRemove.push(rule);
+        }
 
     });
 

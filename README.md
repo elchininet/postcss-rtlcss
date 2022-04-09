@@ -1,13 +1,13 @@
 # PostCSS RTLCSS
 
-[PostCSS] plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules using [RTLCSS]
+[PostCSS] plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules using [RTLCSS]. RTLCSS allows one to flip an entire CSS file with the intention of using the original CSS for one direction and the new generated one for the other. What PostcCSS RTLCSS does, is to create a single CSS file with both directions or to create a minimal CSS file only with the flipped rules with the intention of overriding the main one.
 
 [![Build Status](https://travis-ci.com/elchininet/postcss-rtlcss.svg?branch=master)](https://app.travis-ci.com/elchininet/postcss-rtlcss) &nbsp; [![Coverage Status](https://coveralls.io/repos/github/elchininet/postcss-rtlcss/badge.svg?branch=master)](https://coveralls.io/github/elchininet/postcss-rtlcss?branch=master) &nbsp; [![npm version](https://badge.fury.io/js/postcss-rtlcss.svg)](https://badge.fury.io/js/postcss-rtlcss)
 
 [PostCSS]: https://github.com/postcss/postcss
 [RTLCSS]: https://rtlcss.com/
 
-Demo
+Playground Demo
 ---
 
 https://elchininet.github.io/postcss-rtlcss/
@@ -131,7 +131,7 @@ Examples
 
 #### Output using the combined mode (default)
 
-This is the recommended method, it will generate more CSS code but each direction will have their specific CSS declarations and there is not need to override properties.
+This is the recommended method, it will generate more CSS code but each direction will have their specific CSS declarations and there is no need of overriding properties.
 
 ```css
 .test1, .test2 {
@@ -172,7 +172,7 @@ This is the recommended method, it will generate more CSS code but each directio
 
 #### Output using the override mode
 
-This is the alternative method, it will generate less code because it lets the main rule intact and generates a shorter specific rule to override the properties that are affected by the direction of the text.
+This is one of the alternative methods to override. It will generate less code because it lets the main rule intact and generates a shorter specific rule to override the properties that are affected by the direction of the text.
 
 ```css
 .test1, .test2 {
@@ -206,12 +206,30 @@ This is the alternative method, it will generate less code because it lets the m
 }
 ```
 
-But this method has a disadvantage:
+#### Output using the diff mode
 
-<details><summary>Disadvantage of the override method</summary>
+This is the second alternative method to override. It generates the minimum amount of code because it only outputs the rules that have been flipped and without prefixing them. The intention of this method is to generate a separate stylesheet file that will be loaded on top of the original one to override those rules that need to be flipped in certain direction.
+
+```css
+.test1, .test2 {
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.test3 {
+    direction: rtl;
+}
+```
+
+But the two methods to override have a disadvantage:
+
+<details><summary>Disadvantage of the methods to override</summary>
 <p>
 
-Use this method carefully. It can override a property that is coming from another class if multiple classes are used at the same time. Take a look at the next `HTML` and `CSS` codes:
+Use these methods carefully. They can override a property that is coming from another class if multiple classes are used at the same time. Take a look at the next `HTML` and `CSS` codes:
 
 ```html
 <div class="test1 test2">
@@ -231,7 +249,7 @@ Use this method carefully. It can override a property that is coming from anothe
 }
 ```
 
-Using the combined method, the generated code will be the next one:
+Using the `combined` method, the generated code will be the next one:
 
 ```css
 .test1 {
@@ -249,9 +267,9 @@ Using the combined method, the generated code will be the next one:
 }
 ```
 
-So, the `div` will have a padding of `20px 10px 20px 20px` in `LTR` and `20px 20px 20px 10px` in `RTL`.
+So, the `div` will have a padding of `20px 10px 20px 20px` in `LTR` and `20px 20px 20px 10px` in `RTL`. Everything will work as expected here.
 
-However, using the override method the generated code will be the next one:
+However, using the `override` method the generated code will be the next one:
 
 ```css
 .test1 {
@@ -270,7 +288,16 @@ However, using the override method the generated code will be the next one:
 }
 ```
 
-Now the `div` has a padding of `20px 10px 20px 20px` in `LTR` and `20px 0 20px 10px` in `RTL`, because the override of the class `test2` doesn't take into account that this class could be used with `test1` having the same properties. The solution, in this case, is to provide the property that has been inherited:
+And using the `diff` method the generated code will be the next one:
+
+```css
+.test2 {
+    padding-right: 0;
+    padding-left: 10px;
+}
+```
+
+Now the `div` has a padding of `20px 10px 20px 20px` in `LTR` and `20px 0 20px 10px` in `RTL`, because when the class `test2` is overriden, it is not taken into account that it could be used with `test1` having the same properties. The solution, in this case, is to provide the property that has been inherited:
 
 ```css
 .test1 {
@@ -285,7 +312,7 @@ Now the `div` has a padding of `20px 10px 20px 20px` in `LTR` and `20px 0 20px 1
 }
 ```
 
-So, the generated code will be:
+So, using the `override` method the generated code will be:
 
 ```css
 .test1 {
@@ -300,6 +327,15 @@ So, the generated code will be:
 }
 
 [dir="rtl"] .test2 {
+    padding-right: 20px;
+    padding-left: 10px;
+}
+```
+
+And using the `diff` method the generated code will be:
+
+```css
+.test2 {
     padding-right: 20px;
     padding-left: 10px;
 }

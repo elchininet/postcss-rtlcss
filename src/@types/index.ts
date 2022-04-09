@@ -2,7 +2,8 @@ import { Rule, AtRule } from 'postcss';
 
 export enum Mode {
     combined = 'combined',
-    override = 'override'
+    override = 'override',
+    diff = 'diff'
 }
 
 export enum Source {

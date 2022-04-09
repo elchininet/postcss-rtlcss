@@ -1,5 +1,14 @@
-import postcss, { Container, Node, Rule, Comment } from 'postcss';
-import { ControlDirective, Source } from '@types';
+import postcss, {
+    Container,
+    Node,
+    Rule,
+    Comment
+} from 'postcss';
+import {
+    ControlDirective,
+    Source,
+    Mode
+} from '@types';
 import { RULE_TYPE, CONTROL_DIRECTIVE } from '@constants';
 import { store } from '@data/store';
 import {
@@ -12,6 +21,12 @@ import { cleanRuleRawsBefore } from '@utilities/rules';
 import { addSelectorPrefixes, hasSelectorsPrefixed } from '@utilities/selectors';
 import { parseDeclarations } from './declarations';
 
+const addToIgnoreRulesInDiffMode = (node: Node): void => {
+    if (store.options.mode === Mode.diff) {
+        store.rulesToRemove.push(node as Rule);
+    }  
+};
+
 export const parseRules = (
     container: Container,
     parentSourceDirective: string = undefined,
@@ -19,7 +34,12 @@ export const parseRules = (
 ): void => {
 
     const controlDirectives: Record<string, ControlDirective> = {};
-    const { source, ltrPrefix, rtlPrefix } = store.options;
+    const {
+        mode,
+        source,
+        ltrPrefix,
+        rtlPrefix,
+    } = store.options;
 
     walkContainer(
         container,
@@ -32,23 +52,25 @@ export const parseRules = (
             ) {
                 const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
                 const root = postcss.parse(controlDirective.option);
-                root.walkRules((rule: Rule): void => {
-                    addSelectorPrefixes(
-                        rule,
-                        (
+                if (mode !== Mode.diff) {
+                    root.walkRules((rule: Rule): void => {
+                        addSelectorPrefixes(
+                            rule,
                             (
-                                !sourceDirectiveValue &&
-                                source === Source.ltr
-                            ) ||
-                            (
-                                sourceDirectiveValue &&
-                                sourceDirectiveValue === Source.ltr
+                                (
+                                    !sourceDirectiveValue &&
+                                    source === Source.ltr
+                                ) ||
+                                (
+                                    sourceDirectiveValue &&
+                                    sourceDirectiveValue === Source.ltr
+                                )
                             )
-                        )
-                            ? rtlPrefix
-                            : ltrPrefix
-                    );
-                });
+                                ? rtlPrefix
+                                : ltrPrefix
+                        );
+                    });
+                }
                 comment.replaceWith(root.nodes);
                 return;
             }
@@ -66,6 +88,7 @@ export const parseRules = (
         (node: Node): void => {
 
             if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
+                addToIgnoreRulesInDiffMode(node);               
                 return;
             }
         
@@ -85,7 +108,9 @@ export const parseRules = (
                         sourceDirectiveValue,
                         true
                     );
-                }                
+                } else {
+                    addToIgnoreRulesInDiffMode(rule);
+                }             
             } else {
                 if (!hasSelectorsPrefixed(rule)) {
                     parseDeclarations(
@@ -93,7 +118,9 @@ export const parseRules = (
                         hasParentRule,
                         sourceDirectiveValue
                     );
-                }                
+                } else {
+                    addToIgnoreRulesInDiffMode(rule);
+                }              
             }
             
             parseRules(

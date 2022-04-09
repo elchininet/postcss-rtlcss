@@ -1,8 +1,15 @@
-import postcss, { Root, Container, Node, AtRule, Comment } from 'postcss';
+import postcss, {
+    Root,
+    Container,
+    Node,
+    AtRule,
+    Comment
+} from 'postcss';
 import rtlcss from 'rtlcss';
 import {
     Source,
-    ControlDirective
+    ControlDirective,
+    Mode
 } from '@types';
 import {
     AT_RULE_TYPE,
@@ -62,6 +69,12 @@ export const parseAtRules = (container: Container): void => {
 
 };
 
+const addToIgnoreKeyframesInDiffMode = (node: Node): void => {
+    if (store.options.mode === Mode.diff) {
+        store.keyframesToRemove.push(node as AtRule);
+    }
+};
+
 export const parseKeyFrames = (css: Root): void => {
 
     const { source, processUrls, useCalc, stringMap, processKeyFrames } = store.options;
@@ -87,19 +100,27 @@ export const parseKeyFrames = (css: Root): void => {
         (node: Node): void => {
 
             if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
+                addToIgnoreKeyframesInDiffMode(node);
                 return;
             }
 
-            if (node.type !== AT_RULE_TYPE) return;
+            if (node.type !== AT_RULE_TYPE) {
+                return;
+            }
 
             const atRule = node as AtRule;
             
-            if (vendor.unprefixed(atRule.name) !== KEYFRAMES_NAME) return;
+            if (vendor.unprefixed(atRule.name) !== KEYFRAMES_NAME) {
+                return;
+            }
             
             const atRuleString = atRule.toString();
             const atRuleFlippedString = rtlcss.process(atRuleString, { processUrls, useCalc, stringMap });
             
-            if (atRuleString === atRuleFlippedString) return;
+            if (atRuleString === atRuleFlippedString) {
+                addToIgnoreKeyframesInDiffMode(atRule);
+                return;
+            }
 
             const rootFlipped = postcss.parse(atRuleFlippedString);
             const atRuleFlipped = rootFlipped.first as AtRule;

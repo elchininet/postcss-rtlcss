@@ -1,6 +1,15 @@
-import postcss, { Rule, Node, Declaration, Comment } from 'postcss';
+import postcss, {
+    Rule,
+    Node,
+    Declaration,
+    Comment
+} from 'postcss';
 import rtlcss from 'rtlcss';
-import { Mode, Autorename, ControlDirective } from '@types';
+import {
+    Mode,
+    Autorename,
+    ControlDirective
+} from '@types';
 import {
     DECLARATION_TYPE,
     FLIP_PROPERTY_REGEXP,
@@ -54,7 +63,7 @@ export const parseDeclarations = (
     const ruleFlipped = rule.clone().removeAll();
     const ruleFlippedSecond = ruleFlipped.clone();
     const ruleBoth = ruleFlipped.clone();
-    const ruleSafe = ruleFlipped.clone();   
+    const ruleSafe = ruleFlipped.clone();
 
     const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: Record<string, string>, node: Node): Record<string, string> => {
         if (node.type === DECLARATION_TYPE) {
@@ -99,7 +108,7 @@ export const parseDeclarations = (
                                 sourceDirectiveValue === source
                             ) ||
                             (
-                                mode !== Mode.combined &&
+                                mode === Mode.override &&
                                 sourceDirectiveValue !== source
                             )
                         )
@@ -165,7 +174,10 @@ export const parseDeclarations = (
                 controlDirectives,
                 ruleSourceDirectiveValue
             );
-            const normalFlip = !sourceDirectiveValue || sourceDirectiveValue === source;
+            const normalFlip =
+                !sourceDirectiveValue ||
+                sourceDirectiveValue === source ||
+                mode === Mode.diff;
             
             if (
                 declProp === declFlippedProp &&
@@ -189,7 +201,11 @@ export const parseDeclarations = (
                     )
                 ) {
                     if (safeBothPrefix && !hasIgnoreDirectiveInRaws(decl)) {
-                        appendDeclarationToRule(decl, ruleSafe);
+                        if (mode === Mode.diff) {
+                            appendDeclarationToRule(decl, ruleFlipped);
+                        } else {
+                            appendDeclarationToRule(decl, ruleSafe);
+                        }                        
                         deleteDeclarations.push(decl);
                     }
                 } else {
@@ -228,7 +244,11 @@ export const parseDeclarations = (
                             ruleFlippedSecond.append(declCloneFlipped);
                         }                        
                         if (safeBothPrefix) {
-                            appendDeclarationToRule(decl, ruleSafe);                       
+                            if (mode === Mode.diff) {
+                                appendDeclarationToRule(decl, ruleFlipped); 
+                            } else {
+                                appendDeclarationToRule(decl, ruleSafe);
+                            }                                                  
                             deleteDeclarations.push(decl);
                         }
                     }
@@ -248,14 +268,27 @@ export const parseDeclarations = (
                         ) &&
                         !hasIgnoreDirectiveInRaws(decl)
                     ) {
-                        appendDeclarationToRule(decl, hasBeenOverriden || overridesPrevious ? ruleBoth : ruleSafe);                       
+                        if (mode === Mode.diff) {
+                            appendDeclarationToRule(decl, ruleFlipped);
+                        } else {
+                            appendDeclarationToRule(
+                                decl,
+                                hasBeenOverriden || overridesPrevious
+                                    ? ruleBoth
+                                    : ruleSafe
+                            );
+                        }
                         deleteDeclarations.push(decl);
                     }
                     return;                   
                 } else  if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
                     simetricRules = true;
                     if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
-                        appendDeclarationToRule(decl, ruleSafe);                       
+                        if (mode === Mode.diff) {
+                            appendDeclarationToRule(decl, ruleFlipped);
+                        } else {
+                            appendDeclarationToRule(decl, ruleSafe);
+                        }                                             
                         deleteDeclarations.push(decl);
                     }
                     return;
@@ -281,15 +314,20 @@ export const parseDeclarations = (
                             ruleFlippedSecond.append(declClone);
                         }                        
                     }
-                    if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
-                        appendDeclarationToRule(decl, ruleSafe);
+                    if (
+                        isConflictedDeclaration &&
+                        !hasIgnoreDirectiveInRaws(decl) &&
+                        mode !== Mode.diff
+                    ) {
+                        appendDeclarationToRule(decl, ruleSafe);               
                         deleteDeclarations.push(decl);
                     }
                     if (normalFlip) {
                         ruleFlipped.append(declFlipped);
                     } else {
                         ruleFlippedSecond.append(declFlipped);
-                    }                    
+                    }
+                                       
                 }
 
                 declarationsProps.push(declPropUnprefixed);
@@ -334,6 +372,11 @@ export const parseDeclarations = (
         !autorenamed
     ) {
         store.rulesAutoRename.push(rule);
+    } else if (
+        mode === Mode.diff &&
+        !autorenamed
+    ) {
+        store.rulesToRemove.push(rule);
     }
 
 }; 
