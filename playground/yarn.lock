@@ -4066,10 +4066,10 @@ postcss-modules-values@^4.0.0:
   dependencies:
     icss-utils "^5.0.0"
 
-postcss-rtlcss@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.6.0.tgz#74b835a10974bb12bafd5ba093f96eee62916ffd"
-  integrity sha512-0C/Cr5Hkisy/UoNwl2nRcVpAAQ7kM8/gjbQAFCnXdSBvXOTpNYNK6NiMSlRaQZl8rfTiX/cp4oIvlV+J1d6ZsA==
+postcss-rtlcss@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.6.1.tgz#e530e08bfe36b01a49167e015e5f047a632ca9b4"
+  integrity sha512-eliUNvupb9AYn3JpW+L3aaOWeAPh8n6NPVynAoju2mimhO1dz5PTPQAlnhnzYwpqSusTxgZxYjr+RviE5MmSLg==
   dependencies:
     rtlcss "^3.5.0"
 
