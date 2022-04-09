@@ -374,16 +374,17 @@ All the options are optional, and a default value will be used if any of them is
 <details><summary>Expand</summary>
 <p>
 
-The mode option has been explained in the [Output using the combined mode](#output-using-the-combined-mode-default) and [Output using the override mode](#output-using-the-override-mode) sections. To avoid using magic strings, the package exposes an object with these values, but it is possible to use strings values:
+The mode option has been explained in the [Output using the combined mode](#output-using-the-combined-mode-default), the [Output using the override mode](#output-using-the-override-mode), and the [Output using the diff mode](#output-using-the-diff-mode) sections. To avoid using magic strings, the package exposes an object with these values, but it is possible to use strings values anyway:
 
 ```javascript
 import postcss from 'postcss';
 import postcssRTLCSS from 'postcss-rtlcss';
-import Options from 'postcss-rtlcss/options';
+import { Mode } from 'postcss-rtlcss/options';
 
 const input = '... css code ...';
-const optionsCombined = { mode: Options.Mode.combined }; // This is the default value
-const optionsOverride = { mode: Options.Mode.override };
+const optionsCombined = { mode: Mode.combined }; // This is the default value
+const optionsOverride = { mode: Mode.override };
+const optionsDiff = { mode: Mode.diff };
 
 const outputCombined = postcss([
     postcssRTLCSS(optionsCombined)
@@ -391,6 +392,10 @@ const outputCombined = postcss([
 
 const outputOverride = postcss([
     postcssRTLCSS(optionsOverride)
+]).process(input);
+
+const outputDiff = postcss([
+    postcssRTLCSS(optionsDiff)
 ]).process(input);
 ```
 
@@ -716,11 +721,11 @@ This option manages if the conversion will be from `LTR` to `RTL` or vice versa.
 ##### Using Source.ltr in combined mode
 
 ```javascript
-import Options from 'postcss-rtlcss/options';
+import { Mode, Source } from 'postcss-rtlcss/options';
 
 const options = {
-    mode: Options.Mode.combined,
-    source: Options.Source.ltr // This is the default value
+    mode: Mode.combined,
+    source: Source.ltr // This is the default value
 };
 ```
 
@@ -739,11 +744,11 @@ const options = {
 ##### Using Source.rtl in override mode
 
 ```javascript
-import Options from 'postcss-rtlcss/options';
+import { Mode, Source } from 'postcss-rtlcss/options';
 
 const options = {
-    mode: Options.Mode.override,
-    source: Options.Source.rtl
+    mode: Mode.override,
+    source: Source.rtl
 };
 ```
 
@@ -1164,10 +1169,10 @@ Flip or not the selectors names of the rules without directional properties usin
 ##### Using Autorename.flexible
 
 ```javascript
-import Options from 'postcss-rtlcss/options';
+import { Autorename } from 'postcss-rtlcss/options';
 
 const options = {
-    autoRename: Options.Autorename.flexible
+    autoRename: Autorename.flexible
 };
 ```
 
@@ -1190,10 +1195,10 @@ const options = {
 ##### Using Autorename.strict
 
 ```javascript
-import Options from 'postcss-rtlcss/options';
+import { Autorename } from 'postcss-rtlcss/options';
 
 const options = {
-    autoRename: Options.Autorename.strict
+    autoRename: Autorename.strict
 };
 ```
 
@@ -1242,10 +1247,10 @@ When `autoRename` is enabled and greedy is `true`, the strings replacements will
 ##### greedy false
 
 ```javascript
-import Options from 'postcss-rtlcss/options';
+import { Autorename } from 'postcss-rtlcss/options';
 
 const options = {
-    autoRename: Options.Autorename.flexible,
+    autoRename: Autorename.flexible,
     greedy: false // This is the default value
 };
 ```
@@ -1265,10 +1270,10 @@ const options = {
 ##### greedy true
 
 ```javascript
-import Options from 'postcss-rtlcss/options';
+import { Autorename } from 'postcss-rtlcss/options';
 
 const options = {
-    autoRename: Options.Autorename.flexible,
+    autoRename: Autorename.flexible,
     greedy: true
 };
 ```
