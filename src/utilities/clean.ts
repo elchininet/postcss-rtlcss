@@ -51,8 +51,11 @@ export const clean = (css: Container): void => {
             }
         }
         if (
-            node.type === RULE_TYPE ||
-            node.type === AT_RULE_TYPE
+            (
+                node.type === RULE_TYPE ||
+                node.type === AT_RULE_TYPE
+            ) &&
+            !!(node as Container).nodes
         ) {
             if (!ruleHasChildren(node as Container)) {
                 node.remove();
@@ -70,7 +73,6 @@ export const clean = (css: Container): void => {
                             : '\n'
                     );
                 }
-                             
             }
         }
     });
