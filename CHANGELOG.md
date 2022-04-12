@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.6.2] - 2022-04-12
+
+- Fix a bug with the cleaning method and @charset rules
+
 ## [3.6.1] - 2022-04-09
 
 - Improved the cleaning process
