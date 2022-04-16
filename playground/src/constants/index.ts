@@ -7,3 +7,5 @@ export enum COLORS {
     gray_light = '#EFEFEF',
     white = '#FFF'
 }
+
+export const BOOLEAN_TYPE = 'boolean';

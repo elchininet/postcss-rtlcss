@@ -1,6 +1,6 @@
-import { ObjectProps, NumberOrString, NumberOrStringArray } from '@types';
 import facepaint from 'facepaint';
 import { CSSObject } from '@emotion/react';
+import { ObjectProps, NumberOrString, NumberOrStringArray } from '@types';
 
 type StyleSheet = ObjectProps<NumberOrString | NumberOrStringArray | StyleSheet>;
 type FacepaintStyleSheetObject = ObjectProps<CSSObject[]>;

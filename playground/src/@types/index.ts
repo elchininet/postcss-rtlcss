@@ -8,3 +8,5 @@ export interface ObjectProps<T> {
 }
 
 export type PluginOptions = Parameters<typeof postcssRTLCSS>[0];
+
+export type FetchOptions = Record<string, string | boolean>;

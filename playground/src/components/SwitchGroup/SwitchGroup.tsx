@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { stylesheet } from './stylesheet';
 
 interface Attributes {
@@ -25,7 +25,14 @@ export const SwitchGroup = (props: SwitchGroupProps): JSX.Element => {
         active,
         onChange
     } = props;
-    const [selected, setSelected] = useState(active || values[0]);
+    const [selected, setSelected] = useState(values[0]);
+
+    useEffect(() => {
+        if (active) {
+            setSelected(active);
+        }
+    }, [active]);
+
     const onChangeRadio = (event: ChangeEvent<HTMLInputElement>) => {
         const currentTarget = event.currentTarget;
         const value = currentTarget.value;
