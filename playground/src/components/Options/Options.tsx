@@ -9,6 +9,7 @@ import { isBoolean } from '@utilities/types';
 export const Options = (): JSX.Element => {
 
     const {
+        setOptions,
         optionsOpen,
         changeOptionsMode,
         changeOptionsSource,
@@ -52,36 +53,7 @@ export const Options = (): JSX.Element => {
 
     useEffect(() => {
         if (fetchOptions) {
-            if (fetchOptions.mode) {
-                changeMode(fetchOptions.mode as string);
-            }
-            if (fetchOptions.source) {
-                changeSource(fetchOptions.source === 'rtl');
-            }
-            if (isBoolean(fetchOptions.safeBothPrefix)) {
-                changeIgnorePrefixedRules(fetchOptions.safeBothPrefix as boolean);
-            }
-            if (isBoolean(fetchOptions.ignorePrefixedRules)) {
-                changeIgnorePrefixedRules(fetchOptions.ignorePrefixedRules as boolean);
-            }
-            if (isBoolean(fetchOptions.processUrls)) {
-                changeProcessUrls(fetchOptions.processUrls as boolean);
-            }
-            if (isBoolean(fetchOptions.processKeyFrames)) {
-                changeProcessKeyframes(fetchOptions.processKeyFrames as boolean);
-            }
-            if (isBoolean(fetchOptions.processEnv)) {
-                changeProcessEnv(fetchOptions.processEnv as boolean);
-            }
-            if (isBoolean(fetchOptions.useCalc)) {
-                changeUseCalc(fetchOptions.useCalc as boolean);
-            }
-            if (fetchOptions.autoRename) {
-                changeAutoRename(fetchOptions.autoRename as string);
-            }
-            if (isBoolean(fetchOptions.greedy)) {
-                changeGreedy(fetchOptions.greedy as boolean);
-            }
+            setOptions(fetchOptions);
         }
     }, [fetchOptions]);
     

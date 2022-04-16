@@ -24,6 +24,7 @@ export interface AppProviderContext {
     windowSizes: WindowSizes;
     setCode: (code: string) => void;
     share: (code: string, options: string) => void;
+    setOptions: (options: PluginOptions) => void;
     setOptionsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     changeOptionsMode: (mode: Mode) => void;
     changeOptionsSource: (source: Source) => void;
@@ -110,6 +111,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
         optionsOpen,
         setCode,
         share,
+        setOptions,
         setOptionsOpen,
         changeOptionsMode,
         changeOptionsSource,
