@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
 import { useAppContext } from '@components/AppProvider';
 import { Switch } from '@components/Switch';
 import { SwitchGroup } from '@components/SwitchGroup';
 import { stylesheet } from './stylesheet';
+import { isBoolean } from '@utilities/types';
 
 export const Options = (): JSX.Element => {
 
     const {
         optionsOpen,
-        options,
         changeOptionsMode,
         changeOptionsSource,
         changeOptionsSafeBothPrefix,
@@ -19,7 +19,8 @@ export const Options = (): JSX.Element => {
         changeOptionsProcessEnv,
         changeOptionsUseCalc,
         changeOptionsAutoRename,
-        changeOptionsGreedy
+        changeOptionsGreedy,
+        fetchOptions
     } = useAppContext();
 
     const changeMode = (value: string): void => {
@@ -48,6 +49,41 @@ export const Options = (): JSX.Element => {
         }
     };
     const changeGreedy = (checked: boolean): void => changeOptionsGreedy(checked);
+
+    useEffect(() => {
+        if (fetchOptions) {
+            if (fetchOptions.mode) {
+                changeMode(fetchOptions.mode as string);
+            }
+            if (fetchOptions.source) {
+                changeSource(fetchOptions.source === 'rtl');
+            }
+            if (isBoolean(fetchOptions.safeBothPrefix)) {
+                changeIgnorePrefixedRules(fetchOptions.safeBothPrefix as boolean);
+            }
+            if (isBoolean(fetchOptions.ignorePrefixedRules)) {
+                changeIgnorePrefixedRules(fetchOptions.ignorePrefixedRules as boolean);
+            }
+            if (isBoolean(fetchOptions.processUrls)) {
+                changeProcessUrls(fetchOptions.processUrls as boolean);
+            }
+            if (isBoolean(fetchOptions.processKeyFrames)) {
+                changeProcessKeyframes(fetchOptions.processKeyFrames as boolean);
+            }
+            if (isBoolean(fetchOptions.processEnv)) {
+                changeProcessEnv(fetchOptions.processEnv as boolean);
+            }
+            if (isBoolean(fetchOptions.useCalc)) {
+                changeUseCalc(fetchOptions.useCalc as boolean);
+            }
+            if (fetchOptions.autoRename) {
+                changeAutoRename(fetchOptions.autoRename as string);
+            }
+            if (isBoolean(fetchOptions.greedy)) {
+                changeGreedy(fetchOptions.greedy as boolean);
+            }
+        }
+    }, [fetchOptions]);
     
     return (
         <div css={stylesheet.wrapper} data-opened={optionsOpen}>
@@ -62,6 +98,7 @@ export const Options = (): JSX.Element => {
                         name="mode"
                         values={['combined', 'override', 'diff']}
                         onChange={changeMode}
+                        active={ fetchOptions?.mode as string ||  'combined'}
                     />
                 </div>
                 { /* Source */ }
@@ -69,6 +106,9 @@ export const Options = (): JSX.Element => {
                     <Switch
                         labels={['source: ltr', 'source: rtl']}
                         onChange={changeSource}
+                        attributes={{
+                            checked: fetchOptions?.source === 'rtl'
+                        }}
                     />
                 </div>
                 { /* safeBothPrefix */ }
@@ -76,14 +116,23 @@ export const Options = (): JSX.Element => {
                     <Switch
                         labels={['safeBothPrefix: false', 'safeBothPrefix: true']}
                         onChange={changeSafeBothPrefix}
+                        attributes={{
+                            checked: !!fetchOptions?.safeBothPrefix
+                        }}
                     />
                 </div>
                 { /* ignorePrefixedRules */ }
                 <div css={stylesheet.panel}>
                     <Switch
                         labels={['ignorePrefixedRules: false', 'ignorePrefixedRules: true']}
-                        attributes={{ checked: true }}
                         onChange={changeIgnorePrefixedRules}
+                        attributes={{
+                            checked: !!(
+                                isBoolean(fetchOptions?.ignorePrefixedRules)
+                                    ? fetchOptions.ignorePrefixedRules
+                                    : true
+                            )
+                        }}                        
                     />
                 </div>
                 { /* processUrls */ }
@@ -91,6 +140,9 @@ export const Options = (): JSX.Element => {
                     <Switch
                         labels={['processUrls: false', 'processUrls: true']}
                         onChange={changeProcessUrls}
+                        attributes={{
+                            checked: !!fetchOptions?.processUrls
+                        }}
                     />
                 </div>
                 { /* processKeyFrames */ }
@@ -98,14 +150,23 @@ export const Options = (): JSX.Element => {
                     <Switch
                         labels={['processKeyFrames: false', 'processKeyFrames: true']}                        
                         onChange={changeProcessKeyframes}
+                        attributes={{
+                            checked: !!fetchOptions?.processKeyFrames
+                        }}
                     />
                 </div>
                 { /* processEnv */ }
                 <div css={stylesheet.panel}>
                     <Switch
                         labels={['processEnv: false', 'processEnv: true']}
-                        attributes={{ checked: true }}
                         onChange={changeProcessEnv}
+                        attributes={{
+                            checked: !!(
+                                isBoolean(fetchOptions?.processEnv)
+                                    ? fetchOptions.processEnv
+                                    : true
+                            )
+                        }}
                     />
                 </div>
                 { /* useCalc */ }
@@ -113,6 +174,9 @@ export const Options = (): JSX.Element => {
                     <Switch
                         labels={['useCalc: false', 'useCalc: true']}
                         onChange={changeUseCalc}
+                        attributes={{
+                            checked: !!fetchOptions?.useCalc
+                        }}
                     />
                 </div>
                 { /* autoRename */ }
@@ -122,6 +186,7 @@ export const Options = (): JSX.Element => {
                         name="auto-rename"
                         values={['disabled', 'flexible', 'strict']}
                         onChange={changeAutoRename}
+                        active={fetchOptions?.autoRename as string || 'disabled'}
                     />
                 </div>
                 { /* greedy */ }
@@ -129,6 +194,9 @@ export const Options = (): JSX.Element => {
                     <Switch
                         labels={['greedy: false', 'greedy: true']}
                         onChange={changeGreedy}
+                        attributes={{
+                            checked: !!fetchOptions?.greedy
+                        }}
                     />
                 </div>
             </div>

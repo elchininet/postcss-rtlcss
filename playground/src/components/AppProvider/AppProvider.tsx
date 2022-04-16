@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, createContext, useContext, useState, useEffect } from 'react';
 import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
-import { PluginOptions } from '@types';
+import { PluginOptions, FetchOptions } from '@types';
 import { useApi } from '@hooks/useApi';
 import { breakpointSizes } from '@utilities/styles';
 
@@ -17,12 +17,13 @@ export interface AppProviderContext {
     ready: boolean;
     token: string;
     fetchCode: string;
+    fetchOptions: FetchOptions;
     code: string;
     optionsOpen: boolean;
     options: PluginOptions;
     windowSizes: WindowSizes;
     setCode: (code: string) => void;
-    share: (code: string) => void;
+    share: (code: string, options: string) => void;
     setOptionsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     changeOptionsMode: (mode: Mode) => void;
     changeOptionsSource: (source: Source) => void;
@@ -69,7 +70,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
     const [ options, setOptions ] = useState<PluginOptions>(defaultOptions);
     const [ sizes, setSizes ] = useState<WindowSizes>(windowSizes);
     const [ optionsOpen, setOptionsOpen ] = useState<boolean>(false);
-    const { canShare, ready, token, fetchCode, share } = useApi();
+    const { canShare, ready, token, fetchCode, fetchOptions, share } = useApi();
 
     useEffect(() => {
         window.removeEventListener('resize', resize);
@@ -103,6 +104,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
         ready,
         token,
         fetchCode,
+        fetchOptions,
         code,
         options,
         optionsOpen,

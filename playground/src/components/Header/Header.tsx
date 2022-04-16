@@ -5,10 +5,11 @@ import { cssLines } from '@components/Playground/css';
 import { stylesheet } from './stylesheet';
 
 export const Header = (): JSX.Element => {
-    const { canShare, token, share, code } = useAppContext();
+    const { canShare, token, share, code, options } = useAppContext();
     const shareCallback = useCallback(() => {
-        share(code);
-    }, [share, code]);
+        const fetchOptions = JSON.stringify(options);
+        share(code, fetchOptions);
+    }, [share, code, options]);
     const showShareButton = canShare && token && code && code !== cssLines;
     return (
         <header css={stylesheet.wrapper}>

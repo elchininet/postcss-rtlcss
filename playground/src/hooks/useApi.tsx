@@ -1,15 +1,16 @@
-import { env } from 'process';
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import { FetchOptions } from '@types';
 
 interface UseApiProps {
     token: string;
     fetchCode: string;
+    fetchOptions: FetchOptions;
     ready: boolean;
     canShare: boolean;
-    share: (code: string) => void;
+    share: (code: string, options: string) => void;
 }
 
-interface FetchOptions {
+interface FetchApiOptions {
     method: 'POST' | 'GET';
     headers: Record<string, string>;
     body?: string;
@@ -21,13 +22,14 @@ interface FetchResponse {
     done?: boolean;
     id?: string;
     code?: string;
+    options?: string;
 }
 
 const endpoint = 'https://xprimiendo.com/snippet';
 
 const fetchApi = (data?: Record<string, string>): Promise<FetchResponse> => {
 
-    const options: FetchOptions = {
+    const options: FetchApiOptions = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -72,8 +74,12 @@ const getToken = () => new Promise((resolve, reject) => {
         .catch(() => reject());
 });
 
-const getCode = (code: string, token: string) => new Promise((resolve, reject) => {
-    fetchApi({code, token})
+const getCode = (
+    code: string,
+    options: string,
+    token: string
+) => new Promise((resolve, reject) => {
+    fetchApi({code, options, token})
         .then((data: FetchResponse) => {
             if (data.success && data.id) {
                 resolve(data.id);
@@ -91,6 +97,7 @@ export const useApi = (): UseApiProps => {
     const [ id, setId ] = useState<string>(null);
     const [ token, setToken ] = useState<string>(null);
     const [ fetchCode, setFetchCode ] = useState<string>(null);
+    const [ fetchOptions, setFetchOptions ] = useState<FetchOptions>(null);
     const [ ready, setReady ] = useState(false);
 
     const canShare = useMemo(() => {
@@ -108,9 +115,9 @@ export const useApi = (): UseApiProps => {
         );
     }, []);
 
-    const share = useCallback((code: string): void => {
+    const share = useCallback((code: string, options: string): void => {
         if (token) {
-            getCode(code, token)
+            getCode(code, options, token)
                 .then((id: string) => {
                     history.replaceState('', '', `#${id}`);
                     if (navigator.clipboard) {
@@ -124,16 +131,6 @@ export const useApi = (): UseApiProps => {
     }, [token]);
 
     useEffect(() => {
-        if (!token) {
-            getToken()
-                .then((newToken: string) => {
-                    setToken(newToken);
-                })
-                .catch(() => setReady(true));
-        }        
-    }, [token]);
-
-    useEffect(() => {
         if (token) {
             if (
                 typeof window !== 'undefined' &&
@@ -144,26 +141,44 @@ export const useApi = (): UseApiProps => {
             } else {
                 setReady(true);
             }
-        }
+        } else {
+            getToken()
+                .then((newToken: string) => {
+                    setToken(newToken);
+                })
+                .catch(() => setReady(true));
+        }        
     }, [token]);
 
     useEffect(() => {
         if (id && token) {
             fetchApi({id, token})
                 .then((data: FetchResponse) => {
-                    if (data.success && data.code) {
+                    if (
+                        data.success &&
+                        data.code
+                    ) {
                         setFetchCode(data.code);
+                        if (data.options) {
+                            try {
+                                const jsonOptions = JSON.parse(data.options) as FetchOptions;
+                                setFetchOptions(jsonOptions);
+                            } catch {
+                                console.error('Wrong options retrieved');
+                            }
+                        }
                     }
                     setReady(true);
                 })
                 .catch(() => setReady(true));
         }
     }, [id, token]);
-
+    
     return {
         canShare,
         token,
         fetchCode,
+        fetchOptions,
         ready,
         share
     };
