@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.6.3] - 2022-04-17
+
+- Fix a bug with `safeBothPrefix` and `processKeyFrames` options in `diff` mode
+
 ## [3.6.2] - 2022-04-12
 
 - Fix a bug with the cleaning method and @charset rules

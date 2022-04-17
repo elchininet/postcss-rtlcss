@@ -243,12 +243,8 @@ export const parseDeclarations = (
                         } else {
                             ruleFlippedSecond.append(declCloneFlipped);
                         }
-                        if (safeBothPrefix) {
-                            if (mode === Mode.diff) {
-                                appendDeclarationToRule(decl, ruleFlipped);
-                            } else {
-                                appendDeclarationToRule(decl, ruleSafe);
-                            }
+                        if (safeBothPrefix && mode !== Mode.diff) {
+                            appendDeclarationToRule(decl, ruleSafe);
                             deleteDeclarations.push(decl);
                         }
                     }
