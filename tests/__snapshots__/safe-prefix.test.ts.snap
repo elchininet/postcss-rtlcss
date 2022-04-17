@@ -2998,8 +2998,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 .test18 {
     animation: 5s flip-rtl 1s ease-in-out,
                3s my-animation-rtl 6s ease-in-out;
-    animation: 5s flip-ltr 1s ease-in-out,
-               3s my-animation-ltr 6s ease-in-out;
     padding: 10px 10px 40px 20px;
 }
 
@@ -3028,7 +3026,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
     animation-delay: 1s;
     animation-duration: 3s;
     animation-name: my-animation-rtl;
-    animation-name: my-animation-ltr;
     animation-timing-function: ease-in-out;
 }
 
@@ -3036,7 +3033,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
     animation-delay: 2s;
     animation-duration: 4s;
     animation-name: my-animation-rtl, no-flip;
-    animation-name: my-animation-ltr, no-flip;
     animation-timing-function: ease;
 }
 
@@ -3184,7 +3180,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 
 .test44 {
     animation: 5s normalFlip-rtl 1s ease-in-out;
-    animation: 5s normalFlip-ltr 1s ease-in-out;
 }
 
 @keyframes inversedFlip-ltr {
@@ -3201,7 +3196,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 
 .test45 {
     animation: 5s inversedFlip-ltr 1s ease-in-out;
-    animation: 5s inversedFlip-rtl 1s ease-in-out;
 }
 
 @media only screen and (min-device-width: 320px) {
