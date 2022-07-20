@@ -4247,10 +4247,10 @@ postcss-modules-values@^4.0.0:
   dependencies:
     icss-utils "^5.0.0"
 
-postcss-rtlcss@^3.6.3:
-  version "3.6.3"
-  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.6.3.tgz#aabd1122a5b082157ea06d606c441002c1060030"
-  integrity sha512-jJlS7gM5JPH8n/hcHqqekK8wusdFEFYi79mBvAK2GWvl3aehOFgj9vEMwFzUTJrrErakYTgiQ+uuGAzdL98g0g==
+postcss-rtlcss@^3.6.4:
+  version "3.6.4"
+  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-3.6.4.tgz#ae3b78aca02a836fffa78562239954ed9dfebb80"
+  integrity sha512-XeuOL4AmLrCviwKPT7A/fcUSatxurR6EMhqVKIPh3yGJtPPNXeODb3QyOALVrtVVXYZ/KAi/9Lw0PWOr5l4w3w==
   dependencies:
     rtlcss "^3.5.0"
 
