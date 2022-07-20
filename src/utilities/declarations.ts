@@ -2,20 +2,40 @@ import { Rule, Declaration } from 'postcss';
 import { DeclarationsData } from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_IGNORE_REGEXP } from '@constants';
 import shorthandDeclarationsJson from '@data/shorthand-declarations.json';
+import logicalDeclarationsJson from '@data/logical-declarations.json';
 import notShorthandDeclarationsJson from '@data/not-shorthand-declarations.json';
 import initialValuesJson from '@data/initial-values.json';
 
 const declarationsData: DeclarationsData = shorthandDeclarationsJson;
+const logicalDeclarationsData: DeclarationsData = logicalDeclarationsJson;
 const notShorthandDeclarationsArray: string[] = notShorthandDeclarationsJson;
 const initialValuesData: Record<string, string[]> = initialValuesJson;
 const declarations: Record<string, string[]> = {};
 const allDeclarations: Record<string, string[]> = {};
 const initialValues: Record<string, string> = {};
 
+const getUniqueArray = (array: string[]): string[] => Array.from(new Set(array));
+
 const getOverrideTree = (prop: string): string[] => {
     const overridenProp = declarationsData[prop].overridden;
-    const overridden = overridenProp ? [overridenProp].concat(getOverrideTree(overridenProp)) : [];
+    const overridden = overridenProp
+        ? [overridenProp].concat(getOverrideTree(overridenProp))
+        : [];
     return overridden;
+};
+
+const getOverrideLogicalTree = (prop: string): string[] => {
+    const overridenProp = declarationsData[prop]?.overridden;
+    const logicalOverridenProp = logicalDeclarationsData[prop].overridden;
+    const overridden = overridenProp
+        ? [overridenProp].concat(getOverrideTree(overridenProp))
+        : [];
+    const logicalOverriden = logicalOverridenProp
+        ? [logicalOverridenProp].concat(getOverrideTree(logicalOverridenProp))
+        : [];
+    return getUniqueArray(
+        [ ...overridden, ...logicalOverriden ]
+    );
 };
 
 Object.keys(declarationsData).forEach((prop: string): void => {
@@ -23,6 +43,18 @@ Object.keys(declarationsData).forEach((prop: string): void => {
     declarations[prop] = overrideTree;
     declarationsData[prop].overrides.forEach((oprop: string): void => {
         declarations[oprop] = [prop].concat(overrideTree);
+    });
+});
+
+Object.keys(logicalDeclarationsData).forEach((prop: string): void => {
+    const overrideLogicalTree =  getOverrideLogicalTree(prop);
+    declarations[prop] = declarations[prop]
+        ? getUniqueArray([...declarations[prop], ...overrideLogicalTree])
+        : overrideLogicalTree;
+    logicalDeclarationsData[prop].overrides.forEach((oprop: string): void => {
+        declarations[oprop] = declarations[oprop]
+            ? getUniqueArray([ ...declarations[oprop], ...[prop].concat(overrideLogicalTree) ])
+            : getUniqueArray([prop].concat(overrideLogicalTree));
     });
 });
 

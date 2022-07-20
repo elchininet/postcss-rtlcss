@@ -1,0 +1,171 @@
+{
+    "border-left": {
+        "overridden": "border",
+        "overrides": [
+            "border-inline-end",
+            "border-inline-end-color",
+            "border-inline-end-style",
+            "border-inline-end-width",
+            "border-inline-start",
+            "border-inline-start-color",
+            "border-inline-start-style",
+            "border-inline-start-width"
+        ]
+    },
+    "border-right": {
+        "overridden": "border",
+        "overrides": [
+            "border-inline-end",
+            "border-inline-end-color",
+            "border-inline-end-style",
+            "border-inline-end-width",
+            "border-inline-start",
+            "border-inline-start-color",
+            "border-inline-start-style",
+            "border-inline-start-width"
+        ]
+    },
+    "border-left-color": {
+        "overridden": "border",
+        "overrides": [
+            "border-inline-end-color",
+            "border-inline-start-color"
+        ]
+    },
+    "border-right-color": {
+        "overridden": "border",
+        "overrides": [
+            "border-inline-end-color",
+            "border-inline-start-color"
+        ]
+    },
+    "border-left-style": {
+        "overridden": "border",
+        "overrides": [
+            "border-inline-end-style",
+            "border-inline-start-style"
+        ]
+    },
+    "border-right-style": {
+        "overridden": "border",
+        "overrides": [
+            "border-inline-end-style",
+            "border-inline-start-style"
+        ]
+    },
+    "border-left-width": {
+        "overridden": "border",
+        "overrides": [
+            "border-inline-end-width",
+            "border-inline-start-width"
+        ]
+    },
+    "border-right-width": {
+        "overridden": "border",
+        "overrides": [
+            "border-inline-end-width",
+            "border-inline-start-width"
+        ]
+    },
+    "border-radius": {
+        "overridden": null,
+        "overrides": [
+            "border-start-start-radius",
+            "border-start-end-radius",
+            "border-end-start-radius",
+            "border-end-end-radius"
+        ]
+    },
+    "border-bottom-left-radius": {
+        "overridden": "border-radius",
+        "overrides": [
+            "border-end-start-radius",
+            "border-end-end-radius"
+        ]
+    },
+    "border-bottom-right-radius": {
+        "overridden": "border-radius",
+        "overrides": [
+            "border-end-start-radius",
+            "border-end-end-radius"
+        ]
+    },
+    "border-top-left-radius": {
+        "overridden": "border-radius",
+        "overrides": [
+            "border-start-start-radius",
+            "border-start-end-radius"
+        ]
+    },
+    "border-top-right-radius": {
+        "overridden": "border-radius",
+        "overrides": [
+            "border-start-start-radius",
+            "border-start-end-radius"
+        ]
+    },
+    "left": {
+        "overridden": null,
+        "overrides": [
+            "inset-inline",
+            "inset-inline-end",
+            "inset-inline-start"
+        ]
+    },
+    "right": {
+        "overridden": null,
+        "overrides": [
+            "inset-inline",
+            "inset-inline-end",
+            "inset-inline-start"
+        ]
+    },
+    "margin": {
+        "overridden": null,
+        "overrides": [
+            "margin-inline",
+            "margin-inline-end",
+            "margin-inline-start"
+        ]
+    },
+    "margin-left": {
+        "overridden": null,
+        "overrides": [
+            "margin-inline",
+            "margin-inline-end",
+            "margin-inline-start"
+        ]
+    },
+    "margin-right": {
+        "overridden": null,
+        "overrides": [
+            "margin-inline",
+            "margin-inline-end",
+            "margin-inline-start"
+        ]
+    },
+    "padding": {
+        "overridden": null,
+        "overrides": [
+            "padding-inline",
+            "padding-inline-end",
+            "padding-inline-start"
+        ]
+    },
+    "padding-left": {
+        "overridden": null,
+        "overrides": [
+            "padding-inline",
+            "padding-inline-end",
+            "padding-inline-start"
+        ]
+    },
+    "padding-right": {
+        "overridden": null,
+        "overrides": [
+            "padding-inline",
+            "padding-inline-end",
+            "padding-inline-start"
+        ]
+    }
+}

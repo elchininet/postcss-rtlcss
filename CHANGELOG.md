@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.6.4] - 2022-07-20
+
+- Apply the safe prefix to logical declarations overridden by physical ones
+
 ## [3.6.3] - 2022-04-17
 
 - Fix a bug with `safeBothPrefix` and `processKeyFrames` options in `diff` mode
