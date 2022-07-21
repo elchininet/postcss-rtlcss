@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.8.0] - 2021-05-23
+
+- Add an option to have more control over the selector prefixing logic (`prefixSelectorTransformer`)
+
 ## [1.7.2] - 2021-05-23
 
 - Added a new option to ignore rules already prefixed
