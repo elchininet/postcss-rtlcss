@@ -295,6 +295,7 @@ All the options are optional, and a default value will be used, if any of them i
 | ltrPrefix          | `string` or `string[]`    | `[dir="ltr"]`   | Prefix to use in the left-to-right CSS rules                 |
 | rtlPrefix          | `string` or `string[]`    | `[dir="rtl"]`   | Prefix to use in the right-to-left CSS rules                 |
 | bothPrefix         | `string` or `string[]`    | `[dir]`         | Prefix to use for styles in both directions when the specificity of the ltr or rtl styles will override them |
+| prefixSelectorTransformer | `function` | `null` | Transform function to have more control over the selectors prefixing logic |
 | safeBothPrefix     | `boolean`                 | `false`         | Add the `bothPrefix` to those declarations that can be flipped to avoid them being overridden by specificity |
 | ignorePrefixedRules| `boolean`                 | true            | Ignores rules that have been prefixed with some of the prefixes contained in `ltrPrefix`, `rtlPrefix`, or `bothPrefix` |
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
@@ -484,6 +485,79 @@ To solve this, another rule will be created at the end using the `bothPrefix` pa
 ```
 
 And no matter the direction, the `background-size` property is respected.
+
+</p>
+
+</details>
+
+---
+
+#### prefixSelectorTransformer
+
+<details><summary>Expand</summary>
+<p>
+
+This function will be used to transform the selectors and prefixing them at our will. The first parameter will be the prefix that will be used and the second the current selector:
+
+>Notes:
+>* If the function doesn‘t return a string, the default prefixing logic will be used.
+>* If this function is used, be aware that rules using `html` or `:root` will follow the custom prefixing logic. You should cover these cases.
+##### input
+
+```css
+.test1 {
+    left: 10px;
+    padding-right: 5px;
+    padding-inline-end: 20px;
+}
+```
+
+If the `prefixSelectorTransformer` is not sent (default):
+
+##### output 
+
+```css
+[dir="ltr"] .test1 {
+    left: 10px;
+    padding-right: 5px;
+}
+[dir="rtl"] .test1 {
+    right: 10px;
+    padding-left: 5px;
+}
+[dir] .test1 {
+    padding-inline-end: 20px;
+}
+```
+
+Setting a `prefixSelectorTransformer` function
+
+```javascript
+const options = {
+    prefixSelectorTransformer: function (prefix, selector) {
+        if (prefix === '[dir]') {
+            return `.container > ${prefix} > ${selector}`;
+        }
+        return `${selector}${prefix}`;
+    }
+};
+```
+
+##### output 
+
+```css
+.test1[dir="ltr"] {
+    left: 10px;
+    padding-right: 5px;
+}
+.test1[dir="rtl"] {
+    right: 10px;
+    padding-left: 5px;
+}
+.container > [dir] > .test1 {
+    padding-inline-end: 20px;
+}
+```
 
 </p>
 

@@ -18,6 +18,7 @@ import {
 import { getKeyFramesStringMap, getKeyFramesRegExp } from '@parsers/atrules';
 import {
     BOOLEAN_TYPE,
+    FUNCTION_TYPE,
     REG_EXP_CHARACTERS_REG_EXP,
     LAST_WORD_CHARACTER_REG_EXP
 } from '@constants';
@@ -125,6 +126,7 @@ const defaultOptions = (): PluginOptionsNormalized => ({
     ltrPrefix: '[dir="ltr"]',
     rtlPrefix: '[dir="rtl"]',
     bothPrefix: '[dir]',
+    prefixSelectorTransformer: null,
     safeBothPrefix: false,
     ignorePrefixedRules: true,
     source: Source.ltr,
@@ -171,6 +173,9 @@ export const normalizeOptions = (options: PluginOptions): PluginOptionsNormalize
     }
     if (!isNotStringOrStringArray(options.bothPrefix)) {
         returnOptions.bothPrefix = options.bothPrefix;
+    }
+    if (typeof options.prefixSelectorTransformer === FUNCTION_TYPE) {
+        returnOptions.prefixSelectorTransformer = options.prefixSelectorTransformer;
     }
     if (typeof options.safeBothPrefix === BOOLEAN_TYPE) {
         returnOptions.safeBothPrefix = options.safeBothPrefix;

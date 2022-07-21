@@ -45,11 +45,14 @@ export interface PluginStringMap {
     replace: strings;
 }
 
+export type PrefixSelectorTransformer = (prefix: string, selector: string) => string | void;
+
 export interface PluginOptions {
     mode?: ModeValues;
     ltrPrefix?: strings;
     rtlPrefix?: strings;
     bothPrefix?: strings;
+    prefixSelectorTransformer?: PrefixSelectorTransformer;
     safeBothPrefix?: boolean;
     ignorePrefixedRules?: boolean;
     source?: SourceValues;
@@ -61,8 +64,9 @@ export interface PluginOptions {
     greedy?: boolean;
 }
 
-export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, 'stringMap'> {
+export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, 'stringMap' | 'prefixSelectorTransformer'> {
     stringMap: StringMap[];
+    prefixSelectorTransformer: PrefixSelectorTransformer | null;
 }
 
 export interface RulesObject {
