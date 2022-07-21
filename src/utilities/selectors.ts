@@ -1,9 +1,19 @@
 import { Rule } from 'postcss';
 import { strings, Mode, Source } from '@types';
-import { HTML_SELECTOR_REGEXP, ROOT_SELECTOR_REGEXP } from '@constants';
+import {
+    HTML_SELECTOR_REGEXP,
+    ROOT_SELECTOR_REGEXP,
+    STRING_TYPE
+} from '@constants';
 import { store } from '@data/store';
 
 const addPrefix = (prefix: string, selector: string): string => {
+    if (store.options.prefixSelectorTransformer) {
+        const transformedSelector = store.options.prefixSelectorTransformer(prefix, selector);
+        if (transformedSelector && typeof transformedSelector === STRING_TYPE) {
+            return transformedSelector;
+        }
+    }
     if (HTML_SELECTOR_REGEXP.test(selector)) {
         return selector.replace(HTML_SELECTOR_REGEXP, `$1${prefix}`);
     }

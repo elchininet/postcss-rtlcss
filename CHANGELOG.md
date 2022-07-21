@@ -1,5 +1,9 @@
 # Changelog
 
+# [3.7.0] - 2022-07-21
+
+- Add an option to have more control over the selector prefixing logic (`prefixSelectorTransformer`)
+
 ## [3.6.4] - 2022-07-20
 
 - Apply the safe prefix to logical declarations overridden by physical ones

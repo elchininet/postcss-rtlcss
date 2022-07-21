@@ -14,21 +14,67 @@ runTests({}, (pluginOptions: PluginOptions): void => {
     });
   
     it('custom ltrPrefix and rtlPrefix', (): void => {
-      const options: PluginOptions = { ...pluginOptions, ltrPrefix: '.ltr', rtlPrefix: '.rtl', bothPrefix: ['.ltr', '.rtl'] };
+      const options: PluginOptions = {
+        ...pluginOptions,
+        ltrPrefix: '.ltr',
+        rtlPrefix: '.rtl',
+        bothPrefix: ['.ltr', '.rtl']
+      };
       const output = postcss([postcssRTLCSS(options)]).process(input);
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);
     });
   
     it('custom ltrPrefix and rtlPrefix properties as arrays', (): void => {
-      const options: PluginOptions = { ...pluginOptions, ltrPrefix: ['.ltr', '.left-to-right'], rtlPrefix: ['.rtl', '.right-to-left'], bothPrefix: ['.ltr', '.left-to-right', '.rtl', '.right-to-left'] };
+      const options: PluginOptions = {
+        ...pluginOptions,
+        ltrPrefix: ['.ltr', '.left-to-right'],
+        rtlPrefix: ['.rtl', '.right-to-left'],
+        bothPrefix: ['.ltr', '.left-to-right', '.rtl', '.right-to-left']
+      };
       const output = postcss([postcssRTLCSS(options)]).process(input);
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);
     });
   
     it('custom ltrPrefix, rtlPrefix, and bothPrefix properties as arrays and processUrls: true', (): void => {
-      const options: PluginOptions = { ...pluginOptions, ltrPrefix: ['.ltr', '.left-to-right'], rtlPrefix: ['.rtl', '.right-to-left'], bothPrefix: ['.ltr', '.left-to-right', '.rtl', '.right-to-left'], processUrls: true };
+      const options: PluginOptions = {
+        ...pluginOptions,
+        ltrPrefix: ['.ltr', '.left-to-right'],
+        rtlPrefix: ['.rtl', '.right-to-left'],
+        bothPrefix: ['.ltr', '.left-to-right', '.rtl', '.right-to-left'],
+        processUrls: true
+      };
+      const output = postcss([postcssRTLCSS(options)]).process(input);
+      expect(output.css).toMatchSnapshot();
+      expect(output.warnings()).toHaveLength(0);
+    });
+
+    it('prefixSelectorTransformer with default prefixes', (): void => {
+      const transformer = (prefix: string, selector: string) => {
+        if (!selector.startsWith('html') && selector.indexOf(':root') < 0) {
+          return `${prefix} > ${selector}`;
+        }
+      };
+      const options: PluginOptions = { ...pluginOptions, prefixSelectorTransformer: transformer };
+      const output = postcss([postcssRTLCSS(options)]).process(input);
+      expect(output.css).toMatchSnapshot();
+      expect(output.warnings()).toHaveLength(0);
+    });
+
+    it('prefixSelectorTransformer with custom ltrPrefix and rtlPrefix', (): void => {
+      const transformer = (prefix: string, selector: string) => {
+        if (!selector.startsWith('html') && selector.indexOf(':root') < 0) {
+          return `${prefix}${selector}`;
+        }
+      };
+      const options: PluginOptions = {
+        ...pluginOptions,
+        prefixSelectorTransformer: transformer,
+        ltrPrefix: '.ltr',
+        rtlPrefix: '.rtl',
+        bothPrefix: ['.ltr', '.rtl']
+      };
       const output = postcss([postcssRTLCSS(options)]).process(input);
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);
