@@ -8,7 +8,8 @@ import rtlcss from 'rtlcss';
 import {
     Mode,
     Autorename,
-    ControlDirective
+    ControlDirective,
+    DeclarationHashMapProp
 } from '@types';
 import {
     DECLARATION_TYPE,
@@ -29,7 +30,9 @@ import {
     initialValues,
     appendDeclarationToRule,
     hasIgnoreDirectiveInRaws,
-    checkOverrides
+    checkOverrides,
+    hasSameUpcomingDeclaration,
+    hasMirrorDeclaration
 } from '@utilities/declarations';
 import { walkContainer } from '@utilities/containers';
 import {
@@ -65,10 +68,15 @@ export const parseDeclarations = (
     const ruleBoth = ruleFlipped.clone();
     const ruleSafe = ruleFlipped.clone();
 
-    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: Record<string, string>, node: Node): Record<string, string> => {
+    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: DeclarationHashMapProp, node: Node): DeclarationHashMapProp => {
         if (node.type === DECLARATION_TYPE) {
             const decl = node as Declaration;
-            obj[decl.prop] = decl.value.trim();
+            const index = rule.index(decl);
+            obj[decl.prop] = obj[decl.prop] || {};
+            obj[decl.prop][index] = {
+                decl,
+                value: decl.value.trim()
+            };
         }
         return obj;
     }, {});
@@ -203,6 +211,10 @@ export const parseDeclarations = (
             ) {
                 return;
             }
+
+            if (hasSameUpcomingDeclaration(rule, decl, declarationHashMap)) {
+                return;
+            }
             
             if (isAnimation) {
                 
@@ -291,7 +303,7 @@ export const parseDeclarations = (
                         deleteDeclarations.push(decl);
                     }
                     return;
-                } else  if (declarationHashMap[declFlipped.prop] === declFlippedValue) {
+                } else  if (hasMirrorDeclaration(rule, declFlipped, declarationHashMap)) {
                     simetricRules = true;
                     if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
                         if (mode === Mode.diff) {

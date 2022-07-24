@@ -1,4 +1,8 @@
-import { Rule, AtRule } from 'postcss';
+import {
+    Rule,
+    AtRule,
+    Declaration
+} from 'postcss';
 
 export enum Mode {
     combined = 'combined',
@@ -103,3 +107,5 @@ export interface ControlDirective {
     directive: string;
     option?: string;
 }
+
+export type DeclarationHashMapProp = Record<string, Record<string, { decl: Declaration; value: string; }>>;

@@ -28,14 +28,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -675,14 +668,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -1388,14 +1374,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -2035,14 +2014,7 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
 .test2 {
     color: red;
-}
-
-[dir=\\"rtl\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"ltr\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -2667,7 +2639,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} 1`]
 }
 
 .test2 {
-    text-align: right;
     text-align: center;
 }
 
@@ -2932,7 +2903,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 }
 
 .test2 {
-    text-align: right;
     text-align: center;
 }
 
@@ -3241,7 +3211,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 }
 
 .test2 {
-    text-align: right;
     text-align: center;
 }
 
@@ -3506,7 +3475,6 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 }
 
 .test2 {
-    text-align: right;
     text-align: center;
 }
 
@@ -3784,14 +3752,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
 .test2 {
     color: red;
-}
-
-[dir] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -4420,14 +4381,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
 .test2 {
     color: red;
-}
-
-[dir] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -5122,14 +5076,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
 .test2 {
     color: red;
-}
-
-[dir] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -5758,14 +5705,7 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
 .test2 {
     color: red;
-}
-
-[dir] .test2 {
     text-align: left;
-}
-
-[dir=\\"ltr\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
