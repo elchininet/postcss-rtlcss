@@ -29,17 +29,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -657,17 +647,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1285,17 +1265,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1913,17 +1883,7 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -2524,11 +2484,6 @@ exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and proces
     transform: translate(50%, 50%);
 }
 
-.test2 {
-    text-align: right;
-    text-align: center;
-}
-
 .test3 {
     direction: rtl;
 }
@@ -2721,11 +2676,6 @@ exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and proces
     transform: translate(50%, 50%);
 }
 
-.test2 {
-    text-align: right;
-    text-align: center;
-}
-
 .test3 {
     direction: rtl;
 }
@@ -2916,11 +2866,6 @@ exports[`[[Mode: diff]] String Map Tests:  custom string map and processUrls: tr
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
-}
-
-.test2 {
-    text-align: right;
-    text-align: center;
 }
 
 .test3 {
@@ -3117,11 +3062,6 @@ exports[`[[Mode: diff]] String Map Tests:  custom string map without names and p
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
-}
-
-.test2 {
-    text-align: right;
-    text-align: center;
 }
 
 .test3 {
@@ -3336,13 +3276,6 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -3913,13 +3846,6 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -4490,13 +4416,6 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -5067,13 +4986,6 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 

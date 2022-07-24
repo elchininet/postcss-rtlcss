@@ -25,17 +25,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 
 .test2 {
     color: red;
-}
-
-.ltr .test2 {
     text-align: left;
-}
-
-.rtl .test2 {
-    text-align: right;
-}
-
-.ltr .test2, .rtl .test2 {
     text-align: center;
 }
 
@@ -649,17 +639,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 
 .test2 {
     color: red;
-}
-
-.ltr .test2, .left-to-right .test2 {
     text-align: left;
-}
-
-.rtl .test2, .right-to-left .test2 {
-    text-align: right;
-}
-
-.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     text-align: center;
 }
 
@@ -1287,17 +1267,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 
 .test2 {
     color: red;
-}
-
-.ltr .test2, .left-to-right .test2 {
     text-align: left;
-}
-
-.rtl .test2, .right-to-left .test2 {
-    text-align: right;
-}
-
-.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     text-align: center;
 }
 
@@ -1921,17 +1891,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 
 .test2 {
     color: red;
-}
-
-.ltr.test2 {
     text-align: left;
-}
-
-.rtl.test2 {
-    text-align: right;
-}
-
-.ltr.test2, .rtl.test2 {
     text-align: center;
 }
 
@@ -2545,17 +2505,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] > .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] > .test2 {
-    text-align: right;
-}
-
-[dir] > .test2 {
     text-align: center;
 }
 
@@ -3153,11 +3103,6 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
     transform: translate(50%, 50%);
 }
 
-.test2 {
-    text-align: right;
-    text-align: center;
-}
-
 .test3 {
     direction: rtl;
 }
@@ -3345,11 +3290,6 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properti
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
-}
-
-.test2 {
-    text-align: right;
-    text-align: center;
 }
 
 .test3 {
@@ -3544,11 +3484,6 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPr
     transform: translate(50%, 50%);
 }
 
-.test2 {
-    text-align: right;
-    text-align: center;
-}
-
 .test3 {
     direction: rtl;
 }
@@ -3738,11 +3673,6 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with custom l
     transform: translate(50%, 50%);
 }
 
-.test2 {
-    text-align: right;
-    text-align: center;
-}
-
 .test3 {
     direction: rtl;
 }
@@ -3930,11 +3860,6 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with default 
     padding-left: 20px;
     text-align: right;
     transform: translate(50%, 50%);
-}
-
-.test2 {
-    text-align: right;
-    text-align: center;
 }
 
 .test3 {
@@ -4141,13 +4066,6 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 .test2 {
     color: red;
     text-align: left;
-}
-
-.rtl .test2 {
-    text-align: right;
-}
-
-.ltr .test2, .rtl .test2 {
     text-align: center;
 }
 
@@ -4714,13 +4632,6 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 .test2 {
     color: red;
     text-align: left;
-}
-
-.rtl .test2, .right-to-left .test2 {
-    text-align: right;
-}
-
-.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     text-align: center;
 }
 
@@ -5296,13 +5207,6 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 .test2 {
     color: red;
     text-align: left;
-}
-
-.rtl .test2, .right-to-left .test2 {
-    text-align: right;
-}
-
-.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     text-align: center;
 }
 
@@ -5874,13 +5778,6 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 .test2 {
     color: red;
     text-align: left;
-}
-
-.rtl.test2 {
-    text-align: right;
-}
-
-.ltr.test2, .rtl.test2 {
     text-align: center;
 }
 
@@ -6447,13 +6344,6 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] > .test2 {
-    text-align: right;
-}
-
-[dir] > .test2 {
     text-align: center;
 }
 

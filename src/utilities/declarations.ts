@@ -1,5 +1,8 @@
 import { Rule, Declaration } from 'postcss';
-import { DeclarationsData } from '@types';
+import {
+    DeclarationsData,
+    DeclarationHashMapProp
+} from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_IGNORE_REGEXP } from '@constants';
 import shorthandDeclarationsJson from '@data/shorthand-declarations.json';
 import logicalDeclarationsJson from '@data/logical-declarations.json';
@@ -93,11 +96,43 @@ const checkOverrides = (decl: string, decls: string[]): boolean => {
     return decls.some((d: string): boolean => declarations[d] && declarations[d].includes(decl));
 };
 
+const hasSameUpcomingDeclaration = (
+    rule: Rule,
+    decl: Declaration,
+    declarationHashMap: DeclarationHashMapProp
+): boolean => {
+    const index = rule.index(decl);
+    const indexes = Object.keys(declarationHashMap[decl.prop]).map(Number);
+    if (indexes.length === 1) {
+        return false;
+    }
+    return indexes.some((i: number) => i > index);
+};
+
+const hasMirrorDeclaration = (
+    rule: Rule,
+    declFlipped: Declaration,
+    declarationHashMap: DeclarationHashMapProp
+): boolean => {
+    if (declarationHashMap[declFlipped.prop]) {
+        const entries = Object.entries(declarationHashMap[declFlipped.prop]);
+        return entries.some((entry) => {
+            return (
+                entry[1].value === declFlipped.value.trim() &&
+                !hasSameUpcomingDeclaration(rule, entry[1].decl, declarationHashMap)
+            );
+        });
+    }
+    return false;
+};
+
 export {
     declarations,
     allDeclarations,
     initialValues,
     appendDeclarationToRule,
     hasIgnoreDirectiveInRaws,
-    checkOverrides
+    checkOverrides,
+    hasSameUpcomingDeclaration,
+    hasMirrorDeclaration
 };

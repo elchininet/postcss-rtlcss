@@ -1,5 +1,9 @@
 # Changelog
 
+# [3.7.1] - 2022-07-24
+
+- Improve the overriding logic to avoid edge cases with multiple overrides
+
 # [3.7.0] - 2022-07-21
 
 - Add an option to have more control over the selector prefixing logic (`prefixSelectorTransformer`)
