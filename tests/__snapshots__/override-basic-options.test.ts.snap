@@ -24,13 +24,6 @@ exports[`Override Tests Basic Options Override {processKeyFrames: true} 1`] = `
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -631,13 +624,6 @@ exports[`Override Tests Basic Options Override {processUrls: true} 1`] = `
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1178,13 +1164,6 @@ exports[`Override Tests Basic Options Override {source: rtl, processKeyFrames: t
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"ltr\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1775,13 +1754,6 @@ exports[`Override Tests Basic Options Override {source: rtl} 1`] = `
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"ltr\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -2317,13 +2289,6 @@ exports[`Override Tests Basic Options Override {useCalc: true} 1`] = `
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -2865,13 +2830,6 @@ exports[`Override Tests Basic Options Override Basic 1`] = `
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 

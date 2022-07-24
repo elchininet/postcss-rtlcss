@@ -29,17 +29,7 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -632,17 +622,7 @@ exports[`Combined Tests String Map Combined custom no-valid string map and proce
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1235,17 +1215,7 @@ exports[`Combined Tests String Map Combined custom string map and processUrls: t
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1838,17 +1808,7 @@ exports[`Combined Tests String Map Combined custom string map without names and 
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 

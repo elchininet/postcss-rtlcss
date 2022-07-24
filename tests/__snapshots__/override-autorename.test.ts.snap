@@ -24,13 +24,6 @@ exports[`Override Tests Autorename Override Autorename: flexible 1`] = `
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -571,13 +564,6 @@ exports[`Override Tests Autorename Override Autorename: flexible with custom str
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1118,13 +1104,6 @@ exports[`Override Tests Autorename Override Autorename: flexible, greedy: true 1
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1665,13 +1644,6 @@ exports[`Override Tests Autorename Override Autorename: only control directives 
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -2212,13 +2184,6 @@ exports[`Override Tests Autorename Override Autorename: only control directives,
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -2759,13 +2724,6 @@ exports[`Override Tests Autorename Override Autorename: strict 1`] = `
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -3306,13 +3264,6 @@ exports[`Override Tests Autorename Override Autorename: strict, greedy: true 1`]
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 

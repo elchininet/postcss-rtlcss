@@ -25,17 +25,7 @@ exports[`Combined Tests Basic Options Combined {processKeyFrames: true} 1`] = `
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -690,17 +680,7 @@ exports[`Combined Tests Basic Options Combined {processUrls: true} 1`] = `
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1289,17 +1269,7 @@ exports[`Combined Tests Basic Options Combined {source: rtl, processKeyFrames: t
 
 .test2 {
     color: red;
-}
-
-[dir=\\"rtl\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"ltr\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1950,17 +1920,7 @@ exports[`Combined Tests Basic Options Combined {source: rtl} 1`] = `
 
 .test2 {
     color: red;
-}
-
-[dir=\\"rtl\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"ltr\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -2550,17 +2510,7 @@ exports[`Combined Tests Basic Options Combined {useCalc: true} 1`] = `
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -3150,17 +3100,7 @@ exports[`Combined Tests Basic Options Combined Basic 1`] = `
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 

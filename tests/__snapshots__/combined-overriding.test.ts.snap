@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Combined Overriding Tests Basic 1`] = `
+"/* Mirror properties, do nothing */
+.test1 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Mirror properties, do nothing */
+.test2 {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Flipped-declarations overriden by non-flipped declarations, do nothing */
+.test3 {
+    text-align: left;
+    text-align: right;
+    text-align: center;
+}
+
+/* Overriden mirror properties */
+.test4 {
+    left: 0;
+    right: 10px;
+}
+
+[dir=\\"ltr\\"] .test4 {
+    left: 10px;
+    right: 0;
+}
+
+[dir=\\"rtl\\"] .test4 {
+    right: 10px;
+    left: 0;
+}"
+`;

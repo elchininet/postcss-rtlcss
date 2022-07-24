@@ -1,5 +1,9 @@
 import { Rule, Declaration } from 'postcss';
-import { ObjectWithProps, DeclarationsData } from '@types';
+import {
+    ObjectWithProps,
+    DeclarationsData,
+    DeclarationHashMapProp
+} from '@types';
 import { COMMENT_TYPE, RTL_COMMENT_IGNORE_REGEXP } from '@constants';
 import shorthandDeclarationsJson from '@data/shorthand-declarations.json';
 import notShorthandDeclarationsJson from '@data/not-shorthand-declarations.json';
@@ -58,10 +62,42 @@ const hasIgnoreDirectiveInRaws = (decl: Declaration): boolean => {
     return false;
 };
 
+const hasSameUpcomingDeclaration = (
+    rule: Rule,
+    decl: Declaration,
+    declarationHashMap: DeclarationHashMapProp
+): boolean => {
+    const index = rule.index(decl);
+    const indexes = Object.keys(declarationHashMap[decl.prop]).map(Number);
+    if (indexes.length === 1) {
+        return false;
+    }
+    return indexes.some((i: number) => i > index);
+};
+
+const hasMirrorDeclaration = (
+    rule: Rule,
+    declFlipped: Declaration,
+    declarationHashMap: DeclarationHashMapProp
+): boolean => {
+    if (declarationHashMap[declFlipped.prop]) {
+        const entries = Object.entries(declarationHashMap[declFlipped.prop]);
+        return entries.some((entry) => {
+            return (
+                entry[1].value === declFlipped.value.trim() &&
+                !hasSameUpcomingDeclaration(rule, entry[1].decl, declarationHashMap)
+            );
+        });
+    }
+    return false;
+};
+
 export {
     declarations,
     allDeclarations,
     initialValues,
     appendDeclarationToRule,
-    hasIgnoreDirectiveInRaws
+    hasIgnoreDirectiveInRaws,
+    hasSameUpcomingDeclaration,
+    hasMirrorDeclaration
 };

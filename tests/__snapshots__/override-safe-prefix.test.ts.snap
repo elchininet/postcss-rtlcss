@@ -26,14 +26,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} 1`
 
 .test2 {
     color: red;
-}
-
-[dir] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -636,14 +629,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 
 .test2 {
     color: red;
-}
-
-[dir] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -1306,14 +1292,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 
 .test2 {
     color: red;
-}
-
-[dir] .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {
@@ -1916,14 +1895,7 @@ exports[`Override Tests safeBothPrefix Option Override {safeBothPrefix: true} an
 
 .test2 {
     color: red;
-}
-
-[dir] .test2 {
     text-align: left;
-}
-
-[dir=\\"ltr\\"] .test2 {
-    text-align: right;
 }
 
 [dir] .test2 {

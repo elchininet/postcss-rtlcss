@@ -25,17 +25,7 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix 1`] = `
 
 .test2 {
     color: red;
-}
-
-.ltr .test2 {
     text-align: left;
-}
-
-.rtl .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -624,17 +614,7 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix and rtlPrefix propert
 
 .test2 {
     color: red;
-}
-
-.ltr .test2, .left-to-right .test2 {
     text-align: left;
-}
-
-.rtl .test2, .right-to-left .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1237,17 +1217,7 @@ exports[`Combined Tests Prefixes Combined custom ltrPrefix, rtlPrefix, and bothP
 
 .test2 {
     color: red;
-}
-
-.ltr .test2, .left-to-right .test2 {
     text-align: left;
-}
-
-.rtl .test2, .right-to-left .test2 {
-    text-align: right;
-}
-
-.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     text-align: center;
 }
 
@@ -1846,17 +1816,7 @@ exports[`Combined Tests Prefixes Combined prefixSelectorTransformer with custom 
 
 .test2 {
     color: red;
-}
-
-.ltr.test2 {
     text-align: left;
-}
-
-.rtl.test2 {
-    text-align: right;
-}
-
-.ltr.test2, .rtl.test2 {
     text-align: center;
 }
 
@@ -2445,17 +2405,7 @@ exports[`Combined Tests Prefixes Combined prefixSelectorTransformer with default
 
 .test2 {
     color: red;
-}
-
-[dir=\\"ltr\\"] > .test2 {
     text-align: left;
-}
-
-[dir=\\"rtl\\"] > .test2 {
-    text-align: right;
-}
-
-[dir] > .test2 {
     text-align: center;
 }
 

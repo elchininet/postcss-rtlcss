@@ -11,3 +11,5 @@ coverage/
 /index.js
 /options.d.ts
 /options.js
+.yalc/
+yalc.lock

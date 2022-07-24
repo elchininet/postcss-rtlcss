@@ -24,13 +24,6 @@ exports[`Override Tests Prefixes Override custom ltrPrefix and rtlPrefix propert
 .test2 {
     color: red;
     text-align: left;
-}
-
-.rtl .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -571,13 +564,6 @@ exports[`Override Tests Prefixes Override custom ltrPrefix and rtlPrefix propert
 .test2 {
     color: red;
     text-align: left;
-}
-
-.rtl .test2, .right-to-left .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1127,13 +1113,6 @@ exports[`Override Tests Prefixes Override custom ltrPrefix, rtlPrefix, and bothP
 .test2 {
     color: red;
     text-align: left;
-}
-
-.rtl .test2, .right-to-left .test2 {
-    text-align: right;
-}
-
-.ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     text-align: center;
 }
 
@@ -1679,13 +1658,6 @@ exports[`Override Tests Prefixes Override prefixSelectorTransformer with custom 
 .test2 {
     color: red;
     text-align: left;
-}
-
-.rtl.test2 {
-    text-align: right;
-}
-
-.ltr.test2, .rtl.test2 {
     text-align: center;
 }
 
@@ -2226,13 +2198,6 @@ exports[`Override Tests Prefixes Override prefixSelectorTransformer with default
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] > .test2 {
-    text-align: right;
-}
-
-[dir] > .test2 {
     text-align: center;
 }
 

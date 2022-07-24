@@ -28,13 +28,6 @@ exports[`Override Tests String Map Override custom no-valid string map and proce
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -579,13 +572,6 @@ exports[`Override Tests String Map Override custom no-valid string map and proce
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1130,13 +1116,6 @@ exports[`Override Tests String Map Override custom string map and processUrls: t
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
@@ -1681,13 +1660,6 @@ exports[`Override Tests String Map Override custom string map without names and 
 .test2 {
     color: red;
     text-align: left;
-}
-
-[dir=\\"rtl\\"] .test2 {
-    text-align: right;
-}
-
-[dir] .test2 {
     text-align: center;
 }
 
