@@ -51,7 +51,14 @@ export const parseRules = (
                 controlDirective.option
             ) {
                 const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
-                const root = postcss.parse(controlDirective.option);
+                /* the source could be undefined in certain cases but not during the tests */
+                /* istanbul ignore next */
+                const root = postcss.parse(
+                    controlDirective.option,
+                    {
+                        from: container.source?.input?.from
+                    }
+                );
                 if (mode !== Mode.diff) {
                     root.walkRules((rule: Rule): void => {
                         addSelectorPrefixes(
