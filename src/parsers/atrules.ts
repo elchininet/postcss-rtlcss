@@ -122,7 +122,14 @@ export const parseKeyFrames = (css: Root): void => {
                 return;
             }
 
-            const rootFlipped = postcss.parse(atRuleFlippedString);
+            /* the source could be undefined in certain cases but not during the tests */
+            /* istanbul ignore next */
+            const rootFlipped = postcss.parse(
+                atRuleFlippedString,
+                {
+                    from: atRule.source?.input?.from
+                }
+            );
             const atRuleFlipped = rootFlipped.first as AtRule;
 
             const atRuleParams = atRule.params;
