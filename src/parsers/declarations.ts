@@ -94,7 +94,14 @@ export const parseDeclarations = (
                     controlDirectives,
                     ruleSourceDirectiveValue
                 );
-                const root = postcss.parse(controlDirective.option);
+                /* the source could be undefined in certain cases but not during the tests */ 
+                /* istanbul ignore next */
+                const root = postcss.parse(
+                    controlDirective.option,                    
+                    {
+                        from: rule.source?.input?.from
+                    }
+                );
                 if (
                     (
                         mode === Mode.combined &&
@@ -149,7 +156,14 @@ export const parseDeclarations = (
                 aliases
             });
 
-            const root = postcss.parse(declFlippedString);
+            /* the source could be undefined in certain cases but not during the tests */ 
+            /* istanbul ignore next */
+            const root = postcss.parse(
+                declFlippedString,
+                {
+                    from: rule.source?.input?.from
+                }
+            );
             const declFlipped = root.first as Declaration;
             declFlipped.source = decl.source;
             declFlipped.raws = decl.raws;
@@ -302,6 +316,8 @@ export const parseDeclarations = (
                 } else {
                     if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
                         const declClone = decl.clone();
+                        /* If for some reason the initial value is not covered in the code it should be unset */
+                        /* During the tests all the initial values are covered */ 
                         /* istanbul ignore next */
                         declClone.value = initialValues[decl.prop] || 'unset';
                         if (normalFlip) {
