@@ -1,8 +1,29 @@
-import postcss, { Root, Node, AtRule, Comment, vendor } from 'postcss';
+import postcss,
+{
+    Root,
+    Container,
+    Node,
+    AtRule,
+    Comment,
+    vendor
+} from 'postcss';
 import rtlcss from 'rtlcss';
-import { AtRulesObject, AtRulesStringMap, Source, ControlDirective } from '@types';
-import { AT_RULE_TYPE, RULE_TYPE, KEYFRAMES_NAME, CONTROL_DIRECTIVE } from '@constants';
-import { store, initKeyframesData } from '@data/store';
+import {
+    AtRulesObject,
+    AtRulesStringMap,
+    Source,
+    ControlDirective
+} from '@types';
+import {
+    AT_RULE_TYPE,
+    RULE_TYPE,
+    KEYFRAMES_NAME,
+    CONTROL_DIRECTIVE
+} from '@constants';
+import {
+    store,
+    initKeyframesData
+} from '@data/store';
 import { walkContainer } from '@utilities/containers';
 import {
     isIgnoreDirectiveInsideAnIgnoreBlock,
@@ -24,12 +45,12 @@ export const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesString
 
 export const getKeyFramesRegExp = (stringMap: AtRulesStringMap): RegExp => new RegExp(`(^|[^\\w-]| )(${ Object.keys(stringMap).join('|') })( |[^\\w-]|$)`, 'g');
 
-export const parseAtRules = (css: Root): void => {
+export const parseAtRules = (container: Container): void => {
 
     const controlDirectives: Record<string, ControlDirective> = {};
 
     walkContainer(
-        css,
+        container,
         [ AT_RULE_TYPE, RULE_TYPE ],
         (_comment: Comment, controlDirective: ControlDirective): void => {
 
@@ -55,6 +76,8 @@ export const parseAtRules = (css: Root): void => {
             const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
 
             parseRules(atRule, sourceDirectiveValue);
+
+            parseAtRules(atRule);
 
         }
     );

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.8.2] - 2022-07-27
+
+- Support for nested at-rules
+
 ## [1.8.1] - 2022-07-24
 
 - Improve the overriding logic to avoid edge cases with multiple overrides
