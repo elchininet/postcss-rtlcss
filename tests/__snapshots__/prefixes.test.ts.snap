@@ -2,14 +2,14 @@
 
 exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
 .ltr .test1, .ltr .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
@@ -17,6 +17,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .rtl .test1, .rtl .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -133,7 +134,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 
 .rtl .test11:hover,
 .rtl .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -315,19 +316,19 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -344,11 +345,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -356,11 +357,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
@@ -368,11 +369,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .ltr .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
 }
 
 .rtl .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -382,11 +383,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .ltr .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+    background-image: url("/icons/icon-left.png");    
 }
 
 .rtl .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -616,14 +617,14 @@ html.rtl .test50 {
 
 exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properties as arrays 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
 .ltr .test1, .left-to-right .test1, .ltr .test2, .left-to-right .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
@@ -631,6 +632,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .rtl .test1, .right-to-left .test1, .rtl .test2, .right-to-left .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -757,7 +759,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 .right-to-left .test11:hover,
 .rtl .test11:active,
 .right-to-left .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -939,19 +941,19 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -968,11 +970,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -980,11 +982,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
@@ -992,11 +994,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .ltr .test31, .left-to-right .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
 }
 
 .rtl .test31, .right-to-left .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -1006,11 +1008,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .ltr .test32, .left-to-right .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+    background-image: url("/icons/icon-left.png");    
 }
 
 .rtl .test32, .right-to-left .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -1245,7 +1247,8 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .ltr .test1, .left-to-right .test1, .ltr .test2, .left-to-right .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
@@ -1253,7 +1256,8 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .rtl .test1, .right-to-left .test1, .rtl .test2, .right-to-left .test2 {
-    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
+    background: url("/folder/subfolder/icons/rtl/chevron-right.png");
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -1262,7 +1266,6 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 
 .ltr .test1, .left-to-right .test1, .rtl .test1, .right-to-left .test1, .ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     background-color: #FFF;
-    background-position: 10px 20px;
 }
 
 .test2 {
@@ -1385,7 +1388,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 .right-to-left .test11:hover,
 .rtl .test11:active,
 .right-to-left .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -1567,19 +1570,19 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -1596,11 +1599,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -1608,11 +1611,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
@@ -1620,11 +1623,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .ltr .test31, .left-to-right .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
 }
 
 .rtl .test31, .right-to-left .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -1634,11 +1637,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .ltr .test32, .left-to-right .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+    background-image: url("/icons/icon-left.png");    
 }
 
 .rtl .test32, .right-to-left .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -1868,14 +1871,14 @@ html.rtl .test50, html.right-to-left .test50 {
 
 exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with custom ltrPrefix and rtlPrefix 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
 .ltr.test1, .ltr.test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
@@ -1883,6 +1886,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .rtl.test1, .rtl.test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -1999,7 +2003,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 
 .rtl.test11:hover,
 .rtl.test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -2181,19 +2185,19 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -2210,11 +2214,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -2222,11 +2226,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
@@ -2234,11 +2238,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .ltr.test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
 }
 
 .rtl.test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -2248,11 +2252,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .ltr.test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+    background-image: url("/icons/icon-left.png");    
 }
 
 .rtl.test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -2482,21 +2486,22 @@ html.rtl .test50 {
 
 exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with default prefixes 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
-[dir=\\"ltr\\"] > .test1, [dir=\\"ltr\\"] > .test2 {
+[dir="ltr"] > .test1, [dir="ltr"] > .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
 }
 
-[dir=\\"rtl\\"] > .test1, [dir=\\"rtl\\"] > .test2 {
+[dir="rtl"] > .test1, [dir="rtl"] > .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -2517,11 +2522,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     text-align: center;
 }
 
-[dir=\\"ltr\\"] > .test3 {
+[dir="ltr"] > .test3 {
     direction: ltr;
 }
 
-[dir=\\"rtl\\"] > .test3 {
+[dir="rtl"] > .test3 {
     direction: rtl;
 }
 
@@ -2532,12 +2537,12 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"ltr\\"] > .test4 {
+[dir="ltr"] > .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
-[dir=\\"rtl\\"] > .test4 {
+[dir="rtl"] > .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -2550,9 +2555,9 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     position: absolute;
 }
 
-[dir=\\"ltr\\"] > .test5,
-[dir=\\"ltr\\"] > .test6,
-[dir=\\"ltr\\"] > .test7 {
+[dir="ltr"] > .test5,
+[dir="ltr"] > .test6,
+[dir="ltr"] > .test7 {
     background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #777 #888 #999;
     border-width: 1px 2px 3px 4px;
@@ -2560,9 +2565,9 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] > .test5,
-[dir=\\"rtl\\"] > .test6,
-[dir=\\"rtl\\"] > .test7 {
+[dir="rtl"] > .test5,
+[dir="rtl"] > .test6,
+[dir="rtl"] > .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -2576,11 +2581,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding-left: 10%;
 }
 
-[dir=\\"ltr\\"] > .test8 {
+[dir="ltr"] > .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
-[dir=\\"rtl\\"] > .test8 {
+[dir="rtl"] > .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -2588,22 +2593,22 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"ltr\\"] > .test9, [dir=\\"ltr\\"] > .test10 {
+[dir="ltr"] > .test9, [dir="ltr"] > .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
 }
 
-[dir=\\"rtl\\"] > .test9, [dir=\\"rtl\\"] > .test10 {
+[dir="rtl"] > .test9, [dir="rtl"] > .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     right: 5px;
 }
 
-[dir=\\"ltr\\"] > .test11:hover,
-[dir=\\"ltr\\"] > .test11:active {
+[dir="ltr"] > .test11:hover,
+[dir="ltr"] > .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -2611,9 +2616,9 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] > .test11:hover,
-[dir=\\"rtl\\"] > .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] > .test11:hover,
+[dir="rtl"] > .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -2636,11 +2641,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding-right: 10px;
 }
 
-[dir=\\"ltr\\"] > .test16:hover {
+[dir="ltr"] > .test16:hover {
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] > .test16:hover {
+[dir="rtl"] > .test16:hover {
     padding-left: 20px;
 }
 
@@ -2662,11 +2667,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     font-size: 10px;
 }
 
-[dir=\\"ltr\\"] > .test18 {
+[dir="ltr"] > .test18 {
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] > .test18 {
+[dir="rtl"] > .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -2678,11 +2683,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     transform: translateX(5px);
 }
 
-[dir=\\"ltr\\"] > .test18::after {
+[dir="ltr"] > .test18::after {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] > .test18::after {
+[dir="rtl"] > .test18::after {
     right: 10px;
 }
 
@@ -2701,11 +2706,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
         width: 100%;
     }
 
-    [dir=\\"ltr\\"] > .test18 {
+    [dir="ltr"] > .test18 {
         padding: 1px 2px 3px 4px;
     }
 
-    [dir=\\"rtl\\"] > .test18 {
+    [dir="rtl"] > .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -2753,12 +2758,12 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 /* Do not add reset values in override mode */
-[dir=\\"ltr\\"] > .test22 {
+[dir="ltr"] > .test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] > .test22 {
+[dir="rtl"] > .test22 {
     right: 5px;
     left: 10px;
 }
@@ -2774,11 +2779,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] > .test24 {
+[dir="ltr"] > .test24 {
     border: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] > .test24 {
+[dir="rtl"] > .test24 {
     border: 1px solid #000;
 }
 
@@ -2795,19 +2800,19 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -2824,11 +2829,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -2836,23 +2841,23 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
     border: 1px solid gray;
 }
 
-[dir=\\"ltr\\"] > .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+[dir="ltr"] > .test31 {
+    background-image: url("/icons/icon-left.png");
 }
 
-[dir=\\"rtl\\"] > .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] > .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -2861,35 +2866,35 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     border: 1px solid gray;    
 }
 
-[dir=\\"ltr\\"] > .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+[dir="ltr"] > .test32 {
+    background-image: url("/icons/icon-left.png");    
 }
 
-[dir=\\"rtl\\"] > .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] > .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] > .test33 {
+[dir="ltr"] > .test33 {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] > .test33 {
+[dir="rtl"] > .test33 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] > .example34 {
+[dir="rtl"] > .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] > .example35 {
+[dir="rtl"] > .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -2898,13 +2903,13 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 100%;
 }
 
-[dir=\\"ltr\\"] > .test36 {
+[dir="ltr"] > .test36 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] > .test36 {
+[dir="rtl"] > .test36 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -2915,13 +2920,13 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 100%;
 }
 
-[dir=\\"ltr\\"] > .test37 {
+[dir="ltr"] > .test37 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] > .test37 {
+[dir="rtl"] > .test37 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: left;
@@ -2932,13 +2937,13 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 100%;
 }
 
-[dir=\\"ltr\\"] > .test38 {
+[dir="ltr"] > .test38 {
     border-left: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] > .test38 {
+[dir="rtl"] > .test38 {
     border-right: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -2948,11 +2953,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 50%;
 }
 
-[dir=\\"ltr\\"] > .test39 {
+[dir="ltr"] > .test39 {
     margin-right: 10px;
 }
 
-[dir=\\"rtl\\"] > .test39 {
+[dir="rtl"] > .test39 {
     margin-left: 10px;
 }
 
@@ -2961,11 +2966,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] > .test40 {
+[dir="ltr"] > .test40 {
     right: 5px;
 }
 
-[dir=\\"rtl\\"] > .test40 {
+[dir="rtl"] > .test40 {
     left: 5px;
 }
 
@@ -2973,23 +2978,23 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] > .test41 {
+[dir="ltr"] > .test41 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] > .test41 {
+[dir="rtl"] > .test41 {
     left: 10px;
 }
 
-[dir=\\"ltr\\"] > .test42 {
+[dir="ltr"] > .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] > .test43 {
+[dir="ltr"] > .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -3030,11 +3035,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] > .test46 {
+    [dir="ltr"] > .test46 {
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] > .test46 {
+    [dir="rtl"] > .test46 {
         text-align: right;
     }
 
@@ -3048,11 +3053,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] > .test48 {
+    [dir="ltr"] > .test48 {
         text-align: right;
     }
 
-    [dir=\\"rtl\\"] > .test48 {
+    [dir="rtl"] > .test48 {
         text-align: left;
     }
 
@@ -3061,11 +3066,11 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     }
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
-[dir=\\"rtl\\"]:root {
+[dir="rtl"]:root {
     text-align: left;
 }
 
@@ -3073,19 +3078,19 @@ html .test50 {
     color: red;
 }
 
-html[dir=\\"ltr\\"] .test50 {
+html[dir="ltr"] .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     right: 10px;
 }
 
-[dir=\\"ltr\\"] > .test51 {
+[dir="ltr"] > .test51 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] > .test51 {
+[dir="rtl"] > .test51 {
     border-right: 1px solid #FFF;
 }
 
@@ -3096,6 +3101,7 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -3137,7 +3143,7 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -3175,19 +3181,19 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -3285,6 +3291,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properties as arrays 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -3326,7 +3333,7 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properti
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -3364,19 +3371,19 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properti
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -3474,9 +3481,9 @@ html .test50 {
 
 exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPrefix properties as arrays and processUrls: true 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
+    background: url("/folder/subfolder/icons/rtl/chevron-right.png");
     background-color: #FFF;
-    background-position: 10px 20px;
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -3518,7 +3525,7 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPr
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -3556,19 +3563,19 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPr
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -3666,6 +3673,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with custom ltrPrefix and rtlPrefix 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -3707,7 +3715,7 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with custom l
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -3745,19 +3753,19 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with custom l
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -3855,6 +3863,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with default prefixes 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -3896,7 +3905,7 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with default 
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -3934,19 +3943,19 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with default 
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -4044,7 +4053,7 @@ html .test50 {
 
 exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -4056,6 +4065,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .rtl .test1, .rtl .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4158,7 +4168,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 
 .rtl .test11:hover,
 .rtl .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -4330,19 +4340,19 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -4359,11 +4369,11 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -4371,31 +4381,31 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
 .rtl .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
 .rtl .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -4610,7 +4620,7 @@ html.rtl .test50 {
 
 exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properties as arrays 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -4622,6 +4632,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .rtl .test1, .right-to-left .test1, .rtl .test2, .right-to-left .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4729,7 +4740,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 .right-to-left .test11:hover,
 .rtl .test11:active,
 .right-to-left .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -4901,19 +4912,19 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -4930,11 +4941,11 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -4942,31 +4953,31 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
 .rtl .test31, .right-to-left .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
 .rtl .test32, .right-to-left .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -5181,7 +5192,8 @@ html.rtl .test50, html.right-to-left .test50 {
 
 exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPrefix properties as arrays and processUrls: true 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     color: #666;
     padding-right: 20px;
@@ -5191,7 +5203,8 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .rtl .test1, .right-to-left .test1, .rtl .test2, .right-to-left .test2 {
-    background: url(\\"/folder/subfolder/icons/rtl/chevron-right.png\\");
+    background: url("/folder/subfolder/icons/rtl/chevron-right.png");
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -5201,7 +5214,6 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 
 .ltr .test1, .left-to-right .test1, .rtl .test1, .right-to-left .test1, .ltr .test2, .left-to-right .test2, .rtl .test2, .right-to-left .test2 {
     background-color: #FFF;
-    background-position: 10px 20px;
 }
 
 .test2 {
@@ -5304,7 +5316,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 .right-to-left .test11:hover,
 .rtl .test11:active,
 .right-to-left .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -5476,19 +5488,19 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -5505,11 +5517,11 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -5517,31 +5529,31 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
 .rtl .test31, .right-to-left .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
 .rtl .test32, .right-to-left .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -5756,7 +5768,7 @@ html.rtl .test50, html.right-to-left .test50 {
 
 exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with custom ltrPrefix and rtlPrefix 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -5768,6 +5780,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .rtl.test1, .rtl.test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -5870,7 +5883,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 
 .rtl.test11:hover,
 .rtl.test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -6042,19 +6055,19 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -6071,11 +6084,11 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -6083,31 +6096,31 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
 .rtl.test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
 .rtl.test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -6322,7 +6335,7 @@ html.rtl .test50 {
 
 exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with default prefixes 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -6333,7 +6346,8 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 100%;
 }
 
-[dir=\\"rtl\\"] > .test1, [dir=\\"rtl\\"] > .test2 {
+[dir="rtl"] > .test1, [dir="rtl"] > .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -6356,7 +6370,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     text-align: center;
 }
 
-[dir=\\"rtl\\"] > .test3 {
+[dir="rtl"] > .test3 {
     direction: rtl;
 }
 
@@ -6369,7 +6383,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"rtl\\"] > .test4 {
+[dir="rtl"] > .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -6387,9 +6401,9 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] > .test5,
-[dir=\\"rtl\\"] > .test6,
-[dir=\\"rtl\\"] > .test7 {
+[dir="rtl"] > .test5,
+[dir="rtl"] > .test6,
+[dir="rtl"] > .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -6405,7 +6419,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding-left: 10%;
 }
 
-[dir=\\"rtl\\"] > .test8 {
+[dir="rtl"] > .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -6417,7 +6431,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"rtl\\"] > .test9, [dir=\\"rtl\\"] > .test10 {
+[dir="rtl"] > .test9, [dir="rtl"] > .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -6434,9 +6448,9 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] > .test11:hover,
-[dir=\\"rtl\\"] > .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] > .test11:hover,
+[dir="rtl"] > .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -6463,7 +6477,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] > .test16:hover {
+[dir="rtl"] > .test16:hover {
     padding-right: 0;
     padding-left: 20px;
 }
@@ -6487,7 +6501,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] > .test18 {
+[dir="rtl"] > .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -6500,7 +6514,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] > .test18::after {
+[dir="rtl"] > .test18::after {
     left: auto;
     right: 10px;
 }
@@ -6521,7 +6535,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
         width: 100%;
     }
 
-    [dir=\\"rtl\\"] > .test18 {
+    [dir="rtl"] > .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -6574,7 +6588,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     right: 10px;
 }
 
-[dir=\\"rtl\\"] > .test22 {
+[dir="rtl"] > .test22 {
     right: 5px;
     left: 10px;
 }
@@ -6591,7 +6605,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] > .test24 {
+[dir="rtl"] > .test24 {
     border: 1px solid #000;
 }
 
@@ -6608,19 +6622,19 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -6637,11 +6651,11 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -6649,31 +6663,31 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
-[dir=\\"rtl\\"] > .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] > .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
-[dir=\\"rtl\\"] > .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] > .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -6681,20 +6695,20 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     left: 10px;
 }
 
-[dir=\\"rtl\\"] > .test33 {
+[dir="rtl"] > .test33 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] > .example34 {
+[dir="rtl"] > .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] > .example35 {
+[dir="rtl"] > .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -6706,7 +6720,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 100%;
 }
 
-[dir=\\"ltr\\"] > .test36 {
+[dir="ltr"] > .test36 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
@@ -6721,13 +6735,13 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 100%;
 }
 
-[dir=\\"rtl\\"] > .test37 {
+[dir="rtl"] > .test37 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
 }
 
-[dir=\\"ltr\\"] > .test37 {
+[dir="ltr"] > .test37 {
     text-align: right;
 }
 
@@ -6739,12 +6753,12 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 100%;
 }
 
-[dir=\\"rtl\\"] > .test38 {
+[dir="rtl"] > .test38 {
     border-left: none;
     border-right: 1px solid #666;
 }
 
-[dir=\\"ltr\\"] > .test38 {
+[dir="ltr"] > .test38 {
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
@@ -6754,7 +6768,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 50%;
 }
 
-[dir=\\"ltr\\"] > .test39 {
+[dir="ltr"] > .test39 {
     margin-left: 0;
     margin-right: 10px;
 }
@@ -6765,7 +6779,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     left: 5px;
 }
 
-[dir=\\"ltr\\"] > .test40 {
+[dir="ltr"] > .test40 {
     left: auto;
     right: 5px;
 }
@@ -6775,20 +6789,20 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     left: 10px;
 }
 
-[dir=\\"ltr\\"] > .test41 {
+[dir="ltr"] > .test41 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"ltr\\"] > .test42 {
+[dir="ltr"] > .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] > .test43 {
+[dir="ltr"] > .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -6830,7 +6844,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] > .test46 {
+    [dir="rtl"] > .test46 {
         text-align: right;
     }
 
@@ -6845,7 +6859,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] > .test48 {
+    [dir="ltr"] > .test48 {
         text-align: right;
     }
 
@@ -6858,7 +6872,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     text-align: left;
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
@@ -6867,7 +6881,7 @@ html .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     left: auto;
     right: 10px;
 }
@@ -6876,7 +6890,7 @@ html[dir=\\"rtl\\"] .test50 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] > .test51 {
+[dir="rtl"] > .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
 }

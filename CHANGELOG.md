@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.0] - 2022-09-15
+
+- Upgrade RTLCSS to major version 4.0.0. This version brings these changes:
+    * Support flipping `justify-content`, `justify-items` and `justify-self`
+    * Support flipping length background position without using `calc`
+- Update dependencies
+
 ## [3.7.2] - 2022-07-24
 
 - Fix a Vite 3 warning
