@@ -2,21 +2,22 @@
 
 exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -37,11 +38,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     text-align: center;
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     direction: ltr;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -52,12 +53,12 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"ltr\\"] .test4 {
+[dir="ltr"] .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -70,9 +71,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     position: absolute;
 }
 
-[dir=\\"ltr\\"] .test5,
-[dir=\\"ltr\\"] .test6,
-[dir=\\"ltr\\"] .test7 {
+[dir="ltr"] .test5,
+[dir="ltr"] .test6,
+[dir="ltr"] .test7 {
     background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #777 #888 #999;
     border-width: 1px 2px 3px 4px;
@@ -80,9 +81,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -96,11 +97,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"ltr\\"] .test8 {
+[dir="ltr"] .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -108,22 +109,22 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
+[dir="ltr"] .test9, [dir="ltr"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     right: 5px;
 }
 
-[dir=\\"ltr\\"] .test11:hover,
-[dir=\\"ltr\\"] .test11:active {
+[dir="ltr"] .test11:hover,
+[dir="ltr"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -131,9 +132,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -156,11 +157,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     padding-right: 10px;
 }
 
-[dir=\\"ltr\\"] .test16:hover {
+[dir="ltr"] .test16:hover {
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-left: 20px;
 }
 
@@ -182,11 +183,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     font-size: 10px;
 }
 
-[dir=\\"ltr\\"] .test18 {
+[dir="ltr"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -198,11 +199,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"ltr\\"] .test18::after {
+[dir="ltr"] .test18::after {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     right: 10px;
 }
 
@@ -221,11 +222,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
         width: 100%;
     }
 
-    [dir=\\"ltr\\"] .test18 {
+    [dir="ltr"] .test18 {
         padding: 1px 2px 3px 4px;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -273,12 +274,12 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
 }
 
 /* Do not add reset values in override mode */
-[dir=\\"ltr\\"] .test22 {
+[dir="ltr"] .test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -294,11 +295,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test24 {
+[dir="ltr"] .test24 {
     border: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -315,19 +316,19 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -344,11 +345,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -356,23 +357,23 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
     border: 1px solid gray;
 }
 
-[dir=\\"ltr\\"] .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+[dir="ltr"] .test31 {
+    background-image: url("/icons/icon-left.png");
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -381,35 +382,35 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     border: 1px solid gray;    
 }
 
-[dir=\\"ltr\\"] .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+[dir="ltr"] .test32 {
+    background-image: url("/icons/icon-left.png");    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test33 {
+[dir="ltr"] .test33 {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -418,13 +419,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test36 {
+[dir="rtl"] .test36 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -435,13 +436,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: left;
@@ -452,13 +453,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     border-left: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-right: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -468,11 +469,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-right: 10px;
 }
 
-[dir=\\"rtl\\"] .test39 {
+[dir="rtl"] .test39 {
     margin-left: 10px;
 }
 
@@ -481,11 +482,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     right: 5px;
 }
 
-[dir=\\"rtl\\"] .test40 {
+[dir="rtl"] .test40 {
     left: 5px;
 }
 
@@ -493,23 +494,23 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .test41 {
+[dir="rtl"] .test41 {
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -550,11 +551,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test46 {
+    [dir="ltr"] .test46 {
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -568,11 +569,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
-    [dir=\\"rtl\\"] .test48 {
+    [dir="rtl"] .test48 {
         text-align: left;
     }
 
@@ -581,11 +582,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible 1`] = `
     }
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
-[dir=\\"rtl\\"]:root {
+[dir="rtl"]:root {
     text-align: left;
 }
 
@@ -593,19 +594,19 @@ html .test50 {
     color: red;
 }
 
-html[dir=\\"ltr\\"] .test50 {
+html[dir="ltr"] .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test51 {
+[dir="ltr"] .test51 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-right: 1px solid #FFF;
 }
 
@@ -616,21 +617,22 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -651,11 +653,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     text-align: center;
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     direction: ltr;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -666,12 +668,12 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"ltr\\"] .test4 {
+[dir="ltr"] .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -684,9 +686,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     position: absolute;
 }
 
-[dir=\\"ltr\\"] .test5,
-[dir=\\"ltr\\"] .test6,
-[dir=\\"ltr\\"] .test7 {
+[dir="ltr"] .test5,
+[dir="ltr"] .test6,
+[dir="ltr"] .test7 {
     background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #777 #888 #999;
     border-width: 1px 2px 3px 4px;
@@ -694,9 +696,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -710,11 +712,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     padding-left: 10%;
 }
 
-[dir=\\"ltr\\"] .test8 {
+[dir="ltr"] .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -722,22 +724,22 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
+[dir="ltr"] .test9, [dir="ltr"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     right: 5px;
 }
 
-[dir=\\"ltr\\"] .test11:hover,
-[dir=\\"ltr\\"] .test11:active {
+[dir="ltr"] .test11:hover,
+[dir="ltr"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -745,9 +747,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -770,11 +772,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     padding-right: 10px;
 }
 
-[dir=\\"ltr\\"] .test16:hover {
+[dir="ltr"] .test16:hover {
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-left: 20px;
 }
 
@@ -796,11 +798,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     font-size: 10px;
 }
 
-[dir=\\"ltr\\"] .test18 {
+[dir="ltr"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -812,11 +814,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     transform: translateX(5px);
 }
 
-[dir=\\"ltr\\"] .test18::after {
+[dir="ltr"] .test18::after {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     right: 10px;
 }
 
@@ -835,11 +837,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
         width: 100%;
     }
 
-    [dir=\\"ltr\\"] .test18 {
+    [dir="ltr"] .test18 {
         padding: 1px 2px 3px 4px;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -887,12 +889,12 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
 }
 
 /* Do not add reset values in override mode */
-[dir=\\"ltr\\"] .test22 {
+[dir="ltr"] .test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -908,11 +910,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test24 {
+[dir="ltr"] .test24 {
     border: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -929,19 +931,19 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -958,11 +960,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -970,23 +972,23 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
     border: 1px solid gray;
 }
 
-[dir=\\"ltr\\"] .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+[dir="ltr"] .test31 {
+    background-image: url("/icons/icon-left.png");
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -995,35 +997,35 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     border: 1px solid gray;    
 }
 
-[dir=\\"ltr\\"] .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+[dir="ltr"] .test32 {
+    background-image: url("/icons/icon-left.png");    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test33 {
+[dir="ltr"] .test33 {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -1032,13 +1034,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test36 {
+[dir="rtl"] .test36 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -1049,13 +1051,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: left;
@@ -1066,13 +1068,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     border-left: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-right: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -1082,11 +1084,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-right: 10px;
 }
 
-[dir=\\"rtl\\"] .test39 {
+[dir="rtl"] .test39 {
     margin-left: 10px;
 }
 
@@ -1095,11 +1097,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     right: 5px;
 }
 
-[dir=\\"rtl\\"] .test40 {
+[dir="rtl"] .test40 {
     left: 5px;
 }
 
@@ -1107,23 +1109,23 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .test41 {
+[dir="rtl"] .test41 {
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -1164,11 +1166,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test46 {
+    [dir="ltr"] .test46 {
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -1182,11 +1184,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
-    [dir=\\"rtl\\"] .test48 {
+    [dir="rtl"] .test48 {
         text-align: left;
     }
 
@@ -1195,11 +1197,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible with custom string map 1
     }
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
-[dir=\\"rtl\\"]:root {
+[dir="rtl"]:root {
     text-align: left;
 }
 
@@ -1207,19 +1209,19 @@ html .test50 {
     color: red;
 }
 
-html[dir=\\"ltr\\"] .test50 {
+html[dir="ltr"] .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test51 {
+[dir="ltr"] .test51 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-right: 1px solid #FFF;
 }
 
@@ -1230,21 +1232,22 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -1265,11 +1268,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     text-align: center;
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     direction: ltr;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -1280,12 +1283,12 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"ltr\\"] .test4 {
+[dir="ltr"] .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -1298,9 +1301,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     position: absolute;
 }
 
-[dir=\\"ltr\\"] .test5,
-[dir=\\"ltr\\"] .test6,
-[dir=\\"ltr\\"] .test7 {
+[dir="ltr"] .test5,
+[dir="ltr"] .test6,
+[dir="ltr"] .test7 {
     background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #777 #888 #999;
     border-width: 1px 2px 3px 4px;
@@ -1308,9 +1311,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -1324,11 +1327,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"ltr\\"] .test8 {
+[dir="ltr"] .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -1336,22 +1339,22 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
+[dir="ltr"] .test9, [dir="ltr"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     right: 5px;
 }
 
-[dir=\\"ltr\\"] .test11:hover,
-[dir=\\"ltr\\"] .test11:active {
+[dir="ltr"] .test11:hover,
+[dir="ltr"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -1359,9 +1362,9 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -1384,11 +1387,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding-right: 10px;
 }
 
-[dir=\\"ltr\\"] .test16:hover {
+[dir="ltr"] .test16:hover {
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-left: 20px;
 }
 
@@ -1410,11 +1413,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     font-size: 10px;
 }
 
-[dir=\\"ltr\\"] .test18 {
+[dir="ltr"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -1426,11 +1429,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"ltr\\"] .test18::after {
+[dir="ltr"] .test18::after {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     right: 10px;
 }
 
@@ -1449,11 +1452,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
         width: 100%;
     }
 
-    [dir=\\"ltr\\"] .test18 {
+    [dir="ltr"] .test18 {
         padding: 1px 2px 3px 4px;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -1501,12 +1504,12 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
 }
 
 /* Do not add reset values in override mode */
-[dir=\\"ltr\\"] .test22 {
+[dir="ltr"] .test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -1522,11 +1525,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test24 {
+[dir="ltr"] .test24 {
     border: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -1543,19 +1546,19 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -1572,11 +1575,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -1584,23 +1587,23 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
     border: 1px solid gray;
 }
 
-[dir=\\"ltr\\"] .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+[dir="ltr"] .test31 {
+    background-image: url("/icons/icon-left.png");
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -1609,35 +1612,35 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     border: 1px solid gray;    
 }
 
-[dir=\\"ltr\\"] .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+[dir="ltr"] .test32 {
+    background-image: url("/icons/icon-left.png");    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test33 {
+[dir="ltr"] .test33 {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -1646,13 +1649,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test36 {
+[dir="rtl"] .test36 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -1663,13 +1666,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: left;
@@ -1680,13 +1683,13 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     border-left: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-right: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -1696,11 +1699,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-right: 10px;
 }
 
-[dir=\\"rtl\\"] .test39 {
+[dir="rtl"] .test39 {
     margin-left: 10px;
 }
 
@@ -1709,11 +1712,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     right: 5px;
 }
 
-[dir=\\"rtl\\"] .test40 {
+[dir="rtl"] .test40 {
     left: 5px;
 }
 
@@ -1721,23 +1724,23 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .test41 {
+[dir="rtl"] .test41 {
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -1778,11 +1781,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test46 {
+    [dir="ltr"] .test46 {
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -1796,11 +1799,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
-    [dir=\\"rtl\\"] .test48 {
+    [dir="rtl"] .test48 {
         text-align: left;
     }
 
@@ -1809,11 +1812,11 @@ exports[`[[Mode: combined]] Autorename Tests:  flexible, greedy: true 1`] = `
     }
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
-[dir=\\"rtl\\"]:root {
+[dir="rtl"]:root {
     text-align: left;
 }
 
@@ -1821,19 +1824,19 @@ html .test50 {
     color: red;
 }
 
-html[dir=\\"ltr\\"] .test50 {
+html[dir="ltr"] .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test51 {
+[dir="ltr"] .test51 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-right: 1px solid #FFF;
 }
 
@@ -1844,21 +1847,22 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -1879,11 +1883,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     text-align: center;
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     direction: ltr;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -1894,12 +1898,12 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"ltr\\"] .test4 {
+[dir="ltr"] .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -1912,9 +1916,9 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     position: absolute;
 }
 
-[dir=\\"ltr\\"] .test5,
-[dir=\\"ltr\\"] .test6,
-[dir=\\"ltr\\"] .test7 {
+[dir="ltr"] .test5,
+[dir="ltr"] .test6,
+[dir="ltr"] .test7 {
     background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #777 #888 #999;
     border-width: 1px 2px 3px 4px;
@@ -1922,9 +1926,9 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -1938,11 +1942,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"ltr\\"] .test8 {
+[dir="ltr"] .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -1950,22 +1954,22 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
+[dir="ltr"] .test9, [dir="ltr"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     right: 5px;
 }
 
-[dir=\\"ltr\\"] .test11:hover,
-[dir=\\"ltr\\"] .test11:active {
+[dir="ltr"] .test11:hover,
+[dir="ltr"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -1973,9 +1977,9 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -1998,11 +2002,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     padding-right: 10px;
 }
 
-[dir=\\"ltr\\"] .test16:hover {
+[dir="ltr"] .test16:hover {
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-left: 20px;
 }
 
@@ -2024,11 +2028,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     font-size: 10px;
 }
 
-[dir=\\"ltr\\"] .test18 {
+[dir="ltr"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -2040,11 +2044,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"ltr\\"] .test18::after {
+[dir="ltr"] .test18::after {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     right: 10px;
 }
 
@@ -2063,11 +2067,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
         width: 100%;
     }
 
-    [dir=\\"ltr\\"] .test18 {
+    [dir="ltr"] .test18 {
         padding: 1px 2px 3px 4px;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -2115,12 +2119,12 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
 }
 
 /* Do not add reset values in override mode */
-[dir=\\"ltr\\"] .test22 {
+[dir="ltr"] .test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -2136,11 +2140,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test24 {
+[dir="ltr"] .test24 {
     border: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -2157,19 +2161,19 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -2186,11 +2190,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -2198,23 +2202,23 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
     border: 1px solid gray;
 }
 
-[dir=\\"ltr\\"] .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+[dir="ltr"] .test31 {
+    background-image: url("/icons/icon-left.png");
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -2223,35 +2227,35 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     border: 1px solid gray;    
 }
 
-[dir=\\"ltr\\"] .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+[dir="ltr"] .test32 {
+    background-image: url("/icons/icon-left.png");    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test33 {
+[dir="ltr"] .test33 {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -2260,13 +2264,13 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test36 {
+[dir="rtl"] .test36 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -2277,13 +2281,13 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: left;
@@ -2294,13 +2298,13 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     border-left: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-right: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -2310,11 +2314,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-right: 10px;
 }
 
-[dir=\\"rtl\\"] .test39 {
+[dir="rtl"] .test39 {
     margin-left: 10px;
 }
 
@@ -2323,11 +2327,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     right: 5px;
 }
 
-[dir=\\"rtl\\"] .test40 {
+[dir="rtl"] .test40 {
     left: 5px;
 }
 
@@ -2335,23 +2339,23 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .test41 {
+[dir="rtl"] .test41 {
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -2392,11 +2396,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test46 {
+    [dir="ltr"] .test46 {
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -2410,11 +2414,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
-    [dir=\\"rtl\\"] .test48 {
+    [dir="rtl"] .test48 {
         text-align: left;
     }
 
@@ -2423,11 +2427,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives 1`] = `
     }
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
-[dir=\\"rtl\\"]:root {
+[dir="rtl"]:root {
     text-align: left;
 }
 
@@ -2435,19 +2439,19 @@ html .test50 {
     color: red;
 }
 
-html[dir=\\"ltr\\"] .test50 {
+html[dir="ltr"] .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test51 {
+[dir="ltr"] .test51 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-right: 1px solid #FFF;
 }
 
@@ -2458,21 +2462,22 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: true 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -2493,11 +2498,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     text-align: center;
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     direction: ltr;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -2508,12 +2513,12 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"ltr\\"] .test4 {
+[dir="ltr"] .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -2526,9 +2531,9 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     position: absolute;
 }
 
-[dir=\\"ltr\\"] .test5,
-[dir=\\"ltr\\"] .test6,
-[dir=\\"ltr\\"] .test7 {
+[dir="ltr"] .test5,
+[dir="ltr"] .test6,
+[dir="ltr"] .test7 {
     background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #777 #888 #999;
     border-width: 1px 2px 3px 4px;
@@ -2536,9 +2541,9 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -2552,11 +2557,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     padding-left: 10%;
 }
 
-[dir=\\"ltr\\"] .test8 {
+[dir="ltr"] .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -2564,22 +2569,22 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
+[dir="ltr"] .test9, [dir="ltr"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     right: 5px;
 }
 
-[dir=\\"ltr\\"] .test11:hover,
-[dir=\\"ltr\\"] .test11:active {
+[dir="ltr"] .test11:hover,
+[dir="ltr"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -2587,9 +2592,9 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -2612,11 +2617,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     padding-right: 10px;
 }
 
-[dir=\\"ltr\\"] .test16:hover {
+[dir="ltr"] .test16:hover {
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-left: 20px;
 }
 
@@ -2638,11 +2643,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     font-size: 10px;
 }
 
-[dir=\\"ltr\\"] .test18 {
+[dir="ltr"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -2654,11 +2659,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     transform: translateX(5px);
 }
 
-[dir=\\"ltr\\"] .test18::after {
+[dir="ltr"] .test18::after {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     right: 10px;
 }
 
@@ -2677,11 +2682,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
         width: 100%;
     }
 
-    [dir=\\"ltr\\"] .test18 {
+    [dir="ltr"] .test18 {
         padding: 1px 2px 3px 4px;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -2729,12 +2734,12 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
 }
 
 /* Do not add reset values in override mode */
-[dir=\\"ltr\\"] .test22 {
+[dir="ltr"] .test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -2750,11 +2755,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test24 {
+[dir="ltr"] .test24 {
     border: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -2771,19 +2776,19 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -2800,11 +2805,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -2812,23 +2817,23 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
     border: 1px solid gray;
 }
 
-[dir=\\"ltr\\"] .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+[dir="ltr"] .test31 {
+    background-image: url("/icons/icon-left.png");
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -2837,35 +2842,35 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     border: 1px solid gray;    
 }
 
-[dir=\\"ltr\\"] .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+[dir="ltr"] .test32 {
+    background-image: url("/icons/icon-left.png");    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test33 {
+[dir="ltr"] .test33 {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -2874,13 +2879,13 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test36 {
+[dir="rtl"] .test36 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -2891,13 +2896,13 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: left;
@@ -2908,13 +2913,13 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     border-left: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-right: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -2924,11 +2929,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-right: 10px;
 }
 
-[dir=\\"rtl\\"] .test39 {
+[dir="rtl"] .test39 {
     margin-left: 10px;
 }
 
@@ -2937,11 +2942,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     right: 5px;
 }
 
-[dir=\\"rtl\\"] .test40 {
+[dir="rtl"] .test40 {
     left: 5px;
 }
 
@@ -2949,23 +2954,23 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .test41 {
+[dir="rtl"] .test41 {
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -3006,11 +3011,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test46 {
+    [dir="ltr"] .test46 {
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -3024,11 +3029,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
-    [dir=\\"rtl\\"] .test48 {
+    [dir="rtl"] .test48 {
         text-align: left;
     }
 
@@ -3037,11 +3042,11 @@ exports[`[[Mode: combined]] Autorename Tests:  only control directives, greedy: 
     }
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
-[dir=\\"rtl\\"]:root {
+[dir="rtl"]:root {
     text-align: left;
 }
 
@@ -3049,19 +3054,19 @@ html .test50 {
     color: red;
 }
 
-html[dir=\\"ltr\\"] .test50 {
+html[dir="ltr"] .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test51 {
+[dir="ltr"] .test51 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-right: 1px solid #FFF;
 }
 
@@ -3072,21 +3077,22 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -3107,11 +3113,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     text-align: center;
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     direction: ltr;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -3122,12 +3128,12 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"ltr\\"] .test4 {
+[dir="ltr"] .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -3140,9 +3146,9 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     position: absolute;
 }
 
-[dir=\\"ltr\\"] .test5,
-[dir=\\"ltr\\"] .test6,
-[dir=\\"ltr\\"] .test7 {
+[dir="ltr"] .test5,
+[dir="ltr"] .test6,
+[dir="ltr"] .test7 {
     background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #777 #888 #999;
     border-width: 1px 2px 3px 4px;
@@ -3150,9 +3156,9 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -3166,11 +3172,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"ltr\\"] .test8 {
+[dir="ltr"] .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -3178,22 +3184,22 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
+[dir="ltr"] .test9, [dir="ltr"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     right: 5px;
 }
 
-[dir=\\"ltr\\"] .test11:hover,
-[dir=\\"ltr\\"] .test11:active {
+[dir="ltr"] .test11:hover,
+[dir="ltr"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -3201,9 +3207,9 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -3226,11 +3232,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     padding-right: 10px;
 }
 
-[dir=\\"ltr\\"] .test16:hover {
+[dir="ltr"] .test16:hover {
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-left: 20px;
 }
 
@@ -3252,11 +3258,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     font-size: 10px;
 }
 
-[dir=\\"ltr\\"] .test18 {
+[dir="ltr"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -3268,11 +3274,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"ltr\\"] .test18::after {
+[dir="ltr"] .test18::after {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     right: 10px;
 }
 
@@ -3291,11 +3297,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
         width: 100%;
     }
 
-    [dir=\\"ltr\\"] .test18 {
+    [dir="ltr"] .test18 {
         padding: 1px 2px 3px 4px;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -3343,12 +3349,12 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
 }
 
 /* Do not add reset values in override mode */
-[dir=\\"ltr\\"] .test22 {
+[dir="ltr"] .test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -3364,11 +3370,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test24 {
+[dir="ltr"] .test24 {
     border: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -3385,19 +3391,19 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -3414,11 +3420,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -3426,23 +3432,23 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
     border: 1px solid gray;
 }
 
-[dir=\\"ltr\\"] .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+[dir="ltr"] .test31 {
+    background-image: url("/icons/icon-left.png");
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -3451,35 +3457,35 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     border: 1px solid gray;    
 }
 
-[dir=\\"ltr\\"] .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+[dir="ltr"] .test32 {
+    background-image: url("/icons/icon-left.png");    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test33 {
+[dir="ltr"] .test33 {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -3488,13 +3494,13 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test36 {
+[dir="rtl"] .test36 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -3505,13 +3511,13 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: left;
@@ -3522,13 +3528,13 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     border-left: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-right: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -3538,11 +3544,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-right: 10px;
 }
 
-[dir=\\"rtl\\"] .test39 {
+[dir="rtl"] .test39 {
     margin-left: 10px;
 }
 
@@ -3551,11 +3557,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     right: 5px;
 }
 
-[dir=\\"rtl\\"] .test40 {
+[dir="rtl"] .test40 {
     left: 5px;
 }
 
@@ -3563,23 +3569,23 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .test41 {
+[dir="rtl"] .test41 {
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -3620,11 +3626,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test46 {
+    [dir="ltr"] .test46 {
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -3638,11 +3644,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
-    [dir=\\"rtl\\"] .test48 {
+    [dir="rtl"] .test48 {
         text-align: left;
     }
 
@@ -3651,11 +3657,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict 1`] = `
     }
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
-[dir=\\"rtl\\"]:root {
+[dir="rtl"]:root {
     text-align: left;
 }
 
@@ -3663,19 +3669,19 @@ html .test50 {
     color: red;
 }
 
-html[dir=\\"ltr\\"] .test50 {
+html[dir="ltr"] .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test51 {
+[dir="ltr"] .test51 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-right: 1px solid #FFF;
 }
 
@@ -3686,21 +3692,22 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
-    background-position: 10px 20px;
     color: #666;
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test1, [dir=\\"ltr\\"] .test2 {
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
     padding-right: 20px;
     text-align: left;
     transform: translate(-50%, 50%);
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-left: 20px;
     text-align: right;
@@ -3721,11 +3728,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     text-align: center;
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     direction: ltr;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -3736,12 +3743,12 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"ltr\\"] .test4 {
+[dir="ltr"] .test4 {
     border-radius: 2px 4px 8px 16px;
     text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -3754,9 +3761,9 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     position: absolute;
 }
 
-[dir=\\"ltr\\"] .test5,
-[dir=\\"ltr\\"] .test6,
-[dir=\\"ltr\\"] .test7 {
+[dir="ltr"] .test5,
+[dir="ltr"] .test6,
+[dir="ltr"] .test7 {
     background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #777 #888 #999;
     border-width: 1px 2px 3px 4px;
@@ -3764,9 +3771,9 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -3780,11 +3787,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"ltr\\"] .test8 {
+[dir="ltr"] .test8 {
     background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -3792,22 +3799,22 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"ltr\\"] .test9, [dir=\\"ltr\\"] .test10 {
+[dir="ltr"] .test9, [dir="ltr"] .test10 {
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     left: 5px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     right: 5px;
 }
 
-[dir=\\"ltr\\"] .test11:hover,
-[dir=\\"ltr\\"] .test11:active {
+[dir="ltr"] .test11:hover,
+[dir="ltr"] .test11:active {
     font-family: Arial, Helvetica;
     font-size: 20px;
     color: '#FFF';
@@ -3815,9 +3822,9 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -3840,11 +3847,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     padding-right: 10px;
 }
 
-[dir=\\"ltr\\"] .test16:hover {
+[dir="ltr"] .test16:hover {
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-left: 20px;
 }
 
@@ -3866,11 +3873,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     font-size: 10px;
 }
 
-[dir=\\"ltr\\"] .test18 {
+[dir="ltr"] .test18 {
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -3882,11 +3889,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"ltr\\"] .test18::after {
+[dir="ltr"] .test18::after {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     right: 10px;
 }
 
@@ -3905,11 +3912,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
         width: 100%;
     }
 
-    [dir=\\"ltr\\"] .test18 {
+    [dir="ltr"] .test18 {
         padding: 1px 2px 3px 4px;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -3957,12 +3964,12 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
 }
 
 /* Do not add reset values in override mode */
-[dir=\\"ltr\\"] .test22 {
+[dir="ltr"] .test22 {
     left: 5px;
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -3978,11 +3985,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test24 {
+[dir="ltr"] .test24 {
     border: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -3999,19 +4006,19 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -4028,11 +4035,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -4040,23 +4047,23 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
     border: 1px solid gray;
 }
 
-[dir=\\"ltr\\"] .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+[dir="ltr"] .test31 {
+    background-image: url("/icons/icon-left.png");
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
@@ -4065,35 +4072,35 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     border: 1px solid gray;    
 }
 
-[dir=\\"ltr\\"] .test32 {
-    background-image: url(\\"/icons/icon-left.png\\");    
+[dir="ltr"] .test32 {
+    background-image: url("/icons/icon-left.png");    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test33 {
+[dir="ltr"] .test33 {
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -4102,13 +4109,13 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test36 {
+[dir="rtl"] .test36 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -4119,13 +4126,13 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     border-left: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: left;
@@ -4136,13 +4143,13 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     border-left: 1px solid #666;
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-right: 1px solid #666;
     padding: 10px 5px 10px 20px;
     text-align: left;
@@ -4152,11 +4159,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-right: 10px;
 }
 
-[dir=\\"rtl\\"] .test39 {
+[dir="rtl"] .test39 {
     margin-left: 10px;
 }
 
@@ -4165,11 +4172,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     right: 5px;
 }
 
-[dir=\\"rtl\\"] .test40 {
+[dir="rtl"] .test40 {
     left: 5px;
 }
 
@@ -4177,23 +4184,23 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     color: #EFEFEF;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .test41 {
+[dir="rtl"] .test41 {
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -4234,11 +4241,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test46 {
+    [dir="ltr"] .test46 {
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -4252,11 +4259,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
         cursor: wait;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
-    [dir=\\"rtl\\"] .test48 {
+    [dir="rtl"] .test48 {
         text-align: left;
     }
 
@@ -4265,11 +4272,11 @@ exports[`[[Mode: combined]] Autorename Tests:  strict, greedy: true 1`] = `
     }
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
-[dir=\\"rtl\\"]:root {
+[dir="rtl"]:root {
     text-align: left;
 }
 
@@ -4277,19 +4284,19 @@ html .test50 {
     color: red;
 }
 
-html[dir=\\"ltr\\"] .test50 {
+html[dir="ltr"] .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     right: 10px;
 }
 
-[dir=\\"ltr\\"] .test51 {
+[dir="ltr"] .test51 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-right: 1px solid #FFF;
 }
 
@@ -4300,6 +4307,7 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: diff]] Autorename Tests:  flexible 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4341,7 +4349,7 @@ exports[`[[Mode: diff]] Autorename Tests:  flexible 1`] = `
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -4386,27 +4394,27 @@ exports[`[[Mode: diff]] Autorename Tests:  flexible 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -4504,6 +4512,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Autorename Tests:  flexible with custom string map 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4545,7 +4554,7 @@ exports[`[[Mode: diff]] Autorename Tests:  flexible with custom string map 1`] =
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -4590,35 +4599,35 @@ exports[`[[Mode: diff]] Autorename Tests:  flexible with custom string map 1`] =
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -4716,6 +4725,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Autorename Tests:  flexible, greedy: true 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4757,7 +4767,7 @@ exports[`[[Mode: diff]] Autorename Tests:  flexible, greedy: true 1`] = `
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -4802,35 +4812,35 @@ exports[`[[Mode: diff]] Autorename Tests:  flexible, greedy: true 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -4928,6 +4938,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Autorename Tests:  only control directives 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -4969,7 +4980,7 @@ exports[`[[Mode: diff]] Autorename Tests:  only control directives 1`] = `
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -5007,19 +5018,19 @@ exports[`[[Mode: diff]] Autorename Tests:  only control directives 1`] = `
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -5117,6 +5128,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Autorename Tests:  only control directives, greedy: true 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -5158,7 +5170,7 @@ exports[`[[Mode: diff]] Autorename Tests:  only control directives, greedy: true
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -5196,23 +5208,23 @@ exports[`[[Mode: diff]] Autorename Tests:  only control directives, greedy: true
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -5310,6 +5322,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Autorename Tests:  strict 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -5351,7 +5364,7 @@ exports[`[[Mode: diff]] Autorename Tests:  strict 1`] = `
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -5389,27 +5402,27 @@ exports[`[[Mode: diff]] Autorename Tests:  strict 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -5507,6 +5520,7 @@ html .test50 {
 
 exports[`[[Mode: diff]] Autorename Tests:  strict, greedy: true 1`] = `
 ".test1, .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -5548,7 +5562,7 @@ exports[`[[Mode: diff]] Autorename Tests:  strict, greedy: true 1`] = `
 
 .test11:hover,
 .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -5586,35 +5600,35 @@ exports[`[[Mode: diff]] Autorename Tests:  strict, greedy: true 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -5712,7 +5726,7 @@ html .test50 {
 
 exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -5723,7 +5737,8 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -5746,7 +5761,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     text-align: center;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -5759,7 +5774,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -5777,9 +5792,9 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -5795,7 +5810,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -5807,7 +5822,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -5824,9 +5839,9 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -5853,7 +5868,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-right: 0;
     padding-left: 20px;
 }
@@ -5877,7 +5892,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -5890,7 +5905,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     left: auto;
     right: 10px;
 }
@@ -5911,7 +5926,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
         width: 100%;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -5964,7 +5979,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -5981,7 +5996,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -5998,19 +6013,19 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -6027,11 +6042,11 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -6039,31 +6054,31 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -6071,20 +6086,20 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -6096,7 +6111,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
@@ -6111,13 +6126,13 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     text-align: right;
 }
 
@@ -6129,12 +6144,12 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-left: none;
     border-right: 1px solid #666;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
@@ -6144,7 +6159,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-left: 0;
     margin-right: 10px;
 }
@@ -6155,7 +6170,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     left: 5px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     left: auto;
     right: 5px;
 }
@@ -6165,20 +6180,20 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -6220,7 +6235,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -6235,7 +6250,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
@@ -6248,7 +6263,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible 1`] = `
     text-align: left;
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
@@ -6257,7 +6272,7 @@ html .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     left: auto;
     right: 10px;
 }
@@ -6266,7 +6281,7 @@ html[dir=\\"rtl\\"] .test50 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
 }
@@ -6278,7 +6293,7 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -6289,7 +6304,8 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -6312,7 +6328,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     text-align: center;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -6325,7 +6341,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -6343,9 +6359,9 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -6361,7 +6377,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     padding-left: 10%;
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -6373,7 +6389,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -6390,9 +6406,9 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -6419,7 +6435,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-right: 0;
     padding-left: 20px;
 }
@@ -6443,7 +6459,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -6456,7 +6472,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     left: auto;
     right: 10px;
 }
@@ -6477,7 +6493,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
         width: 100%;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -6530,7 +6546,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -6547,7 +6563,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -6564,19 +6580,19 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -6593,11 +6609,11 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -6605,31 +6621,31 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -6637,20 +6653,20 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -6662,7 +6678,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
@@ -6677,13 +6693,13 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     text-align: right;
 }
 
@@ -6695,12 +6711,12 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-left: none;
     border-right: 1px solid #666;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
@@ -6710,7 +6726,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-left: 0;
     margin-right: 10px;
 }
@@ -6721,7 +6737,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     left: 5px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     left: auto;
     right: 5px;
 }
@@ -6731,20 +6747,20 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -6786,7 +6802,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -6801,7 +6817,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
@@ -6814,7 +6830,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible with custom string map 1
     text-align: left;
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
@@ -6823,7 +6839,7 @@ html .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     left: auto;
     right: 10px;
 }
@@ -6832,7 +6848,7 @@ html[dir=\\"rtl\\"] .test50 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
 }
@@ -6844,7 +6860,7 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -6855,7 +6871,8 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -6878,7 +6895,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     text-align: center;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -6891,7 +6908,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -6909,9 +6926,9 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -6927,7 +6944,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -6939,7 +6956,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -6956,9 +6973,9 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -6985,7 +7002,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-right: 0;
     padding-left: 20px;
 }
@@ -7009,7 +7026,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -7022,7 +7039,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     left: auto;
     right: 10px;
 }
@@ -7043,7 +7060,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
         width: 100%;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -7096,7 +7113,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -7113,7 +7130,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -7130,19 +7147,19 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -7159,11 +7176,11 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -7171,31 +7188,31 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -7203,20 +7220,20 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -7228,7 +7245,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
@@ -7243,13 +7260,13 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     text-align: right;
 }
 
@@ -7261,12 +7278,12 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-left: none;
     border-right: 1px solid #666;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
@@ -7276,7 +7293,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-left: 0;
     margin-right: 10px;
 }
@@ -7287,7 +7304,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     left: 5px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     left: auto;
     right: 5px;
 }
@@ -7297,20 +7314,20 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -7352,7 +7369,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -7367,7 +7384,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
@@ -7380,7 +7397,7 @@ exports[`[[Mode: override]] Autorename Tests:  flexible, greedy: true 1`] = `
     text-align: left;
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
@@ -7389,7 +7406,7 @@ html .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     left: auto;
     right: 10px;
 }
@@ -7398,7 +7415,7 @@ html[dir=\\"rtl\\"] .test50 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
 }
@@ -7410,7 +7427,7 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -7421,7 +7438,8 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -7444,7 +7462,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     text-align: center;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -7457,7 +7475,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -7475,9 +7493,9 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -7493,7 +7511,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -7505,7 +7523,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -7522,9 +7540,9 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -7551,7 +7569,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-right: 0;
     padding-left: 20px;
 }
@@ -7575,7 +7593,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -7588,7 +7606,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     left: auto;
     right: 10px;
 }
@@ -7609,7 +7627,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
         width: 100%;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -7662,7 +7680,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -7679,7 +7697,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -7696,19 +7714,19 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -7725,11 +7743,11 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -7737,31 +7755,31 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -7769,20 +7787,20 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -7794,7 +7812,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
@@ -7809,13 +7827,13 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     text-align: right;
 }
 
@@ -7827,12 +7845,12 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-left: none;
     border-right: 1px solid #666;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
@@ -7842,7 +7860,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-left: 0;
     margin-right: 10px;
 }
@@ -7853,7 +7871,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     left: 5px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     left: auto;
     right: 5px;
 }
@@ -7863,20 +7881,20 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -7918,7 +7936,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -7933,7 +7951,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
@@ -7946,7 +7964,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives 1`] = `
     text-align: left;
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
@@ -7955,7 +7973,7 @@ html .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     left: auto;
     right: 10px;
 }
@@ -7964,7 +7982,7 @@ html[dir=\\"rtl\\"] .test50 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
 }
@@ -7976,7 +7994,7 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: true 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -7987,7 +8005,8 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -8010,7 +8029,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     text-align: center;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -8023,7 +8042,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -8041,9 +8060,9 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -8059,7 +8078,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     padding-left: 10%;
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -8071,7 +8090,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -8088,9 +8107,9 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -8117,7 +8136,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-right: 0;
     padding-left: 20px;
 }
@@ -8141,7 +8160,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -8154,7 +8173,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     left: auto;
     right: 10px;
 }
@@ -8175,7 +8194,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
         width: 100%;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -8228,7 +8247,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -8245,7 +8264,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -8262,19 +8281,19 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
 }
 
 .test25, .test26-ltr, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -8291,11 +8310,11 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -8303,31 +8322,31 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -8335,20 +8354,20 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -8360,7 +8379,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
@@ -8375,13 +8394,13 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     text-align: right;
 }
 
@@ -8393,12 +8412,12 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-left: none;
     border-right: 1px solid #666;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
@@ -8408,7 +8427,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-left: 0;
     margin-right: 10px;
 }
@@ -8419,7 +8438,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     left: 5px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     left: auto;
     right: 5px;
 }
@@ -8429,20 +8448,20 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -8484,7 +8503,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -8499,7 +8518,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
@@ -8512,7 +8531,7 @@ exports[`[[Mode: override]] Autorename Tests:  only control directives, greedy: 
     text-align: left;
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
@@ -8521,7 +8540,7 @@ html .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     left: auto;
     right: 10px;
 }
@@ -8530,7 +8549,7 @@ html[dir=\\"rtl\\"] .test50 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
 }
@@ -8542,7 +8561,7 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -8553,7 +8572,8 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -8576,7 +8596,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     text-align: center;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -8589,7 +8609,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -8607,9 +8627,9 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -8625,7 +8645,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -8637,7 +8657,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -8654,9 +8674,9 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -8683,7 +8703,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-right: 0;
     padding-left: 20px;
 }
@@ -8707,7 +8727,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -8720,7 +8740,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     left: auto;
     right: 10px;
 }
@@ -8741,7 +8761,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
         width: 100%;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -8794,7 +8814,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -8811,7 +8831,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -8828,19 +8848,19 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -8857,11 +8877,11 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -8869,31 +8889,31 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -8901,20 +8921,20 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -8926,7 +8946,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
@@ -8941,13 +8961,13 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     text-align: right;
 }
 
@@ -8959,12 +8979,12 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-left: none;
     border-right: 1px solid #666;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
@@ -8974,7 +8994,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-left: 0;
     margin-right: 10px;
 }
@@ -8985,7 +9005,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     left: 5px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     left: auto;
     right: 5px;
 }
@@ -8995,20 +9015,20 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -9050,7 +9070,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -9065,7 +9085,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
@@ -9078,7 +9098,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict 1`] = `
     text-align: left;
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
@@ -9087,7 +9107,7 @@ html .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     left: auto;
     right: 10px;
 }
@@ -9096,7 +9116,7 @@ html[dir=\\"rtl\\"] .test50 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
 }
@@ -9108,7 +9128,7 @@ html[dir=\\"rtl\\"] .test50 {
 
 exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
 ".test1, .test2 {
-    background: url(\\"/folder/subfolder/icons/ltr/chevron-left.png\\");
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
     background-color: #FFF;
     background-position: 10px 20px;
     border-radius: 0 2px 0 8px;
@@ -9119,7 +9139,8 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test1, [dir=\\"rtl\\"] .test2 {
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background-position: right 10px top 20px;
     border-radius: 2px 0 8px 0;
     padding-right: 0;
     padding-left: 20px;
@@ -9142,7 +9163,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     text-align: center;
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     direction: rtl;
 }
 
@@ -9155,7 +9176,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     transform: scale(0.5, 0.5);
 }
 
-[dir=\\"rtl\\"] .test4 {
+[dir="rtl"] .test4 {
     border-radius: 4px 2px 16px 8px;
     text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
 }
@@ -9173,9 +9194,9 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test5,
-[dir=\\"rtl\\"] .test6,
-[dir=\\"rtl\\"] .test7 {
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
     background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
     border-color: #666 #999 #888 #777;
     border-width: 1px 4px 3px 2px;
@@ -9191,7 +9212,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     padding-left: 10%;
 }
 
-[dir=\\"rtl\\"] .test8 {
+[dir="rtl"] .test8 {
     background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
 }
 
@@ -9203,7 +9224,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     padding: 0px 2px 3px 4px;
 }
 
-[dir=\\"rtl\\"] .test9, [dir=\\"rtl\\"] .test10 {
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
     background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -9220,9 +9241,9 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test11:hover,
-[dir=\\"rtl\\"] .test11:active {
-    font-family: \\"Droid Arabic Kufi\\", Arial, Helvetica;
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
     font-size: 30px;
     color: #000;
     transform: translateY(10px) scaleX(-1);
@@ -9249,7 +9270,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     padding-right: 20px;
 }
 
-[dir=\\"rtl\\"] .test16:hover {
+[dir="rtl"] .test16:hover {
     padding-right: 0;
     padding-left: 20px;
 }
@@ -9273,7 +9294,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     padding: 10px 20px 40px 10px;
 }
 
-[dir=\\"rtl\\"] .test18 {
+[dir="rtl"] .test18 {
     padding: 10px 10px 40px 20px;
 }
 
@@ -9286,7 +9307,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     transform: translateX(5px);
 }
 
-[dir=\\"rtl\\"] .test18::after {
+[dir="rtl"] .test18::after {
     left: auto;
     right: 10px;
 }
@@ -9307,7 +9328,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
         width: 100%;
     }
 
-    [dir=\\"rtl\\"] .test18 {
+    [dir="rtl"] .test18 {
         padding: 1px 4px 3px 2px;
     }
 }
@@ -9360,7 +9381,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     right: 10px;
 }
 
-[dir=\\"rtl\\"] .test22 {
+[dir="rtl"] .test22 {
     right: 5px;
     left: 10px;
 }
@@ -9377,7 +9398,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     padding: 10px;
 }
 
-[dir=\\"rtl\\"] .test24 {
+[dir="rtl"] .test24 {
     border: 1px solid #000;
 }
 
@@ -9394,19 +9415,19 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
 }
 
 .test25, .test26-rtl, .test27 {
-    background-image: url(\\"/icons/icon-l.png\\")
+    background-image: url("/icons/icon-l.png")
 }
 
 .test26-ltr {
-    background-image: url(\\"/icons/icon-r.png\\")
+    background-image: url("/icons/icon-r.png")
 }
 
 .test27-prev {
-    background-image: url(\\"/icons/icon-p.png\\")
+    background-image: url("/icons/icon-p.png")
 }
 
 .test27-next {
-    background-image: url(\\"/icons/icon-n.png\\")
+    background-image: url("/icons/icon-n.png")
 }
 
 .test28 {
@@ -9423,11 +9444,11 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
 }
 
 .test28-right::before {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .test28-left::before {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .testleft29 {
@@ -9435,31 +9456,31 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
 }
 
 .testright30 {
-    content: \\"keyboard_arrow_left\\";
+    content: "keyboard_arrow_left";
 }
 
 .testleft30 {
-    content: \\"keyboard_arrow_right\\";
+    content: "keyboard_arrow_right";
 }
 
 .test31 {
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
-[dir=\\"rtl\\"] .test31 {
-    background-image: url(\\"/icons/icon-right.png\\");
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
 }
 
 .test32 {
     align-items: center;
-    background-image: url(\\"/icons/icon-left.png\\");
+    background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
     border: 1px solid gray;    
 }
 
-[dir=\\"rtl\\"] .test32 {
-    background-image: url(\\"/icons/icon-right.png\\");    
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
 }
 
 .test33 {
@@ -9467,20 +9488,20 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     left: 10px;
 }
 
-[dir=\\"rtl\\"] .test33 {
+[dir="rtl"] .test33 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"rtl\\"] .example34 {
+[dir="rtl"] .example34 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"rtl\\"] .example35 {
+[dir="rtl"] .example35 {
     transform: translate(10px, 20px);
 }
 
@@ -9492,7 +9513,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"ltr\\"] .test36 {
+[dir="ltr"] .test36 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
@@ -9507,13 +9528,13 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test37 {
+[dir="rtl"] .test37 {
     border-left: none;
     border-right: 1px solid #666;
     padding: 10px 20px 10px 5px;
 }
 
-[dir=\\"ltr\\"] .test37 {
+[dir="ltr"] .test37 {
     text-align: right;
 }
 
@@ -9525,12 +9546,12 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 100%;
 }
 
-[dir=\\"rtl\\"] .test38 {
+[dir="rtl"] .test38 {
     border-left: none;
     border-right: 1px solid #666;
 }
 
-[dir=\\"ltr\\"] .test38 {
+[dir="ltr"] .test38 {
     padding: 10px 20px 10px 5px;
     text-align: right;
 }
@@ -9540,7 +9561,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     width: 50%;
 }
 
-[dir=\\"ltr\\"] .test39 {
+[dir="ltr"] .test39 {
     margin-left: 0;
     margin-right: 10px;
 }
@@ -9551,7 +9572,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     left: 5px;
 }
 
-[dir=\\"ltr\\"] .test40 {
+[dir="ltr"] .test40 {
     left: auto;
     right: 5px;
 }
@@ -9561,20 +9582,20 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     left: 10px;
 }
 
-[dir=\\"ltr\\"] .test41 {
+[dir="ltr"] .test41 {
     left: auto;
     right: 10px;
     height: 50px;
     width: 100px;
 }
 
-[dir=\\"ltr\\"] .test42 {
+[dir="ltr"] .test42 {
     color: #EFEFEF;
     left: 10px;
     width: 100%;    
 }
 
-[dir=\\"ltr\\"] .test43 {
+[dir="ltr"] .test43 {
     transform: translate(10px, 20px);
 }
 
@@ -9616,7 +9637,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test46 {
+    [dir="rtl"] .test46 {
         text-align: right;
     }
 
@@ -9631,7 +9652,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test48 {
+    [dir="ltr"] .test48 {
         text-align: right;
     }
 
@@ -9644,7 +9665,7 @@ exports[`[[Mode: override]] Autorename Tests:  strict, greedy: true 1`] = `
     text-align: left;
 }
 
-[dir=\\"ltr\\"]:root {
+[dir="ltr"]:root {
     text-align: right;
 }
 
@@ -9653,7 +9674,7 @@ html .test50 {
     left: 10px;
 }
 
-html[dir=\\"rtl\\"] .test50 {
+html[dir="rtl"] .test50 {
     left: auto;
     right: 10px;
 }
@@ -9662,7 +9683,7 @@ html[dir=\\"rtl\\"] .test50 {
     border-left: 1px solid #FFF;
 }
 
-[dir=\\"rtl\\"] .test51 {
+[dir="rtl"] .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
 }

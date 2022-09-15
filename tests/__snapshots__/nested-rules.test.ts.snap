@@ -10,7 +10,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test1 {
+[dir="ltr"] .test1 {
     left: 10px;
 
     .test2 {
@@ -18,7 +18,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test1 {
+[dir="rtl"] .test1 {
     right: 10px;
 
     .test2 {
@@ -36,7 +36,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     left: 10px;
 
     &.test4 {
@@ -50,7 +50,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     right: 10px;
 
     &.test4 {
@@ -80,14 +80,14 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
             background-color: #FFF;
 
             ::after {
-                content: \\"\\";
+                content: "";
                 display: block;
             }
         }
     }
 }
 
-[dir=\\"ltr\\"] .test6 {
+[dir="ltr"] .test6 {
     .global & {
         padding: 5px 10px 5px 5px;
         border-left-color: #666;
@@ -106,7 +106,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test6 {
+[dir="rtl"] .test6 {
     .global & {
         padding: 5px 5px 5px 10px;
         border-right-color: #666;
@@ -130,22 +130,22 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
         color: red;
     }
 
-    [dir=\\"ltr\\"] .test8 {
+    [dir="ltr"] .test8 {
         left: 10px;
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test8 {
+    [dir="rtl"] .test8 {
         right: 10px;
         text-align: right;
     }
 
     @media screen and (max-width: 800px) {
-        [dir=\\"ltr\\"] .test9 {
+        [dir="ltr"] .test9 {
             padding: 0 0.6em 0 1.7em;
         }
 
-        [dir=\\"rtl\\"] .test9 {
+        [dir="rtl"] .test9 {
             padding: 0 1.7em 0 0.6em;
         }
     }
@@ -153,11 +153,11 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
 
 @media screen and (max-width: 800px) {
     @supports (display: contents) and (display: grid) {
-        [dir=\\"ltr\\"] .test10 {
+        [dir="ltr"] .test10 {
             padding: 0 0.6em 0 1.7em;
         }
 
-        [dir=\\"rtl\\"] .test10 {
+        [dir="rtl"] .test10 {
             padding: 0 1.7em 0 0.6em;
         }
     }
@@ -171,13 +171,13 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test11 {
+[dir="ltr"] .test11 {
     .test13 {
         text-align: right;
     }
 }
 
-[dir=\\"rtl\\"] .test11 {
+[dir="rtl"] .test11 {
     .test13 {
         text-align: left;
     }
@@ -194,7 +194,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test1 {
+[dir="rtl"] .test1 {
     left: 10px;
 
     .test2 {
@@ -202,7 +202,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test1 {
+[dir="ltr"] .test1 {
     right: 10px;
 
     .test2 {
@@ -220,7 +220,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     left: 10px;
 
     &.test4 {
@@ -234,7 +234,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     right: 10px;
 
     &.test4 {
@@ -264,14 +264,14 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
             background-color: #FFF;
 
             ::after {
-                content: \\"\\";
+                content: "";
                 display: block;
             }
         }
     }
 }
 
-[dir=\\"rtl\\"] .test6 {
+[dir="rtl"] .test6 {
     .global & {
         padding: 5px 10px 5px 5px;
         border-left-color: #666;
@@ -290,7 +290,7 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test6 {
+[dir="ltr"] .test6 {
     .global & {
         padding: 5px 5px 5px 10px;
         border-right-color: #666;
@@ -314,22 +314,22 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
         color: red;
     }
 
-    [dir=\\"rtl\\"] .test8 {
+    [dir="rtl"] .test8 {
         left: 10px;
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test8 {
+    [dir="ltr"] .test8 {
         right: 10px;
         text-align: right;
     }
 
     @media screen and (max-width: 800px) {
-        [dir=\\"rtl\\"] .test9 {
+        [dir="rtl"] .test9 {
             padding: 0 0.6em 0 1.7em;
         }
 
-        [dir=\\"ltr\\"] .test9 {
+        [dir="ltr"] .test9 {
             padding: 0 1.7em 0 0.6em;
         }
     }
@@ -337,11 +337,11 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
 
 @media screen and (max-width: 800px) {
     @supports (display: contents) and (display: grid) {
-        [dir=\\"rtl\\"] .test10 {
+        [dir="rtl"] .test10 {
             padding: 0 0.6em 0 1.7em;
         }
 
-        [dir=\\"ltr\\"] .test10 {
+        [dir="ltr"] .test10 {
             padding: 0 1.7em 0 0.6em;
         }
     }
@@ -355,13 +355,13 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test11 {
+[dir="rtl"] .test11 {
     .test13 {
         text-align: right;
     }
 }
 
-[dir=\\"ltr\\"] .test11 {
+[dir="ltr"] .test11 {
     .test13 {
         text-align: left;
     }
@@ -532,7 +532,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test1 {
+[dir="rtl"] .test1 {
     left: auto;
     right: 10px;
 
@@ -558,7 +558,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test3 {
+[dir="rtl"] .test3 {
     left: auto;
     right: 10px;
 
@@ -593,7 +593,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
             background-color: #FFF;
 
             ::after {
-                content: \\"\\";
+                content: "";
                 display: block;
                 text-align: left;
             }
@@ -601,7 +601,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test6 {
+[dir="rtl"] .test6 {
     .global & {
         padding: 5px 5px 5px 10px;
         border-left-color: currentcolor;
@@ -629,7 +629,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
         text-align: left;
     }
 
-    [dir=\\"rtl\\"] .test8 {
+    [dir="rtl"] .test8 {
         left: auto;
         right: 10px;
         text-align: right;
@@ -640,7 +640,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
             padding: 0 0.6em 0 1.7em;
         }
 
-        [dir=\\"rtl\\"] .test9 {
+        [dir="rtl"] .test9 {
             padding: 0 1.7em 0 0.6em;
         }
     }
@@ -652,7 +652,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
             padding: 0 0.6em 0 1.7em;
         }
 
-        [dir=\\"rtl\\"] .test10 {
+        [dir="rtl"] .test10 {
             padding: 0 1.7em 0 0.6em;
         }
     }
@@ -670,7 +670,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
     }
 }
 
-[dir=\\"rtl\\"] .test11 {
+[dir="rtl"] .test11 {
     .test13 {
         text-align: left;
     }
@@ -689,7 +689,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test1 {
+[dir="ltr"] .test1 {
     left: auto;
     right: 10px;
 
@@ -715,7 +715,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test3 {
+[dir="ltr"] .test3 {
     left: auto;
     right: 10px;
 
@@ -750,7 +750,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
             background-color: #FFF;
 
             ::after {
-                content: \\"\\";
+                content: "";
                 display: block;
                 text-align: left;
             }
@@ -758,7 +758,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test6 {
+[dir="ltr"] .test6 {
     .global & {
         padding: 5px 5px 5px 10px;
         border-left-color: currentcolor;
@@ -786,7 +786,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
         text-align: left;
     }
 
-    [dir=\\"ltr\\"] .test8 {
+    [dir="ltr"] .test8 {
         left: auto;
         right: 10px;
         text-align: right;
@@ -797,7 +797,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
             padding: 0 0.6em 0 1.7em;
         }
 
-        [dir=\\"ltr\\"] .test9 {
+        [dir="ltr"] .test9 {
             padding: 0 1.7em 0 0.6em;
         }
     }
@@ -809,7 +809,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
             padding: 0 0.6em 0 1.7em;
         }
 
-        [dir=\\"ltr\\"] .test10 {
+        [dir="ltr"] .test10 {
             padding: 0 1.7em 0 0.6em;
         }
     }
@@ -827,7 +827,7 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
     }
 }
 
-[dir=\\"ltr\\"] .test11 {
+[dir="ltr"] .test11 {
     .test13 {
         text-align: left;
     }

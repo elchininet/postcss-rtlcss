@@ -362,7 +362,7 @@ All the options are optional, and a default value will be used if any of them is
 | processUrls        | `boolean`                 | `false`         | Change the strings in URLs using the string map         |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
 | processEnv         | `boolean`                 | `true`          | When processEnv is false, it prevents flipping agent-defined environment variables (`safe-area-inset-left` and `safe-area-inset-right`) |
-| useCalc            | `boolean`                 | `false`         | Flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
+| useCalc            | `boolean`                 | `false`         | Flips `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
 | stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the URLs and rules selectors names |
 | autoRename         | `Autorename (string)`     | `Autorename.disabled` | Flip or not the selectors names of the rules without directional properties using the `stringMap` |
 | greedy             | `boolean`                 | `false`         | When `autoRename` is enabled and greedy is `true`, the strings replacements will not take into account word boundaries |
@@ -1119,7 +1119,7 @@ const options = { processEnv: false };
 <details><summary>Expand</summary>
 <p>
 
-When this option is enabled, it flips `background-position`, `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc):
+When this option is enabled, it flips `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc):
 
 ##### input
 
