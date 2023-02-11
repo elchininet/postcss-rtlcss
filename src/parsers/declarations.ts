@@ -9,7 +9,7 @@ import {
     Mode,
     Autorename,
     ControlDirective,
-    DeclarationHashMapProp
+    DeclarationHashMap
 } from '@types';
 import {
     DECLARATION_TYPE,
@@ -31,8 +31,8 @@ import {
     appendDeclarationToRule,
     hasIgnoreDirectiveInRaws,
     checkOverrides,
-    hasSameUpcomingDeclaration,
-    hasMirrorDeclaration
+    hasMirrorDeclaration,
+    hasSameUpcomingDeclarationWithoutMirror
 } from '@utilities/declarations';
 import { walkContainer } from '@utilities/containers';
 import {
@@ -68,14 +68,15 @@ export const parseDeclarations = (
     const ruleBoth = ruleFlipped.clone();
     const ruleSafe = ruleFlipped.clone();
 
-    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: DeclarationHashMapProp, node: Node): DeclarationHashMapProp => {
+    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: DeclarationHashMap, node: Node): DeclarationHashMap => {
         if (node.type === DECLARATION_TYPE) {
             const decl = node as Declaration;
             const index = rule.index(decl);
-            obj[decl.prop] = obj[decl.prop] || {};
-            obj[decl.prop][index] = {
+            obj[decl.prop] = obj[decl.prop] || { ignore: false, indexes: {} };
+            obj[decl.prop].indexes[index] = {
                 decl,
-                value: decl.value.trim()
+                value: decl.value.trim(),
+                ignore: false
             };
         }
         return obj;
@@ -176,9 +177,10 @@ export const parseDeclarations = (
             declFlipped.source = decl.source;
             declFlipped.raws = decl.raws;
 
-            const declProp = decl.prop.trim();
+            const declProp = decl.prop;
             const declPropUnprefixed = vendor.unprefixed(declProp);
             const declValue = decl.value.trim();
+            const declIndexes = Object.keys(declarationHashMap[declProp].indexes).map(Number);
             const isAnimation = declPropUnprefixed === ANIMATION_PROP || declPropUnprefixed === ANIMATION_NAME_PROP;
             const declFlippedProp = declFlipped.prop.trim();
             const declFlippedValue = declFlipped.value.trim();
@@ -212,7 +214,10 @@ export const parseDeclarations = (
                 return;
             }
 
-            if (hasSameUpcomingDeclaration(rule, decl, declarationHashMap)) {
+            if (
+                declarationHashMap[decl.prop].ignore ||
+                hasSameUpcomingDeclarationWithoutMirror(rule, decl, declFlipped, declarationHashMap)
+            ) {
                 return;
             }
             
@@ -326,7 +331,11 @@ export const parseDeclarations = (
                     }
                     deleteDeclarations.push(decl);
                 } else {
-                    if (FLIP_PROPERTY_REGEXP.test(decl.prop) && !declarationHashMap[declFlipped.prop]) {
+                    if (
+                        FLIP_PROPERTY_REGEXP.test(decl.prop) &&
+                        !declarationHashMap[declFlipped.prop] &&
+                        rule.index(decl) === declIndexes[0]
+                    ) {
                         const declClone = decl.clone();
                         /* If for some reason the initial value is not covered in the code it should be unset */
                         /* During the tests all the initial values are covered */

@@ -1,9 +1,13 @@
 import { Rule, Declaration } from 'postcss';
 import {
     DeclarationsData,
-    DeclarationHashMapProp
+    DeclarationHashMap
 } from '@types';
-import { COMMENT_TYPE, RTL_COMMENT_IGNORE_REGEXP } from '@constants';
+import {
+    COMMENT_TYPE,
+    RTL_COMMENT_IGNORE_REGEXP,
+    FLIP_PROPERTY_REGEXP
+} from '@constants';
 import shorthandDeclarationsJson from '@data/shorthand-declarations.json';
 import logicalDeclarationsJson from '@data/logical-declarations.json';
 import notShorthandDeclarationsJson from '@data/not-shorthand-declarations.json';
@@ -96,13 +100,46 @@ const checkOverrides = (decl: string, decls: string[]): boolean => {
     return decls.some((d: string): boolean => declarations[d] && declarations[d].includes(decl));
 };
 
+const hasSameUpcomingDeclarationWithoutMirror = (
+    rule: Rule,
+    decl: Declaration,
+    declFlipped: Declaration,
+    declarationHashMap: DeclarationHashMap
+): boolean => {
+    const index = rule.index(decl);
+    const hashMapData = declarationHashMap[decl.prop];
+    const indexes = Object.keys(hashMapData.indexes).map(Number).sort();
+    if (indexes.length === 1) {
+        return false;
+    }
+    const overridingIndexes = indexes.filter((i: number) => i > index);
+    if (overridingIndexes.length) {
+        if (FLIP_PROPERTY_REGEXP.test(decl.prop)) {
+            if (declarationHashMap[declFlipped.prop]) {
+                const hashMapFlippedData = declarationHashMap[declFlipped.prop];
+                const flippedIndexes = Object.keys(hashMapFlippedData.indexes).map(Number).sort();
+                const lastFlippedIndex = flippedIndexes.slice(-1)[0];
+                const lastIndex = overridingIndexes.slice(-1)[0];
+                if (hashMapData.indexes[lastIndex].value === hashMapFlippedData.indexes[lastFlippedIndex].value) {
+                    hashMapData.ignore = true;
+                    hashMapFlippedData.ignore = true;
+                }
+                return true;
+            }
+            return false;
+        }
+        return true;
+    }
+    return false;
+};
+
 const hasSameUpcomingDeclaration = (
     rule: Rule,
     decl: Declaration,
-    declarationHashMap: DeclarationHashMapProp
+    declarationHashMap: DeclarationHashMap
 ): boolean => {
     const index = rule.index(decl);
-    const indexes = Object.keys(declarationHashMap[decl.prop]).map(Number);
+    const indexes = Object.keys(declarationHashMap[decl.prop].indexes).map(Number);
     if (indexes.length === 1) {
         return false;
     }
@@ -112,10 +149,10 @@ const hasSameUpcomingDeclaration = (
 const hasMirrorDeclaration = (
     rule: Rule,
     declFlipped: Declaration,
-    declarationHashMap: DeclarationHashMapProp
+    declarationHashMap: DeclarationHashMap
 ): boolean => {
     if (declarationHashMap[declFlipped.prop]) {
-        const entries = Object.entries(declarationHashMap[declFlipped.prop]);
+        const entries = Object.entries(declarationHashMap[declFlipped.prop].indexes);
         return entries.some((entry) => {
             return (
                 entry[1].value === declFlipped.value.trim() &&
@@ -134,5 +171,6 @@ export {
     hasIgnoreDirectiveInRaws,
     checkOverrides,
     hasSameUpcomingDeclaration,
-    hasMirrorDeclaration
+    hasMirrorDeclaration,
+    hasSameUpcomingDeclarationWithoutMirror
 };

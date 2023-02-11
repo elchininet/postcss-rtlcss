@@ -108,4 +108,18 @@ export interface ControlDirective {
     option?: string;
 }
 
-export type DeclarationHashMapProp = Record<string, Record<string, { decl: Declaration; value: string; }>>;
+export type DeclarationHashMapDetails = {
+    decl: Declaration;
+    value: string;
+    ignore: boolean;
+};
+
+export type DeclarationHashMapProp = {
+    ignore: boolean;
+    indexes: Record<string,DeclarationHashMapDetails>;
+};
+
+export type DeclarationHashMap = Record<
+    string,
+    DeclarationHashMapProp
+>;
