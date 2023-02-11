@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.1] - 2023-02-11
+
+- Fixed a bug related to overriden properties
+
 ## [4.0.0] - 2022-09-15
 
 - Upgrade RTLCSS to major version 4.0.0. This version brings these changes:
