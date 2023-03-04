@@ -5,7 +5,7 @@ import { PluginOptions } from '@types';
 import { CSSPanel } from '@components/CSSPanel';
 import { useAppContext } from '@components/AppProvider';
 import { cssLines } from './css';
-import { stylesheet } from './stylesheet';
+import styles from './Playground.module.scss';
 
 const flipLines = (lines: string, options: PluginOptions = {}): LazyResult => {
     return postcss([postcssRTLCSS(options)]).process(lines);   
@@ -38,7 +38,7 @@ export const Playground = (): JSX.Element => {
     };
     
     return (
-        <div css={stylesheet.wrapper}>
+        <div className={styles.wrapper}>
             <CSSPanel
                 title="css input"
                 lines={

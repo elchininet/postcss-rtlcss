@@ -1,6 +1,6 @@
 import json from '@rollup/plugin-json';
 import ts from 'rollup-plugin-ts';
-import { terser } from "rollup-plugin-terser";
+import { terser } from 'rollup-plugin-terser';
 
 const getPlugins = (includeJson) => {
     const plugins = includeJson

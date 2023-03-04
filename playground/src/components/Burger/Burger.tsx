@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAppContext } from '@components/AppProvider';
-import { stylesheet } from './stylesheet';
-
+import styles from './Burger.module.scss';
 
 export const Burger = (): JSX.Element => {
     
@@ -10,9 +9,9 @@ export const Burger = (): JSX.Element => {
     const onClickBurger = (): void => setOptionsOpen(!optionsOpen);
 
     return (
-        <div css={stylesheet.container} data-opened={optionsOpen}>
-            <div css={stylesheet.wrapper} onClick={onClickBurger}>
-                <div css={stylesheet.burger}></div>
+        <div className={styles.container} data-opened={optionsOpen}>
+            <div className={styles.wrapper} onClick={onClickBurger}>
+                <div className={styles.burger}></div>
             </div>
         </div>
     );

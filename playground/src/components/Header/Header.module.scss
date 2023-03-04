@@ -1,0 +1,50 @@
+@import '@constants/colors';
+@import '@constants/mixins';
+
+.wrapper {
+    align-items: center;
+    background-color: $gray_darkest;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px 0 50px;
+    & span {
+        color: $action;
+        font-size: 18px;
+        font-weight: 400;
+        @include media(small) {
+            font-size: 20px;
+        }
+    }
+}
+
+.logo {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.icons {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.title {
+    color: $gray_light;
+    display: inline;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+    @include media(small) {
+        font-size: 20px;
+    }
+}

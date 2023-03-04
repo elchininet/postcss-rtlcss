@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-      "esModuleInterop": true,
-      "outDir": "../docs/",
-      "module": "esnext",
-      "jsx": "react",
-      "target": "es5",
-      "moduleResolution": "node",
-      "declaration": false,
-      "noImplicitAny": true,
-      "removeComments": true,
-      "baseUrl": "./src",
-      "types": ["node", "@emotion/react/types/css-prop"],
-      "paths": {
-        "@root": ["../../src"],
-        "@types": ["@types"],
-        "@constants": ["constants"],
-        "@components/*": ["components/*"],
-        "@hooks/*": ["hooks/*"],
-        "@utilities/*": ["utilities/*"],
-        "@icons/*": ["icons/*"]
-      }
+    "esModuleInterop": true,
+    "outDir": "../docs/",
+    "module": "esnext",
+    "jsx": "react",
+    "target": "es5",
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "baseUrl": "./src",
+    "types": ["node"],
+    "paths": {
+      "@root": ["../../src"],
+      "@types": ["@types"],
+      "@constants": ["constants"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@utilities/*": ["utilities/*"],
+      "@icons/*": ["icons/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

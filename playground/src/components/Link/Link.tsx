@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { stylesheet } from './stylesheet';
+import styles from './Link.module.scss';
 
 export interface LinkProps  {
     href: string;
@@ -8,7 +8,7 @@ export interface LinkProps  {
 export const Link = (props: PropsWithChildren<LinkProps>): JSX.Element => {
     const { href, children } = props;
     return (
-        <a css={stylesheet.link} href={href} target="_blank" rel="noopener noreferrer">
+        <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer">
             { children }
         </a>
     );

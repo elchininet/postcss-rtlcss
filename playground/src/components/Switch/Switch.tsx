@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { stylesheet } from './stylesheet';
+import styles from './Switch.module.scss';
 
 interface Attributes {
     [key: string]: string | boolean;
@@ -34,17 +34,17 @@ export const Switch = (props: SwitchProps): JSX.Element => {
     }, [active]);
 
     return (
-        <label css={stylesheet.label}>
+        <label className={styles.label}>
             <input
                 type={checkbox ? 'checkbox' : 'radio'}
-                css={stylesheet.input}
+                className={styles.input}
                 checked={checked}
                 onChange={changeCallback}
                 aria-checked={checked}
                 { ...rest }
             />
-            <div css={stylesheet.switch} data-checked={checked}></div>
-            <span css={stylesheet.span}>{ label  }</span>
+            <div className={styles.switchElement} data-checked={checked}></div>
+            <span className={styles.span}>{ label  }</span>
         </label>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { stylesheet } from './stylesheet';
+import classnames from 'classnames';
+import styles from './SwitchGroup.module.scss';
 
 interface Attributes {
     [key: string]: string | boolean;
@@ -40,18 +41,18 @@ export const SwitchGroup = (props: SwitchGroupProps): JSX.Element => {
         onChange && onChange(value);
     };
     return (
-        <div css={stylesheet.component}>
-            <span css={stylesheet.label}>
+        <div className={styles.component}>
+            <span className={styles.label}>
                 { label }
             </span>
-            <div css={[stylesheet.container, !horizontal && stylesheet.vertica]}>
+            <div className={classnames(styles.container, !horizontal && styles.vertical)}>
                 {
                     values.map((value: string): JSX.Element => {
                         const isActive = value === selected;
                         return (
                             <div
                                 key={value}
-                                css={[stylesheet.switch, isActive && stylesheet.switchActive]}
+                                className={classnames(styles.switchElement, isActive && styles.switchActive)}
                             >
                                 <input
                                     id={value}

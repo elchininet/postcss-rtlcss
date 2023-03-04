@@ -1,8 +1,8 @@
 import React, { PropsWithChildren, createContext, useContext, useState, useEffect } from 'react';
 import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
 import { PluginOptions, FetchOptions } from '@types';
+import { breakpointSizes } from '@constants';
 import { useApi } from '@hooks/useApi';
-import { breakpointSizes } from '@utilities/styles';
 
 export interface WindowSizes {
     windowHeight: number;

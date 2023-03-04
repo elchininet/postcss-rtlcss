@@ -1,0 +1,61 @@
+@import '@constants/colors';
+@import '@constants/mixins';
+
+$size: 25px;
+
+.label {
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.switchElement {
+    background-color: $gray_darkest;
+    border-radius: $size;
+    cursor: pointer;
+    height: $size;
+    position: relative;
+    @include buildTransition(background-color);
+    width: $size * 2;
+    z-index: 2;
+
+    &:before {
+        background-color: $gray_dark;
+        border: 2px solid $gray_darkest;
+        border-radius: $size;
+        box-sizing: border-box;
+        content: "";
+        display: block;
+        height: $size;
+        left: 0;
+        position: absolute;
+        top: 0;
+        @include buildTransition(background-color border-color transform left);
+        transform: translateX(0);
+        width: $size;
+    }
+
+    &[data-checked="true"] {
+        background-color: $action;
+        &:before {
+            background-color: $active;
+            border-color: $action;
+            left: 100%;
+            transform: translateX(-100%);
+        }
+    }
+}
+
+.input {
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+
+.span {
+    color: $gray_light;
+    font-size: 16px;
+    font-weight: 300;
+    padding-left: 10px;
+}

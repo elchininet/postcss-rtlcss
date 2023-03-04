@@ -5,13 +5,13 @@ import { Header } from '@components/Header';
 import { Options } from '@components/Options';
 import { Playground } from '@components/Playground';
 import { Footer } from '@components/Footer';
-import { stylesheet } from './stylesheet';
+import styles from './App.module.scss';
 
 export const App = (): JSX.Element => {
 
     return (
         <AppProvider>
-            <div css={stylesheet.wrapper}>                
+            <div className={styles.wrapper}>              
                 <Header />
                 <Playground />
                 <Footer />                        

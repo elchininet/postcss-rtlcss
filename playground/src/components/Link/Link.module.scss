@@ -1,0 +1,12 @@
+@import '@constants/colors';
+
+.link {
+    color: $action;
+    &:hover {
+        color: $action;
+        text-decoration: underline;
+    }
+    &:visited {
+        color: $action;
+    }
+}
