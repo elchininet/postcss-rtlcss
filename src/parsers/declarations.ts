@@ -215,7 +215,10 @@ export const parseDeclarations = (
             }
 
             if (
-                declarationHashMap[decl.prop].ignore ||
+                (
+                    declarationHashMap[decl.prop].ignore &&
+                    !isConflictedDeclaration
+                ) ||
                 hasSameUpcomingDeclarationWithoutMirror(rule, decl, declFlipped, declarationHashMap)
             ) {
                 return;

@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 import postcssRTLCSS from '../src';
-import { PluginOptions, Source } from '../src/@types';
+import { PluginOptions } from '../src/@types';
 import { readCSSFile, runTests } from './utils';
 
 runTests({}, (pluginOptions: PluginOptions): void => {
@@ -15,6 +15,13 @@ runTests({}, (pluginOptions: PluginOptions): void => {
   
     it('Basic', (): void => {
       const options: PluginOptions = { ...pluginOptions };
+      const output = postcss([postcssRTLCSS(options)]).process(input);
+      expect(output.css).toMatchSnapshot();
+      expect(output.warnings()).toHaveLength(0);
+    });
+
+    it('With safeBothPrefix', (): void => {
+      const options: PluginOptions = { ...pluginOptions, safeBothPrefix: true };
       const output = postcss([postcssRTLCSS(options)]).process(input);
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);
