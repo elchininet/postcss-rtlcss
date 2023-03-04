@@ -5509,10 +5509,10 @@ postcss-modules-values@^4.0.0:
   dependencies:
     icss-utils "^5.0.0"
 
-postcss-rtlcss@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-4.0.2.tgz#dd3b56c18b13606ff27d6e910adcdaa38690fcd8"
-  integrity sha512-Ft26Vl+lOYX5m2q/+iJC+UQ+CKQll+xQJDUMmL4u0c+/HT6H85zllrWfAusQXxN931U3Bkt8h94qBQjO/8Y3Gw==
+postcss-rtlcss@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/postcss-rtlcss/-/postcss-rtlcss-4.0.3.tgz#3cd0ed588afecd124bf7b8f2efdf003380f8b551"
+  integrity sha512-ZbF16XJnp0NljUC6s1BJXrqTcz4Bkl06CuABW5gaQNa8lW83XSH2hcFQOC/zop8Qje8U3RccIzktRLO5puM4Gw==
   dependencies:
     rtlcss "4.0.0"
 
