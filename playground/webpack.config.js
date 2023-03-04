@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {    
     mode: 'production',
@@ -24,7 +25,8 @@ module.exports = {
                 use: ['babel-loader']
             },
             {
-                test: /\.css$/,
+                test: /\.s?css$/,
+                exclude: /\.module\.s?css$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -32,7 +34,51 @@ module.exports = {
                             publicPath: '../'
                         }
                     },
-                    'css-loader'
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: 'global'
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    autoprefixer()
+                                ]
+                            }
+                        }
+                    },
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.module\.s?css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
+                        }
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    autoprefixer()
+                                ]
+                            }
+                        }
+                    },
+                    'sass-loader'
                 ]
             },
             {

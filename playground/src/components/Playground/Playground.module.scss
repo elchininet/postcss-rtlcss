@@ -1,0 +1,15 @@
+@import '@constants/colors';
+@import '@constants/mixins';
+
+.wrapper {
+    display: flex;
+    border-color: $gray_dark;
+    border-style: solid;
+    border-width: 0 5px;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    @include media(small) {
+        flex-direction:  row;
+    }
+}

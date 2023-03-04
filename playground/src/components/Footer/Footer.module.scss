@@ -1,0 +1,22 @@
+@import '@constants/colors';
+
+.wrapper {
+    background-color: $gray_dark;
+    color: $white;
+    display: flex;
+    font-size: 12px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 40px;
+}
+
+.footerPanel {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.footerPanelRight {
+    justify-content: flex-end;
+}

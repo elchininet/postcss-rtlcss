@@ -1,12 +1,13 @@
 import React from 'react';
 import GitHubButton from 'react-github-btn';
+import classnames from 'classnames';
 import { Link } from '@components/Link';
-import { stylesheet } from './stylesheet';
+import styles from './Footer.module.scss';
 
 export const Footer = (): JSX.Element => {
     return (
-        <footer css={stylesheet.wrapper}>
-            <div css={stylesheet.footerPanel}>
+        <footer className={styles.wrapper}>
+            <div className={styles.footerPanel}>
                 <GitHubButton
                     href="https://github.com/elchininet/postcss-rtlcss/fork"
                     data-size="small"
@@ -16,7 +17,7 @@ export const Footer = (): JSX.Element => {
                     Fork me on Github
                 </GitHubButton>
             </div>
-            <div css={[stylesheet.footerPanel, stylesheet.footerPanelRight]}>
+            <div className={classnames(styles.footerPanel, styles.footerPanelRight)}>
                 <span>
                     Playground powered by <Link href="https://microsoft.github.io/monaco-editor/">Monaco Editor</Link>
                 </span>

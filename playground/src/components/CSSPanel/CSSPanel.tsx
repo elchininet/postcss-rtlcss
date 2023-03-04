@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import { editor, languages } from 'monaco-editor';
-import { stylesheet } from './stylesheet';
+import styles from './CSSPanel.module.scss';
 
 export interface CSSPanelProps {
     title: string;
@@ -64,9 +64,9 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
     }, [lines, panel]);
 
     return (
-        <div css={stylesheet.container}>
-            <div css={stylesheet.panelHeader}>{ title }</div>
-            <div css={stylesheet.panel} ref={panelContainer}></div>
+        <div className={styles.container}>
+            <div className={styles.panelHeader}>{ title }</div>
+            <div className={styles.panel} ref={panelContainer}></div>
         </div>
     );
 };

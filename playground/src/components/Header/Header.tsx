@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { Share } from '@icons/Share';
 import { useAppContext } from '@components/AppProvider';
 import { cssLines } from '@components/Playground/css';
-import { stylesheet } from './stylesheet';
+import styles from './Header.module.scss';
 
 export const Header = (): JSX.Element => {
     const { canShare, token, share, code, options } = useAppContext();
@@ -12,15 +12,15 @@ export const Header = (): JSX.Element => {
     }, [share, code, options]);
     const showShareButton = canShare && token && code && code !== cssLines;
     return (
-        <header css={stylesheet.wrapper}>
-            <div css={stylesheet.logo}>
+        <header className={styles.wrapper}>
+            <div className={styles.logo}>
                 <span>{ '{' }&nbsp;</span>
-                <h1 css={stylesheet.title}>PostCSS-RTLCSS online</h1>
+                <h1 className={styles.title}>PostCSS-RTLCSS online</h1>
                 <span>&nbsp;{ '}' }</span>
             </div>
-            <div css={stylesheet.icons}>
+            <div className={styles.icons}>
                 {showShareButton && (
-                    <button css={stylesheet.button} onClick={shareCallback}>
+                    <button className={styles.button} onClick={shareCallback}>
                         <Share size={20} />
                     </button>
                 )}

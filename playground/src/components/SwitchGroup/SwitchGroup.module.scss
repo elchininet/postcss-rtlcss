@@ -1,0 +1,63 @@
+@import '@constants/colors';
+
+.component {
+    position: relative;
+}
+
+.container {
+    padding-top: 10px;
+    display: flex;
+    height: 30px;
+}
+
+.vertical {
+    flex-direction: column;
+}
+
+.label {
+    color: $gray_light;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.switchElement {
+    background-color: $gray_darkest;
+    border-right: 1px solid $gray_dark;
+    color: $white;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: center;
+    position: relative;
+
+    label {
+        cursor: pointer;
+        flex-grow: 1;
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    input {
+        opacity: 0;
+        position: absolute;
+        height: 0px;
+        width: 0px;
+    }
+
+    &:first-of-type {
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+
+    &:last-of-type {
+        border-right: none;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+}
+
+.switchActive {
+    background-color: $action;
+}

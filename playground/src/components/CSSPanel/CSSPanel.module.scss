@@ -1,0 +1,32 @@
+@import '@constants/colors';
+@import '@constants/mixins';
+
+.container {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    border-color: $gray_dark;
+    border-style: solid;
+    border-width: 0;
+    box-sizing: border-box;
+    height: 100%;
+    @include media(small) {
+        border-width: 0px 5px;
+    }
+}
+
+.panelHeader {
+    background-color: $gray_dark;
+    color: $gray_light;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.panel {
+    flex-grow: 1;
+    flex-shrink: 0;
+}

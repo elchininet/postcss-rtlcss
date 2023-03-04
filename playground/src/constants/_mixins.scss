@@ -1,0 +1,35 @@
+$small: 576px;       // Phones in landscape mode
+$medium: 768px;      // Tablet devices
+$large: 992px;       // Desktop devices
+$extralarge: 1200px; // Large desktop devices
+
+$transformParams: 0.25s ease-in-out;
+
+@mixin media($size) {
+    @if $size == small {
+        @media(min-width: $small) {
+            @content;
+        }
+    } @else if $size == medium {
+        @media(min-width: $medium) {
+            @content;
+        }
+    } @else if $size == large {
+        @media(min-width: $large) {
+            @content;
+        }
+    } @else {
+        @media(min-width: $extralarge) {
+            @content;
+        }
+    }
+    
+}
+
+@mixin buildTransition($properties) {
+    $props: ();
+    @each $p in $properties {
+        $props: append($props, $p $transformParams, comma);
+    }
+    transition: $props;
+}

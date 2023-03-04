@@ -1,0 +1,71 @@
+@import '@constants/colors';
+
+$headerSize: 50px;
+$height: 14px;
+$width: 18px;
+$thick: 2px;
+
+@mixin element {
+    background-color: $white;
+    height: $thick;
+    position: absolute;
+    width: $width;
+}
+
+@mixin pseudoElement {
+    @include element();
+    content: "";
+    display: block;
+    transform-origin: center center;
+    transition: top .25s ease-in-out, transform .25s ease-in-out;
+};
+
+.container {
+    display: flex;
+    align-items: center;
+    height: $headerSize;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: $headerSize;
+    z-index: 2;
+}
+
+.wrapper {
+    cursor: pointer;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: $height;
+    position: relative;
+    width: $width;
+    &:before {
+        @include pseudoElement();
+        top: 0;
+        transform: none;
+        [data-opened="true"] & {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+    }
+    &:after {
+        @include pseudoElement();
+        top: 100%;
+        transform: translateY(-100%);
+        [data-opened="true"] & {
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+}
+
+.burger {
+    @include element();
+    opacity: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease-in-out;
+    [data-opened="true"] & {
+        opacity: 0;
+    }
+}

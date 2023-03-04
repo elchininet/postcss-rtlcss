@@ -3,8 +3,8 @@ import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
 import { useAppContext } from '@components/AppProvider';
 import { Switch } from '@components/Switch';
 import { SwitchGroup } from '@components/SwitchGroup';
-import { stylesheet } from './stylesheet';
 import { isBoolean } from '@utilities/types';
+import styles from './Options.module.scss';
 
 export const Options = (): JSX.Element => {
 
@@ -42,7 +42,7 @@ export const Options = (): JSX.Element => {
     const changeUseCalc = (checked: boolean): void => changeOptionsUseCalc(checked);
     const changeAutoRename = (value: string): void => {
         if (value === 'disabled') {
-            changeOptionsAutoRename(Autorename.disabled)
+            changeOptionsAutoRename(Autorename.disabled);
         } else if (value === 'flexible') {
             changeOptionsAutoRename(Autorename.flexible);
         } else {
@@ -58,13 +58,13 @@ export const Options = (): JSX.Element => {
     }, [fetchOptions]);
     
     return (
-        <div css={stylesheet.wrapper} data-opened={optionsOpen}>
-            <div css={stylesheet.header}>
+        <div className={styles.wrapper} data-opened={optionsOpen}>
+            <div className={styles.header}>
                 Options
             </div>
-            <div css={stylesheet.container}>
+            <div className={styles.container}>
                 { /* Mode */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <SwitchGroup
                         label="Mode"
                         name="mode"
@@ -74,7 +74,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* Source */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <Switch
                         labels={['source: ltr', 'source: rtl']}
                         onChange={changeSource}
@@ -84,7 +84,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* safeBothPrefix */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <Switch
                         labels={['safeBothPrefix: false', 'safeBothPrefix: true']}
                         onChange={changeSafeBothPrefix}
@@ -94,7 +94,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* ignorePrefixedRules */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <Switch
                         labels={['ignorePrefixedRules: false', 'ignorePrefixedRules: true']}
                         onChange={changeIgnorePrefixedRules}
@@ -108,7 +108,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* processUrls */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <Switch
                         labels={['processUrls: false', 'processUrls: true']}
                         onChange={changeProcessUrls}
@@ -118,7 +118,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* processKeyFrames */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <Switch
                         labels={['processKeyFrames: false', 'processKeyFrames: true']}                        
                         onChange={changeProcessKeyframes}
@@ -128,7 +128,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* processEnv */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <Switch
                         labels={['processEnv: false', 'processEnv: true']}
                         onChange={changeProcessEnv}
@@ -142,7 +142,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* useCalc */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <Switch
                         labels={['useCalc: false', 'useCalc: true']}
                         onChange={changeUseCalc}
@@ -152,7 +152,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* autoRename */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <SwitchGroup
                         label="autoRename"
                         name="auto-rename"
@@ -162,7 +162,7 @@ export const Options = (): JSX.Element => {
                     />
                 </div>
                 { /* greedy */ }
-                <div css={stylesheet.panel}>
+                <div className={styles.panel}>
                     <Switch
                         labels={['greedy: false', 'greedy: true']}
                         onChange={changeGreedy}
