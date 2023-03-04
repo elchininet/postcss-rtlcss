@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.3] - 2023-03-04
+
+- Fixed a bug releated to overriden properties
+
 ## [4.0.2] - 2023-02-11
 
 - Fixed a bug related to overriden properties
