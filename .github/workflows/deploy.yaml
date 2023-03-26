@@ -25,3 +25,20 @@ jobs:
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Extract the release body from CHANGELOG.md
+        id: changelog
+        shell: bash
+        run: |
+          node ./scripts/extract_last_release_body.js
+          RELEASE=$(cat ./RELEASE.md)
+          echo "RELEASE_BODY=$RELEASE" >> $GITHUB_OUTPUT
+      - name: Upload release asset
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./index.js
+          asset_name: postcss-rtlcss.js
+          tag: ${{ github.ref }}
+          body: |
+            ${{ steps.changelog.outputs.RELEASE_BODY }}
+          overwrite: true
