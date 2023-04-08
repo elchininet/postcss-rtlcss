@@ -24,7 +24,7 @@ function postcssRTLCSS (options: PluginOptions = {}): Plugin {
             clean(css);
         }
     });
-};
+}
 
 postcssRTLCSS.postcss = true;
 

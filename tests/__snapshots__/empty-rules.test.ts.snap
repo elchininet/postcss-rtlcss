@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: combined]] Empty Rules Tests:  Basic 1`] = `
+".test1 {}
+
+.test2, .test3 {}
+
+[dir="ltr"] .test4 {
+    text-align: left;
+}
+
+[dir="rtl"] .test4 {
+    text-align: right;
+}
+
+.test5 {
+    color: red;
+}
+
+[dir="ltr"] .test5 {
+    padding-left: 20px;
+}
+
+[dir="rtl"] .test5 {
+    padding-right: 20px;
+}"
+`;
+
+exports[`[[Mode: diff]] Empty Rules Tests:  Basic 1`] = `
+".test4 {
+    text-align: right;
+}
+
+.test5 {
+    padding-left: 0;
+    padding-right: 20px;
+}"
+`;
+
+exports[`[[Mode: override]] Empty Rules Tests:  Basic 1`] = `
+".test1 {}
+
+.test2, .test3 {}
+
+.test4 {
+    text-align: left;
+}
+
+[dir="rtl"] .test4 {
+    text-align: right;
+}
+
+.test5 {
+    color: red;
+    padding-left: 20px;
+}
+
+[dir="rtl"] .test5 {
+    padding-left: 0;
+    padding-right: 20px;
+}"
+`;

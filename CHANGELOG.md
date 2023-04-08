@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.4] - 2023-04-08
+
+- Fixed unwanted removal of empty rules
+
 ## [4.0.3] - 2023-03-04
 
 - Fixed a bug releated to overriden properties
