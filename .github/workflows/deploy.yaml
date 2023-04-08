@@ -25,13 +25,49 @@ jobs:
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Extract the release body from CHANGELOG.md
-        id: changelog
-        shell: bash
-        run: |
-          node ./scripts/extract_last_release_body.js
-          RELEASE=$(cat ./RELEASE.md)
-          echo "RELEASE_BODY=$RELEASE" >> $GITHUB_OUTPUT
+      - name: Create RELEASE.md
+        id: release
+        uses: mikepenz/release-changelog-builder-action@v3
+        with:
+          configurationJson: |
+            {
+              "categories": [
+                {
+                  "title": "## 🚀 Features",
+                  "labels": ["feature", "enhancement", "request"]
+                },
+                {
+                  "title": "## 🚀 Fixes",
+                  "labels": ["fix", "bug"]
+                },
+                {
+                  "title": "## 🎲 Playground",
+                  "labels": ["playground"]
+                },
+                {
+                  "title": "## 🧩 Dependencies",
+                  "labels": ["dependencies"]
+                },
+                {
+                  "title": "## 📦 Other",
+                  "labels": []
+                }
+              ],
+              "template": "${{CHANGELOG}}",
+              "empty_template": "${{OWNER}}\n${{REPO}}\n${{FROM_TAG}}\n${{TO_TAG}}",
+              "max_pull_requests": 1000,
+              "max_back_track_time_days": 1000,
+              "label_extractor": [
+                {
+                  "pattern": "^fix",
+                  "on_property": "title",
+                  "method": "match",
+                  "flags": "i"
+                }
+              ]
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
         with:
@@ -40,5 +76,5 @@ jobs:
           asset_name: postcss-rtlcss.js
           tag: ${{ github.ref }}
           body: |
-            ${{ steps.changelog.outputs.RELEASE_BODY }}
+            ${{ steps.release.outputs.changelog }}
           overwrite: true
