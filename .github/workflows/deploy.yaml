@@ -49,6 +49,10 @@ jobs:
                   "labels": ["dependencies"]
                 },
                 {
+                  "title": "## 🛠 Configuration",
+                  "labels": ["Configuration"]
+                },
+                {
                   "title": "## 📦 Other",
                   "labels": []
                 }
