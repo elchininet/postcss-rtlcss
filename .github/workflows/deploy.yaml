@@ -37,7 +37,7 @@ jobs:
                   "labels": ["feature", "enhancement", "request"]
                 },
                 {
-                  "title": "## 🚀 Fixes",
+                  "title": "## 🛠 Fixes",
                   "labels": ["fix", "bug"]
                 },
                 {
@@ -49,7 +49,7 @@ jobs:
                   "labels": ["dependencies"]
                 },
                 {
-                  "title": "## 🛠 Configuration",
+                  "title": "## ⚙️ Configuration",
                   "labels": ["Configuration"]
                 },
                 {
