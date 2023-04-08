@@ -76,11 +76,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            index.js
-            index.d.ts
-            options.js
-            options.d.ts
             esm/index.js
+            index.d.ts
             esm/options.js
+            options.d.ts
           body: |
             ${{ steps.build_changelog.outputs.changelog }}
