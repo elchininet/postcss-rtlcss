@@ -25,8 +25,8 @@ jobs:
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Create RELEASE.md
-        id: release
+      - name: Build Changelog
+        id: build_changelog
         uses: mikepenz/release-changelog-builder-action@v3
         with:
           configurationJson: |
@@ -57,8 +57,8 @@ jobs:
                   "labels": []
                 }
               ],
-              "template": "${{CHANGELOG}}",
-              "empty_template": "${{OWNER}}\n${{REPO}}\n${{FROM_TAG}}\n${{TO_TAG}}",
+              "template": "#{{CHANGELOG}}",
+              "empty_template": "#{{OWNER}}\n#{{REPO}}\n#{{FROM_TAG}}\n#{{TO_TAG}}",
               "max_pull_requests": 1000,
               "max_back_track_time_days": 1000,
               "label_extractor": [
@@ -83,4 +83,4 @@ jobs:
             esm/index.js
             esm/options.js
           body: |
-            ${{ steps.release.outputs.changelog }}
+            ${{ steps.build_changelog.outputs.changelog }}
