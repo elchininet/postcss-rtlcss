@@ -58,7 +58,9 @@ export const clean = (css: Container): void => {
             !!(node as Container).nodes
         ) {
             if (!ruleHasChildren(node as Container)) {
-                node.remove();
+                if (mode === Mode.diff) {
+                    node.remove();
+                }
             } else {
                 const prev = node.prev();
                 if (prev) {
