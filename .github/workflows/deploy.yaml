@@ -68,13 +68,15 @@ jobs:
             }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload release asset
-        uses: svenstaro/upload-release-action@v2
+      - name: Create a release
+        uses: softprops/action-gh-release@v1
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./index.js
-          asset_name: postcss-rtlcss.js
-          tag: ${{ github.ref }}
+          files: |
+            index.js
+            index.d.ts
+            options.js
+            options.d.ts
+            esm/index.js
+            esm/options.js
           body: |
             ${{ steps.release.outputs.changelog }}
-          overwrite: true
