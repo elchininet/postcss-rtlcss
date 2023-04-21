@@ -181,6 +181,14 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
     .test13 {
         text-align: left;
     }
+}
+
+@mixin padding {
+    padding-left: 10px;
+}
+
+.test14 {
+   @include padding;
 }"
 `;
 
@@ -365,6 +373,14 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} 1`] = `
     .test13 {
         text-align: left;
     }
+}
+
+@mixin padding {
+    padding-left: 10px;
+}
+
+.test14 {
+   @include padding;
 }"
 `;
 
@@ -441,6 +457,10 @@ exports[`[[Mode: diff]] Nested rules tests:  {source: ltr} 1`] = `
     .test13 {
         text-align: left;
     }
+}
+
+@mixin padding {
+    padding-left: 10px;
 }"
 `;
 
@@ -517,6 +537,10 @@ exports[`[[Mode: diff]] Nested rules tests:  {source: rtl} 1`] = `
     .test13 {
         text-align: left;
     }
+}
+
+@mixin padding {
+    padding-left: 10px;
 }"
 `;
 
@@ -674,6 +698,14 @@ exports[`[[Mode: override]] Nested rules tests:  {source: ltr} 1`] = `
     .test13 {
         text-align: left;
     }
+}
+
+@mixin padding {
+    padding-left: 10px;
+}
+
+.test14 {
+   @include padding;
 }"
 `;
 
@@ -831,5 +863,13 @@ exports[`[[Mode: override]] Nested rules tests:  {source: rtl} 1`] = `
     .test13 {
         text-align: left;
     }
+}
+
+@mixin padding {
+    padding-left: 10px;
+}
+
+.test14 {
+   @include padding;
 }"
 `;

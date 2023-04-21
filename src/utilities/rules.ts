@@ -28,6 +28,7 @@ export const ruleHasDeclarations = (rule: Rule): boolean => {
 };
 
 export const ruleHasChildren = (rule: Container): boolean => {
+    if (!rule.nodes) return false;
     return rule.some(
         (node: Node) => (
             node.type === DECLARATION_TYPE ||

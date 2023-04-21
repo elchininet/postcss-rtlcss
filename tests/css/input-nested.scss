@@ -76,3 +76,11 @@
         text-align: right;
     }
 }
+
+@mixin padding {
+    padding-left: 10px;
+}
+
+.test14 {
+   @include padding;
+}

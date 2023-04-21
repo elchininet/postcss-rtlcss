@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.5] - 2023-04-21
+
+- Fixed an error related to empty atRules
+
 ## [4.0.4] - 2023-04-08
 
 - Fixed unwanted removal of empty rules
