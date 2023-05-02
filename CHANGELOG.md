@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.6] - 2023-05-03
+
+- Update RTLCSS to version 4.1.0
+
 ## [4.0.5] - 2023-04-21
 
 - Fixed an error related to empty atRules
