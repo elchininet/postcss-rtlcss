@@ -1,4 +1,4 @@
-export const input: string;
-export const label: string;
-export const span: string;
-export const switchElement: string;
+export declare const input: string;
+export declare const label: string;
+export declare const span: string;
+export declare const switchElement: string;

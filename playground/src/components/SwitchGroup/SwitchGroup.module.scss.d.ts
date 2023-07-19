@@ -1,6 +1,6 @@
-export const component: string;
-export const container: string;
-export const label: string;
-export const switchActive: string;
-export const switchElement: string;
-export const vertical: string;
+export declare const component: string;
+export declare const container: string;
+export declare const label: string;
+export declare const switchActive: string;
+export declare const switchElement: string;
+export declare const vertical: string;

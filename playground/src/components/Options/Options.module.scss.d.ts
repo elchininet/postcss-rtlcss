@@ -1,4 +1,4 @@
-export const container: string;
-export const header: string;
-export const panel: string;
-export const wrapper: string;
+export declare const container: string;
+export declare const header: string;
+export declare const panel: string;
+export declare const wrapper: string;
