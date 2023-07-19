@@ -1,3 +1,3 @@
-export const footerPanel: string;
-export const footerPanelRight: string;
-export const wrapper: string;
+export declare const footerPanel: string;
+export declare const footerPanelRight: string;
+export declare const wrapper: string;

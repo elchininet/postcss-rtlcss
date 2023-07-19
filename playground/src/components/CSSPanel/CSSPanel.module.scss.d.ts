@@ -1,3 +1,3 @@
-export const container: string;
-export const panel: string;
-export const panelHeader: string;
+export declare const container: string;
+export declare const panel: string;
+export declare const panelHeader: string;
