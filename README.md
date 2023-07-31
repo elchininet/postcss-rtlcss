@@ -172,7 +172,7 @@ This is the recommended method, it will generate more CSS code but each directio
 
 #### Output using the override mode
 
-This is one of the alternative methods to override. It will generate less code because it lets the main rule intact and generates a shorter specific rule to override the properties that are affected by the direction of the text.
+This is one of the alternative methods to override. It will generate less code because it lets the main rule intact most of the time and generates shorter specific rules to override the properties that are affected by the direction of the text.
 
 ```css
 .test1, .test2 {
@@ -226,7 +226,7 @@ This is the second alternative method to override. It generates the minimum amou
 
 But the two methods to override have a disadvantage:
 
-<details><summary>Disadvantage of the methods to override</summary>
+<details><summary>Disadvantage of the override methods</summary>
 <p>
 
 Use these methods carefully. They can override a property that is coming from another class if multiple classes are used at the same time. Take a look at the next `HTML` and `CSS` codes:
