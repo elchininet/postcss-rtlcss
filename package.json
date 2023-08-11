@@ -18,12 +18,24 @@
   "types": "index.d.ts",
   "exports": {
     ".": {
-      "require": "./index.js",
-      "import": "./esm/index.js"
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "import": {
+        "types": "./esm/index.d.ts",
+        "default": "./esm/index.js"
+      }
     },
     "./options": {
-      "require": "./options.js",
-      "import": "./esm/options.js"
+      "require": {
+        "types": "./options.d.ts",
+        "default": "./options.js"
+      },
+      "import": {
+        "types": "./esm/options.d.ts",
+        "default": "./esm/options.js"
+      }
     }
   },
   "files": [

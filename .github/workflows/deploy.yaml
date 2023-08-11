@@ -78,8 +78,8 @@ jobs:
         with:
           files: |
             esm/index.js
-            index.d.ts
+            esm/index.d.ts
             esm/options.js
-            options.d.ts
+            esm/options.d.ts
           body: |
             ${{ steps.build_changelog.outputs.changelog }}
