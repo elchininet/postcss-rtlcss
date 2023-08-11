@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.7] - 2023-08-12
+
+- Fix ESM types
+
 ## [4.0.6] - 2023-05-03
 
 - Update RTLCSS to version 4.1.0
