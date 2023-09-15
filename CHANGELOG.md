@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.8] - 2023-09-15
+
+- Fix `margin-block` and `padding-block` properties not taken into account for the `safeBothPrefix` option.
+
 ## [4.0.7] - 2023-08-12
 
 - Fix ESM types
