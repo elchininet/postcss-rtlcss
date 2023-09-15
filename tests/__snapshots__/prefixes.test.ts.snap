@@ -612,6 +612,16 @@ html.rtl .test50 {
 
 .ltr .test51, .rtl .test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -1237,6 +1247,16 @@ html.rtl .test50, html.right-to-left .test50 {
 
 .ltr .test51, .left-to-right .test51, .rtl .test51, .right-to-left .test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -1866,6 +1886,16 @@ html.rtl .test50, html.right-to-left .test50 {
 
 .ltr .test51, .left-to-right .test51, .rtl .test51, .right-to-left .test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -2481,6 +2511,16 @@ html.rtl .test50 {
 
 .ltr.test51, .rtl.test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -3096,6 +3136,16 @@ html[dir="rtl"] .test50 {
 
 [dir] > .test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -4615,6 +4665,16 @@ html.rtl .test50 {
 
 .ltr .test51, .rtl .test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -5187,6 +5247,16 @@ html.rtl .test50, html.right-to-left .test50 {
 
 .ltr .test51, .left-to-right .test51, .rtl .test51, .right-to-left .test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -5763,6 +5833,16 @@ html.rtl .test50, html.right-to-left .test50 {
 
 .ltr .test51, .left-to-right .test51, .rtl .test51, .right-to-left .test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -6330,6 +6410,16 @@ html.rtl .test50 {
 
 .ltr.test51, .rtl.test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
 
@@ -6897,5 +6987,15 @@ html[dir="rtl"] .test50 {
 
 [dir] > .test51 {
     border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
 }"
 `;
