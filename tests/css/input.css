@@ -429,3 +429,13 @@ html .test50 {
     border-left: 1px solid #FFF;
     border: none;
 }
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
+}
