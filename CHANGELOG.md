@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.0.9] - 2023-11-10
+
+- Update RTLCSS to version 4.1.1
+
 ## [4.0.8] - 2023-09-15
 
 - Fix `margin-block` and `padding-block` properties not taken into account for the `safeBothPrefix` option.

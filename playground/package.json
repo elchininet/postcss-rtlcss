@@ -22,7 +22,7 @@
   "author": "ElChiniNet",
   "license": "Apache-2.0",
   "dependencies": {
-    "monaco-editor": "^0.41.0",
+    "monaco-editor": "^0.44.0",
     "postcss": "^8.4.31",
     "postcss-rtlcss": "^4.0.8",
     "react": "^18.2.0",
@@ -30,24 +30,24 @@
     "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.10",
-    "@babel/preset-env": "^7.22.10",
-    "@babel/preset-react": "^7.22.5",
-    "@babel/preset-typescript": "^7.22.5",
-    "@types/eslint": "^8.44.2",
-    "@types/node": "^20.4.10",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
-    "autoprefixer": "^10.4.14",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@types/eslint": "^8.44.7",
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "autoprefixer": "^10.4.16",
     "babel-loader": "^9.1.3",
     "classnames": "^2.3.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
-    "eslint": "^8.47.0",
-    "eslint-plugin-react": "^7.33.1",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-utils": "^3.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
@@ -57,8 +57,8 @@
     "postcss-loader": "^7.3.3",
     "sass-loader": "^13.3.2",
     "typed-scss-modules": "^7.1.4",
-    "typescript": "^5.1.6",
-    "webpack": "^5.88.2",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
@@ -66,6 +66,6 @@
     "defaults"
   ],
   "engines": {
-    "node": ">=12.22.0"
+    "node": ">=18.0.0"
   }
 }
