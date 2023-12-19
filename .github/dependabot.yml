@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    commit-message:
+      prefix: "[Dependencies]"
+    ignore:
+      - dependency-name: "postcss"
+    groups:
+      dependencies:
+        dependency-type: "development"
+    labels:
+      - dependencies
