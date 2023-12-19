@@ -10,7 +10,26 @@ updates:
     ignore:
       - dependency-name: "postcss"
     groups:
-      dependencies:
+      dependencies-dev:
         dependency-type: "development"
     labels:
       - dependencies
+    versioning-strategy: increase
+  - package-ecosystem: "npm"
+    directory: "/playground/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    commit-message:
+      prefix: "[Playground dependencies]"
+    ignore:
+      - dependency-name: "postcss"
+    groups:
+      dependencies-prod:
+        dependency-type: "production"
+      dependencies-dev:
+        dependency-type: "development"
+    labels:
+      - dependencies
+      - playground
+    versioning-strategy: increase
