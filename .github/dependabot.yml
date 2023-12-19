@@ -25,9 +25,9 @@ updates:
     ignore:
       - dependency-name: "postcss"
     groups:
-      dependencies-prod:
+      playground-dependencies-prod:
         dependency-type: "production"
-      dependencies-dev:
+      playground-dependencies-dev:
         dependency-type: "development"
     labels:
       - dependencies
