@@ -21,9 +21,9 @@ export enum Autorename {
     strict = 'strict'
 }
 
-export type ModeValues = keyof typeof Mode;
-export type SourceValues = keyof typeof Source;
-export type AutorenameValues = keyof typeof Autorename;
+export type ModeValues = `${Mode}`;
+export type SourceValues = `${Source}`;
+export type AutorenameValues = `${Autorename}`;
 
 export type strings = string | string[];
 
