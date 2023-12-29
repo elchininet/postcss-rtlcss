@@ -214,7 +214,6 @@
     background-image: url("/icons/icon-l.png")
 }
 
-/*rtl:rename*/
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
@@ -223,7 +222,6 @@
     background-image: url("/icons/icon-p.png")
 }
 
-/*rtl:rename*/
 .test27-next {
     background-image: url("/icons/icon-n.png")
 }
@@ -242,12 +240,12 @@
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-/*rtl:begin:rename*/
+/*rtl:begin:urls*/
 .test28-right::before {
-    content: "keyboard_arrow_right";
+    background-image: url("/folder/subfolder/arrow-right.png");
 }
 
 /*rtl:begin:ignore*/
@@ -257,26 +255,26 @@
 /*rtl:end:ignore*/
 
 .testleft30 {
-    content: "keyboard_arrow_left";
+    background: url("/folder/subfolder/icon-ltr.png");
 }
-/*rtl:end:rename*/
+/*rtl:end:urls*/
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
-    /*rtl:rename*/
+    /*rtl:urls*/
     background-image: url("/icons/icon-left.png");
     border: 1px solid gray;
 }
 
 .test32 {
-    /*rtl:begin:rename*/
+    /*rtl:begin:urls*/
     align-items: center;
     background-image: url("/icons/icon-left.png");
     background-repeat: no-repeat;
-    /*rtl:end:rename*/
+    /*rtl:end:urls*/
     border: 1px solid gray;    
 }
 
@@ -402,6 +400,12 @@
     }
     .test47 {
         color: white;
+    }
+    .test47left {
+        content: "\f007";
+    }
+    .test47right {
+        content: "\f010";
     }
 }
 

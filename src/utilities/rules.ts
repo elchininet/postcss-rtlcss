@@ -6,9 +6,9 @@ import {
     Declaration
 } from 'postcss';
 import {
-    StringMap,
-    Autorename,
     RulesObject,
+    UnmodifiedRulesObject,
+    StringMap,
     Mode
 } from '@types';
 import {
@@ -229,10 +229,10 @@ export const removeEmptyRules = (rule: Container): void => {
 export const appendRules = (): void => {
     const { rules } = store;
     rules.forEach(({rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe}): void => {
-        ruleBoth && ruleBoth.nodes.length && rule.after(ruleBoth);
-        ruleRTL && ruleRTL.nodes.length && rule.after(ruleRTL);
-        ruleLTR && ruleLTR.nodes.length && rule.after(ruleLTR);
-        ruleSafe && ruleSafe.nodes.length && rule.after(ruleSafe);
+        ruleBoth.nodes.length && rule.after(ruleBoth);
+        ruleRTL.nodes.length && rule.after(ruleRTL);
+        ruleLTR.nodes.length && rule.after(ruleLTR);
+        ruleSafe.nodes.length && rule.after(ruleSafe);
         removeEmptyRules(rule);
         cleanRules(rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe);
     });
@@ -246,9 +246,9 @@ export const appendKeyFrames = (): void => {
     });
 };
 
-export const appendAutorenameRules = (): void => {
+export const parseRuleNames = (): void => {
 
-    if (!store.rulesAutoRename.length) {
+    if (!store.unmodifiedRules.length) {
         return;
     }
 
@@ -261,54 +261,107 @@ export const appendAutorenameRules = (): void => {
         });
         return hash;
     }, {});
-    
+
     const replaces = Object.keys(replaceHash).join('|');
     const replaceRegExp = store.options.greedy
         ? new RegExp(`(${replaces})`, 'g')
         : new RegExp(`\\b(${replaces})\\b`, 'g');
 
-    const rulesHash: Record<string, boolean> = {};
-    const rulesToProcess: Rule[] = [];
+    const rulesHash: Record<string, Rule> = {};
+    const rulesToProcess: UnmodifiedRulesObject[] = [];
 
-    store.rulesAutoRename.forEach((rule: Rule): void => {
+    store.unmodifiedRules.forEach((ruleObject: UnmodifiedRulesObject): void => {
         let process = false;
-        rule.selectors.forEach((selector: string): void => {
+        ruleObject.rule.selectors.forEach((selector: string): void => {
             if (replaceRegExp.test(selector)) {
-                rulesHash[selector] = true;
+                rulesHash[selector] = ruleObject.rule.clone();
                 process = true;
             }
             replaceRegExp.lastIndex = 0;
         });
         if (process) {
-            rulesToProcess.push(rule);
+            rulesToProcess.push(ruleObject);
         } else if (store.options.mode === Mode.diff) {
-            store.rulesToRemove.push(rule);
+            store.rulesToRemove.push(ruleObject.rule);
         }
     });
 
-    rulesToProcess.forEach((rule: Rule): void => {
+    rulesToProcess.forEach((ruleObject: UnmodifiedRulesObject): void => {
 
-        const selectorsBackup = rule.selectors.join('|');
+        const { rule, hasParentRule } = ruleObject;
+        const ruleFlipped = rule.clone();
+        const emptyRule = rule.clone().removeAll();
+        let ruleFlippedSecond: Rule | undefined = undefined;
 
-        rule.selectors = rule.selectors.map((selector: string): string => {
-
+        for (const selector of rule.selectors) {
             const flip = selector.replace(replaceRegExp, (match: string, group: string): string => replaceHash[group]);
-            
-            if (
-                store.options.autoRename !== Autorename.strict ||
-                (store.options.autoRename === Autorename.strict && rulesHash[flip])
-            ) {
-                return flip;
+            if (rulesHash[flip]) {
+                ruleFlippedSecond = rulesHash[flip].clone();
+                break;
+            }
+        }
+
+        if (ruleFlippedSecond) {
+
+            ruleFlippedSecond.selectors = ruleFlipped.selectors;
+
+            if (store.options.mode === Mode.combined) {
+
+                if (hasParentRule) {
+
+                    appendParentRuleToStore(
+                        rule.removeAll(),
+                        ruleFlipped,
+                        ruleFlippedSecond,
+                        emptyRule,
+                        emptyRule
+                    );
+    
+                } else {
+    
+                    insertRuleIntoStore(
+                        rule.removeAll(),
+                        ruleFlipped,
+                        ruleFlippedSecond,
+                        emptyRule,
+                        emptyRule
+                    );
+    
+                }
+
+            } else {
+
+                if (hasParentRule) {
+
+                    appendParentRuleToStore(
+                        store.options.mode === Mode.override
+                            ? rule
+                            : rule.removeAll(),
+                        ruleFlippedSecond,
+                        emptyRule,
+                        emptyRule,
+                        emptyRule
+                    );
+
+                } else {
+
+                    insertRuleIntoStore(
+                        store.options.mode === Mode.override
+                            ? rule
+                            : rule.removeAll(),
+                        ruleFlippedSecond,
+                        emptyRule,
+                        emptyRule,
+                        emptyRule
+                    );
+
+                }
+
             }
 
-            return selector;
+        }
 
-        });
-
-        if (
-            rule.selectors.join('|') === selectorsBackup &&
-            store.options.mode === Mode.diff
-        ) {
+        if (store.options.mode === Mode.diff) {
             store.rulesToRemove.push(rule);
         }
 

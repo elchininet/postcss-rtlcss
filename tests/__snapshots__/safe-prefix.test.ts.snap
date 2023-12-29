@@ -364,24 +364,32 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+[dir] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir="ltr"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir="ltr"] .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir] .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 [dir] .test31 {
@@ -587,6 +595,14 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -1051,24 +1067,32 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+[dir] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir="ltr"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir="ltr"] .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir] .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 [dir] .test31 {
@@ -1306,6 +1330,14 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -1738,24 +1770,40 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+[dir="ltr"] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="ltr"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir="ltr"] .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir="ltr"] .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir="rtl"] .testright30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
 [dir] .test31 {
@@ -1961,6 +2009,14 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -2392,24 +2448,32 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+[dir] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="ltr"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir="rtl"] .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+[dir="ltr"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir] .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 [dir] .test31 {
@@ -2615,6 +2679,14 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -2828,7 +2900,19 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} 1`]
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_right";
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -3121,7 +3205,19 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_right";
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -3418,7 +3514,19 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_right";
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.testright30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
 .test31 {
@@ -3691,7 +3799,19 @@ exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} and
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_right";
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -4171,24 +4291,32 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+[dir] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir] .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir] .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 [dir] .test31 {
@@ -4395,6 +4523,14 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -4844,24 +4980,32 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+[dir] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir] .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir] .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 [dir] .test31 {
@@ -5100,6 +5244,14 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -5523,24 +5675,40 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+[dir] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir] .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+[dir="rtl"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir] .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir="rtl"] .testright30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
 [dir] .test31 {
@@ -5747,6 +5915,14 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -6166,24 +6342,32 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+[dir] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="ltr"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir] .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+[dir="ltr"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir] .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 [dir] .test31 {
@@ -6384,6 +6568,14 @@ exports[`[[Mode: override]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 

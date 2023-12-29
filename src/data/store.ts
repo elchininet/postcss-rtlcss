@@ -5,13 +5,12 @@ import {
     AtRulesObject,
     AtRulesStringMap,
     RulesObject,
+    UnmodifiedRulesObject,
     strings,
     Mode,
-    ModeValues,
+    ModeValue,
     Source,
-    SourceValues,
-    Autorename,
-    AutorenameValues,
+    SourceValue,
     StringMap,
     PluginStringMap
 } from '@types';
@@ -29,9 +28,9 @@ interface Store {
     keyframesStringMap: AtRulesStringMap;
     keyframesRegExp: RegExp;
     rules: RulesObject[];
-    rulesAutoRename: Rule[];
     rulesToRemove: Rule[];
     rulesPrefixRegExp: RegExp;
+    unmodifiedRules: UnmodifiedRulesObject[];
 }
 
 const defaultRegExp = new RegExp('$-^');
@@ -66,14 +65,14 @@ const getRTLCSSStringMap = (stringMap: PluginStringMap[]): StringMap[] =>
         search: map.search,
         replace: map.replace,
         options: {
-            scope: '*',
+            scope: 'url',
             ignoreCase: false
         }
     }));
 
-const ModeValuesArray = Object.keys(Mode).map((prop: ModeValues) => Mode[prop] as ModeValues);
-const SourceValuesArray = Object.keys(Source).map((prop: SourceValues) => Source[prop] as SourceValues);
-const AutorenameValuesArray = Object.keys(Autorename).map((prop: AutorenameValues) => Autorename[prop] as AutorenameValues);
+const ModeValuesArray = Object.keys(Mode).map((prop: ModeValue) => Mode[prop] as ModeValue);
+const SourceValuesArray = Object.keys(Source).map((prop: SourceValue) => Source[prop] as SourceValue);
+
 const isNotStringOrStringArray = (value: strings): boolean => {
     if (typeof value !== 'string' && !Array.isArray(value)) {
         return true;
@@ -138,11 +137,11 @@ const defaultOptions = (): PluginOptionsNormalized => ({
     ignorePrefixedRules: true,
     source: Source.ltr,
     processUrls: false,
+    processRuleNames: false,
     processKeyFrames: false,
     processEnv: true,
     useCalc: false,
     stringMap: getRTLCSSStringMap(defaultStringMap),
-    autoRename: Autorename.disabled,
     greedy: false,
     aliases: {}
 });
@@ -154,9 +153,9 @@ const store: Store = {
     keyframesStringMap: {},
     keyframesRegExp: defaultRegExp,
     rules: [],
-    rulesAutoRename: [],
     rulesToRemove: [],
-    rulesPrefixRegExp: defaultRegExp
+    rulesPrefixRegExp: defaultRegExp,
+    unmodifiedRules: []
 };
 
 const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
@@ -166,9 +165,6 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     }
     if (options.source && SourceValuesArray.includes(options.source)) {
         returnOptions.source = options.source;
-    }
-    if (options.autoRename && AutorenameValuesArray.includes(options.autoRename)) {
-        returnOptions.autoRename = options.autoRename;
     }
     if (typeof options.ignorePrefixedRules === BOOLEAN_TYPE) {
         returnOptions.ignorePrefixedRules = options.ignorePrefixedRules;
@@ -193,6 +189,9 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     }
     if (typeof options.processUrls === BOOLEAN_TYPE) {
         returnOptions.processUrls = options.processUrls;
+    }
+    if (typeof options.processRuleNames === BOOLEAN_TYPE) {
+        returnOptions.processRuleNames = options.processRuleNames;
     }
     if (typeof options.processKeyFrames === BOOLEAN_TYPE) {
         returnOptions.processKeyFrames = options.processKeyFrames;
@@ -228,9 +227,9 @@ const initStore = (options: PluginOptions): void => {
     store.keyframesStringMap = {};
     store.keyframesRegExp = defaultRegExp;
     store.rules = [];
-    store.rulesAutoRename = [];
     store.rulesToRemove = [];
     store.rulesPrefixRegExp = createRulesPrefixesRegExp(store.options);
+    store.unmodifiedRules = [];
 };
 
 const getKeyFramesStringMap = (keyframes: AtRulesObject[]): AtRulesStringMap => {

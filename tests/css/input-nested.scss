@@ -75,6 +75,12 @@
     .test13 {
         text-align: right;
     }
+    .test13-left {
+        content: "\f007";
+    }
+    .test13-right {
+        content: "\f010";
+    }
 }
 
 @mixin padding {
