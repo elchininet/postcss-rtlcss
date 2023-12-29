@@ -567,7 +567,7 @@ exports[`[[Mode: override]] Prefixed Tests:  Custom prefixes 1`] = `
     background-image: url("/icons/icon-right.png");
 }
 
-[dir="rtl"] .test8-rtl {
+[dir="ltr"] .test8-ltr {
     background-image: url("/icons/icon-ltr.png");
 }
 
@@ -575,7 +575,7 @@ exports[`[[Mode: override]] Prefixed Tests:  Custom prefixes 1`] = `
     background-image: url("/icons/icon-rtl.png");
 }
 
-[dir="ltr"] .test8-ltr {
+[dir="rtl"] .test8-rtl {
     background-image: url("/icons/icon-rtl.png");
 }
 
@@ -645,7 +645,7 @@ exports[`[[Mode: override]] Prefixed Tests:  Prefixed default 1`] = `
     left: 5px;
 }
 
-.rtl .test7-rtl {
+.ltr .test7-ltr {
     background-image: url("/icons/icon-left.png");
 }
 
@@ -653,7 +653,7 @@ exports[`[[Mode: override]] Prefixed Tests:  Prefixed default 1`] = `
     background-image: url("/icons/icon-right.png");
 }
 
-.ltr .test7-ltr {
+.rtl .test7-rtl {
     background-image: url("/icons/icon-right.png");
 }
 
@@ -807,7 +807,7 @@ exports[`[[Mode: override]] Prefixed Tests:  ignorePrefixedRules false 1`] = `
     left: 5px;
 }
 
-.rtl .test7-rtl {
+.ltr .test7-ltr {
     background-image: url("/icons/icon-left.png");
 }
 
@@ -815,7 +815,7 @@ exports[`[[Mode: override]] Prefixed Tests:  ignorePrefixedRules false 1`] = `
     background-image: url("/icons/icon-right.png");
 }
 
-.ltr .test7-ltr {
+.rtl .test7-rtl {
     background-image: url("/icons/icon-right.png");
 }
 
@@ -823,7 +823,7 @@ exports[`[[Mode: override]] Prefixed Tests:  ignorePrefixedRules false 1`] = `
     background-image: url("/icons/icon-left.png");
 }
 
-[dir="rtl"] .test8-rtl {
+[dir="ltr"] .test8-ltr {
     background-image: url("/icons/icon-ltr.png");
 }
 
@@ -831,7 +831,7 @@ exports[`[[Mode: override]] Prefixed Tests:  ignorePrefixedRules false 1`] = `
     background-image: url("/icons/icon-rtl.png");
 }
 
-[dir="ltr"] .test8-ltr {
+[dir="rtl"] .test8-rtl {
     background-image: url("/icons/icon-rtl.png");
 }
 

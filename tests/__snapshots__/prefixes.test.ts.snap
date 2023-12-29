@@ -319,7 +319,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -345,23 +345,31 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.ltr .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.rtl .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+.ltr .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+.rtl .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -561,6 +569,14 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -954,7 +970,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -980,23 +996,31 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.ltr .test28-right::before, .left-to-right .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.rtl .test28-right::before, .right-to-left .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+.ltr .testleft30, .left-to-right .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+.rtl .testleft30, .right-to-left .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -1196,6 +1220,14 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -1593,7 +1625,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -1618,24 +1650,40 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     white-space: nowrap;
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_left";
+.ltr .test28-left::before, .left-to-right .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.rtl .test28-left::before, .right-to-left .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.ltr .test28-right::before, .left-to-right .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.rtl .test28-right::before, .right-to-left .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+.ltr .testleft30, .left-to-right .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
-.testright30 {
-    content: "keyboard_arrow_right";
+.rtl .testleft30, .right-to-left .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.ltr .testright30, .left-to-right .testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.rtl .testright30, .right-to-left .testright30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
 .test31 {
@@ -1835,6 +1883,14 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -2218,7 +2274,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -2244,23 +2300,31 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.ltr.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.rtl.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+.ltr.testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+.rtl.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -2460,6 +2524,14 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -2843,7 +2915,7 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -2869,23 +2941,31 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+[dir="ltr"] > .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] > .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
     border: 1px solid gray;
 }
 
-.testleft30 {
-    content: "keyboard_arrow_left";
+[dir="ltr"] > .testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+[dir="rtl"] > .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -3086,6 +3166,14 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     .test47 {
         color: white;
     }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
+    }
 }
 
 @media only screen and (min-device-width: 320px) {
@@ -3230,12 +3318,12 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
     border-bottom-color: #666;
 }
 
-.test26-ltr {
-    background-image: url("/icons/icon-r.png")
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -3420,12 +3508,12 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properti
     border-bottom-color: #666;
 }
 
-.test26-ltr {
-    background-image: url("/icons/icon-r.png")
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -3612,12 +3700,20 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPr
     border-bottom-color: #666;
 }
 
-.test26-ltr {
-    background-image: url("/icons/icon-r.png")
+.test28-left::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.testright30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
 .test31 {
@@ -3802,12 +3898,12 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with custom l
     border-bottom-color: #666;
 }
 
-.test26-ltr {
-    background-image: url("/icons/icon-r.png")
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -3992,12 +4088,12 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with default 
     border-bottom-color: #666;
 }
 
-.test26-ltr {
-    background-image: url("/icons/icon-r.png")
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -4393,7 +4489,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -4419,11 +4515,15 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.rtl .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
@@ -4431,11 +4531,15 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 }
 
 .testleft30 {
-    content: "keyboard_arrow_left";
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+.rtl .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -4618,6 +4722,14 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -4975,7 +5087,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -5001,11 +5113,15 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.rtl .test28-right::before, .right-to-left .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
@@ -5013,11 +5129,15 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 }
 
 .testleft30 {
-    content: "keyboard_arrow_left";
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+.rtl .testleft30, .right-to-left .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -5200,6 +5320,14 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -5561,7 +5689,7 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -5587,11 +5715,19 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.rtl .test28-left::before, .right-to-left .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.rtl .test28-right::before, .right-to-left .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
@@ -5599,11 +5735,19 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 }
 
 .testleft30 {
-    content: "keyboard_arrow_left";
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+.rtl .testleft30, .right-to-left .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.rtl .testright30, .right-to-left .testright30 {
+    background: url("/folder/subfolder/icon-ltr.png");
 }
 
 .test31 {
@@ -5786,6 +5930,14 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -6138,7 +6290,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -6164,11 +6316,15 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.rtl.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
@@ -6176,11 +6332,15 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 }
 
 .testleft30 {
-    content: "keyboard_arrow_left";
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+.rtl.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -6363,6 +6523,14 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 
@@ -6715,7 +6883,7 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-ltr {
+.test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
 
@@ -6741,11 +6909,15 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .test28-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
-.test28-left::before {
-    content: "keyboard_arrow_right";
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] > .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
 }
 
 .testleft29 {
@@ -6753,11 +6925,15 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
 }
 
 .testleft30 {
-    content: "keyboard_arrow_left";
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+[dir="rtl"] > .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .testright30 {
-    content: "keyboard_arrow_right";
+    background: url("/folder/subfolder/icon-rtl.png");
 }
 
 .test31 {
@@ -6940,6 +7116,14 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
 
     .test47 {
         color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
     }
 }
 

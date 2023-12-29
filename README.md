@@ -45,7 +45,7 @@ Basic usage
 ```javascript
 const postcss = require('postcss');
 const postcssRTLCSS = require('postcss-rtlcss');
-const { Mode, Source, Autorename } = require('postcss-rtlcss/options');
+const { Mode, Source } = require('postcss-rtlcss/options');
 
 const options = { ... available options ... };
 const result = postcss([
@@ -65,7 +65,7 @@ const { postcssRTLCSS, Mode, Source, Autorename } = require('postcss-rtlcss');
 ```javascript
 import postcss from 'postcss';
 import postcssRTLCSS from 'postcss-rtlcss';
-import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
+import { Mode, Source } from 'postcss-rtlcss/options';
 
 const options = { ... available options ... };
 const result = postcss([
@@ -361,12 +361,12 @@ All the options are optional, and a default value will be used if any of them is
 | ignorePrefixedRules| `boolean`                 | true            | Ignores rules that have been prefixed with some of the prefixes contained in `ltrPrefix`, `rtlPrefix`, or `bothPrefix` |
 | source             | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
 | processUrls        | `boolean`                 | `false`         | Change the strings in URLs using the string map         |
+| processRuleNames   | `boolean`                 | `false`         | Swap two rules containing no directional properties if they match any entry in `stringMap` when the direction changes |
 | processKeyFrames   | `boolean`                 | `false`         | Flip keyframe animations                                     |
 | processEnv         | `boolean`                 | `true`          | When processEnv is false, it prevents flipping agent-defined environment variables (`safe-area-inset-left` and `safe-area-inset-right`) |
 | useCalc            | `boolean`                 | `false`         | Flips `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
-| stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the URLs and rules selectors names |
-| autoRename         | `Autorename (string)`     | `Autorename.disabled` | Flip or not the selectors names of the rules without directional properties using the `stringMap` |
-| greedy             | `boolean`                 | `false`         | When `autoRename` is enabled and greedy is `true`, the strings replacements will not take into account word boundaries |
+| stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the declarations' URLs and to match the names of the rules if `processRuleNames` is `true` |
+| greedy             | `boolean`                 | `false`         | When greedy is `true`, the matches of `stringMap` will not take into account word boundaries |
 | aliases            | `Record<string, string>`  | `{}`            | A strings map to treat some declarations as others |
 
 ---
@@ -915,6 +915,70 @@ const options = { processUrls: true };
 
 ---
 
+#### processRuleNames
+
+<details><summary>Expand</summary>
+<p>
+
+If it is `true`, it swaps two rules containing no directional properties if they match any entry in `stringMap` when the direction changes
+
+>Note that this option will not prefix those rules that have been processed already because they had directional properties.
+
+##### input
+
+```css
+.test1-ltr {
+    color: #FFF;
+}
+
+.test2-left::before {
+    content: "\f007";
+}
+
+.test2-right::before {
+    content: "\f010";
+}
+```
+
+##### processRuleNames true
+
+```javascript
+const options = {
+    processRuleNames: true
+};
+```
+
+##### output
+
+```css
+/* This selector will not be processed because it doesn't have a counterpart */
+.test1-ltr {
+    color: #FFF;
+}
+
+[dir="ltr"] .test2-left::before {
+    content: "\f007";
+}
+
+[dir="rtl"] .test2-left::before {
+    content: "\f010";
+}
+
+[dir="ltr"] .test2-right::before {
+    content: "\f010";
+}
+
+[dir="rtl"] .test2-right::before {
+    content: "\f007";
+}
+```
+
+</p>
+
+</details>
+
+---
+
 #### processKeyFrames
 
 <details><summary>Expand</summary>
@@ -1197,7 +1261,7 @@ const options = { useCalc: true };
 <details><summary>Expand</summary>
 <p>
 
-An array of strings maps that will be used to make the replacements of the URLs and rules selectors names. The name parameter is optional, but if you want to override any of the default string maps, just add your own using the same name.
+An array of strings maps that will be used to make the replacements of the declarations' URLs and to match rules selectors names if the `processRuleNames` option is `true`. The name parameter is optional, but if you want to override any of the default string maps, just add your own using the same name.
 
 ```javascript
 // This is the default string map object
@@ -1223,114 +1287,30 @@ const options = {
 
 ---
 
-#### autoRename
-
-<details><summary>Expand</summary>
-<p>
-
-Flip or not the selectors names of the rules without directional properties using the `stringMap`.
-
-##### input
-
-```css
-.test1-ltr {
-    color: #FFF;
-}
-
-.test2-left::before {
-    content: "\f007";
-}
-
-.test2-right::before {
-    content: "\f010";
-}
-```
-
-##### Using Autorename.flexible
-
-```javascript
-import { Autorename } from 'postcss-rtlcss/options';
-
-const options = {
-    autoRename: Autorename.flexible
-};
-```
-
-##### output
-
-```css
-.test1-rtl {
-    color: #FFF;
-}
-
-.test2-right::before {
-    content: "\f007";
-}
-
-.test2-left::before {
-    content: "\f010";
-}
-```
-
-##### Using Autorename.strict
-
-```javascript
-import { Autorename } from 'postcss-rtlcss/options';
-
-const options = {
-    autoRename: Autorename.strict
-};
-```
-
-##### output
-
-```css
-/* This selector will not be flipped because it doesn't have a counterpart */
-.test1-ltr {
-    color: #FFF;
-}
-
-.test2-right::before {
-    content: "\f007";
-}
-
-.test2-left::before {
-    content: "\f010";
-}
-```
-
-</p>
-
-</details>
-
----
-
 #### greedy
 
 <details><summary>Expand</summary>
 <p>
 
-When `autoRename` is enabled and greedy is `true`, the strings replacements will not take into account word boundaries.
+When `greedy` is `true`, the matches of the `stringMap` will not take into account word boundaries.
 
 ##### input
 
 ```css
-.test1-ltr {
-    color: #FFF;
+.test1 {
+    background: url("icon-left.png");
 }
 
-.test2ltr {
-    width: 100%;
+.test2 {
+    background: url("icon-ultra.png");
 }
 ```
 
 ##### greedy false
 
 ```javascript
-import { Autorename } from 'postcss-rtlcss/options';
-
 const options = {
-    autoRename: Autorename.flexible,
+    processUrls: true,
     greedy: false // This is the default value
 };
 ```
@@ -1338,22 +1318,24 @@ const options = {
 ##### output
 
 ```css
-.test1-rtl {
-    color: #FFF;
+[dir="ltr"] .test1 {
+    background: url("icon-left.png");
 }
 
-.test2ltr {
-    width: 100%;
+[dir="rtl"] .test1 {
+    background: url("icon-right.png");
+}
+
+.test2 {
+    background: url("icon-ultra.png");
 }
 ```
 
 ##### greedy true
 
 ```javascript
-import { Autorename } from 'postcss-rtlcss/options';
-
 const options = {
-    autoRename: Autorename.flexible,
+    processUrls: true,
     greedy: true
 };
 ```
@@ -1361,12 +1343,20 @@ const options = {
 ##### output
 
 ```css
-.test1-rtl {
-    color: #FFF;
+[dir="ltr"] .test1 {
+    background: url("icon-left.png");
 }
 
-.test2rtl {
-    width: 100%;
+[dir="rtl"] .test1 {
+    background: url("icon-right.png");
+}
+
+[dir="ltr"] .test2 {
+    background: url("icon-ultra.png");
+}
+
+[dir="rtl"] .test2 {
+    background: url("icon-urtla.png");
 }
 ```
 
@@ -1453,9 +1443,9 @@ Control directives are placed between rules or declarations. They can target a s
 | `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                                                           |
 | `/*rtl:begin:ignore*/`   | Starts an ignoring block                                                                                          |
 | `/*rtl:end:ignore*/`     | Ends an ignoring block                                                                                            |
-| `/*rtl:rename*/`         | This directive forces renaming in the next rule or declaration no mattering the value of the properties `processUrls` or `autoRename`  |
-| `/*rtl:begin:rename*/`   | Starts a renaming block                                                                                           |
-| `/*rtl:end:rename*/`     | Ends a renaming block                                                                                             |
+| `/*rtl:urls*/`         | This directive set the `processUrls` option to `true` in the next declaration or in the declarations of the next rule no mattering the value of the global `processUrls` option  |
+| `/*rtl:begin:urls*/`   | Starts a `processUrls` block block                                                                                           |
+| `/*rtl:end:urls*/`     | Ends a `processUrls` block block                                                                                             |
 | `/*rtl:source:{source}*/`| Set the source of a rule or a declaration no mattering the value of the `source` property                         |
 | `/*rtl:begin:source:{source}*/` | Starts a source block                                                                                      |
 | `/*rtl:end:source*/`     | Ends a source block                                                                                               |
@@ -1602,23 +1592,23 @@ Ignoring multiple declarations:
 
 ---
 
-#### `/*rtl:rename*/`
+#### `/*rtl:urls*/`
 
 <details><summary>Expand</summary>
 <p>
 
-This directive forces renaming of the following rule or declaration no mattering the value of the properties `processUrls` or `autoRename`:
+This directive set the `processUrls` option to `true` in the next declaration or in the declarations of the next rule no mattering the value of the global `processUrls` option:
 
 ##### input
 
 ```css
-/*rtl:rename*/
-.test-left {
-    width: 100%;
+/*rtl:urls*/
+.test1 {
+    background-image: url("/buttons/button-ltr.png");
 }
 
-.test {
-    /*rtl:rename*/
+.test2 {
+    /*rtl:urls*/
     background-image: url("/icons/icon-left.png");
 }
 ```
@@ -1626,15 +1616,19 @@ This directive forces renaming of the following rule or declaration no mattering
 ##### output
 
 ```css
-.test-right {
-    width: 100%
+[dir="ltr"] .test1 {
+    background-image: url("/buttons/button-ltr.png");
 }
 
-[dir="ltr"] .test {
+[dir="rtl"] .test1 {
+    background-image: url("/buttons/button-rtl.png");
+}
+
+[dir="ltr"] .test2 {
     background-image: url("/icons/icon-left.png");
 }
 
-[dir="rtl"] .test {
+[dir="rtl"] .test2 {
     background-image: url("/icons/icon-right.png");
 }
 ```
@@ -1645,51 +1639,59 @@ This directive forces renaming of the following rule or declaration no mattering
 
 ---
 
-#### `/*rtl:begin:rename*/` and `/*rtl:end:rename*/`
+#### `/*rtl:begin:urls*/` and `/*rtl:end:urls*/`
 
 <details><summary>Expand</summary>
 <p>
 
-These directives should be used together, they will provide the beginning and the end for renaming rules or declarations.
+These directives should be used together, they will provide the beginning and the end for `processUrls` blocks.
 
 ##### input
 
 ```css
-/*rtl:begin:rename*/
-.icon-left {
-    content: "\\f40";
+/*rtl:begin:urls*/
+.test1 {
+    background-image: url("/buttons/button-ltr.png");
 }
 
-.icon-right {
-    content: "\\f56";
+.test2 {
+    background-image: url("/icons/icon-left.png");
 }
-/*rtl:end:rename*/
+/*rtl:end:urls*/
 
-.test {
-    /*rtl:begin:rename*/
+.test3 {
+    /*rtl:begin:urls*/
     background-image: url("/images/background-left.png");
     cursor: url("/images/cursor-ltr.png");
-    /*rtl:end:rename*/
+    /*rtl:end:urls*/
 }
 ```
 
 ##### output
 
 ```css
-.icon-right {
-    content: "\\f40";
+[dir="ltr"] .test1 {
+    background-image: url("/buttons/button-ltr.png");
 }
 
-.icon-left {
-    content: "\\f56";
+[dir="rtl"] .test1 {
+    background-image: url("/buttons/button-rtl.png");
 }
 
-[dir="ltr"] .test {
+[dir="ltr"] .test2 {
+    background-image: url("/icons/icon-left.png");
+}
+
+[dir="rtl"] .test2 {
+    background-image: url("/icons/icon-right.png");
+}
+
+[dir="ltr"] .test3 {
     background-image: url("/images/background-left.png");
     cursor: url("/images/cursor-ltr.png");
 }
 
-[dir="rtl"] .test {
+[dir="rtl"] .test3 {
     background-image: url("/images/background-right.png");
     cursor: url("/images/cursor-rtl.png");
 }

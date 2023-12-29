@@ -7,7 +7,6 @@ import postcss, {
 import rtlcss from 'rtlcss';
 import {
     Mode,
-    Autorename,
     ControlDirective,
     DeclarationHashMap
 } from '@types';
@@ -46,7 +45,7 @@ export const parseDeclarations = (
     rule: Rule,
     hasParentRule: boolean,
     ruleSourceDirectiveValue: string,
-    autorenamed = false
+    renamed: boolean
 ): void => {
 
     const {
@@ -54,10 +53,10 @@ export const parseDeclarations = (
         source,
         safeBothPrefix,
         processUrls,
+        processRuleNames,
         processEnv,
         useCalc,
         stringMap,
-        autoRename,
         greedy,
         aliases
     } = store.options;
@@ -83,9 +82,8 @@ export const parseDeclarations = (
     }, {});
 
     const declarationsProps: string[] = [];
-    let simetricRules = false;
-
     const controlDirectives: Record<string, ControlDirective> = {};
+    let simetricRules = false;
     
     walkContainer(
         rule,
@@ -150,17 +148,15 @@ export const parseDeclarations = (
                 return;
             }
 
-            const processUrlDirective = checkDirective(controlDirectives, CONTROL_DIRECTIVE.RENAME);
+            const processUrlDirective = checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS);
 
             const decl = node as Declaration;
             const declString = `${decl.toString()};`;
             const declFlippedString = rtlcss.process(declString, {
-                processUrls: processUrls || processUrlDirective,
+                processUrls: renamed || processUrls || processUrlDirective,
                 processEnv,
                 useCalc,
                 stringMap,
-                autoRename: autoRename !== Autorename.disabled,
-                autoRenameStrict: autoRename === Autorename.strict,
                 greedy,
                 aliases
             });
@@ -383,7 +379,6 @@ export const parseDeclarations = (
         ruleBoth.nodes.length ||
         ruleSafe.nodes.length
     ) {
-
         if (hasParentRule) {
             appendParentRuleToStore(
                 rule,
@@ -401,16 +396,17 @@ export const parseDeclarations = (
                 ruleSafe
             );
         }
-
     } else if (
-        autoRename !== Autorename.disabled &&
-        !simetricRules &&
-        !autorenamed
+        processRuleNames &&
+        !simetricRules
     ) {
-        store.rulesAutoRename.push(rule);
+        store.unmodifiedRules.push({
+            rule,
+            hasParentRule
+        });
     } else if (
         mode === Mode.diff &&
-        !autorenamed
+        !renamed
     ) {
         store.rulesToRemove.push(rule);
     }

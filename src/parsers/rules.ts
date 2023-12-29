@@ -106,28 +106,15 @@ export const parseRules = (
                 parentSourceDirective
             );
 
-            if (checkDirective(controlDirectives, CONTROL_DIRECTIVE.RENAME)) {
-                if (!hasSelectorsPrefixed(rule)) {
-                    store.rulesAutoRename.push(rule);
-                    parseDeclarations(
-                        rule,
-                        hasParentRule,
-                        sourceDirectiveValue,
-                        true
-                    );
-                } else {
-                    addToIgnoreRulesInDiffMode(rule);
-                }
+            if (hasSelectorsPrefixed(rule)) {
+                addToIgnoreRulesInDiffMode(rule);
             } else {
-                if (!hasSelectorsPrefixed(rule)) {
-                    parseDeclarations(
-                        rule,
-                        hasParentRule,
-                        sourceDirectiveValue
-                    );
-                } else {
-                    addToIgnoreRulesInDiffMode(rule);
-                }
+                parseDeclarations(
+                    rule,
+                    hasParentRule,
+                    sourceDirectiveValue,
+                    checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS)
+                );
             }
             
             parseRules(

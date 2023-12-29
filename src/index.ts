@@ -6,7 +6,7 @@ import { parseRules } from '@parsers/rules';
 import {
     appendRules,
     appendKeyFrames,
-    appendAutorenameRules
+    parseRuleNames
 } from '@utilities/rules';
 import { clean } from '@utilities/clean';
 
@@ -18,9 +18,9 @@ function postcssRTLCSS (options: PluginOptions = {}): Plugin {
             parseKeyFrames(css);
             parseAtRules(css);
             parseRules(css);
+            parseRuleNames();
             appendRules();
             appendKeyFrames();
-            appendAutorenameRules();
             clean(css);
         }
     });

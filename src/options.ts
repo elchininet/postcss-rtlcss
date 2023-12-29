@@ -1,7 +1,3 @@
-import { Mode, Source, Autorename } from '@types';
+import { Mode, Source } from '@types';
 
-export {
-    Mode,
-    Source,
-    Autorename
-};
+export { Mode, Source };

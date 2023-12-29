@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.0.0] - 2023-12-29
+
+- Breaking change: removed `autoRename` option and `/*rtl:rename*/`, `/*rtl:begin:rename*/`, and `/*rtl:end:rename*/` directives
+- Fixed a bug: `/*rtl:begin:urls*/` and `/*rtl:end:urls*/` (previously `/*rtl:begin:rename*/` and `/*rtl:end:rename*/`) blocks didn't change the URL names inside rules if started outside
+- New option: `processRuleNames`, if this option is `true`, rules with no directional properties that match any entry in the `stringMap` will be swapped when the direction changes
+- New directives: `/*rtl:urls*/`, `/*rtl:begin:urls*/`, and `/*rtl:end:urls*/` have replaced `/*rtl:rename*/`, `/*rtl:begin:rename*/`, and `/*rtl:end:rename*/` and they only take effect in declarations' URLs
+
+
 ## [4.0.9] - 2023-11-10
 
 - Update RTLCSS to version 4.1.1

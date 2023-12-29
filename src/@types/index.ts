@@ -15,15 +15,8 @@ export enum Source {
     rtl = 'rtl'
 }
 
-export enum Autorename {
-    disabled = 'disabled',
-    flexible = 'flexible',
-    strict = 'strict'
-}
-
-export type ModeValues = `${Mode}`;
-export type SourceValues = `${Source}`;
-export type AutorenameValues = `${Autorename}`;
+export type ModeValue = `${Mode}`;
+export type SourceValue = `${Source}`;
 
 export type strings = string | string[];
 
@@ -49,20 +42,20 @@ export interface PluginStringMap {
 export type PrefixSelectorTransformer = (prefix: string, selector: string) => string | void;
 
 export interface PluginOptions {
-    mode?: ModeValues;
+    mode?: ModeValue;
     ltrPrefix?: strings;
     rtlPrefix?: strings;
     bothPrefix?: strings;
     prefixSelectorTransformer?: PrefixSelectorTransformer;
     safeBothPrefix?: boolean;
     ignorePrefixedRules?: boolean;
-    source?: SourceValues;
+    source?: SourceValue;
     processUrls?: boolean;
+    processRuleNames?: boolean;
     processKeyFrames?: boolean;
     processEnv?: boolean;
     useCalc?: boolean;
     stringMap?: PluginStringMap[];
-    autoRename?: AutorenameValues;
     greedy?: boolean;
     aliases?: Record<string, string>;
 }
@@ -78,6 +71,11 @@ export interface RulesObject {
     ruleRTL: Rule;
     ruleBoth: Rule;
     ruleSafe: Rule;
+}
+
+export interface UnmodifiedRulesObject {
+    rule: Rule;
+    hasParentRule: boolean;
 }
 
 export interface AtRulesObject {

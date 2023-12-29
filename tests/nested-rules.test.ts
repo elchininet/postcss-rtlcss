@@ -19,9 +19,23 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);
     });
+
+    it('{source: rtl} processRuleNames: true', (): void => {
+      const options: PluginOptions = { ...pluginOptions, source: Source.rtl, processRuleNames: true };
+      const output = postcss([postcssRTLCSS(options)]).process(input);
+      expect(output.css).toMatchSnapshot();
+      expect(output.warnings()).toHaveLength(0);
+    });
   
     it('{source: ltr}', (): void => {
       const options: PluginOptions = { ...pluginOptions, source: Source.ltr };
+      const output = postcss([postcssRTLCSS(options)]).process(input);
+      expect(output.css).toMatchSnapshot();
+      expect(output.warnings()).toHaveLength(0);
+    });
+
+    it('{source: ltr} processRuleNames: true', (): void => {
+      const options: PluginOptions = { ...pluginOptions, source: Source.ltr, processRuleNames: true };
       const output = postcss([postcssRTLCSS(options)]).process(input);
       expect(output.css).toMatchSnapshot();
       expect(output.warnings()).toHaveLength(0);

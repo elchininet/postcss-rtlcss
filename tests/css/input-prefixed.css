@@ -41,7 +41,7 @@
 }
 */
 
-/*rtl:begin:rename*/
+/*rtl:begin:urls*/
 .ltr .test7-ltr {
     background-image: url("/icons/icon-left.png");
 }
@@ -57,4 +57,4 @@
 [dir="rtl"] .test8-rtl {
     background-image: url("/icons/icon-rtl.png");
 }
-/*rtl:end:rename*/
+/*rtl:end:urls*/
