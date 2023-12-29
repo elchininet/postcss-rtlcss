@@ -1438,6 +1438,8 @@ Control Directives
 
 Control directives are placed between rules or declarations. They can target a single node or a set of nodes.
 
+>Note: block directives (the ones that start with `begin` and end with `end`) should be placed outside rules to apply the directive to multiple rules or inside a rule to apply the directive to multiple declarations. You should not place the begin of a directive outside a rule and the end inside one (or vice versa) or you will get undesired results.
+
 | Directive                | Description                                                                                                                                    |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                                                           |
@@ -1458,7 +1460,7 @@ Control directives are placed between rules or declarations. They can target a s
 <details><summary>Expand</summary>
 <p>
 
-This directive ignores processing of the following rule or declaration. In the next block the whole declaration will be ignored:
+This directive ignores processing of the following rule or declaration. In the next block the whole declaration will be ignored.
 
 ##### input
 
