@@ -210,6 +210,7 @@
     width: 100%;
 }
 
+/*rtl:begin:rules*/
 .test25, .test26-ltr, .test27 {
     background-image: url("/icons/icon-l.png")
 }
@@ -217,6 +218,7 @@
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
 }
+/*rtl:end:rules*/
 
 .test27-prev {
     background-image: url("/icons/icon-p.png")
@@ -401,9 +403,11 @@
     .test47 {
         color: white;
     }
+    /*rtl:rules*/
     .test47left {
         content: "\f007";
     }
+    /*rtl:rules*/
     .test47right {
         content: "\f010";
     }

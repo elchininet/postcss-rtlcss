@@ -351,12 +351,20 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -1028,12 +1036,20 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processUrls: true} 1`] = `
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -1713,12 +1729,20 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl, processKeyFrames
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -2386,12 +2410,20 @@ exports[`[[Mode: combined]] Basic Options Tests:  {source: rtl} 1`] = `
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -3028,12 +3060,20 @@ exports[`[[Mode: combined]] Basic Options Tests:  {useCalc: true} 1`] = `
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -3669,12 +3709,20 @@ exports[`[[Mode: combined]] Basic Options Tests:  Basic 1`] = `
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -4106,6 +4154,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processKeyFrames: true} 1`] = `
     border-bottom-color: #666;
 }
 
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
 .test28-right::before {
     background-image: url("/folder/subfolder/arrow-left.png");
 }
@@ -4328,6 +4384,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {processUrls: true} 1`] = `
 .test24 {
     border: 1px solid #000;
     border-bottom-color: #666;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test28-left::before {
@@ -4558,6 +4622,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl, processKeyFrames: tr
     border-bottom-color: #666;
 }
 
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
 .test28-right::before {
     background-image: url("/folder/subfolder/arrow-left.png");
 }
@@ -4780,6 +4852,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {source: rtl} 1`] = `
     border-bottom-color: #666;
 }
 
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
 .test28-right::before {
     background-image: url("/folder/subfolder/arrow-left.png");
 }
@@ -4971,6 +5051,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  {useCalc: true} 1`] = `
     border-bottom-color: #666;
 }
 
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
 .test28-right::before {
     background-image: url("/folder/subfolder/arrow-left.png");
 }
@@ -5159,6 +5247,14 @@ exports[`[[Mode: diff]] Basic Options Tests:  Basic 1`] = `
 .test24 {
     border: 1px solid #000;
     border-bottom-color: #666;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test28-right::before {
@@ -5592,8 +5688,16 @@ exports[`[[Mode: override]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -6221,8 +6325,16 @@ exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -6852,8 +6964,16 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl, processKeyFrames
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -7471,8 +7591,16 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -8059,8 +8187,16 @@ exports[`[[Mode: override]] Basic Options Tests:  {useCalc: true} 1`] = `
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -8652,8 +8788,16 @@ exports[`[[Mode: override]] Basic Options Tests:  Basic 1`] = `
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {

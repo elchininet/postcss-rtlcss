@@ -319,12 +319,20 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -972,12 +980,20 @@ exports[`[[Mode: combined]] String Map Tests:  custom no-valid string map and pr
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -1625,12 +1641,20 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map and processUrls
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -2278,12 +2302,20 @@ exports[`[[Mode: combined]] String Map Tests:  custom string map without names a
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] .test25, [dir="ltr"] .test26-ltr, [dir="ltr"] .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -2695,6 +2727,14 @@ exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and proces
     border-bottom-color: #666;
 }
 
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
 .test28-left::before {
     background-image: url("/folder/subfolder/arrow-right.png");
 }
@@ -2893,6 +2933,14 @@ exports[`[[Mode: diff]] String Map Tests:  custom no-valid string map and proces
 .test24 {
     border: 1px solid #000;
     border-bottom-color: #666;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test28-left::before {
@@ -3095,6 +3143,14 @@ exports[`[[Mode: diff]] String Map Tests:  custom string map and processUrls: tr
     border-bottom-color: #666;
 }
 
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
 .test28-left::before {
     background-image: url("/folder/subfolder/arrow-right.png");
 }
@@ -3293,6 +3349,14 @@ exports[`[[Mode: diff]] String Map Tests:  custom string map without names and p
 .test24 {
     border: 1px solid #000;
     border-bottom-color: #666;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test28-left::before {
@@ -3708,8 +3772,16 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -4313,8 +4385,16 @@ exports[`[[Mode: override]] String Map Tests:  custom no-valid string map and pr
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -4918,8 +4998,16 @@ exports[`[[Mode: override]] String Map Tests:  custom string map and processUrls
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -5523,8 +5611,16 @@ exports[`[[Mode: override]] String Map Tests:  custom string map without names a
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {

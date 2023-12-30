@@ -315,12 +315,20 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+.ltr .test25, .ltr .test26-ltr, .ltr .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+.rtl .test25, .rtl .test26-ltr, .rtl .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+.ltr .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+.rtl .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -966,12 +974,20 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+.ltr .test25, .left-to-right .test25, .ltr .test26-ltr, .left-to-right .test26-ltr, .ltr .test27, .left-to-right .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+.rtl .test25, .right-to-left .test25, .rtl .test26-ltr, .right-to-left .test26-ltr, .rtl .test27, .right-to-left .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+.ltr .test26-rtl, .left-to-right .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+.rtl .test26-rtl, .right-to-left .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -1621,12 +1637,20 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+.ltr .test25, .left-to-right .test25, .ltr .test26-ltr, .left-to-right .test26-ltr, .ltr .test27, .left-to-right .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+.rtl .test25, .right-to-left .test25, .rtl .test26-ltr, .right-to-left .test26-ltr, .rtl .test27, .right-to-left .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+.ltr .test26-rtl, .left-to-right .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+.rtl .test26-rtl, .right-to-left .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -2270,12 +2294,20 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+.ltr.test25, .ltr.test26-ltr, .ltr.test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+.rtl.test25, .rtl.test26-ltr, .rtl.test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+.ltr.test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+.rtl.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -2911,12 +2943,20 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with defa
     width: 100%;
 }
 
-.test25, .test26-ltr, .test27 {
+[dir="ltr"] > .test25, [dir="ltr"] > .test26-ltr, [dir="ltr"] > .test27 {
     background-image: url("/icons/icon-l.png")
 }
 
-.test26-rtl {
+[dir="rtl"] > .test25, [dir="rtl"] > .test26-ltr, [dir="rtl"] > .test27 {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="ltr"] > .test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] > .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -3318,6 +3358,14 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] = `
     border-bottom-color: #666;
 }
 
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
 .test28-right::before {
     background-image: url("/folder/subfolder/arrow-left.png");
 }
@@ -3506,6 +3554,14 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix and rtlPrefix properti
 .test24 {
     border: 1px solid #000;
     border-bottom-color: #666;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test28-right::before {
@@ -3698,6 +3754,14 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPr
 .test24 {
     border: 1px solid #000;
     border-bottom-color: #666;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test28-left::before {
@@ -3898,6 +3962,14 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with custom l
     border-bottom-color: #666;
 }
 
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
 .test28-right::before {
     background-image: url("/folder/subfolder/arrow-left.png");
 }
@@ -4086,6 +4158,14 @@ exports[`[[Mode: diff]] Prefixes Tests:  prefixSelectorTransformer with default 
 .test24 {
     border: 1px solid #000;
     border-bottom-color: #666;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test28-right::before {
@@ -4489,8 +4569,16 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     background-image: url("/icons/icon-l.png")
 }
 
+.rtl .test25, .rtl .test26-ltr, .rtl .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+.rtl .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -5087,8 +5175,16 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix prop
     background-image: url("/icons/icon-l.png")
 }
 
+.rtl .test25, .right-to-left .test25, .rtl .test26-ltr, .right-to-left .test26-ltr, .rtl .test27, .right-to-left .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+.rtl .test26-rtl, .right-to-left .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -5689,8 +5785,16 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     background-image: url("/icons/icon-l.png")
 }
 
+.rtl .test25, .right-to-left .test25, .rtl .test26-ltr, .right-to-left .test26-ltr, .rtl .test27, .right-to-left .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+.rtl .test26-rtl, .right-to-left .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -6290,8 +6394,16 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with cust
     background-image: url("/icons/icon-l.png")
 }
 
+.rtl.test25, .rtl.test26-ltr, .rtl.test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+.rtl.test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {
@@ -6883,8 +6995,16 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     background-image: url("/icons/icon-l.png")
 }
 
+[dir="rtl"] > .test25, [dir="rtl"] > .test26-ltr, [dir="rtl"] > .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
 .test26-rtl {
     background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] > .test26-rtl {
+    background-image: url("/icons/icon-l.png")
 }
 
 .test27-prev {

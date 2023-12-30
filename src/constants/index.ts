@@ -20,6 +20,7 @@ export const LAST_WORD_CHARACTER_REG_EXP = /\w$/;
 export enum CONTROL_DIRECTIVE {
     IGNORE = 'ignore',
     URLS = 'urls',
+    RULES = 'rules',
     SOURCE = 'source',
     RAW = 'raw'
 }

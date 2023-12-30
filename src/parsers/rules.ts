@@ -113,6 +113,7 @@ export const parseRules = (
                     rule,
                     hasParentRule,
                     sourceDirectiveValue,
+                    checkDirective(controlDirectives, CONTROL_DIRECTIVE.RULES),
                     checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS)
                 );
             }
