@@ -58,30 +58,42 @@ export const cssLines = `.test1, .test2 {
     }
 }
 
-/*rtl:rename*/
 .test10-ltr {
     color: #000;
     width: 100%;
 }
 
 .test11-left::before {
-    content: "keyboard_arrow_left";
+    background-image: url("/icons/icon-l.png");
 }
 
 .test11-right::before {
-    content: "keyboard_arrow_right";
+    background-image: url("/icons/icon-r.png");
 }
 
 .testleft12 {
-    border: 1px solid gray;
+    content: "\\f007";
 }
 
-.testleft13 {
+.testright12 {
+    content: "\\f010";
+}
+
+.testltr13 {
     content: "keyboard_arrow_left";
 }
 
-.testright14 {
+.testrtl13 {
     content: "keyboard_arrow_right";
+}
+
+.test14 {
+    .test14-ltr {
+        content: "left content";
+    }
+    .test14-rtl {
+        content: "right content";
+    }
 }
 
 .test15 {
@@ -142,6 +154,8 @@ export const cssLines = `.test1, .test2 {
 }
 
 .test22 {
+    /*rtl:urls*/
+    background: url("/folder/icons/icon-ltr.png");
     margin-right: env(safe-area-inset-right, 10px);
     margin-left: env(safe-area-inset-left, 20px);
 }

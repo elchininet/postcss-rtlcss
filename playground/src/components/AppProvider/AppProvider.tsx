@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, createContext, useContext, useState, useEffect } from 'react';
-import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
+import { Mode, Source } from 'postcss-rtlcss/options';
 import { PluginOptions, FetchOptions } from '@types';
 import { breakpointSizes } from '@constants';
 import { useApi } from '@hooks/useApi';
@@ -31,10 +31,10 @@ export interface AppProviderContext {
     changeOptionsSafeBothPrefix: (safeBothPrefix: boolean) => void;
     changeOptionsIgnorePrefixedRules: (ignorePrefixedRules: boolean) => void;
     changeOptionsProcessUrls: (processUrls: boolean) => void;
+    changeOptionsProcessRuleNames: (processRuleNames: boolean) => void;
     changeOptionsProcessKeyframes: (processKeyFrames: boolean) => void;
     changeOptionsProcessEnv: (processEnv: boolean) => void;
     changeOptionsUseCalc: (useCalc: boolean) => void;
-    changeOptionsAutoRename: (value: Autorename) => void;
     changeOptionsGreedy: (greedy: boolean) => void;
 }
 
@@ -94,10 +94,10 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
     const changeOptionsSafeBothPrefix = (safeBothPrefix: boolean): void => setOptions({...options, safeBothPrefix});
     const changeOptionsIgnorePrefixedRules = (ignorePrefixedRules: boolean) => setOptions({...options, ignorePrefixedRules});
     const changeOptionsProcessUrls = (processUrls: boolean): void => setOptions({ ...options, processUrls });
+    const changeOptionsProcessRuleNames = (processRuleNames: boolean): void => setOptions({ ...options, processRuleNames });
     const changeOptionsProcessKeyframes = (processKeyFrames: boolean): void => setOptions({ ...options, processKeyFrames });
     const changeOptionsProcessEnv = (processEnv: boolean): void => setOptions({ ...options, processEnv });
     const changeOptionsUseCalc = (useCalc: boolean): void => setOptions({ ...options, useCalc });
-    const changeOptionsAutoRename = (value: Autorename): void => setOptions({ ...options, autoRename: value });
     const changeOptionsGreedy = (greedy: boolean): void => setOptions({ ...options, greedy });
 
     const providerData = {
@@ -118,10 +118,10 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
         changeOptionsSafeBothPrefix,
         changeOptionsIgnorePrefixedRules,
         changeOptionsProcessUrls,
+        changeOptionsProcessRuleNames,
         changeOptionsProcessKeyframes,
         changeOptionsProcessEnv,
         changeOptionsUseCalc,
-        changeOptionsAutoRename,
         changeOptionsGreedy,
         windowSizes: sizes        
     };

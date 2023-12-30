@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Mode, Source, Autorename } from 'postcss-rtlcss/options';
+import { Mode, Source } from 'postcss-rtlcss/options';
 import { useAppContext } from '@components/AppProvider';
 import { Switch } from '@components/Switch';
 import { SwitchGroup } from '@components/SwitchGroup';
@@ -16,10 +16,10 @@ export const Options = (): JSX.Element => {
         changeOptionsSafeBothPrefix,
         changeOptionsIgnorePrefixedRules,
         changeOptionsProcessUrls,
+        changeOptionsProcessRuleNames,
         changeOptionsProcessKeyframes,
         changeOptionsProcessEnv,
         changeOptionsUseCalc,
-        changeOptionsAutoRename,
         changeOptionsGreedy,
         fetchOptions
     } = useAppContext();
@@ -37,18 +37,10 @@ export const Options = (): JSX.Element => {
     const changeSafeBothPrefix = (checked: boolean) => changeOptionsSafeBothPrefix(checked);
     const changeIgnorePrefixedRules = (checked: boolean) => changeOptionsIgnorePrefixedRules(checked);
     const changeProcessUrls = (checked: boolean): void => changeOptionsProcessUrls(checked);
+    const changeProcessRuleNames = (processRuleNames: boolean): void => changeOptionsProcessRuleNames(processRuleNames);
     const changeProcessKeyframes = (checked: boolean): void => changeOptionsProcessKeyframes(checked);
     const changeProcessEnv = (checked: boolean): void => changeOptionsProcessEnv(checked);
     const changeUseCalc = (checked: boolean): void => changeOptionsUseCalc(checked);
-    const changeAutoRename = (value: string): void => {
-        if (value === 'disabled') {
-            changeOptionsAutoRename(Autorename.disabled);
-        } else if (value === 'flexible') {
-            changeOptionsAutoRename(Autorename.flexible);
-        } else {
-            changeOptionsAutoRename(Autorename.strict);
-        }
-    };
     const changeGreedy = (checked: boolean): void => changeOptionsGreedy(checked);
 
     useEffect(() => {
@@ -117,6 +109,16 @@ export const Options = (): JSX.Element => {
                         }}
                     />
                 </div>
+                { /* processRuleNames */ }
+                <div className={styles.panel}>
+                    <Switch
+                        labels={['processRuleNames: false', 'processRuleNames: true']}
+                        onChange={changeProcessRuleNames}
+                        attributes={{
+                            checked: !!fetchOptions?.processRuleNames
+                        }}
+                    />
+                </div>
                 { /* processKeyFrames */ }
                 <div className={styles.panel}>
                     <Switch
@@ -149,16 +151,6 @@ export const Options = (): JSX.Element => {
                         attributes={{
                             checked: !!fetchOptions?.useCalc
                         }}
-                    />
-                </div>
-                { /* autoRename */ }
-                <div className={styles.panel}>
-                    <SwitchGroup
-                        label="autoRename"
-                        name="auto-rename"
-                        values={['disabled', 'flexible', 'strict']}
-                        onChange={changeAutoRename}
-                        active={fetchOptions?.autoRename as string || 'disabled'}
                     />
                 </div>
                 { /* greedy */ }
