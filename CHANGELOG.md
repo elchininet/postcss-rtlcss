@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.0.0] - 2023-12-29
+## [5.0.0] - 2023-12-30
 
 - Breaking change: removed `autoRename` option and `/*rtl:rename*/`, `/*rtl:begin:rename*/`, and `/*rtl:end:rename*/` directives
 - Fixed a bug: `/*rtl:begin:urls*/` and `/*rtl:end:urls*/` (previously `/*rtl:begin:rename*/` and `/*rtl:end:rename*/`) blocks didn't change the URL names inside rules if started outside
