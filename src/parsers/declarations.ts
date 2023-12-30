@@ -45,7 +45,8 @@ export const parseDeclarations = (
     rule: Rule,
     hasParentRule: boolean,
     ruleSourceDirectiveValue: string,
-    renamed: boolean
+    processRule: boolean,
+    rename: boolean
 ): void => {
 
     const {
@@ -153,7 +154,7 @@ export const parseDeclarations = (
             const decl = node as Declaration;
             const declString = `${decl.toString()};`;
             const declFlippedString = rtlcss.process(declString, {
-                processUrls: renamed || processUrls || processUrlDirective,
+                processUrls: processUrls || processUrlDirective || rename,
                 processEnv,
                 useCalc,
                 stringMap,
@@ -397,17 +398,17 @@ export const parseDeclarations = (
             );
         }
     } else if (
-        processRuleNames &&
+        (
+            processRuleNames ||
+            processRule
+        ) &&
         !simetricRules
     ) {
         store.unmodifiedRules.push({
             rule,
             hasParentRule
         });
-    } else if (
-        mode === Mode.diff &&
-        !renamed
-    ) {
+    } else if (mode === Mode.diff) {
         store.rulesToRemove.push(rule);
     }
 

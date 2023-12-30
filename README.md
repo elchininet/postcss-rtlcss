@@ -1445,9 +1445,12 @@ Control directives are placed between rules or declarations. They can target a s
 | `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                                                           |
 | `/*rtl:begin:ignore*/`   | Starts an ignoring block                                                                                          |
 | `/*rtl:end:ignore*/`     | Ends an ignoring block                                                                                            |
-| `/*rtl:urls*/`         | This directive set the `processUrls` option to `true` in the next declaration or in the declarations of the next rule no mattering the value of the global `processUrls` option  |
-| `/*rtl:begin:urls*/`   | Starts a `processUrls` block block                                                                                           |
-| `/*rtl:end:urls*/`     | Ends a `processUrls` block block                                                                                             |
+| `/*rtl:urls*/`           | This directive set the `processUrls` option to `true` in the next declaration or in the declarations of the next rule no mattering the value of the global `processUrls` option  |
+| `/*rtl:begin:urls*/`     | Starts a `processUrls` block block                                                                                           |
+| `/*rtl:end:urls*/`       | Ends a `processUrls` block block                                                                                             |
+| `/*rtl:rules*/`          | This directive set the `processRuleNames` option to `true` in the next rule no mattering the value of the global `processRuleNames` option  |
+| `/*rtl:begin:rules*/`    | Starts a `processRuleNames` block block |
+| `/*rtl:end:rules*/`      | Ends a `processRuleNames` block block   | 
 | `/*rtl:source:{source}*/`| Set the source of a rule or a declaration no mattering the value of the `source` property                         |
 | `/*rtl:begin:source:{source}*/` | Starts a source block                                                                                      |
 | `/*rtl:end:source*/`     | Ends a source block                                                                                               |
@@ -1696,6 +1699,134 @@ These directives should be used together, they will provide the beginning and th
 [dir="rtl"] .test3 {
     background-image: url("/images/background-right.png");
     cursor: url("/images/cursor-rtl.png");
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:rules*/`
+
+<details><summary>Expand</summary>
+<p>
+
+This directive set the `processRuleNames` option to `true` in the next rule no mattering the value of the global `processRuleNames` option:
+
+##### input
+
+```css
+/*rtl:rules*/
+.test1-ltr {
+    background-image: url('/images/test1-l.png');
+}
+
+/*rtl:rules*/
+.test1-rtl {
+    background-image: url('/images/test1-r.png');
+}
+
+/*rtl:rules*/
+.test2-left::before {
+    content: "\f007";
+}
+
+.test2-right::before {
+    content: "\f010";
+}
+```
+
+##### output
+
+```css
+[dir="ltr"] .test1-ltr {
+    background-image: url('/images/test1-l.png');
+}
+
+[dir="rtl"] .test1-ltr {
+    background-image: url('/images/test1-r.png');
+}
+
+[dir="ltr"] .test1-rtl {
+    background-image: url('/images/test1-r.png');
+}
+
+[dir="rtl"] .test1-rtl {
+    background-image: url('/images/test1-l.png');
+}
+
+/* These selectors will not be processed because only one of them has the rtl:rules directive */
+.test2-left::before {
+    content: "\f007";
+}
+
+.test2-right::before {
+    content: "\f010";
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:begin:rules*/` and `/*rtl:end:rules*/`
+
+<details><summary>Expand</summary>
+<p>
+
+These directives should be used together, they will provide the beginning and the end for `processRuleNames` blocks.
+
+##### input
+
+```css
+.test1-ltr {
+    background-image: url('/images/test1-l.png');
+}
+
+.test1-rtl {
+    background-image: url('/images/test1-r.png');
+}
+
+/*rtl:begin:rules*/
+.test2-left::before {
+    content: "\f007";
+}
+
+.test2-right::before {
+    content: "\f010";
+}
+/*rtl:begin:rules*/
+```
+
+##### output
+
+```css
+.test1-ltr {
+    background-image: url('/images/test1-l.png');
+}
+
+.test1-rtl {
+    background-image: url('/images/test1-r.png');
+}
+
+[dir="ltr"] .test2-left::before {
+    content: "\f007";
+}
+
+[dir="rtl"] .test2-left::before {
+    content: "\f010";
+}
+
+[dir="ltr"] .test2-right::before {
+    content: "\f010";
+}
+
+[dir="rtl"] .test2-right::before {
+    content: "\f007";
 }
 ```
 

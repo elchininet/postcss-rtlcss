@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.1.0] - 2023-12-30
+
+- New directives to set the option `processRuleNames`: `/*rtl:rules*/`, `/*rtl:begin:rules*/`, and `/*rtl:end:rules*/`
+
 ## [5.0.0] - 2023-12-30
 
 - Breaking change: removed `autoRename` option and `/*rtl:rename*/`, `/*rtl:begin:rename*/`, and `/*rtl:end:rename*/` directives
