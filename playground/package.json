@@ -22,7 +22,7 @@
   "author": "ElChiniNet",
   "license": "Apache-2.0",
   "dependencies": {
-    "monaco-editor": "^0.45.0",
+    "monaco-editor": "^0.46.0",
     "postcss": "^8.4.31",
     "postcss-rtlcss": "^5.1.0",
     "react": "^18.2.0",
