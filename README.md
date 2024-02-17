@@ -2,7 +2,11 @@
 
 [PostCSS] plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules using [RTLCSS]. RTLCSS allows one to flip an entire CSS file with the intention of using the original CSS for one direction and the new generated one for the other. What PostcCSS RTLCSS does, is to create a single CSS file with both directions or to create a minimal CSS file only with the flipped rules with the intention of overriding the main one.
 
-[![Deployment Status](https://github.com/elchininet/postcss-rtlcss/actions/workflows/deploy.yaml/badge.svg)](https://github.com/elchininet/postcss-rtlcss/actions/workflows/deploy.yaml) &nbsp; [![Coverage Status](https://coveralls.io/repos/github/elchininet/postcss-rtlcss/badge.svg?branch=master)](https://coveralls.io/github/elchininet/postcss-rtlcss?branch=master) &nbsp; [![npm version](https://badge.fury.io/js/postcss-rtlcss.svg)](https://badge.fury.io/js/postcss-rtlcss) &nbsp; [![downloads](https://img.shields.io/npm/dw/postcss-rtlcss)](https://www.npmjs.com/package/postcss-rtlcss)
+[![Deployment Status](https://github.com/elchininet/postcss-rtlcss/actions/workflows/deploy.yaml/badge.svg)](https://github.com/elchininet/postcss-rtlcss/actions/workflows/deploy.yaml)
+[![Test](https://github.com/elchininet/postcss-rtlcss/actions/workflows/test.yaml/badge.svg)](https://github.com/elchininet/postcss-rtlcss/actions/workflows/test.yaml)
+[![Coverage Status](https://coveralls.io/repos/github/elchininet/postcss-rtlcss/badge.svg?branch=master)](https://coveralls.io/github/elchininet/postcss-rtlcss?branch=master)
+[![npm version](https://badge.fury.io/js/postcss-rtlcss.svg)](https://badge.fury.io/js/postcss-rtlcss)
+[![downloads](https://img.shields.io/npm/dw/postcss-rtlcss)](https://www.npmjs.com/package/postcss-rtlcss)
 
 
 [PostCSS]: https://github.com/postcss/postcss
