@@ -16,8 +16,8 @@
   "scripts": {
     "generate-types": "typed-scss-modules src --aliasPrefixes.@constants src/constants",
     "generate-types:dev": "typed-scss-modules src --aliasPrefixes.@constants src/constants --watch",
-    "start": "yarn generate-types:dev & webpack serve --open --config webpack.dev-config.js",
-    "build": "yarn generate-types && webpack --config webpack.config.js"
+    "start": "pnpm generate-types:dev & webpack serve --open --config webpack.dev-config.js",
+    "build": "pnpm generate-types && webpack --config webpack.config.js"
   },
   "author": "ElChiniNet",
   "license": "Apache-2.0",
