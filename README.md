@@ -31,6 +31,16 @@ npm install postcss-rtlcss --save-dev
 npm install postcss-rtlcss@legacy --save-dev
 ```
 
+#### pnpm
+
+```bash
+## Latest version (postcss@^8.0.0)
+pnpm add -D postcss-rtlcss
+
+## Latest legacy version (postcss@^7.0.0)
+pnpm add -D postcss-rtlcss@legacy
+```
+
 #### yarn
 
 ```bash
