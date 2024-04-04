@@ -1,6 +1,6 @@
 # PostCSS RTLCSS
 
-[PostCSS] plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules using [RTLCSS]. RTLCSS allows one to flip an entire CSS file with the intention of using the original CSS for one direction and the new generated one for the other. What PostcCSS RTLCSS does, is to create a single CSS file with both directions or to create a minimal CSS file only with the flipped rules with the intention of overriding the main one.
+[PostCSS] plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules using [RTLCSS]. RTLCSS allows one to flip an entire CSS file with the intention of using the original CSS for one direction and the new generated one for the other. What PostCSS RTLCSS does, is to create a single CSS file with both directions or to create a minimal CSS file only with the flipped rules with the intention of overriding the main one.
 
 [![Deployment Status](https://github.com/elchininet/postcss-rtlcss/actions/workflows/deploy.yaml/badge.svg)](https://github.com/elchininet/postcss-rtlcss/actions/workflows/deploy.yaml)
 [![Test](https://github.com/elchininet/postcss-rtlcss/actions/workflows/test.yaml/badge.svg)](https://github.com/elchininet/postcss-rtlcss/actions/workflows/test.yaml)
