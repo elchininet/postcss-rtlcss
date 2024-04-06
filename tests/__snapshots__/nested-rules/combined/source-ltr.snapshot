@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
+".test1 {
+    color: red;
+
+    .test2 {
+        padding: 5px;
+        width: 100%;
+    }
+}
+
+[dir="ltr"] .test1 {
+    left: 10px;
+
+    .test2 {
+        text-align: left;
+    }
+}
+
+[dir="rtl"] .test1 {
+    right: 10px;
+
+    .test2 {
+        text-align: right;
+    }
+}
+
+.test3 {
+    &.test4 {
+        color: black;
+    }
+
+    &.test5 {
+        padding: 5px
+    }
+}
+
+[dir="ltr"] .test3 {
+    left: 10px;
+
+    &.test4 {
+        margin-left: 20px;
+    }
+
+    &.test5 {
+        span {
+            text-align: left;
+        }
+    }
+}
+
+[dir="rtl"] .test3 {
+    right: 10px;
+
+    &.test4 {
+        margin-right: 20px;
+    }
+
+    &.test5 {
+        span {
+            text-align: right;
+        }
+    }
+}
+
+.test6 {
+    display: flex;
+
+    .global & {
+        color: white;
+
+        div {
+            margin: 0 auto;
+        }
+    }
+
+    .test7 {
+        .global & {
+            background-color: #FFF;
+
+            ::after {
+                content: "";
+                display: block;
+            }
+        }
+    }
+}
+
+[dir="ltr"] .test6 {
+    .global & {
+        padding: 5px 10px 5px 5px;
+        border-left-color: #666;
+
+        div {
+            padding-left: 20px;
+        }
+    }
+
+    .test7 {
+        .global & {
+            ::after {
+                text-align: left;
+            }
+        }
+    }
+}
+
+[dir="rtl"] .test6 {
+    .global & {
+        padding: 5px 5px 5px 10px;
+        border-right-color: #666;
+
+        div {
+            padding-right: 20px;
+        }
+    }
+
+    .test7 {
+        .global & {
+            ::after {
+                text-align: right;
+            }
+        }
+    }
+}
+
+@supports (display: contents) and (display: grid) {
+    .test8 {
+        color: red;
+    }
+
+    [dir="ltr"] .test8 {
+        left: 10px;
+        text-align: left;
+    }
+
+    [dir="rtl"] .test8 {
+        right: 10px;
+        text-align: right;
+    }
+
+    @media screen and (max-width: 800px) {
+        [dir="ltr"] .test9 {
+            padding: 0 0.6em 0 1.7em;
+        }
+
+        [dir="rtl"] .test9 {
+            padding: 0 1.7em 0 0.6em;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    @supports (display: contents) and (display: grid) {
+        [dir="ltr"] .test10 {
+            padding: 0 0.6em 0 1.7em;
+        }
+
+        [dir="rtl"] .test10 {
+            padding: 0 1.7em 0 0.6em;
+        }
+    }
+}
+
+.test11 {
+    .test12 {
+        @media screen and (min-width: 800px) {
+            color: red;
+        }
+    }
+
+    .test13-left {
+        content: "\\f007";
+    }
+
+    .test13-right {
+        content: "\\f010";
+    }
+}
+
+[dir="ltr"] .test11 {
+    .test13 {
+        text-align: right;
+    }
+}
+
+[dir="rtl"] .test11 {
+    .test13 {
+        text-align: left;
+    }
+}
+
+@mixin padding {
+    padding-left: 10px;
+}
+
+.test14 {
+   @include padding;
+}"
+`;

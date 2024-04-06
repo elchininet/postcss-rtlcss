@@ -22,6 +22,9 @@ devDependencies:
   '@types/jest':
     specifier: ^29.5.12
     version: 29.5.12
+  '@types/jest-specific-snapshot':
+    specifier: ^0.5.9
+    version: 0.5.9
   '@types/node':
     specifier: ^20.12.2
     version: 20.12.2
@@ -43,6 +46,9 @@ devDependencies:
   jest:
     specifier: ^29.7.0
     version: 29.7.0(@types/node@20.12.2)
+  jest-specific-snapshot:
+    specifier: ^8.0.0
+    version: 8.0.0(jest@29.7.0)
   postcss:
     specifier: ^8.4.26
     version: 8.4.38
@@ -1020,6 +1026,12 @@ packages:
     resolution: {integrity: sha512-pk2B1NWalF9toCRu6gjBzR69syFjP4Od8WRAX+0mmf9lAjCRicLOWc+ZrxZHx/0XRjotgkF9t6iaMJ+aXcOdZQ==}
     dependencies:
       '@types/istanbul-lib-report': 3.0.3
+    dev: true
+
+  /@types/jest-specific-snapshot@0.5.9:
+    resolution: {integrity: sha512-NPcItjVhJq3x6MWR6QNi92n5orOkcTvuQ0E8nqK2WZN18a7O93D2dcNL0x+eSNxmNSIbgfgCJ5eUScjACPCWsg==}
+    dependencies:
+      '@types/jest': 29.5.12
     dev: true
 
   /@types/jest@29.5.12:
@@ -2657,6 +2669,17 @@ packages:
       natural-compare: 1.4.0
       pretty-format: 29.7.0
       semver: 7.6.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /jest-specific-snapshot@8.0.0(jest@29.7.0):
+    resolution: {integrity: sha512-PjK0cqPbN3ZGU1pdP78YBEFMsS1AsV28hIHg249E0v/bTtGAJqDm7lNDLj0Cs0O26P2sulbXbgEQU9xLm34WmA==}
+    peerDependencies:
+      jest: '>= 29.0.0'
+    dependencies:
+      jest: 29.7.0(@types/node@20.12.2)
+      jest-snapshot: 29.7.0
     transitivePeerDependencies:
       - supports-color
     dev: true

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: diff]] Prefixed Tests:  Prefixed default 1`] = `
+".rtl .test {
+    left: auto;
+    right: 10px;
+}
+
+.ltr .test {
+    right: auto;
+    left: 10px;
+}
+
+.rtlignore .test2 {
+    padding: 2px 16px 8px 4px;
+}
+
+.ltrignore .test2 {
+    margin: 2px 16px 8px 4px;
+}
+
+.ltr .test4 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir="rtl"] .test5 {
+    transform: translate(10px, 20px);
+}
+
+.test6 {
+    left: 5px;
+}
+
+.ltr .test7-ltr {
+    background-image: url("/icons/icon-right.png");
+}
+
+.rtl .test7-rtl {
+    background-image: url("/icons/icon-left.png");
+}"
+`;

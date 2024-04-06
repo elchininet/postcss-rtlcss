@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: override]] Prefixed Tests:  ignorePrefixedRules false 1`] = `
+".test {
+    color: red;
+}
+
+.rtl .test {
+    left: 10px;
+}
+
+[dir="rtl"] .rtl .test {
+    left: auto;
+    right: 10px;
+}
+
+.ltr .test {
+    right: 10px;
+}
+
+[dir="rtl"] .ltr .test {
+    right: auto;
+    left: 10px;
+}
+
+.rtlignore .test2 {
+    padding: 2px 4px 8px 16px;
+}
+
+[dir="rtl"] .rtlignore .test2 {
+    padding: 2px 16px 8px 4px;
+}
+
+.ltrignore .test2 {
+    margin: 2px 4px 8px 16px;
+}
+
+[dir="rtl"] .ltrignore .test2 {
+    margin: 2px 16px 8px 4px;
+}
+
+[dir="ltr"] .test3 {
+    text-align: left;
+}
+
+[dir="rtl"] [dir="ltr"] .test3 {
+    text-align: right;
+}
+
+[dir="rtl"] .test3 {
+    text-align: right;
+}
+
+[dir="rtl"] [dir="rtl"] .test3 {
+    text-align: left;
+}
+
+[dir="rtl"] .ltr .test4 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir="rtl"] [dir="rtl"] .test5 {
+    transform: translate(10px, 20px);
+}
+
+[dir="rtl"] .test6 {
+    left: 5px;
+}
+
+.ltr .test7-ltr {
+    background-image: url("/icons/icon-left.png");
+}
+
+[dir="rtl"] .ltr .test7-ltr {
+    background-image: url("/icons/icon-right.png");
+}
+
+.rtl .test7-rtl {
+    background-image: url("/icons/icon-right.png");
+}
+
+[dir="rtl"] .rtl .test7-rtl {
+    background-image: url("/icons/icon-left.png");
+}
+
+[dir="ltr"] .test8-ltr {
+    background-image: url("/icons/icon-ltr.png");
+}
+
+[dir="rtl"] [dir="ltr"] .test8-ltr {
+    background-image: url("/icons/icon-rtl.png");
+}
+
+[dir="rtl"] .test8-rtl {
+    background-image: url("/icons/icon-rtl.png");
+}
+
+[dir="rtl"] [dir="rtl"] .test8-rtl {
+    background-image: url("/icons/icon-ltr.png");
+}"
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: diff]] Empty Rules Tests:  Basic 1`] = `
+".test4 {
+    text-align: right;
+}
+
+.test5 {
+    padding-left: 0;
+    padding-right: 20px;
+}"
+`;
