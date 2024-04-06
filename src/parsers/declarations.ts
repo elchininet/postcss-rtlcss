@@ -178,18 +178,33 @@ export const parseDeclarations = (
             const declPropUnprefixed = vendor.unprefixed(declProp);
             const declValue = decl.value.trim();
             const declIndexes = Object.keys(declarationHashMap[declProp].indexes).map(Number);
-            const isAnimation = declPropUnprefixed === ANIMATION_PROP || declPropUnprefixed === ANIMATION_NAME_PROP;
+            const isAnimation = (
+                declPropUnprefixed === ANIMATION_PROP ||
+                declPropUnprefixed === ANIMATION_NAME_PROP ||
+                aliases[declPropUnprefixed] === ANIMATION_PROP ||
+                aliases[declPropUnprefixed] === ANIMATION_NAME_PROP
+            );
             const declFlippedProp = declFlipped.prop.trim();
             const declFlippedValue = declFlipped.value.trim();
-            const overridenBy = declarations[declPropUnprefixed];
-            const hasBeenOverriden = declarationsProps.includes(declPropUnprefixed) || (
-                overridenBy
-                    ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
-                    : false
+            const overridenBy = aliases[declPropUnprefixed]
+                ? declarations[aliases[declPropUnprefixed]]
+                : declarations[declPropUnprefixed];
+            const hasBeenOverriden = (
+                declarationsProps.includes(declPropUnprefixed) ||
+                declarationsProps.includes(aliases[declPropUnprefixed]) ||
+                (
+                    overridenBy
+                        ? overridenBy.some((d: string): boolean => declarationsProps.indexOf(d) >= 0)
+                        : false
+                )
             );
-            const overridesPrevious = checkOverrides(declPropUnprefixed, declarationsProps);
+            const overridesPrevious = aliases[declPropUnprefixed]
+                ? checkOverrides(aliases[declPropUnprefixed], declarationsProps)
+                : checkOverrides(declPropUnprefixed, declarationsProps);
             const isConflictedDeclaration = safeBothPrefix
-                ? !!allDeclarations[declPropUnprefixed]
+                ? aliases[declPropUnprefixed]
+                    ? !!(allDeclarations[aliases[declPropUnprefixed]])
+                    : !!(allDeclarations[declPropUnprefixed])
                 : false;
             const sourceDirectiveValue = getSourceDirectiveValue(
                 controlDirectives,

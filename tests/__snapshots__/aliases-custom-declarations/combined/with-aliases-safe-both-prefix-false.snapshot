@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: combined]] Aliases Tests: with aliases and safeBothPrefix false 1`] = `
+".test1 {
+    view-timeline: --row-a block;
+    animation-range: cover 0% cover 100%;
+    animation-timing-function: var(--timing-function);
+    animation-name: slide-in;
+}
+
+[dir="ltr"] .test1 {
+    transform: translate3d(-21vh, 0, 0);
+}
+
+[dir="rtl"] .test1 {
+    transform: translate3d(21vh, 0, 0);
+}
+
+.test2 {
+    border: 1px solid;
+    border-color: #FF00FF;
+    color: white;
+    custom-border-width: 2px;
+}
+
+.test3 {
+    color: rgba(255, 242, 126, 1);
+    custom-padding: 20px;
+}
+
+[dir="ltr"] .test3 {
+    background: linear-gradient(180deg, #fff27e 0%, #ffffff 100%);
+}
+
+[dir="rtl"] .test3 {
+    background: linear-gradient(-180deg, #fff27e 0%, #ffffff 100%);
+}
+
+[dir] .test3 {
+    custom-clip-background: text;
+    background-position: top;
+}"
+`;
