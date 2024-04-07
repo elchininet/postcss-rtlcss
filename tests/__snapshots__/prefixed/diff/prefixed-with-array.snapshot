@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: diff]] Prefixed Tests:  Prefixed with array 1`] = `
+".rtlignore .test2 {
+    padding: 2px 16px 8px 4px;
+}
+
+.ltrignore .test2 {
+    margin: 2px 16px 8px 4px;
+}
+
+.ltr .test4 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir="rtl"] .test5 {
+    transform: translate(10px, 20px);
+}
+
+.test6 {
+    left: 5px;
+}"
+`;

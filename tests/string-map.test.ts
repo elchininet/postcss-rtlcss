@@ -1,7 +1,14 @@
 import postcss from 'postcss';
 import postcssRTLCSS from '../src';
 import { PluginOptions } from '../src/@types';
-import { readCSSFile, runTests } from './utils';
+import {
+  readCSSFile,
+  runTests,
+  createSnapshotFileName
+} from './utils';
+import 'jest-specific-snapshot';
+
+const BASE_NAME = 'string-map';
 
 runTests({}, (pluginOptions: PluginOptions): void => {
 
@@ -21,7 +28,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       ];
       const options: PluginOptions = { ...pluginOptions, processUrls: true, stringMap };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'custom-string-map-process-urls-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
@@ -33,7 +42,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       ];
       const options: PluginOptions = { ...pluginOptions, processUrls: true, stringMap };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'custom-string-map-without-names-process-urls-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
@@ -43,7 +54,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       ];
       const options: PluginOptions = { ...pluginOptions, processUrls: true, stringMap };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'custom-non-valid-string-different-types-map-process-urls-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
@@ -53,7 +66,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       ];
       const options: PluginOptions = { ...pluginOptions, processUrls: true, stringMap };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'custom-non-valid-string-different-lengths-map-process-urls-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: diff]] Variables Tests: wrong aliases 1`] = `
+".test1.large {
+    left: auto;
+    right: 10px;
+}
+
+.test3 {
+    padding:
+        env(safe-area-inset-top, 10px)
+        env(safe-area-inset-right, 40px)
+        env(safe-area-inset-bottom, 30px)
+        env(safe-area-inset-left, 20px);
+}
+
+.test4 {
+    margin-left: env(safe-area-inset-left, 10px);
+    margin-right: env(safe-area-inset-right, 20px);
+}"
+`;

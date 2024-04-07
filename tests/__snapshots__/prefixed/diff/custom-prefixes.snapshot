@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: diff]] Prefixed Tests:  Custom prefixes 1`] = `
+".rtlignore .test2 {
+    padding: 2px 16px 8px 4px;
+}
+
+.ltrignore .test2 {
+    margin: 2px 16px 8px 4px;
+}
+
+[dir="ltr"] .test3 {
+    text-align: right;
+}
+
+[dir="rtl"] .test3 {
+    text-align: left;
+}
+
+.ltr .test4 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir="rtl"] .test5 {
+    transform: translate(10px, 20px);
+}
+
+.test6 {
+    left: 5px;
+}
+
+[dir="ltr"] .test8-ltr {
+    background-image: url("/icons/icon-rtl.png");
+}
+
+[dir="rtl"] .test8-rtl {
+    background-image: url("/icons/icon-ltr.png");
+}"
+`;
