@@ -1,0 +1,614 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: override]] Basic Options Tests:  {processUrls: true} 1`] = `
+".test1, .test2 {
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
+    background-position: 10px 20px;
+    border-radius: 0 2px 0 8px;
+    color: #666;
+    padding-right: 20px;
+    text-align: left;
+    transform: translate(-50%, 50%);
+    width: 100%;
+}
+
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    background: url("/folder/subfolder/icons/rtl/chevron-right.png");
+    background-position: right 10px top 20px;
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+[dir] .test1, [dir] .test2 {
+    background-color: #FFF;
+}
+
+.test2 {
+    color: red;
+    text-align: left;
+    text-align: center;
+}
+
+/* Comment not related to rtl */
+.test3 {
+    direction: ltr;
+    margin: 1px 2px 3px;
+    padding: 10px 20px;
+    /* Property comment not related to rtl */
+    text-align: center;
+}
+
+[dir="rtl"] .test3 {
+    direction: rtl;
+}
+
+.test4 {
+    font-size: 10px;
+    border-color: red;
+    border-radius: 2px 4px 8px 16px;
+    text-shadow: red 99px -1px 1px, blue 99px 2px 1px;
+    transform-origin: 10px 20px;
+    transform: scale(0.5, 0.5);
+}
+
+[dir="rtl"] .test4 {
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+}
+
+.test5,
+.test6,
+.test7 {
+    background: linear-gradient(0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border: 1px solid 2px;
+    border-color: #666 #777 #888 #999;
+    box-sizing: border-box;
+    border-width: 1px 2px 3px 4px;
+    position: absolute;
+    left: 100px;
+    transform: translateX(5px);
+}
+
+[dir="rtl"] .test5,
+[dir="rtl"] .test6,
+[dir="rtl"] .test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    left: auto;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+/*rtl:novalid:ignore*/
+.test8 {
+    background: linear-gradient(to left, #333, #333 50%, #EEE 75%, #333 75%);
+    display: flex;
+    padding-left: 10%;
+}
+
+[dir="rtl"] .test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: 5px;
+    padding: 0px 2px 3px 4px;
+}
+
+[dir="rtl"] .test9, [dir="rtl"] .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: auto;
+    right: 5px;
+}
+
+.test11:hover,
+.test11:active {
+    font-family: Arial, Helvetica;
+    font-size: 20px;
+    color: '#FFF';
+    transform: translateY(10px);
+    padding: 10px;
+}
+
+[dir="rtl"] .test11:hover,
+[dir="rtl"] .test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+#test12, #test13 {
+    left: 10px;
+    position: relative;
+    text-align: right;
+}
+
+.test14 .test15 span {
+    border-left-color: #777;
+    margin: 10px 20px 30px 40px;
+    transform: translate(100%, 10%);
+}
+
+.test16 {
+    padding-right: 10px;
+}
+
+.test16:hover {
+    padding-right: 20px;
+}
+
+[dir="rtl"] .test16:hover {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.test17 {
+    cursor: pointer;
+    padding: 10px 20px 40px 10px;
+    text-align: right;
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test17 {
+        cursor: wait;
+    }
+}
+
+.test18 {
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
+    font-size: 10px;
+    padding: 10px 20px 40px 10px;
+}
+
+[dir="rtl"] .test18 {
+    padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    content: '';
+    left: 10px;
+    text-align: left;
+    padding-left: 5px;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+[dir="rtl"] .test18::after {
+    left: auto;
+    right: 10px;
+}
+
+@keyframes flip {
+    from {
+        transform: translateX(100px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test18 {
+        padding: 1px 2px 3px 4px;
+        width: 100%;
+    }
+
+    [dir="rtl"] .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test19 {
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: my-animation;
+    animation-timing-function: ease-in-out;
+}
+
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
+@keyframes my-animation {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+.test21 {
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: no-flip;
+    animation-timing-function: ease-in-out;
+    width: 100%;
+}
+
+@keyframes no-flip {
+    from {
+        color: #000;
+    }
+
+    to {
+        color: #FFF;
+    }
+}
+
+/* Do not add reset values in override mode */
+.test22 {
+    left: 5px;
+    right: 10px;
+}
+
+[dir="rtl"] .test22 {
+    right: 5px;
+    left: 10px;
+}
+
+/* Do not create the RTL version if the result is the same */
+.test23 {
+    left: 10px;
+    right: 10px;
+}
+
+/* Chain override */
+.test24 {
+    border: 1px solid #FFF;
+    padding: 10px;
+}
+
+[dir="rtl"] .test24 {
+    border: 1px solid #000;
+}
+
+[dir] .test24 {
+    border-bottom-color: #666;
+}
+
+/* Automatic rename */
+.test25-ltr {
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 10px;
+    width: 100%;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-l.png")
+}
+
+[dir="rtl"] .test25, [dir="rtl"] .test26-ltr, [dir="rtl"] .test27 {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+[dir="rtl"] .test26-rtl {
+    background-image: url("/icons/icon-l.png")
+}
+
+.test27-prev {
+    background-image: url("/icons/icon-p.png")
+}
+
+.test27-next {
+    background-image: url("/icons/icon-n.png")
+}
+
+.test28 {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+[dir="rtl"] .test28-left::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-right.png");
+}
+
+[dir="rtl"] .test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.testleft29 {
+    border: 1px solid gray;
+}
+
+.testleft30 {
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+[dir="rtl"] .testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+[dir="rtl"] .testright30 {
+    background: url("/folder/subfolder/icon-ltr.png");
+}
+
+.test31 {
+    background-image: url("/icons/icon-left.png");
+    border: 1px solid gray;
+}
+
+[dir="rtl"] .test31 {
+    background-image: url("/icons/icon-right.png");
+}
+
+.test32 {
+    align-items: center;
+    background-image: url("/icons/icon-left.png");
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+[dir="rtl"] .test32 {
+    background-image: url("/icons/icon-right.png");    
+}
+
+.test33 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir="rtl"] .test33 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir="rtl"] .example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir="rtl"] .example35 {
+    transform: translate(10px, 20px);
+}
+
+.test36 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir="ltr"] .test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir="rtl"] .test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+}
+
+[dir="ltr"] .test37 {
+    text-align: right;
+}
+
+.test38 {
+    color: #FFF;
+    border-left: 1px solid #666;
+    padding: 10px 5px 10px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+[dir="rtl"] .test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+}
+
+[dir="ltr"] .test38 {
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 10px;
+    width: 50%;
+}
+
+[dir="ltr"] .test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    color: transparent;
+    padding: 10px;
+    left: 5px;
+}
+
+[dir="ltr"] .test40 {
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    color: #EFEFEF;
+    left: 10px;
+}
+
+[dir="ltr"] .test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+[dir="ltr"] .test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+[dir="ltr"] .test43 {
+    transform: translate(10px, 20px);
+}
+
+@keyframes normalFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+
+@keyframes inversedFlip {
+    from {
+        left: 0px;
+        top: 0px;
+    }
+
+    to {
+        left: 100px;
+        top: -100px;
+    }
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir="rtl"] .test46 {
+        text-align: right;
+    }
+
+    .test47 {
+        color: white;
+    }
+
+    .test47left {
+        content: "\\f007";
+    }
+
+    .test47right {
+        content: "\\f010";
+    }
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+        text-align: left;
+    }
+
+    [dir="ltr"] .test48 {
+        text-align: right;
+    }
+
+    .test49 {
+        color: white;
+    }
+}
+
+:root {
+    text-align: left;
+}
+
+[dir="ltr"]:root {
+    text-align: right;
+}
+
+html .test50 {
+    color: red;
+    left: 10px;
+}
+
+html[dir="rtl"] .test50 {
+    left: auto;
+    right: 10px;
+}
+
+.test51 {
+    border-left: 1px solid #FFF;
+}
+
+[dir="rtl"] .test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+}
+
+[dir] .test51 {
+    border: none;
+}
+
+.test52 {
+    color: red;
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
+}"
+`;

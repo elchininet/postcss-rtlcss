@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: diff]] Overriding Tests:  With safeBothPrefix 1`] = `
+".test1 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.test2 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.test3 {
+    text-align: center;
+}
+
+.test4 {
+    right: 10px;
+    left: 0;
+}
+
+.test5 {
+    padding: 0 16px 0 8px;
+}
+
+.test6 {
+    margin-right: 0;
+    margin-left: 1px;
+    margin-left: 2px;
+    margin-left: 3px;
+}
+
+.test7 {
+    margin-right: 4px;
+    margin-left: 3px;
+}
+
+.test8 {
+    margin-right: 4px;
+    margin-left: 3px;
+}
+
+.test9 {
+    margin-right: 1px;
+    margin-left: 3px;
+}
+
+.test10 {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}"
+`;

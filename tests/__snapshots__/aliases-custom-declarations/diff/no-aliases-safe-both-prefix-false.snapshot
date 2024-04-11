@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: diff]] Aliases Tests: without aliases and safeBothPrefix false 1`] = `
+".test1 {
+    transform: translate3d(21vh, 0, 0);
+}
+
+.test3 {
+    background: linear-gradient(-180deg, #fff27e 0%, #ffffff 100%);
+    background-position: top;
+}"
+`;
