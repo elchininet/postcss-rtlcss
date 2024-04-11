@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: combined]] Prefixed Tests:  Custom prefixes 1`] = `
+".test {
+    color: red;
+}
+
+.rtl .test {
+    left: 10px;
+}
+
+.ltr .test {
+    right: 10px;
+}
+
+.ltr .rtlignore .test2 {
+    padding: 2px 4px 8px 16px;
+}
+
+.rtl .rtlignore .test2 {
+    padding: 2px 16px 8px 4px;
+}
+
+.ltr .ltrignore .test2 {
+    margin: 2px 4px 8px 16px;
+}
+
+.rtl .ltrignore .test2 {
+    margin: 2px 16px 8px 4px;
+}
+
+.ltr [dir="ltr"] .test3 {
+    text-align: left;
+}
+
+.rtl [dir="ltr"] .test3 {
+    text-align: right;
+}
+
+.ltr [dir="rtl"] .test3 {
+    text-align: right;
+}
+
+.rtl [dir="rtl"] .test3 {
+    text-align: left;
+}
+
+.ltr .test4 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.rtl [dir="rtl"] .test5 {
+    transform: translate(10px, 20px);
+}
+
+.rtl .test6 {
+    left: 5px;
+}
+
+.ltr .test7-ltr {
+    background-image: url("/icons/icon-left.png");
+}
+
+.rtl .test7-rtl {
+    background-image: url("/icons/icon-right.png");
+}
+
+.ltr [dir="ltr"] .test8-ltr {
+    background-image: url("/icons/icon-ltr.png");
+}
+
+.rtl [dir="ltr"] .test8-ltr {
+    background-image: url("/icons/icon-rtl.png");
+}
+
+.ltr [dir="rtl"] .test8-rtl {
+    background-image: url("/icons/icon-rtl.png");
+}
+
+.rtl [dir="rtl"] .test8-rtl {
+    background-image: url("/icons/icon-ltr.png");
+}"
+`;
