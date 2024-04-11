@@ -1,7 +1,14 @@
 import postcss from 'postcss';
 import postcssRTLCSS from '../src';
 import { PluginOptions } from '../src/@types';
-import { readCSSFile, runTests } from './utils';
+import {
+  readCSSFile,
+  runTests,
+  createSnapshotFileName
+} from './utils';
+import 'jest-specific-snapshot';
+
+const BASE_NAME = 'prefixes';
 
 runTests({}, (pluginOptions: PluginOptions): void => {
 
@@ -21,7 +28,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
         bothPrefix: ['.ltr', '.rtl']
       };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'custom-ltr-and-rtl-prefix', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
@@ -33,7 +42,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
         bothPrefix: ['.ltr', '.left-to-right', '.rtl', '.right-to-left']
       };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'custom-ltr-and-rtl-prefix-as-arrays', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
@@ -46,7 +57,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
         processUrls: true
       };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'custom-ltr-rtl-and-both-prefix-as-arrays-and-process-urls-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
 
@@ -58,7 +71,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       };
       const options: PluginOptions = { ...pluginOptions, prefixSelectorTransformer: transformer };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'prefix-selector-transformer-with-default-prefixes', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
 
@@ -76,7 +91,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
         bothPrefix: ['.ltr', '.rtl']
       };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'prefix-selector-transformer-with-custom-ltr-and-rtl-prefixes', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
