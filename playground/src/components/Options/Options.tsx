@@ -4,7 +4,7 @@ import { useAppContext } from '@components/AppProvider';
 import { Switch } from '@components/Switch';
 import { SwitchGroup } from '@components/SwitchGroup';
 import { isBoolean } from '@utilities/types';
-import styles from './Options.module.scss';
+import * as styles from './Options.module.scss';
 
 export const Options = (): JSX.Element => {
 

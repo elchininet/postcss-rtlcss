@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import classnames from 'classnames';
-import styles from './SwitchGroup.module.scss';
+import * as styles from './SwitchGroup.module.scss';
 
 interface Attributes {
     [key: string]: string | boolean;

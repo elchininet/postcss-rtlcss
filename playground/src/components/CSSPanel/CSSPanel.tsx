@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import { editor, languages } from 'monaco-editor';
-import styles from './CSSPanel.module.scss';
+import * as styles from './CSSPanel.module.scss';
 
 export interface CSSPanelProps {
     title: string;
