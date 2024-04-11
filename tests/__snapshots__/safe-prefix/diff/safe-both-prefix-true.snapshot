@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: diff]] safeBothPrefix Option Tests:  {safeBothPrefix: true} 1`] = `
+".test1, .test2 {
+    background: url("/folder/subfolder/icons/ltr/chevron-left.png");
+    background-color: #FFF;
+    background-position: right 10px top 20px;
+    border-radius: 2px 0 8px 0;
+    padding-right: 0;
+    padding-left: 20px;
+    text-align: right;
+    transform: translate(50%, 50%);
+}
+
+.test2 {
+    text-align: center;
+}
+
+.test3 {
+    direction: rtl;
+    margin: 1px 2px 3px;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.test4 {
+    border-color: red;
+    border-radius: 4px 2px 16px 8px;
+    text-shadow: red -99px -1px 1px, blue -99px 2px 1px;
+    transform-origin: 10px 20px;
+    transform: scale(0.5, 0.5);
+}
+
+.test5,
+.test6,
+.test7 {
+    background: linear-gradient(-0.25turn, #3F87A6, #EBF8E1, #F69D3C);
+    border: 1px solid 2px;
+    border-color: #666 #999 #888 #777;
+    border-width: 1px 4px 3px 2px;
+    left: auto;
+    right: 100px;
+    transform: translateX(-5px);
+}
+
+.test8 {
+    background: linear-gradient(to right, #333, #333 50%, #EEE 75%, #333 75%);
+}
+
+.test9, .test10 {
+    background: linear-gradient(-217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(-127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(-336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    left: auto;
+    right: 5px;
+}
+
+.test11:hover,
+.test11:active {
+    font-family: "Droid Arabic Kufi", Arial, Helvetica;
+    font-size: 30px;
+    color: #000;
+    transform: translateY(10px) scaleX(-1);
+    padding: 10px 20px;
+}
+
+.test16:hover {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test17 {
+        cursor: wait;
+    }
+}
+
+.test18 {
+    animation: 5s flip 1s ease-in-out,
+               3s my-animation 6s ease-in-out;
+    padding: 10px 10px 40px 20px;
+}
+
+.test18::after {
+    left: auto;
+    right: 10px;
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test18 {
+        padding: 1px 4px 3px 2px;
+    }
+}
+
+.test19 {
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: my-animation;
+    animation-timing-function: ease-in-out;
+}
+
+.test20 {
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-name: my-animation, no-flip;
+    animation-timing-function: ease;
+}
+
+.test21 {
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name: no-flip;
+    animation-timing-function: ease-in-out;
+}
+
+.test22 {
+    right: 5px;
+    left: 10px;
+}
+
+.test23 {
+    left: 10px;
+    right: 10px;
+}
+
+.test24 {
+    border: 1px solid #000;
+    border-bottom-color: #666;
+    padding: 10px;
+}
+
+.test25, .test26-ltr, .test27 {
+    background-image: url("/icons/icon-l.png")
+}
+
+.test26-rtl {
+    background-image: url("/icons/icon-r.png")
+}
+
+.test27-prev {
+    background-image: url("/icons/icon-p.png")
+}
+
+.test27-next {
+    background-image: url("/icons/icon-n.png")
+}
+
+.test28-left::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.test28-right::before {
+    background-image: url("/folder/subfolder/arrow-left.png");
+}
+
+.testleft30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.testright30 {
+    background: url("/folder/subfolder/icon-rtl.png");
+}
+
+.test31 {
+    background-image: url("/icons/icon-right.png");
+    border: 1px solid gray;
+}
+
+.test32 {
+    background-image: url("/icons/icon-right.png");
+    background-repeat: no-repeat;
+    border: 1px solid gray;    
+}
+
+.test33 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.example34 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.example35 {
+    transform: translate(10px, 20px);
+}
+
+.test36 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test37 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test38 {
+    border-left: none;
+    border-right: 1px solid #666;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+.test39 {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.test40 {
+    padding: 10px;
+    left: auto;
+    right: 5px;
+}
+
+.test41 {
+    left: auto;
+    right: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.test42 {
+    color: #EFEFEF;
+    left: 10px;
+    width: 100%;    
+}
+
+.test43 {
+    transform: translate(10px, 20px);
+}
+
+.test44 {
+    animation: 5s normalFlip 1s ease-in-out;
+}
+
+.test45 {
+    animation: 5s inversedFlip 1s ease-in-out;
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test46 {
+        cursor: wait;
+        text-align: right;
+    }
+}
+
+@media only screen and (min-device-width: 320px) {
+    .test48 {
+        cursor: wait;
+        text-align: right;
+    }
+}
+
+:root {
+    text-align: right;
+}
+
+html .test50 {
+    left: auto;
+    right: 10px;
+}
+
+.test51 {
+    border-left: none;
+    border-right: 1px solid #FFF;
+    border: none;
+}
+
+.test52 {
+    padding-block: 1px 2px;
+}
+
+.test53 {
+    margin-block-start: 10px;
+    margin-block-end: 5px;
+}"
+`;
