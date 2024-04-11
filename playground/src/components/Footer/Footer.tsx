@@ -2,7 +2,7 @@ import React from 'react';
 import GitHubButton from 'react-github-btn';
 import classnames from 'classnames';
 import { Link } from '@components/Link';
-import styles from './Footer.module.scss';
+import * as styles from './Footer.module.scss';
 
 export const Footer = (): JSX.Element => {
     return (

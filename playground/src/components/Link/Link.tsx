@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import styles from './Link.module.scss';
+import * as styles from './Link.module.scss';
 
 export interface LinkProps  {
     href: string;

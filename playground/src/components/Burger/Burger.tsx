@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppContext } from '@components/AppProvider';
-import styles from './Burger.module.scss';
+import * as styles from './Burger.module.scss';
 
 export const Burger = (): JSX.Element => {
     
