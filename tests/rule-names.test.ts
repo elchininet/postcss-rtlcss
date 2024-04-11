@@ -1,7 +1,14 @@
 import postcss from 'postcss';
 import postcssRTLCSS from '../src';
 import { PluginOptions, Source } from '../src/@types';
-import { readCSSFile, runTests } from './utils';
+import {
+  readCSSFile,
+  runTests,
+  createSnapshotFileName
+} from './utils';
+import 'jest-specific-snapshot';
+
+const BASE_NAME = 'rule-names';
 
 runTests({}, (pluginOptions: PluginOptions): void => {
 
@@ -16,21 +23,27 @@ runTests({}, (pluginOptions: PluginOptions): void => {
     it('processRuleNames: true', (): void => {
       const options: PluginOptions = { ...pluginOptions, processRuleNames: true };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'process-rules-names-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
     it('processRuleNames: true, greedy: true', (): void => {
       const options: PluginOptions = { ...pluginOptions, processRuleNames: true, greedy: true };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'process-rules-names-true-greedy-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
 
     it('processRuleNames: true, with source rtl greedy: true', (): void => {
       const options: PluginOptions = { ...pluginOptions, processRuleNames: true, greedy: true, source: Source.rtl };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'process-rules-names-true-source-rtl-greedy-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
@@ -41,7 +54,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       ];
       const options: PluginOptions = { ...pluginOptions, processRuleNames: true, stringMap };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'process-rules-names-true-with-custom-string-map', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
 
@@ -52,7 +67,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       ];
       const options: PluginOptions = { ...pluginOptions, processRuleNames: true, greedy: true, stringMap };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'process-rules-names-true-with-custom-string-map-and-greedy-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
 
@@ -63,7 +80,9 @@ runTests({}, (pluginOptions: PluginOptions): void => {
       ];
       const options: PluginOptions = { ...pluginOptions, processRuleNames: true, greedy: true, stringMap, source: Source.rtl };
       const output = postcss([postcssRTLCSS(options)]).process(input);
-      expect(output.css).toMatchSnapshot();
+      expect(output.css).toMatchSpecificSnapshot(
+        createSnapshotFileName(BASE_NAME,'process-rules-names-true-with-custom-string-map-rtl-and-greedy-true', pluginOptions.mode)
+      );
       expect(output.warnings()).toHaveLength(0);
     });
   
