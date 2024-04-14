@@ -70,7 +70,7 @@
   "devDependencies": {
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-terser": "^0.4.4",
-    "@types/eslint": "^8.56.6",
+    "@types/eslint": "^8.56.9",
     "@types/jest": "^29.5.12",
     "@types/jest-specific-snapshot": "^0.5.9",
     "@types/node": "^20.12.7",
@@ -83,7 +83,7 @@
     "postcss": "^8.4.26",
     "replace-in-file": "^7.1.0",
     "rimraf": "^5.0.5",
-    "rollup": "^4.14.1",
+    "rollup": "^4.14.2",
     "rollup-plugin-ts": "^3.4.5",
     "ts-jest": "^29.1.2",
     "tslib": "^2.6.2",
