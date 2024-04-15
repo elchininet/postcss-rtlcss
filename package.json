@@ -52,7 +52,6 @@
     "copy": "./scripts/copy.sh",
     "modify-dts": "replace-in-file --configFile=config.replace.js",
     "build": "pnpm clean && rollup --config rollup.config.js --bundleConfigAsCjs && pnpm copy && pnpm modify-dts",
-    "preinstall": "npx -y only-allow pnpm",
     "prepare": "pnpm build",
     "prepublishOnly": "pnpm lint && pnpm test",
     "version": "git add .",

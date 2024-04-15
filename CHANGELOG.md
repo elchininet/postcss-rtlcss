@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.1.2] - 2024-04-16
+
+- Remove preinstall script
+
 ## [5.1.1] - 2024-04-11
 
 - Fix: make aliases affect both-prefixed and safe-prefixed declarations
