@@ -143,7 +143,8 @@ const defaultOptions = (): PluginOptionsNormalized => ({
     useCalc: false,
     stringMap: getRTLCSSStringMap(defaultStringMap),
     greedy: false,
-    aliases: {}
+    aliases: {},
+    processDeclarationPlugins: []
 });
 
 const store: Store = {
@@ -217,7 +218,10 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     if (options.aliases && isObjectWithStringKeys(options.aliases)) {
         returnOptions.aliases = options.aliases;
     }
-    return returnOptions;
+    return {
+        ...returnOptions,
+        processDeclarationPlugins: (options.processDeclarationPlugins || []).map(plugin => ({...plugin, directives: {control: {}, value: []}}))
+    };
 };
 
 const initStore = (options: PluginOptions): void => {

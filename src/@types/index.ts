@@ -39,6 +39,11 @@ export interface PluginStringMap {
     replace: strings;
 }
 
+export interface PluginProcessor {
+    expr: RegExp;
+    action: (prop: string, value: string, context: object) => object;
+}
+
 export type PrefixSelectorTransformer = (prefix: string, selector: string) => string | void;
 
 export interface PluginOptions {
@@ -58,6 +63,7 @@ export interface PluginOptions {
     stringMap?: PluginStringMap[];
     greedy?: boolean;
     aliases?: Record<string, string>;
+    processDeclarationPlugins?: Array<{ name: string, priority: number, processors: PluginProcessor[] }>;
 }
 
 export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, 'stringMap' | 'prefixSelectorTransformer'> {
