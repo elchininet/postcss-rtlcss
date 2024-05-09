@@ -382,6 +382,7 @@ All the options are optional, and a default value will be used if any of them is
 | stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the declarations' URLs and to match the names of the rules if `processRuleNames` is `true` |
 | greedy             | `boolean`                 | `false`         | When greedy is `true`, the matches of `stringMap` will not take into account word boundaries |
 | aliases            | `Record<string, string>`  | `{}`            | A strings map to treat some declarations as others |
+| processDeclarationPlugins | `Array<{name: string, priority: number, processors: PluginProcessor[]}>` | `[]` | Plugins applied when processing CSS declarations |
 
 ---
 
@@ -1438,6 +1439,62 @@ const options = {
 
 .test {
     padding: var(--my-padding);
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### processDeclarationPlugins
+
+<details><summary>Expand</summary>
+<p>
+
+Sometimes, we can register some plugins when processing CSS declarations via the `processDeclarationPlugins` options, which is helpful when we need to avoid unexpected flipping situations like `background-position`.
+
+##### input
+
+```css
+.test {
+    background-position: 0 100%;
+}
+```
+
+##### Convert `0` to `100%` (default)
+
+##### output
+
+```css
+.test {
+    background-position: 100% 100%;
+}
+```
+
+##### Set a plugin to avoid flipping
+
+```javascript
+const options = {
+	processDeclarationPlugins: [
+        {
+            name: 'avoid-flipping-background',
+            priority: 99, // above the core RTLCSS plugin which has a priority value of 100
+            processors: [{
+                expr: /(background|object)(-position(-x)?|-image)?$/i,
+                action: (prop, value) => ({prop, value})}
+            ]
+        }
+    ]
+};
+```
+
+##### output
+
+```css
+.test {
+    background-position: 0 100%;
 }
 ```
 

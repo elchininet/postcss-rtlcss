@@ -59,7 +59,8 @@ export const parseDeclarations = (
         useCalc,
         stringMap,
         greedy,
-        aliases
+        aliases,
+        processDeclarationPlugins
     } = store.options;
 
     const deleteDeclarations: Declaration[] = [];
@@ -160,7 +161,7 @@ export const parseDeclarations = (
                 stringMap,
                 greedy,
                 aliases
-            });
+            }, processDeclarationPlugins);
 
             /* the source could be undefined in certain cases but not during the tests */
             /* istanbul ignore next */
