@@ -47,7 +47,7 @@
   ],
   "scripts": {
     "test": "jest --clearCache && jest --verbose",
-    "lint": "eslint src/**/*.ts",
+    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"",
     "clean": "./scripts/clean.sh",
     "copy": "./scripts/copy.sh",
     "modify-dts": "replace-in-file --configFile=config.replace.js",

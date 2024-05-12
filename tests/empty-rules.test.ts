@@ -25,6 +25,6 @@ runTests({}, (pluginOptions: PluginOptions): void => {
                 createSnapshotFileName(BASE_NAME,'basic', pluginOptions.mode)
             );
             expect(output.warnings()).toHaveLength(0);
-          });
+        });
     });
 });
