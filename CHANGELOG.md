@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.1.3] - 2024-05-13
+
+- Add support for prefixes in `::view-transition` rules
+
 ## [5.1.2] - 2024-04-16
 
 - Remove preinstall script

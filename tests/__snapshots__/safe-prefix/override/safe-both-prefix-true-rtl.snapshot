@@ -626,6 +626,23 @@ html[dir="ltr"] .test50 {
     right: 10px;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+    height: 100%;
+}
+
+[dir]::view-transition-old(root),
+[dir]::view-transition-new(root) {
+    transform: scaleX(1.5);
+    right: 0;
+}
+
+[dir="ltr"]::view-transition-old(root),
+[dir="ltr"]::view-transition-new(root) {
+    right: auto;
+    left: 0;
+}
+
 [dir] .test51 {
     border-left: 1px solid #FFF;
 }

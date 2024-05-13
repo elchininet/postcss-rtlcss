@@ -3,6 +3,7 @@ import { strings, Mode, Source } from '@types';
 import {
     HTML_SELECTOR_REGEXP,
     ROOT_SELECTOR_REGEXP,
+    VIEW_TRANSITION_REGEXP,
     STRING_TYPE
 } from '@constants';
 import { store } from '@data/store';
@@ -19,6 +20,9 @@ const addPrefix = (prefix: string, selector: string): string => {
     }
     if (ROOT_SELECTOR_REGEXP.test(selector)) {
         return selector.replace(ROOT_SELECTOR_REGEXP, `${prefix}$1`);
+    }
+    if (VIEW_TRANSITION_REGEXP.test(selector)) {
+        return selector.replace(VIEW_TRANSITION_REGEXP, `${prefix}$1`);
     }
     return `${prefix} ${selector}`;
 };
