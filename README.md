@@ -1453,7 +1453,7 @@ const options = {
 <details><summary>Expand</summary>
 <p>
 
-Sometimes, we can register some plugins when processing CSS declarations via the `processDeclarationPlugins` options, which is helpful when we need to avoid unexpected flipping situations like `background-position`.
+The intention of the processDeclarationPlugins option is to process the declarations to extend or override RTLCSS functionality. For example, we can avoid automatically flipping of `background-potion`.
 
 ##### input
 
