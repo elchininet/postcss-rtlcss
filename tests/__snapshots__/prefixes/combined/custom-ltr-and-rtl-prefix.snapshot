@@ -626,6 +626,22 @@ html.rtl .test50 {
     right: 10px;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+    transform: scaleX(1.5);
+    height: 100%;
+}
+
+.ltr::view-transition-old(root),
+.ltr::view-transition-new(root) {
+    right: 0;
+}
+
+.rtl::view-transition-old(root),
+.rtl::view-transition-new(root) {
+    left: 0;
+}
+
 .ltr .test51 {
     border-left: 1px solid #FFF;
 }

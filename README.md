@@ -584,7 +584,7 @@ This function will be used to transform the selectors and prefixing them at our 
 
 >Notes:
 >* If the function doesn‘t return a string, the default prefixing logic will be used.
->* If this function is used, be aware that rules using `html` or `:root` will follow the custom prefixing logic. You should cover these cases.
+>* If this function is used, be aware that rules using `html`, `:root` or `:::view-transition` will follow the custom prefixing logic. You should cover these cases.
 
 ##### input
 

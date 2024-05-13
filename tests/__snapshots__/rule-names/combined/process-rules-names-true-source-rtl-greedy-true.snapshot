@@ -634,6 +634,22 @@ html[dir="ltr"] .test50 {
     right: 10px;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+    transform: scaleX(1.5);
+    height: 100%;
+}
+
+[dir="rtl"]::view-transition-old(root),
+[dir="rtl"]::view-transition-new(root) {
+    right: 0;
+}
+
+[dir="ltr"]::view-transition-old(root),
+[dir="ltr"]::view-transition-new(root) {
+    left: 0;
+}
+
 [dir="rtl"] .test51 {
     border-left: 1px solid #FFF;
 }

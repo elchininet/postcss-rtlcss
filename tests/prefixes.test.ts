@@ -79,7 +79,11 @@ runTests({}, (pluginOptions: PluginOptions): void => {
 
         it('prefixSelectorTransformer with custom ltrPrefix and rtlPrefix', (): void => {
             const transformer = (prefix: string, selector: string) => {
-                if (!selector.startsWith('html') && selector.indexOf(':root') < 0) {
+                if (
+                    !selector.startsWith('html') &&
+                    !selector.startsWith('::view-transition') &&
+                    selector.indexOf(':root') < 0
+                ) {
                     return `${prefix}${selector}`;
                 }
             };

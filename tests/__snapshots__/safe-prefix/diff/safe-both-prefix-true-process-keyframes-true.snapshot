@@ -313,6 +313,13 @@ html .test50 {
     right: 10px;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+    transform: scaleX(1.5);
+    right: auto;
+    left: 0;
+}
+
 .test51 {
     border-left: none;
     border-right: 1px solid #FFF;

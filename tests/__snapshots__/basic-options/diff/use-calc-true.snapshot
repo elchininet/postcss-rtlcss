@@ -192,6 +192,12 @@ html .test50 {
     right: 10px;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+    right: auto;
+    left: 0;
+}
+
 .test51 {
     border-left: none;
     border-right: 1px solid #FFF;
