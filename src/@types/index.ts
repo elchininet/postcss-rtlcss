@@ -39,6 +39,15 @@ export interface PluginStringMap {
     replace: strings;
 }
 
+export type RTLCSSPlugin = {
+    name: string;
+    priority: number;
+    directives: {
+        control: Object,
+        value: Array<Object>
+    };
+}
+
 export interface DeclarationPluginProcessor {
     expr: RegExp;
     action: (prop: string, value: string, context: object) => object;
@@ -72,8 +81,9 @@ export interface PluginOptions {
     processDeclarationPlugins?: DeclarationPlugin[];
 }
 
-export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, 'stringMap' | 'prefixSelectorTransformer'> {
+export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, 'stringMap' | 'processDeclarationPlugins' | 'prefixSelectorTransformer'> {
     stringMap: StringMap[];
+    plugins: RTLCSSPlugin[];
     prefixSelectorTransformer: PrefixSelectorTransformer | null;
 }
 

@@ -160,7 +160,7 @@ const defaultOptions = (): PluginOptionsNormalized => ({
     stringMap: getRTLCSSStringMap(defaultStringMap),
     greedy: false,
     aliases: {},
-    processDeclarationPlugins: []
+    plugins: []
 });
 
 const store: Store = {
@@ -232,7 +232,7 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
         });
     }
     if (isAcceptedProcessDeclarationPlugins(options.processDeclarationPlugins)) {
-        returnOptions.processDeclarationPlugins = options.processDeclarationPlugins.map(plugin => ({
+        returnOptions.plugins = options.processDeclarationPlugins.map(plugin => ({
             ...plugin, directives: {control: {}, value: []},
         }));
     }
