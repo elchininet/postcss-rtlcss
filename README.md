@@ -382,7 +382,7 @@ All the options are optional, and a default value will be used if any of them is
 | stringMap          | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the declarations' URLs and to match the names of the rules if `processRuleNames` is `true` |
 | greedy             | `boolean`                 | `false`         | When greedy is `true`, the matches of `stringMap` will not take into account word boundaries |
 | aliases            | `Record<string, string>`  | `{}`            | A strings map to treat some declarations as others |
-| processDeclarationPlugins | `Array<{name: string, priority: number, processors: PluginProcessor[]}>` | `[]` | Plugins applied when processing CSS declarations |
+| processDeclarationPlugins | `DeclarationPlugin[]` | `[]`         | Plugins applied when processing CSS declarations |
 
 ---
 

@@ -3,6 +3,7 @@ export const DECLARATION_TYPE = 'decl';
 export const RULE_TYPE = 'rule';
 export const AT_RULE_TYPE = 'atrule';
 export const STRING_TYPE = 'string';
+export const NUMBER_TYPE = 'number';
 export const BOOLEAN_TYPE = 'boolean';
 export const FUNCTION_TYPE = 'function';
 export const KEYFRAMES_NAME = 'keyframes';

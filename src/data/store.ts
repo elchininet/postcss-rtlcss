@@ -2,6 +2,8 @@ import { Rule, AtRule } from 'postcss';
 import {
     PluginOptions,
     PluginOptionsNormalized,
+    DeclarationPlugin,
+    DeclarationPluginProcessor,
     AtRulesObject,
     AtRulesStringMap,
     RulesObject,
@@ -16,6 +18,8 @@ import {
 } from '@types';
 import {
     BOOLEAN_TYPE,
+    STRING_TYPE,
+    NUMBER_TYPE,
     FUNCTION_TYPE,
     REG_EXP_CHARACTERS_REG_EXP,
     LAST_WORD_CHARACTER_REG_EXP
@@ -98,6 +102,18 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
         )
     );
 };
+
+const isAcceptedProcessDeclarationPlugins = (plugins: DeclarationPlugin[]): boolean =>
+    Array.isArray(plugins)
+    && plugins.every((plugin: DeclarationPlugin) =>
+            typeof plugin.name == STRING_TYPE
+            && typeof plugin.priority == NUMBER_TYPE
+            && Array.isArray(plugin.processors)
+            && plugin.processors.every((processor: DeclarationPluginProcessor) =>
+                ({}).toString.call(processor.expr) === '[object RegExp]'
+                && typeof processor.action === FUNCTION_TYPE
+            )
+    );
 
 const isObjectWithStringKeys = (obj: Record<string, unknown>): boolean =>
     !Object.entries(obj).some(
@@ -215,13 +231,15 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
             }
         });
     }
+    if (isAcceptedProcessDeclarationPlugins(options.processDeclarationPlugins)) {
+        returnOptions.processDeclarationPlugins = options.processDeclarationPlugins.map(plugin => ({
+            ...plugin, directives: {control: {}, value: []},
+        }));
+    }
     if (options.aliases && isObjectWithStringKeys(options.aliases)) {
         returnOptions.aliases = options.aliases;
     }
-    return {
-        ...returnOptions,
-        processDeclarationPlugins: (options.processDeclarationPlugins || []).map(plugin => ({...plugin, directives: {control: {}, value: []}}))
-    };
+    return returnOptions;
 };
 
 const initStore = (options: PluginOptions): void => {
