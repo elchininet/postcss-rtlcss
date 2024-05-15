@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[[Mode: combined]] Combined Tests:  flip background by default 1`] = `
+exports[`[[Mode: combined]] flip background by default 1`] = `
 "[dir="ltr"] .test1 {
     background: url("/icons/icon-left.png") 0 100%; 
 }
@@ -43,42 +43,51 @@ exports[`[[Mode: combined]] Combined Tests:  flip background by default 1`] = `
 }
 
 /* inside a nested rule */
+.test1 {
+    .test3 {
+        background-image: url("/icons/icon-left.png");
+    }
+
+        > .test4 {
+        background-image: url("/icons/icon-left.png");
+        background-position-y: 100%;
+    }
+}
+
 [dir="ltr"] .test1 {
-    background: url("/icons/icon-left.png") 0 100%;
+    &.test2 {
+        background: url("/icons/icon-left.png") 0 100%;
+    }
+
+    .test3 {
+        background-position: 0 100%;
+    }
+
+        > .test4 {
+        background-position-x: 0;
+    }
+
+        + .test5 {
+        object-position: 0 100%;
+    }
 }
 
 [dir="rtl"] .test1 {
-    background: url("/icons/icon-left.png") 100% 100%;
-}
+    &.test2 {
+        background: url("/icons/icon-left.png") 100% 100%;
+    }
 
-[dir="ltr"] .test2 {
-    background-image: url("/icons/icon-left.png");
-    background-position: 0 100%;
-}
+    .test3 {
+        background-position: 100% 100%;
+    }
 
-[dir="rtl"] .test2 {
-    background-image: url("/icons/icon-left.png");
-    background-position: 100% 100%;
-}
+        > .test4 {
+        background-position-x: 100%;
+    }
 
-[dir="ltr"] .test3 {
-    background-image: url("/icons/icon-left.png");
-    background-position-x: 0;
-    background-position-y: 100%;
-}
-
-[dir="rtl"] .test3 {
-    background-image: url("/icons/icon-left.png");
-    background-position-x: 100%;
-    background-position-y: 100%;
-}
-
-[dir="ltr"] .test4 {
-    object-position: 0 100%;
-}
-
-[dir="rtl"] .test4 {
-    object-position: 100% 100%;
+        + .test5 {
+        object-position: 100% 100%;
+    }
 }
 
 /* inside a keyframe animation */

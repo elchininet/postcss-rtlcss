@@ -12,12 +12,12 @@ const BASE_NAME = 'process-declaration-plugins';
 
 runTests({}, (pluginOptions: PluginOptions): void => {
 
-  describe(`[[Mode: ${pluginOptions.mode}]] Combined Tests: `, (): void => {
+  describe(`[[Mode: ${pluginOptions.mode}]]`, (): void => {
 
     let input = '';
   
     beforeEach(async (): Promise<void> => {
-      input = input || await readCSSFile(`input-${BASE_NAME}.css`);
+      input = input || await readCSSFile(`input-${BASE_NAME}.scss`);
     });
     
     it('flip background by default', (): void => {

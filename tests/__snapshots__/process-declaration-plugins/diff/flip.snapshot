@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[[Mode: diff]] Combined Tests:  flip background by default 1`] = `
+exports[`[[Mode: diff]] flip background by default 1`] = `
 ".test1 {
     background: url("/icons/icon-left.png") 100% 100%; 
 }
@@ -15,6 +15,24 @@ exports[`[[Mode: diff]] Combined Tests:  flip background by default 1`] = `
 
 .test4 {
     object-position: 100% 100%;
+}
+
+.test1 {
+    &.test2 {
+        background: url("/icons/icon-left.png") 100% 100%;
+    }
+
+    .test3 {
+        background-position: 100% 100%;
+    }
+
+        > .test4 {
+        background-position-x: 100%;
+    }
+
+        + .test5 {
+        object-position: 100% 100%;
+    }
 }
 
 @media screen and (max-width: 800px) {

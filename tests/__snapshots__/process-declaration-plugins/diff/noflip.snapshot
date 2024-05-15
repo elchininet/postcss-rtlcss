@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[[Mode: diff]] Combined Tests:  use {processDeclarationPlugins} to avoid flipping background 1`] = `""`;
+exports[`[[Mode: diff]] use {processDeclarationPlugins} to avoid flipping background 1`] = `""`;
