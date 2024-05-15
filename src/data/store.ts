@@ -110,7 +110,7 @@ const isAcceptedProcessDeclarationPlugins = (plugins: DeclarationPlugin[]): bool
             && typeof plugin.priority == NUMBER_TYPE
             && Array.isArray(plugin.processors)
             && plugin.processors.every((processor: DeclarationPluginProcessor) =>
-                ({}).toString.call(processor.expr) === '[object RegExp]'
+                processor.expr instanceof RegExp
                 && typeof processor.action === FUNCTION_TYPE
             )
     );
