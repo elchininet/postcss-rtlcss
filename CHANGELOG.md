@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.1.3] - 2024-05-13
+## [5.2.0] - 2024-05-16
 
 - Add support for prefixes in `::view-transition` rules
 
