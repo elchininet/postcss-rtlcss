@@ -106,7 +106,7 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
 const isAcceptedProcessDeclarationPlugins = (plugins: DeclarationPlugin[]): boolean =>
     Array.isArray(plugins)
     && plugins.every((plugin: DeclarationPlugin) =>
-            typeof plugin.name == STRING_TYPE
+        typeof plugin.name == STRING_TYPE
             && typeof plugin.priority == NUMBER_TYPE
             && Array.isArray(plugin.processors)
             && plugin.processors.every((processor: DeclarationPluginProcessor) =>
