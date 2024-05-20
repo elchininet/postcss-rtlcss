@@ -43,8 +43,8 @@ export type RTLCSSPlugin = {
     name: string;
     priority: number;
     directives: {
-        control: Object,
-        value: Array<Object>
+        control: object,
+        value: Array<object>
     };
 }
 
