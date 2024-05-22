@@ -1,5 +1,10 @@
 # Changelog
 
+## [5.3.0] - 2024-05-22
+
+- Support specifying processors during processing CSS declarations
+- Fix `raw` directive with universal selectors
+
 ## [5.2.0] - 2024-05-16
 
 - Add support for prefixes in `::view-transition` rules
