@@ -430,6 +430,10 @@ exports[`[[Mode: combined]] Prefixes Tests:  prefixSelectorTransformer with cust
     transform: translate(10px, 20px);
 }
 
+.rtl * {
+    margin: 0;
+}
+
 .test36 {
     color: #FFF;
     width: 100%;

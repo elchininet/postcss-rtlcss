@@ -452,6 +452,10 @@ exports[`[[Mode: combined]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bo
     transform: translate(10px, 20px);
 }
 
+.rtl *, .right-to-left * {
+    margin: 0;
+}
+
 .test36 {
     color: #FFF;
     width: 100%;

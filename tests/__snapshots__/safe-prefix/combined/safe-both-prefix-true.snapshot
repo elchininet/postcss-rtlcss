@@ -445,6 +445,10 @@ exports[`[[Mode: combined]] safeBothPrefix Option Tests:  {safeBothPrefix: true}
     transform: translate(10px, 20px);
 }
 
+[dir="rtl"] * {
+    margin: 0;
+}
+
 .test36 {
     color: #FFF;
     width: 100%;

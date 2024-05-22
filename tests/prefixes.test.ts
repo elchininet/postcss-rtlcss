@@ -82,6 +82,7 @@ runTests({}, (pluginOptions: PluginOptions): void => {
                 if (
                     !selector.startsWith('html') &&
                     !selector.startsWith('::view-transition') &&
+                    !selector.startsWith('*') &&
                     selector.indexOf(':root') < 0
                 ) {
                     return `${prefix}${selector}`;

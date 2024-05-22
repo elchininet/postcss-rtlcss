@@ -395,6 +395,10 @@ exports[`[[Mode: override]] Prefixes Tests:  prefixSelectorTransformer with defa
     transform: translate(10px, 20px);
 }
 
+[dir="rtl"] > * {
+    margin: 0;
+}
+
 .test36 {
     color: #FFF;
     border-left: 1px solid #666;

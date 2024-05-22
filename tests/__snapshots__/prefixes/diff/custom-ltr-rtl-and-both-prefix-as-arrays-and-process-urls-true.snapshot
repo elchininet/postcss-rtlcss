@@ -132,6 +132,10 @@ exports[`[[Mode: diff]] Prefixes Tests:  custom ltrPrefix, rtlPrefix, and bothPr
     transform: translate(10px, 20px);
 }
 
+* {
+    margin: 0;
+}
+
 .test36 {
     border-left: none;
     border-right: 1px solid #666;

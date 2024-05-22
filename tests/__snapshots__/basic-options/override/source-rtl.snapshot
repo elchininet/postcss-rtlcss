@@ -395,6 +395,10 @@ exports[`[[Mode: override]] Basic Options Tests:  {source: rtl} 1`] = `
     transform: translate(10px, 20px);
 }
 
+[dir="ltr"] * {
+    margin: 0;
+}
+
 .test36 {
     color: #FFF;
     border-left: 1px solid #666;

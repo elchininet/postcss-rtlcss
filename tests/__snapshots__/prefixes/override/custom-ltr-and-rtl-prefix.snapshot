@@ -395,6 +395,10 @@ exports[`[[Mode: override]] Prefixes Tests:  custom ltrPrefix and rtlPrefix 1`] 
     transform: translate(10px, 20px);
 }
 
+.rtl * {
+    margin: 0;
+}
+
 .test36 {
     color: #FFF;
     border-left: 1px solid #666;

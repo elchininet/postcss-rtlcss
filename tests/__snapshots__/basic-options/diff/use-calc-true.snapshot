@@ -123,6 +123,10 @@ exports[`[[Mode: diff]] Basic Options Tests:  {useCalc: true} 1`] = `
     transform: translate(10px, 20px);
 }
 
+* {
+    margin: 0;
+}
+
 .test36 {
     border-left: none;
     border-right: 1px solid #666;
