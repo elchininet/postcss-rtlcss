@@ -466,6 +466,10 @@ exports[`[[Mode: combined]] Basic Options Tests:  {processKeyFrames: true} 1`] =
     transform: translate(10px, 20px);
 }
 
+[dir="rtl"] * {
+    margin: 0;
+}
+
 .test36 {
     color: #FFF;
     width: 100%;
