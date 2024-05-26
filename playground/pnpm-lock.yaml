@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   monaco-editor:
-    specifier: ^0.48.0
-    version: 0.48.0
+    specifier: ^0.49.0
+    version: 0.49.0
   postcss:
     specifier: ^8.4.31
     version: 8.4.38
@@ -90,7 +90,7 @@ devDependencies:
     version: 2.9.0(webpack@5.91.0)
   monaco-editor-webpack-plugin:
     specifier: ^7.1.0
-    version: 7.1.0(monaco-editor@0.48.0)(webpack@5.91.0)
+    version: 7.1.0(monaco-editor@0.49.0)(webpack@5.91.0)
   node-sass:
     specifier: ^9.0.0
     version: 9.0.0
@@ -5367,19 +5367,19 @@ packages:
     hasBin: true
     dev: true
 
-  /monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.48.0)(webpack@5.91.0):
+  /monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.49.0)(webpack@5.91.0):
     resolution: {integrity: sha512-ZjnGINHN963JQkFqjjcBtn1XBtUATDZBMgNQhDQwd78w2ukRhFXAPNgWuacaQiDZsUr4h1rWv5Mv6eriKuOSzA==}
     peerDependencies:
       monaco-editor: '>= 0.31.0'
       webpack: ^4.5.0 || 5.x
     dependencies:
       loader-utils: 2.0.4
-      monaco-editor: 0.48.0
+      monaco-editor: 0.49.0
       webpack: 5.91.0(esbuild@0.14.54)(webpack-cli@5.1.4)
     dev: true
 
-  /monaco-editor@0.48.0:
-    resolution: {integrity: sha512-goSDElNqFfw7iDHMg8WDATkfcyeLTNpBHQpO8incK6p5qZt5G/1j41X0xdGzpIkGojGXM+QiRQyLjnfDVvrpwA==}
+  /monaco-editor@0.49.0:
+    resolution: {integrity: sha512-2I8/T3X/hLxB2oPHgqcNYUVdA/ZEFShT7IAujifIPMfKkNbLOqY8XCoyHCXrsdjb36dW9MwoTwBCFpXKMwNwaQ==}
 
   /ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
