@@ -50,7 +50,7 @@
     "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"",
     "clean": "./scripts/clean.sh",
     "copy": "./scripts/copy.sh",
-    "modify-dts": "replace-in-file --configFile=config.replace.js",
+    "modify-dts": "replace-in-file --configFile=config.replace.json",
     "build": "pnpm clean && rollup --config rollup.config.js --bundleConfigAsCjs && pnpm copy && pnpm modify-dts",
     "prepare": "pnpm build",
     "prepublishOnly": "pnpm lint && pnpm test",
