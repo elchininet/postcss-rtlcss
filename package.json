@@ -64,7 +64,7 @@
     "url": "git+https://github.com/elchininet/postcss-rtlcss"
   },
   "dependencies": {
-    "rtlcss": "4.1.1"
+    "rtlcss": "4.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^6.1.0",
