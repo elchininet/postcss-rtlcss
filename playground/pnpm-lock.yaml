@@ -15,8 +15,8 @@ importers:
         specifier: ^8.4.31
         version: 8.4.38
       postcss-rtlcss:
-        specifier: ^5.3.0
-        version: 5.3.0(postcss@8.4.38)
+        specifier: ^5.3.1
+        version: 5.3.1(postcss@8.4.38)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -3273,8 +3273,8 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
 
-  postcss-rtlcss@5.3.0:
-    resolution: {integrity: sha512-tZOaKisLBDmd8zIPT8nMS8kFlfkNLKvsZr9QRs61VK82OK99RfgTj9JnIJ56nLM1iqykW8ZzD254+M5+oySofg==}
+  postcss-rtlcss@5.3.1:
+    resolution: {integrity: sha512-VvxICcm0j1qEb05GaEPCSZTqxZ71T98WPF9LeVkZB9UW50EytDejDVgub11f4+muMQaSG8AItzEBH5x0nHbS0g==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       postcss: ^8.4.21
@@ -3486,8 +3486,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  rtlcss@4.1.1:
-    resolution: {integrity: sha512-/oVHgBtnPNcggP2aVXQjSy6N1mMAfHg4GSag0QtZBlD5bdDgAHwr4pydqJGd+SUCu9260+Pjqbjwtvu7EMH1KQ==}
+  rtlcss@4.2.0:
+    resolution: {integrity: sha512-AV+V3oOVvCrqyH5Q/6RuT1IDH1Xy5kJTkEWTWZPN5rdQ3HCFOd8SrbC7c6N5Y8bPpCfZSR6yYbUATXslvfvu5g==}
     engines: {node: '>=12.0.0'}
     hasBin: true
 
@@ -7822,10 +7822,10 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.4.38)
       string-hash: 1.1.3
 
-  postcss-rtlcss@5.3.0(postcss@8.4.38):
+  postcss-rtlcss@5.3.1(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
-      rtlcss: 4.1.1
+      rtlcss: 4.2.0
 
   postcss-selector-parser@6.1.0:
     dependencies:
@@ -8047,7 +8047,7 @@ snapshots:
     dependencies:
       glob: 10.3.10
 
-  rtlcss@4.1.1:
+  rtlcss@4.2.0:
     dependencies:
       escalade: 3.1.2
       picocolors: 1.0.1
