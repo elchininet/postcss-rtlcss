@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       rtlcss:
-        specifier: 4.1.1
-        version: 4.1.1
+        specifier: 4.2.0
+        version: 4.2.0
     devDependencies:
       '@rollup/plugin-json':
         specifier: ^6.1.0
@@ -1760,8 +1760,8 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
-  rtlcss@4.1.1:
-    resolution: {integrity: sha512-/oVHgBtnPNcggP2aVXQjSy6N1mMAfHg4GSag0QtZBlD5bdDgAHwr4pydqJGd+SUCu9260+Pjqbjwtvu7EMH1KQ==}
+  rtlcss@4.2.0:
+    resolution: {integrity: sha512-AV+V3oOVvCrqyH5Q/6RuT1IDH1Xy5kJTkEWTWZPN5rdQ3HCFOd8SrbC7c6N5Y8bPpCfZSR6yYbUATXslvfvu5g==}
     engines: {node: '>=12.0.0'}
     hasBin: true
 
@@ -4020,7 +4020,7 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.19.0
       fsevents: 2.3.3
 
-  rtlcss@4.1.1:
+  rtlcss@4.2.0:
     dependencies:
       escalade: 3.1.2
       picocolors: 1.0.0
