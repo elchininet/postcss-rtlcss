@@ -229,10 +229,18 @@ export const removeEmptyRules = (rule: Container): void => {
 export const appendRules = (): void => {
     const { rules } = store;
     rules.forEach(({rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe}): void => {
-        ruleBoth.nodes.length && rule.after(ruleBoth);
-        ruleRTL.nodes.length && rule.after(ruleRTL);
-        ruleLTR.nodes.length && rule.after(ruleLTR);
-        ruleSafe.nodes.length && rule.after(ruleSafe);
+        if (ruleBoth.nodes.length) {
+            rule.after(ruleBoth);
+        }
+        if (ruleRTL.nodes.length) {
+            rule.after(ruleRTL);
+        }
+        if (ruleLTR.nodes.length) {
+            rule.after(ruleLTR);
+        }
+        if (ruleSafe.nodes.length) {
+            rule.after(ruleSafe);
+        }
         removeEmptyRules(rule);
         cleanRules(rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe);
     });
