@@ -72,7 +72,7 @@
     "@types/eslint": "^9.6.0",
     "@types/jest": "^29.5.12",
     "@types/jest-specific-snapshot": "^0.5.9",
-    "@types/node": "^22.2.0",
+    "@types/node": "^22.4.0",
     "@types/rtlcss": "^3.5.4",
     "eslint": "^9.9.0",
     "eslint-plugin-jest": "^28.8.0",
@@ -87,7 +87,7 @@
     "ts-jest": "^29.2.4",
     "tslib": "^2.6.3",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.0.1"
+    "typescript-eslint": "^8.1.0"
   },
   "peerDependencies": {
     "postcss": "^8.4.21"
