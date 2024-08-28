@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       monaco-editor:
-        specifier: ^0.50.0
-        version: 0.50.0
+        specifier: ^0.51.0
+        version: 0.51.0
       postcss:
         specifier: ^8.4.31
         version: 8.4.38
@@ -92,7 +92,7 @@ importers:
         version: 2.9.1(webpack@5.94.0(esbuild@0.14.54)(webpack-cli@5.1.4))
       monaco-editor-webpack-plugin:
         specifier: ^7.1.0
-        version: 7.1.0(monaco-editor@0.50.0)(webpack@5.94.0(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 7.1.0(monaco-editor@0.51.0)(webpack@5.94.0(esbuild@0.14.54)(webpack-cli@5.1.4))
       node-sass:
         specifier: ^9.0.0
         version: 9.0.0
@@ -2906,8 +2906,8 @@ packages:
       monaco-editor: '>= 0.31.0'
       webpack: ^4.5.0 || 5.x
 
-  monaco-editor@0.50.0:
-    resolution: {integrity: sha512-8CclLCmrRRh+sul7C08BmPBP3P8wVWfBHomsTcndxg5NRCEPfu/mc2AGU8k37ajjDVXcXFc12ORAMUkmk+lkFA==}
+  monaco-editor@0.51.0:
+    resolution: {integrity: sha512-xaGwVV1fq343cM7aOYB6lVE4Ugf0UyimdD/x5PWcWBMKENwectaEu77FAN7c5sFiyumqeJdX1RPTh1ocioyDjw==}
 
   ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
@@ -7367,13 +7367,13 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.50.0)(webpack@5.94.0(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.51.0)(webpack@5.94.0(esbuild@0.14.54)(webpack-cli@5.1.4)):
     dependencies:
       loader-utils: 2.0.4
-      monaco-editor: 0.50.0
+      monaco-editor: 0.51.0
       webpack: 5.94.0(esbuild@0.14.54)(webpack-cli@5.1.4)
 
-  monaco-editor@0.50.0: {}
+  monaco-editor@0.51.0: {}
 
   ms@2.0.0: {}
 
