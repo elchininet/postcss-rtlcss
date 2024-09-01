@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.4.0] - 2024-09-01
+
+- Update `RTLCSS` to version `4.3.0`
+
 ## [5.3.1] - 2024-07-29
 
 - Update `RTLCSS` to version `4.2.0`
