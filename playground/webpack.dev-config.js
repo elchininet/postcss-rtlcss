@@ -1,7 +1,7 @@
 const webpackConfig = require('./webpack.config');
 
 module.exports = {
-    ...webpackConfig,  
+    ...webpackConfig,
     mode: 'development',
     plugins: webpackConfig.plugins.splice(1),
     devServer: {
