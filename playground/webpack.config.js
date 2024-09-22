@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-module.exports = {    
+module.exports = {
     mode: 'production',
     entry: './src/index.tsx',
     output: {
