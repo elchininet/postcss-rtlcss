@@ -3,15 +3,15 @@ import { strings, Mode, Source } from '@types';
 import {
     HTML_SELECTOR_REGEXP,
     ROOT_SELECTOR_REGEXP,
-    VIEW_TRANSITION_REGEXP,
-    TYPEOF
+    VIEW_TRANSITION_REGEXP
 } from '@constants';
 import { store } from '@data/store';
+import { isString } from '@utilities/predicates';
 
 const addPrefix = (prefix: string, selector: string): string => {
     if (store.options.prefixSelectorTransformer) {
         const transformedSelector = store.options.prefixSelectorTransformer(prefix, selector);
-        if (transformedSelector && typeof transformedSelector === TYPEOF.STRING) {
+        if (transformedSelector && isString(transformedSelector)) {
             return transformedSelector;
         }
     }
@@ -28,7 +28,7 @@ const addPrefix = (prefix: string, selector: string): string => {
 };
 
 export const addSelectorPrefixes = (rule: Rule, prefixes: strings): void => {
-    rule.selectors = typeof prefixes === 'string'
+    rule.selectors = isString(prefixes)
         ? rule.selectors.map((selector: string): string => {
             if (store.rulesPrefixRegExp.test(selector)) {
                 return selector;

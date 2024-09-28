@@ -26,6 +26,7 @@ import {
     checkDirective,
     getSourceDirectiveValue
 } from '@utilities/directives';
+import { isAtRule } from '@utilities/predicates';
 import { vendor } from '@utilities/vendor';
 import { parseRules } from '@parsers/rules';
 
@@ -51,26 +52,24 @@ export const parseAtRules = (container: Container): void => {
                 return;
             }
         
-            if (node.type !== TYPE.AT_RULE) return;
+            if (!isAtRule(node)) return;
 
-            const atRule = node as AtRule;
-
-            if (vendor.unprefixed(atRule.name) === KEYFRAMES_NAME) return;
+            if (vendor.unprefixed(node.name) === KEYFRAMES_NAME) return;
 
             const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
 
-            parseRules(atRule, sourceDirectiveValue);
+            parseRules(node, sourceDirectiveValue);
 
-            parseAtRules(atRule);
+            parseAtRules(node);
 
         }
     );
 
 };
 
-const addToIgnoreKeyframesInDiffMode = (node: Node): void => {
+const addToIgnoreKeyframesInDiffMode = (node: AtRule): void => {
     if (store.options.mode === Mode.diff) {
-        store.keyframesToRemove.push(node as AtRule);
+        store.keyframesToRemove.push(node);
     }
 };
 
@@ -99,25 +98,23 @@ export const parseKeyFrames = (css: Root): void => {
         (node: Node): void => {
 
             if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
-                addToIgnoreKeyframesInDiffMode(node);
+                addToIgnoreKeyframesInDiffMode(node as AtRule);
                 return;
             }
 
-            if (node.type !== TYPE.AT_RULE) {
-                return;
-            }
-
-            const atRule = node as AtRule;
-            
-            if (vendor.unprefixed(atRule.name) !== KEYFRAMES_NAME) {
+            if (!isAtRule(node)) {
                 return;
             }
             
-            const atRuleString = atRule.toString();
+            if (vendor.unprefixed(node.name) !== KEYFRAMES_NAME) {
+                return;
+            }
+            
+            const atRuleString = node.toString();
             const atRuleFlippedString = rtlcss.process(atRuleString, { processUrls, useCalc, stringMap });
             
             if (atRuleString === atRuleFlippedString) {
-                addToIgnoreKeyframesInDiffMode(atRule);
+                addToIgnoreKeyframesInDiffMode(node);
                 return;
             }
 
@@ -126,17 +123,17 @@ export const parseKeyFrames = (css: Root): void => {
             const rootFlipped = postcss.parse(
                 atRuleFlippedString,
                 {
-                    from: atRule.source?.input?.from
+                    from: node.source?.input?.from
                 }
             );
             const atRuleFlipped = rootFlipped.first as AtRule;
 
-            const atRuleParams = atRule.params;
+            const atRuleParams = node.params;
             const ltr = `${atRuleParams}-${Source.ltr}`;
             const rtl = `${atRuleParams}-${Source.rtl}`;
             const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
             
-            atRule.params = (
+            node.params = (
                 (
                     !sourceDirectiveValue &&
                     source === Source.ltr
@@ -164,7 +161,7 @@ export const parseKeyFrames = (css: Root): void => {
 
             store.keyframes.push({
                 atRuleParams,
-                atRule,
+                atRule: node,
                 atRuleFlipped
             });
         

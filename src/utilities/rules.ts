@@ -11,13 +11,20 @@ import {
     StringMap,
     Mode
 } from '@types';
-import { TYPE, RTL_COMMENT_REGEXP } from '@constants';
+import { RTL_COMMENT_REGEXP } from '@constants';
 import { store } from '@data/store';
+import {
+    isAtRule,
+    isComment,
+    isDeclaration,
+    isRule,
+    isString
+} from '@utilities/predicates';
 import { addProperSelectorPrefixes } from '@utilities/selectors';
 
 export const ruleHasDeclarations = (rule: Rule): boolean => {
     return rule.some(
-        (node: Node) => node.type === TYPE.DECLARATION
+        (node: Node) => isDeclaration(node)
     );
 };
 
@@ -25,14 +32,14 @@ export const ruleHasChildren = (rule: Container): boolean => {
     if (!rule.nodes) return false;
     return rule.some(
         (node: Node) => (
-            node.type === TYPE.DECLARATION ||
+            isDeclaration(node) ||
             (
-                node.type === TYPE.RULE &&
-                ruleHasChildren(node as Rule)
+                isRule(node) &&
+                ruleHasChildren(node)
             ) ||
             (
-                node.type === TYPE.AT_RULE &&
-                ruleHasChildren(node as AtRule)
+                isAtRule(node) &&
+                ruleHasChildren(node)
             )
         )
     );
@@ -40,7 +47,7 @@ export const ruleHasChildren = (rule: Container): boolean => {
 
 export const getParentRules = (rule: Rule): Rule[] => {
     const rules: Rule[] = [];
-    while (rule.type === TYPE.RULE) {
+    while (isRule(rule)) {
         rules.push(rule);
         rule = rule.parent as Rule;
     }
@@ -60,8 +67,8 @@ export const insertRules = (
             parentRule = rules.shift();
             const innerRule = parent.nodes.find((node: Node): boolean => {
                 if (
-                    node.type === TYPE.RULE &&
-                    (node as Rule).selector === parentRule.selector
+                    isRule(node) &&
+                    node.selector === parentRule.selector
                 ) {
                     return true;
                 }
@@ -177,8 +184,8 @@ export const cleanRuleRawsBefore = (node: Node | undefined, prefix = '\n\n'): vo
     if (
         node &&
         (
-            node.type === TYPE.RULE ||
-            node.type === TYPE.AT_RULE
+            isRule(node) ||
+            isAtRule(node)
         )
     ) {
         node.raws.before = `${prefix}${
@@ -192,11 +199,11 @@ export const cleanRuleRawsBefore = (node: Node | undefined, prefix = '\n\n'): vo
 export const cleanRules = (...rules: (Rule | AtRule)[]): void => {
     rules.forEach((rule: Rule | AtRule | undefined | null): void => {
         const prev = rule.prev();
-        if (prev && prev.type !== TYPE.COMMENT) {
+        if (prev && !isComment(prev)) {
             cleanRuleRawsBefore(rule);
         }
         rule.walk((node: Node): void => {
-            if (node.type === TYPE.DECLARATION) {
+            if (isDeclaration(node)) {
                 const decl = node as Declaration;
                 if (decl.raws && decl.raws.value && RTL_COMMENT_REGEXP.test(decl.raws.value.raw)) {
                     delete decl.raws.value;
@@ -255,8 +262,12 @@ export const parseRuleNames = (): void => {
     }
 
     const replaceHash: Record<string, string> = store.options.stringMap.reduce((hash: Record<string, string>, map: StringMap): Record<string, string> => {
-        const search = typeof map.search === 'string' ? [map.search] : map.search;
-        const replace = typeof map.replace === 'string' ? [map.replace] : map.replace;
+        const search = isString(map.search)
+            ? [map.search]
+            : map.search;
+        const replace = isString(map.replace)
+            ? [map.replace]
+            : map.replace;
         search.forEach((s: string, index: number): void => {
             hash[s] = replace[index];
             hash[replace[index]] = s;
