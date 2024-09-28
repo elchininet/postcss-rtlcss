@@ -4,14 +4,14 @@ import {
     HTML_SELECTOR_REGEXP,
     ROOT_SELECTOR_REGEXP,
     VIEW_TRANSITION_REGEXP,
-    STRING_TYPE
+    TYPEOF
 } from '@constants';
 import { store } from '@data/store';
 
 const addPrefix = (prefix: string, selector: string): string => {
     if (store.options.prefixSelectorTransformer) {
         const transformedSelector = store.options.prefixSelectorTransformer(prefix, selector);
-        if (transformedSelector && typeof transformedSelector === STRING_TYPE) {
+        if (transformedSelector && typeof transformedSelector === TYPEOF.STRING) {
             return transformedSelector;
         }
     }

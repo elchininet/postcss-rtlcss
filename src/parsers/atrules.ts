@@ -12,8 +12,7 @@ import {
     Mode
 } from '@types';
 import {
-    AT_RULE_TYPE,
-    RULE_TYPE,
+    TYPE,
     KEYFRAMES_NAME,
     CONTROL_DIRECTIVE
 } from '@constants';
@@ -36,7 +35,7 @@ export const parseAtRules = (container: Container): void => {
 
     walkContainer(
         container,
-        [ AT_RULE_TYPE, RULE_TYPE ],
+        [ TYPE.AT_RULE, TYPE.RULE ],
         (_comment: Comment, controlDirective: ControlDirective): void => {
 
             if (isIgnoreDirectiveInsideAnIgnoreBlock(controlDirective, controlDirectives)) {
@@ -52,7 +51,7 @@ export const parseAtRules = (container: Container): void => {
                 return;
             }
         
-            if (node.type !== AT_RULE_TYPE) return;
+            if (node.type !== TYPE.AT_RULE) return;
 
             const atRule = node as AtRule;
 
@@ -87,7 +86,7 @@ export const parseKeyFrames = (css: Root): void => {
 
     walkContainer(
         css,
-        [ AT_RULE_TYPE, RULE_TYPE ],
+        [ TYPE.AT_RULE, TYPE.RULE ],
         (_comment: Comment, controlDirective: ControlDirective): void => {
 
             if (isIgnoreDirectiveInsideAnIgnoreBlock(controlDirective, controlDirectives)) {
@@ -104,7 +103,7 @@ export const parseKeyFrames = (css: Root): void => {
                 return;
             }
 
-            if (node.type !== AT_RULE_TYPE) {
+            if (node.type !== TYPE.AT_RULE) {
                 return;
             }
 

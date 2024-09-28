@@ -5,12 +5,7 @@ import {
     AtRule
 } from 'postcss';
 import { store } from '@data/store';
-import {
-    COMMENT_TYPE,
-    RULE_TYPE,
-    AT_RULE_TYPE,
-    KEYFRAMES_NAME
-} from '@constants';
+import { TYPE, KEYFRAMES_NAME } from '@constants';
 import { Mode, RulesObject } from '@types';
 import { vendor } from '@utilities/vendor';
 import { ruleHasChildren, cleanRuleRawsBefore } from '@utilities/rules';
@@ -40,10 +35,10 @@ export const clean = (css: Container): void => {
     }
     css.walk((node: Node): void => {
         if (mode === Mode.diff) {
-            if (node.type === COMMENT_TYPE) {
+            if (node.type === TYPE.COMMENT) {
                 node.remove();
             } else if (
-                node.type === AT_RULE_TYPE &&
+                node.type === TYPE.AT_RULE &&
                 !processKeyFrames &&
                 vendor.unprefixed((node as AtRule).name) === KEYFRAMES_NAME
             ) {
@@ -52,8 +47,8 @@ export const clean = (css: Container): void => {
         }
         if (
             (
-                node.type === RULE_TYPE ||
-                node.type === AT_RULE_TYPE
+                node.type === TYPE.RULE ||
+                node.type === TYPE.AT_RULE
             ) &&
             !!(node as Container).nodes
         ) {
@@ -64,7 +59,7 @@ export const clean = (css: Container): void => {
             } else {
                 const prev = node.prev();
                 if (prev) {
-                    if (prev.type !== COMMENT_TYPE) {
+                    if (prev.type !== TYPE.COMMENT) {
                         cleanRuleRawsBefore(node);
                     }
                 } else {

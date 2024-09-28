@@ -11,7 +11,7 @@ import {
     DeclarationHashMap
 } from '@types';
 import {
-    DECLARATION_TYPE,
+    TYPE,
     FLIP_PROPERTY_REGEXP,
     ANIMATION_PROP,
     ANIMATION_NAME_PROP,
@@ -70,7 +70,7 @@ export const parseDeclarations = (
     const ruleSafe = ruleFlipped.clone();
 
     const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: DeclarationHashMap, node: Node): DeclarationHashMap => {
-        if (node.type === DECLARATION_TYPE) {
+        if (node.type === TYPE.DECLARATION) {
             const decl = node as Declaration;
             const index = rule.index(decl);
             obj[decl.prop] = obj[decl.prop] || { ignore: false, indexes: {} };
@@ -89,7 +89,7 @@ export const parseDeclarations = (
     
     walkContainer(
         rule,
-        [ DECLARATION_TYPE ],
+        [ TYPE.DECLARATION ],
         (comment: Comment, controlDirective: ControlDirective) => {
             
             cleanRuleRawsBefore(comment.next());
