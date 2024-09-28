@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.5.0] - 2024-09-28
+
+- Support for nested at-rules
+
 ## [5.4.0] - 2024-09-01
 
 - Update `RTLCSS` to version `4.3.0`

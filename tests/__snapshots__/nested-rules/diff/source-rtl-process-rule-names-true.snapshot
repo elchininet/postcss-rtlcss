@@ -70,6 +70,19 @@ exports[`[[Mode: diff]] Nested rules tests:  {source: rtl} processRuleNames: tru
 }
 
 .test11 {
+    .test12 {
+        @media (orientation: landscape) {
+            @media (min-width: 1024px) {
+                padding: 10px 2px 20px 5px;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            left: auto;
+            right: 10px;
+        }
+    }
+
     .test13 {
         text-align: left;
     }

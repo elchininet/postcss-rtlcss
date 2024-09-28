@@ -165,7 +165,17 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
 
 .test11 {
     .test12 {
+        @media (orientation: landscape) {
+            grid-auto-flow: column;
+
+            @media (min-width: 1024px) {
+                position: relative;
+                max-inline-size: 1024px;
+            }
+        }
+
         @media screen and (min-width: 800px) {
+            background: none;
             color: red;
         }
     }
@@ -180,12 +190,36 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: ltr} 1`] = `
 }
 
 [dir="ltr"] .test11 {
+    .test12 {
+        @media (orientation: landscape) {
+            @media (min-width: 1024px) {
+                padding: 10px 5px 20px 2px;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            left: 10px;
+        }
+    }
+
     .test13 {
         text-align: right;
     }
 }
 
 [dir="rtl"] .test11 {
+    .test12 {
+        @media (orientation: landscape) {
+            @media (min-width: 1024px) {
+                padding: 10px 2px 20px 5px;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            right: 10px;
+        }
+    }
+
     .test13 {
         text-align: left;
     }

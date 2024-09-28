@@ -29,8 +29,13 @@ import {
 import { isAtRule } from '@utilities/predicates';
 import { vendor } from '@utilities/vendor';
 import { parseRules } from '@parsers/rules';
+import { parseDeclarations } from './declarations';
 
-export const parseAtRules = (container: Container): void => {
+export const parseAtRules = (
+    container: Container,
+    parentSourceDirective: string = undefined,
+    hasParentRule = false
+): void => {
 
     const controlDirectives: Record<string, ControlDirective> = {};
 
@@ -56,11 +61,35 @@ export const parseAtRules = (container: Container): void => {
 
             if (vendor.unprefixed(node.name) === KEYFRAMES_NAME) return;
 
-            const sourceDirectiveValue = getSourceDirectiveValue(controlDirectives);
+            const sourceDirectiveValue = getSourceDirectiveValue(
+                controlDirectives,
+                parentSourceDirective
+            );
 
-            parseRules(node, sourceDirectiveValue);
+            if (
+                hasParentRule &&
+                node.nodes
+            ) {
+                parseDeclarations(
+                    node,
+                    hasParentRule,
+                    sourceDirectiveValue,
+                    checkDirective(controlDirectives, CONTROL_DIRECTIVE.RULES),
+                    checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS)
+                );
+            }
 
-            parseAtRules(node);
+            parseAtRules(
+                node,
+                parentSourceDirective,
+                hasParentRule
+            );
+
+            parseRules(
+                node,
+                sourceDirectiveValue,
+                hasParentRule
+            );
 
         }
     );

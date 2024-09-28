@@ -1,7 +1,8 @@
-import { Rule, AtRule } from 'postcss';
+import { AtRule } from 'postcss';
 import {
     PluginOptions,
     PluginOptionsNormalized,
+    DeclarationContainer,
     DeclarationPlugin,
     DeclarationPluginProcessor,
     AtRulesObject,
@@ -31,7 +32,7 @@ interface Store {
     keyframesStringMap: AtRulesStringMap;
     keyframesRegExp: RegExp;
     rules: RulesObject[];
-    rulesToRemove: Rule[];
+    containersToRemove: DeclarationContainer[];
     rulesPrefixRegExp: RegExp;
     unmodifiedRules: UnmodifiedRulesObject[];
 }
@@ -169,7 +170,7 @@ const store: Store = {
     keyframesStringMap: {},
     keyframesRegExp: defaultRegExp,
     rules: [],
-    rulesToRemove: [],
+    containersToRemove: [],
     rulesPrefixRegExp: defaultRegExp,
     unmodifiedRules: []
 };
@@ -248,7 +249,7 @@ const initStore = (options: PluginOptions): void => {
     store.keyframesStringMap = {};
     store.keyframesRegExp = defaultRegExp;
     store.rules = [];
-    store.rulesToRemove = [];
+    store.containersToRemove = [];
     store.rulesPrefixRegExp = createRulesPrefixesRegExp(store.options);
     store.unmodifiedRules = [];
 };

@@ -19,7 +19,7 @@ export const clean = (css: Container): void => {
     const {
         options,
         rules,
-        rulesToRemove,
+        containersToRemove,
         keyframes,
         keyframesToRemove
     } = store;
@@ -28,7 +28,7 @@ export const clean = (css: Container): void => {
         rules.forEach((rulesObject: RulesObject): void => {
             rulesObject.rule.remove();
         });
-        rulesToRemove.forEach((rule: Rule) => {
+        containersToRemove.forEach((rule: Rule) => {
             rule.remove();
         });
         keyframes.forEach(({atRule}): void => {

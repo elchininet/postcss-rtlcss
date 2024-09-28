@@ -1,5 +1,6 @@
-import { Rule, Declaration } from 'postcss';
+import { Declaration } from 'postcss';
 import {
+    DeclarationContainer,
     DeclarationsData,
     DeclarationHashMap
 } from '@types';
@@ -74,15 +75,15 @@ Object.keys(initialValuesData).forEach((value: string): void => {
     });
 });
 
-const appendDeclarationToRule = (decl: Declaration, rule: Rule): void => {
+const appendDeclarationToRule = (decl: Declaration, container: DeclarationContainer): void => {
     const declClone = decl.clone();
     const declPrev = decl.prev();
     if (declPrev && isComment(declPrev)) {
         const commentClone = declPrev.clone();
-        rule.append(commentClone);
+        container.append(commentClone);
         declPrev.remove();
     }
-    rule.append(declClone);
+    container.append(declClone);
 };
 
 const hasIgnoreDirectiveInRaws = (decl: Declaration): boolean => {
@@ -98,12 +99,12 @@ const checkOverrides = (decl: string, decls: string[]): boolean => {
 };
 
 const hasSameUpcomingDeclarationWithoutMirror = (
-    rule: Rule,
+    container: DeclarationContainer,
     decl: Declaration,
     declFlipped: Declaration,
     declarationHashMap: DeclarationHashMap
 ): boolean => {
-    const index = rule.index(decl);
+    const index = container.index(decl);
     const hashMapData = declarationHashMap[decl.prop];
     const indexes = Object.keys(hashMapData.indexes).map(Number).sort();
     if (indexes.length === 1) {
@@ -131,11 +132,11 @@ const hasSameUpcomingDeclarationWithoutMirror = (
 };
 
 const hasSameUpcomingDeclaration = (
-    rule: Rule,
+    container: DeclarationContainer,
     decl: Declaration,
     declarationHashMap: DeclarationHashMap
 ): boolean => {
-    const index = rule.index(decl);
+    const index = container.index(decl);
     const indexes = Object.keys(declarationHashMap[decl.prop].indexes).map(Number);
     if (indexes.length === 1) {
         return false;
@@ -144,7 +145,7 @@ const hasSameUpcomingDeclaration = (
 };
 
 const hasMirrorDeclaration = (
-    rule: Rule,
+    container: DeclarationContainer,
     declFlipped: Declaration,
     declarationHashMap: DeclarationHashMap
 ): boolean => {
@@ -153,7 +154,7 @@ const hasMirrorDeclaration = (
         return entries.some((entry) => {
             return (
                 entry[1].value === declFlipped.value.trim() &&
-                !hasSameUpcomingDeclaration(rule, entry[1].decl, declarationHashMap)
+                !hasSameUpcomingDeclaration(container, entry[1].decl, declarationHashMap)
             );
         });
     }
