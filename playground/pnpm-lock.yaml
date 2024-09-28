@@ -15,8 +15,8 @@ importers:
         specifier: ^8.4.31
         version: 8.4.38
       postcss-rtlcss:
-        specifier: ^5.4.0
-        version: 5.4.0(postcss@8.4.38)
+        specifier: ^5.5.0
+        version: 5.5.0(postcss@8.4.38)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2872,8 +2872,8 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
 
-  postcss-rtlcss@5.4.0:
-    resolution: {integrity: sha512-eoFq38PzPo5G8SRLzLenY7RZsaJuDdnKCaSZejfKNMuT/ZtApsLEU8wXrgBeOXeVwfeBwUdrZofa/bxWEbDCQA==}
+  postcss-rtlcss@5.5.0:
+    resolution: {integrity: sha512-NkUw3Pq6JNLk/4yE4BszZNpvmLvcX5phTNA0X2thOOPmVVR7sgQXWY+0UjvucsLFL9mQ9IY+YckLyy07yLVijQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       postcss: ^8.4.21
@@ -3842,7 +3842,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   '@babel/parser@7.25.3':
     dependencies:
@@ -6727,7 +6727,7 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.4.38)
       string-hash: 1.1.3
 
-  postcss-rtlcss@5.4.0(postcss@8.4.38):
+  postcss-rtlcss@5.5.0(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
       rtlcss: 4.3.0
@@ -6920,7 +6920,7 @@ snapshots:
   rtlcss@4.3.0:
     dependencies:
       escalade: 3.1.2
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       postcss: 8.4.38
       strip-json-comments: 3.1.1
 
@@ -7364,7 +7364,7 @@ snapshots:
     dependencies:
       browserslist: 4.23.3
       escalade: 3.1.2
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   upper-case-first@2.0.2:
     dependencies:
