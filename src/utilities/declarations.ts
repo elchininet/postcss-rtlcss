@@ -3,11 +3,8 @@ import {
     DeclarationsData,
     DeclarationHashMap
 } from '@types';
-import {
-    TYPE,
-    RTL_COMMENT_IGNORE_REGEXP,
-    FLIP_PROPERTY_REGEXP
-} from '@constants';
+import { RTL_COMMENT_IGNORE_REGEXP, FLIP_PROPERTY_REGEXP } from '@constants';
+import { isComment } from '@utilities/predicates';
 import shorthandDeclarationsJson from '@data/shorthand-declarations.json';
 import logicalDeclarationsJson from '@data/logical-declarations.json';
 import notShorthandDeclarationsJson from '@data/not-shorthand-declarations.json';
@@ -80,7 +77,7 @@ Object.keys(initialValuesData).forEach((value: string): void => {
 const appendDeclarationToRule = (decl: Declaration, rule: Rule): void => {
     const declClone = decl.clone();
     const declPrev = decl.prev();
-    if (declPrev && declPrev.type === TYPE.COMMENT) {
+    if (declPrev && isComment(declPrev)) {
         const commentClone = declPrev.clone();
         rule.append(commentClone);
         declPrev.remove();

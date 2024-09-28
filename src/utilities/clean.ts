@@ -5,9 +5,14 @@ import {
     AtRule
 } from 'postcss';
 import { store } from '@data/store';
-import { TYPE, KEYFRAMES_NAME } from '@constants';
+import { KEYFRAMES_NAME } from '@constants';
 import { Mode, RulesObject } from '@types';
 import { vendor } from '@utilities/vendor';
+import {
+    isAtRule,
+    isComment,
+    isRule
+} from '@utilities/predicates';
 import { ruleHasChildren, cleanRuleRawsBefore } from '@utilities/rules';
 
 export const clean = (css: Container): void => {
@@ -35,31 +40,31 @@ export const clean = (css: Container): void => {
     }
     css.walk((node: Node): void => {
         if (mode === Mode.diff) {
-            if (node.type === TYPE.COMMENT) {
+            if (isComment(node)) {
                 node.remove();
             } else if (
-                node.type === TYPE.AT_RULE &&
+                isAtRule(node) &&
                 !processKeyFrames &&
-                vendor.unprefixed((node as AtRule).name) === KEYFRAMES_NAME
+                vendor.unprefixed(node.name) === KEYFRAMES_NAME
             ) {
                 node.remove();
             }
         }
         if (
             (
-                node.type === TYPE.RULE ||
-                node.type === TYPE.AT_RULE
+                isRule(node) ||
+                isAtRule(node)
             ) &&
-            !!(node as Container).nodes
+            !!node.nodes
         ) {
-            if (!ruleHasChildren(node as Container)) {
+            if (!ruleHasChildren(node)) {
                 if (mode === Mode.diff) {
                     node.remove();
                 }
             } else {
                 const prev = node.prev();
                 if (prev) {
-                    if (prev.type !== TYPE.COMMENT) {
+                    if (!isComment(prev)) {
                         cleanRuleRawsBefore(node);
                     }
                 } else {

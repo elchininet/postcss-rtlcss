@@ -33,6 +33,7 @@ import {
     hasMirrorDeclaration,
     hasSameUpcomingDeclarationWithoutMirror
 } from '@utilities/declarations';
+import { isDeclaration } from '@utilities/predicates';
 import { walkContainer } from '@utilities/containers';
 import {
     cleanRuleRawsBefore,
@@ -70,13 +71,12 @@ export const parseDeclarations = (
     const ruleSafe = ruleFlipped.clone();
 
     const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: DeclarationHashMap, node: Node): DeclarationHashMap => {
-        if (node.type === TYPE.DECLARATION) {
-            const decl = node as Declaration;
-            const index = rule.index(decl);
-            obj[decl.prop] = obj[decl.prop] || { ignore: false, indexes: {} };
-            obj[decl.prop].indexes[index] = {
-                decl,
-                value: decl.value.trim(),
+        if (isDeclaration(node)) {
+            const index = rule.index(node);
+            obj[node.prop] = obj[node.prop] || { ignore: false, indexes: {} };
+            obj[node.prop].indexes[index] = {
+                decl: node,
+                value: node.value.trim(),
                 ignore: false
             };
         }
@@ -144,7 +144,7 @@ export const parseDeclarations = (
             controlDirectives[controlDirective.directive] = controlDirective;
 
         },
-        (node: Node): void => {
+        (decl: Declaration): void => {
 
             if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
                 return;
@@ -152,7 +152,6 @@ export const parseDeclarations = (
 
             const processUrlDirective = checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS);
 
-            const decl = node as Declaration;
             const declString = `${decl.toString()};`;
             const declFlippedString = rtlcss.process(declString, {
                 processUrls: processUrls || processUrlDirective || rename,

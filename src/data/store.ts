@@ -16,11 +16,13 @@ import {
     StringMap,
     PluginStringMap
 } from '@types';
+import { REG_EXP_CHARACTERS_REG_EXP, LAST_WORD_CHARACTER_REG_EXP } from '@constants';
 import {
-    TYPEOF,
-    REG_EXP_CHARACTERS_REG_EXP,
-    LAST_WORD_CHARACTER_REG_EXP
-} from '@constants';
+    isBoolean,
+    isFunction,
+    isNumber,
+    isString
+} from '@utilities/predicates';
 
 interface Store {
     options: PluginOptionsNormalized;
@@ -75,11 +77,11 @@ const ModeValuesArray = Object.keys(Mode).map((prop: ModeValue) => Mode[prop] as
 const SourceValuesArray = Object.keys(Source).map((prop: SourceValue) => Source[prop] as SourceValue);
 
 const isNotStringOrStringArray = (value: strings): boolean => {
-    if (typeof value !== 'string' && !Array.isArray(value)) {
+    if (!isString(value) && !Array.isArray(value)) {
         return true;
     }
     if (Array.isArray(value)) {
-        return value.some((item: string): boolean => typeof item !== 'string');
+        return value.some((item: string): boolean => !isString(item));
     }
     return false;
 };
@@ -103,23 +105,23 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
 const isAcceptedProcessDeclarationPlugins = (plugins: DeclarationPlugin[]): boolean =>
     Array.isArray(plugins)
     && plugins.every((plugin: DeclarationPlugin) =>
-        typeof plugin.name == TYPEOF.STRING
-            && typeof plugin.priority == TYPEOF.NUMBER
+        isString(plugin.name)
+            && isNumber(plugin.priority)
             && Array.isArray(plugin.processors)
             && plugin.processors.every((processor: DeclarationPluginProcessor) =>
                 processor.expr instanceof RegExp
-                && typeof processor.action === TYPEOF.FUNCTION
+                && isFunction(processor.action)
             )
     );
 
 const isObjectWithStringKeys = (obj: Record<string, unknown>): boolean =>
     !Object.entries(obj).some(
         (entry: [string, unknown]): boolean =>
-            typeof entry[1] !== 'string'
+            !isString(entry[1])
     );
 
 const spreadArrayOfStrings = (arr: string[], item: strings): string[] => {
-    return typeof item === 'string'
+    return isString(item)
         ? [...arr, item]
         : [...arr, ...item];
 };
@@ -180,10 +182,10 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     if (options.source && SourceValuesArray.includes(options.source)) {
         returnOptions.source = options.source;
     }
-    if (typeof options.ignorePrefixedRules === TYPEOF.BOOLEAN) {
+    if (isBoolean(options.ignorePrefixedRules)) {
         returnOptions.ignorePrefixedRules = options.ignorePrefixedRules;
     }
-    if (typeof options.greedy === TYPEOF.BOOLEAN) {
+    if (isBoolean(options.greedy)) {
         returnOptions.greedy = options.greedy;
     }
     if (!isNotStringOrStringArray(options.ltrPrefix)) {
@@ -195,25 +197,25 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     if (!isNotStringOrStringArray(options.bothPrefix)) {
         returnOptions.bothPrefix = options.bothPrefix;
     }
-    if (typeof options.prefixSelectorTransformer === TYPEOF.FUNCTION) {
+    if (isFunction(options.prefixSelectorTransformer)) {
         returnOptions.prefixSelectorTransformer = options.prefixSelectorTransformer;
     }
-    if (typeof options.safeBothPrefix === TYPEOF.BOOLEAN) {
+    if (isBoolean(options.safeBothPrefix)) {
         returnOptions.safeBothPrefix = options.safeBothPrefix;
     }
-    if (typeof options.processUrls === TYPEOF.BOOLEAN) {
+    if (isBoolean(options.processUrls)) {
         returnOptions.processUrls = options.processUrls;
     }
-    if (typeof options.processRuleNames === TYPEOF.BOOLEAN) {
+    if (isBoolean(options.processRuleNames)) {
         returnOptions.processRuleNames = options.processRuleNames;
     }
-    if (typeof options.processKeyFrames === TYPEOF.BOOLEAN) {
+    if (isBoolean(options.processKeyFrames)) {
         returnOptions.processKeyFrames = options.processKeyFrames;
     }
-    if (typeof options.processEnv === TYPEOF.BOOLEAN) {
+    if (isBoolean(options.processEnv)) {
         returnOptions.processEnv = options.processEnv;
     }
-    if (typeof options.useCalc === TYPEOF.BOOLEAN) {
+    if (isBoolean(options.useCalc)) {
         returnOptions.useCalc = options.useCalc;
     }
     if (!isNotAcceptedStringMap(options.stringMap)) {

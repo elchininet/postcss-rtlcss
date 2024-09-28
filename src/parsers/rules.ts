@@ -1,6 +1,5 @@
 import postcss, {
     Container,
-    Node,
     Rule,
     Comment
 } from 'postcss';
@@ -21,9 +20,9 @@ import { cleanRuleRawsBefore } from '@utilities/rules';
 import { addSelectorPrefixes, hasSelectorsPrefixed } from '@utilities/selectors';
 import { parseDeclarations } from './declarations';
 
-const addToIgnoreRulesInDiffMode = (node: Node): void => {
+const addToIgnoreRulesInDiffMode = (rule: Rule): void => {
     if (store.options.mode === Mode.diff) {
-        store.rulesToRemove.push(node as Rule);
+        store.rulesToRemove.push(rule);
     }
 };
 
@@ -92,25 +91,23 @@ export const parseRules = (
             controlDirectives[controlDirective.directive] = controlDirective;
 
         },
-        (node: Node): void => {
+        (node: Rule): void => {
 
             if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
                 addToIgnoreRulesInDiffMode(node);
                 return;
             }
-        
-            const rule = node as Rule;
             
             const sourceDirectiveValue = getSourceDirectiveValue(
                 controlDirectives,
                 parentSourceDirective
             );
 
-            if (hasSelectorsPrefixed(rule)) {
-                addToIgnoreRulesInDiffMode(rule);
+            if (hasSelectorsPrefixed(node)) {
+                addToIgnoreRulesInDiffMode(node);
             } else {
                 parseDeclarations(
-                    rule,
+                    node,
                     hasParentRule,
                     sourceDirectiveValue,
                     checkDirective(controlDirectives, CONTROL_DIRECTIVE.RULES),
@@ -119,7 +116,7 @@ export const parseRules = (
             }
             
             parseRules(
-                rule,
+                node,
                 parentSourceDirective,
                 true
             );
