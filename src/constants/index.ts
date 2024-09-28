@@ -1,11 +1,3 @@
-export const COMMENT_TYPE = 'comment';
-export const DECLARATION_TYPE = 'decl';
-export const RULE_TYPE = 'rule';
-export const AT_RULE_TYPE = 'atrule';
-export const STRING_TYPE = 'string';
-export const NUMBER_TYPE = 'number';
-export const BOOLEAN_TYPE = 'boolean';
-export const FUNCTION_TYPE = 'function';
 export const KEYFRAMES_NAME = 'keyframes';
 export const ANIMATION_PROP = 'animation';
 export const ANIMATION_NAME_PROP = 'animation-name';
@@ -18,6 +10,20 @@ export const ROOT_SELECTOR_REGEXP = /(:root)(?=\W|$)/;
 export const VIEW_TRANSITION_REGEXP = /^(::view-transition(?:-(?:new|old|group|image-pair))?\()/;
 export const REG_EXP_CHARACTERS_REG_EXP = /[.?*+^$[\]\\(){}|-]/g;
 export const LAST_WORD_CHARACTER_REG_EXP = /\w$/;
+
+export enum TYPE {
+    AT_RULE = 'atrule',
+    COMMENT = 'comment',
+    DECLARATION = 'decl',
+    RULE = 'rule'
+}
+
+export enum TYPEOF {
+    BOOLEAN = 'boolean',
+    FUNCTION = 'function',
+    NUMBER = 'number',
+    STRING = 'string'
+}
 
 export enum CONTROL_DIRECTIVE {
     IGNORE = 'ignore',

@@ -17,10 +17,7 @@ import {
     PluginStringMap
 } from '@types';
 import {
-    BOOLEAN_TYPE,
-    STRING_TYPE,
-    NUMBER_TYPE,
-    FUNCTION_TYPE,
+    TYPEOF,
     REG_EXP_CHARACTERS_REG_EXP,
     LAST_WORD_CHARACTER_REG_EXP
 } from '@constants';
@@ -106,12 +103,12 @@ const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
 const isAcceptedProcessDeclarationPlugins = (plugins: DeclarationPlugin[]): boolean =>
     Array.isArray(plugins)
     && plugins.every((plugin: DeclarationPlugin) =>
-        typeof plugin.name == STRING_TYPE
-            && typeof plugin.priority == NUMBER_TYPE
+        typeof plugin.name == TYPEOF.STRING
+            && typeof plugin.priority == TYPEOF.NUMBER
             && Array.isArray(plugin.processors)
             && plugin.processors.every((processor: DeclarationPluginProcessor) =>
                 processor.expr instanceof RegExp
-                && typeof processor.action === FUNCTION_TYPE
+                && typeof processor.action === TYPEOF.FUNCTION
             )
     );
 
@@ -183,10 +180,10 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     if (options.source && SourceValuesArray.includes(options.source)) {
         returnOptions.source = options.source;
     }
-    if (typeof options.ignorePrefixedRules === BOOLEAN_TYPE) {
+    if (typeof options.ignorePrefixedRules === TYPEOF.BOOLEAN) {
         returnOptions.ignorePrefixedRules = options.ignorePrefixedRules;
     }
-    if (typeof options.greedy === BOOLEAN_TYPE) {
+    if (typeof options.greedy === TYPEOF.BOOLEAN) {
         returnOptions.greedy = options.greedy;
     }
     if (!isNotStringOrStringArray(options.ltrPrefix)) {
@@ -198,25 +195,25 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     if (!isNotStringOrStringArray(options.bothPrefix)) {
         returnOptions.bothPrefix = options.bothPrefix;
     }
-    if (typeof options.prefixSelectorTransformer === FUNCTION_TYPE) {
+    if (typeof options.prefixSelectorTransformer === TYPEOF.FUNCTION) {
         returnOptions.prefixSelectorTransformer = options.prefixSelectorTransformer;
     }
-    if (typeof options.safeBothPrefix === BOOLEAN_TYPE) {
+    if (typeof options.safeBothPrefix === TYPEOF.BOOLEAN) {
         returnOptions.safeBothPrefix = options.safeBothPrefix;
     }
-    if (typeof options.processUrls === BOOLEAN_TYPE) {
+    if (typeof options.processUrls === TYPEOF.BOOLEAN) {
         returnOptions.processUrls = options.processUrls;
     }
-    if (typeof options.processRuleNames === BOOLEAN_TYPE) {
+    if (typeof options.processRuleNames === TYPEOF.BOOLEAN) {
         returnOptions.processRuleNames = options.processRuleNames;
     }
-    if (typeof options.processKeyFrames === BOOLEAN_TYPE) {
+    if (typeof options.processKeyFrames === TYPEOF.BOOLEAN) {
         returnOptions.processKeyFrames = options.processKeyFrames;
     }
-    if (typeof options.processEnv === BOOLEAN_TYPE) {
+    if (typeof options.processEnv === TYPEOF.BOOLEAN) {
         returnOptions.processEnv = options.processEnv;
     }
-    if (typeof options.useCalc === BOOLEAN_TYPE) {
+    if (typeof options.useCalc === TYPEOF.BOOLEAN) {
         returnOptions.useCalc = options.useCalc;
     }
     if (!isNotAcceptedStringMap(options.stringMap)) {

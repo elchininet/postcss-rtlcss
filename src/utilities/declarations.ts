@@ -4,7 +4,7 @@ import {
     DeclarationHashMap
 } from '@types';
 import {
-    COMMENT_TYPE,
+    TYPE,
     RTL_COMMENT_IGNORE_REGEXP,
     FLIP_PROPERTY_REGEXP
 } from '@constants';
@@ -80,7 +80,7 @@ Object.keys(initialValuesData).forEach((value: string): void => {
 const appendDeclarationToRule = (decl: Declaration, rule: Rule): void => {
     const declClone = decl.clone();
     const declPrev = decl.prev();
-    if (declPrev && declPrev.type === COMMENT_TYPE) {
+    if (declPrev && declPrev.type === TYPE.COMMENT) {
         const commentClone = declPrev.clone();
         rule.append(commentClone);
         declPrev.remove();

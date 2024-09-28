@@ -9,7 +9,7 @@ import {
     Source,
     Mode
 } from '@types';
-import { RULE_TYPE, CONTROL_DIRECTIVE } from '@constants';
+import { TYPE, CONTROL_DIRECTIVE } from '@constants';
 import { store } from '@data/store';
 import {
     isIgnoreDirectiveInsideAnIgnoreBlock,
@@ -43,7 +43,7 @@ export const parseRules = (
 
     walkContainer(
         container,
-        [ RULE_TYPE ],
+        [ TYPE.RULE ],
         (comment: Comment, controlDirective: ControlDirective): void => {
             
             if (

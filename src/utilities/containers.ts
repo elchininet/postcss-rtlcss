@@ -1,6 +1,10 @@
-import { Container, Node, Comment } from 'postcss';
+import {
+    Comment,
+    Container,
+    Node,
+} from 'postcss';
 import { ControlDirective } from '@types';
-import { COMMENT_TYPE } from '@constants';
+import { TYPE } from '@constants';
 import { getControlDirective } from '@utilities/directives';
 
 type WalkContainerControlDirectiveCallback = (comment: Comment, controlDirective: ControlDirective) => void;
@@ -15,9 +19,9 @@ export const walkContainer = (
 
     container.each((node: Node): undefined | false => {
 
-        if ( node.type !== COMMENT_TYPE && !filter.includes(node.type) ) return;
+        if ( node.type !== TYPE.COMMENT && !filter.includes(node.type) ) return;
 
-        if (node.type === COMMENT_TYPE) {
+        if (node.type === TYPE.COMMENT) {
 
             const comment = node as Comment;
             const controlDirective = getControlDirective(comment);

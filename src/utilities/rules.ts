@@ -11,19 +11,13 @@ import {
     StringMap,
     Mode
 } from '@types';
-import {
-    COMMENT_TYPE,
-    RTL_COMMENT_REGEXP,
-    DECLARATION_TYPE,
-    RULE_TYPE,
-    AT_RULE_TYPE
-} from '@constants';
+import { TYPE, RTL_COMMENT_REGEXP } from '@constants';
 import { store } from '@data/store';
 import { addProperSelectorPrefixes } from '@utilities/selectors';
 
 export const ruleHasDeclarations = (rule: Rule): boolean => {
     return rule.some(
-        (node: Node) => node.type === DECLARATION_TYPE
+        (node: Node) => node.type === TYPE.DECLARATION
     );
 };
 
@@ -31,13 +25,13 @@ export const ruleHasChildren = (rule: Container): boolean => {
     if (!rule.nodes) return false;
     return rule.some(
         (node: Node) => (
-            node.type === DECLARATION_TYPE ||
+            node.type === TYPE.DECLARATION ||
             (
-                node.type === RULE_TYPE &&
+                node.type === TYPE.RULE &&
                 ruleHasChildren(node as Rule)
             ) ||
             (
-                node.type === AT_RULE_TYPE &&
+                node.type === TYPE.AT_RULE &&
                 ruleHasChildren(node as AtRule)
             )
         )
@@ -46,7 +40,7 @@ export const ruleHasChildren = (rule: Container): boolean => {
 
 export const getParentRules = (rule: Rule): Rule[] => {
     const rules: Rule[] = [];
-    while (rule.type === RULE_TYPE) {
+    while (rule.type === TYPE.RULE) {
         rules.push(rule);
         rule = rule.parent as Rule;
     }
@@ -66,7 +60,7 @@ export const insertRules = (
             parentRule = rules.shift();
             const innerRule = parent.nodes.find((node: Node): boolean => {
                 if (
-                    node.type === RULE_TYPE &&
+                    node.type === TYPE.RULE &&
                     (node as Rule).selector === parentRule.selector
                 ) {
                     return true;
@@ -183,8 +177,8 @@ export const cleanRuleRawsBefore = (node: Node | undefined, prefix = '\n\n'): vo
     if (
         node &&
         (
-            node.type === RULE_TYPE ||
-            node.type === AT_RULE_TYPE
+            node.type === TYPE.RULE ||
+            node.type === TYPE.AT_RULE
         )
     ) {
         node.raws.before = `${prefix}${
@@ -198,11 +192,11 @@ export const cleanRuleRawsBefore = (node: Node | undefined, prefix = '\n\n'): vo
 export const cleanRules = (...rules: (Rule | AtRule)[]): void => {
     rules.forEach((rule: Rule | AtRule | undefined | null): void => {
         const prev = rule.prev();
-        if (prev && prev.type !== COMMENT_TYPE) {
+        if (prev && prev.type !== TYPE.COMMENT) {
             cleanRuleRawsBefore(rule);
         }
         rule.walk((node: Node): void => {
-            if (node.type === DECLARATION_TYPE) {
+            if (node.type === TYPE.DECLARATION) {
                 const decl = node as Declaration;
                 if (decl.raws && decl.raws.value && RTL_COMMENT_REGEXP.test(decl.raws.value.raw)) {
                     delete decl.raws.value;
