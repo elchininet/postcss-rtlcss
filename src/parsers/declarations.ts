@@ -6,9 +6,10 @@ import postcss, {
 } from 'postcss';
 import rtlcss from 'rtlcss';
 import {
-    Mode,
     ControlDirective,
-    DeclarationHashMap
+    DeclarationContainer,
+    DeclarationHashMap,
+    Mode
 } from '@types';
 import {
     TYPE,
@@ -33,17 +34,17 @@ import {
     hasMirrorDeclaration,
     hasSameUpcomingDeclarationWithoutMirror
 } from '@utilities/declarations';
-import { isDeclaration } from '@utilities/predicates';
+import { isDeclaration, isRule } from '@utilities/predicates';
 import { walkContainer } from '@utilities/containers';
 import {
     cleanRuleRawsBefore,
     insertRuleIntoStore,
-    appendParentRuleToStore
+    appendParentContainerToStore
 } from '@utilities/rules';
 import { vendor } from '@utilities/vendor';
 
 export const parseDeclarations = (
-    rule: Rule,
+    container: DeclarationContainer,
     hasParentRule: boolean,
     ruleSourceDirectiveValue: string,
     processRule: boolean,
@@ -65,14 +66,14 @@ export const parseDeclarations = (
     } = store.options;
 
     const deleteDeclarations: Declaration[] = [];
-    const ruleFlipped = rule.clone().removeAll();
-    const ruleFlippedSecond = ruleFlipped.clone();
-    const ruleBoth = ruleFlipped.clone();
-    const ruleSafe = ruleFlipped.clone();
+    const containerFlipped = container.clone().removeAll();
+    const containerFlippedSecond = containerFlipped.clone();
+    const containerBoth = containerFlipped.clone();
+    const containerSafe = containerFlipped.clone();
 
-    const declarationHashMap = Array.prototype.reduce.call(rule.nodes, (obj: DeclarationHashMap, node: Node): DeclarationHashMap => {
+    const declarationHashMap = Array.prototype.reduce.call(container.nodes, (obj: DeclarationHashMap, node: Node): DeclarationHashMap => {
         if (isDeclaration(node)) {
-            const index = rule.index(node);
+            const index = container.index(node);
             obj[node.prop] = obj[node.prop] || { ignore: false, indexes: {} };
             obj[node.prop].indexes[index] = {
                 decl: node,
@@ -88,7 +89,7 @@ export const parseDeclarations = (
     let simetricRules = false;
     
     walkContainer(
-        rule,
+        container,
         [ TYPE.DECLARATION ],
         (comment: Comment, controlDirective: ControlDirective) => {
             
@@ -108,7 +109,7 @@ export const parseDeclarations = (
                 const root = postcss.parse(
                     controlDirective.option,
                     {
-                        from: rule.source?.input?.from
+                        from: container.source?.input?.from
                     }
                 );
                 if (
@@ -130,9 +131,9 @@ export const parseDeclarations = (
                         )
                     )
                 ) {
-                    ruleFlippedSecond.append(root.nodes);
+                    containerFlippedSecond.append(root.nodes);
                 } else {
-                    ruleFlipped.append(root.nodes);
+                    containerFlipped.append(root.nodes);
                 }
                 
             }
@@ -167,7 +168,7 @@ export const parseDeclarations = (
             const root = postcss.parse(
                 declFlippedString,
                 {
-                    from: rule.source?.input?.from
+                    from: container.source?.input?.from
                 }
             );
             const declFlipped = root.first as Declaration;
@@ -231,7 +232,7 @@ export const parseDeclarations = (
                     declarationHashMap[decl.prop].ignore &&
                     !isConflictedDeclaration
                 ) ||
-                hasSameUpcomingDeclarationWithoutMirror(rule, decl, declFlipped, declarationHashMap)
+                hasSameUpcomingDeclarationWithoutMirror(container, decl, declFlipped, declarationHashMap)
             ) {
                 return;
             }
@@ -248,9 +249,9 @@ export const parseDeclarations = (
                 ) {
                     if (safeBothPrefix && !hasIgnoreDirectiveInRaws(decl)) {
                         if (mode === Mode.diff) {
-                            appendDeclarationToRule(decl, ruleFlipped);
+                            appendDeclarationToRule(decl, containerFlipped);
                         } else {
-                            appendDeclarationToRule(decl, ruleSafe);
+                            appendDeclarationToRule(decl, containerSafe);
                         }
                         deleteDeclarations.push(decl);
                     }
@@ -274,23 +275,23 @@ export const parseDeclarations = (
                         declClone.value = animationDeclValue;
                         declCloneFlipped.value = animationDeclValueFlipped;
                         if (normalFlip) {
-                            ruleFlipped.append(declClone);
-                            ruleFlippedSecond.append(declCloneFlipped);
+                            containerFlipped.append(declClone);
+                            containerFlippedSecond.append(declCloneFlipped);
                         } else {
-                            ruleFlipped.append(declCloneFlipped);
-                            ruleFlippedSecond.append(declClone);
+                            containerFlipped.append(declCloneFlipped);
+                            containerFlippedSecond.append(declClone);
                         }
                         deleteDeclarations.push(decl);
                     } else {
                         decl.value = animationDeclValue;
                         declCloneFlipped.value = animationDeclValueFlipped;
                         if (normalFlip) {
-                            ruleFlipped.append(declCloneFlipped);
+                            containerFlipped.append(declCloneFlipped);
                         } else {
-                            ruleFlippedSecond.append(declCloneFlipped);
+                            containerFlippedSecond.append(declCloneFlipped);
                         }
                         if (safeBothPrefix && mode !== Mode.diff) {
-                            appendDeclarationToRule(decl, ruleSafe);
+                            appendDeclarationToRule(decl, containerSafe);
                             deleteDeclarations.push(decl);
                         }
                     }
@@ -311,25 +312,25 @@ export const parseDeclarations = (
                         !hasIgnoreDirectiveInRaws(decl)
                     ) {
                         if (mode === Mode.diff) {
-                            appendDeclarationToRule(decl, ruleFlipped);
+                            appendDeclarationToRule(decl, containerFlipped);
                         } else {
                             appendDeclarationToRule(
                                 decl,
                                 hasBeenOverriden || overridesPrevious
-                                    ? ruleBoth
-                                    : ruleSafe
+                                    ? containerBoth
+                                    : containerSafe
                             );
                         }
                         deleteDeclarations.push(decl);
                     }
                     return;
-                } else  if (hasMirrorDeclaration(rule, declFlipped, declarationHashMap)) {
+                } else  if (hasMirrorDeclaration(container, declFlipped, declarationHashMap)) {
                     simetricRules = true;
                     if (isConflictedDeclaration && !hasIgnoreDirectiveInRaws(decl)) {
                         if (mode === Mode.diff) {
-                            appendDeclarationToRule(decl, ruleFlipped);
+                            appendDeclarationToRule(decl, containerFlipped);
                         } else {
-                            appendDeclarationToRule(decl, ruleSafe);
+                            appendDeclarationToRule(decl, containerSafe);
                         }
                         deleteDeclarations.push(decl);
                     }
@@ -338,18 +339,18 @@ export const parseDeclarations = (
 
                 if (mode === Mode.combined) {
                     if (normalFlip) {
-                        appendDeclarationToRule(decl, ruleFlipped);
-                        ruleFlippedSecond.append(declFlipped);
+                        appendDeclarationToRule(decl, containerFlipped);
+                        containerFlippedSecond.append(declFlipped);
                     } else {
-                        appendDeclarationToRule(decl, ruleFlippedSecond);
-                        ruleFlipped.append(declFlipped);
+                        appendDeclarationToRule(decl, containerFlippedSecond);
+                        containerFlipped.append(declFlipped);
                     }
                     deleteDeclarations.push(decl);
                 } else {
                     if (
                         FLIP_PROPERTY_REGEXP.test(decl.prop) &&
                         !declarationHashMap[declFlipped.prop] &&
-                        rule.index(decl) === declIndexes[0]
+                        container.index(decl) === declIndexes[0]
                     ) {
                         const declClone = decl.clone();
                         /* If for some reason the initial value is not covered in the code it should be unset */
@@ -357,9 +358,9 @@ export const parseDeclarations = (
                         /* istanbul ignore next */
                         declClone.value = initialValues[decl.prop] || 'unset';
                         if (normalFlip) {
-                            ruleFlipped.append(declClone);
+                            containerFlipped.append(declClone);
                         } else {
-                            ruleFlippedSecond.append(declClone);
+                            containerFlippedSecond.append(declClone);
                         }
                     }
                     if (
@@ -367,13 +368,13 @@ export const parseDeclarations = (
                         !hasIgnoreDirectiveInRaws(decl) &&
                         mode !== Mode.diff
                     ) {
-                        appendDeclarationToRule(decl, ruleSafe);
+                        appendDeclarationToRule(decl, containerSafe);
                         deleteDeclarations.push(decl);
                     }
                     if (normalFlip) {
-                        ruleFlipped.append(declFlipped);
+                        containerFlipped.append(declFlipped);
                     } else {
-                        ruleFlippedSecond.append(declFlipped);
+                        containerFlippedSecond.append(declFlipped);
                     }
                                        
                 }
@@ -390,41 +391,42 @@ export const parseDeclarations = (
     }
 
     if (
-        ruleFlipped.nodes.length ||
-        ruleFlippedSecond.nodes.length ||
-        ruleBoth.nodes.length ||
-        ruleSafe.nodes.length
+        containerFlipped.nodes.length ||
+        containerFlippedSecond.nodes.length ||
+        containerBoth.nodes.length ||
+        containerSafe.nodes.length
     ) {
         if (hasParentRule) {
-            appendParentRuleToStore(
-                rule,
-                ruleFlipped,
-                ruleFlippedSecond,
-                ruleBoth,
-                ruleSafe
+            appendParentContainerToStore(
+                container,
+                containerFlipped,
+                containerFlippedSecond,
+                containerBoth,
+                containerSafe
             );
         } else {
             insertRuleIntoStore(
-                rule,
-                ruleFlipped,
-                ruleFlippedSecond,
-                ruleBoth,
-                ruleSafe
+                container as Rule,
+                containerFlipped as Rule,
+                containerFlippedSecond as Rule,
+                containerBoth as Rule,
+                containerSafe as Rule
             );
         }
     } else if (
-        (
+        isRule(container)
+        && (
             processRuleNames ||
             processRule
-        ) &&
-        !simetricRules
+        )
+        && !simetricRules
     ) {
         store.unmodifiedRules.push({
-            rule,
+            rule: container,
             hasParentRule
         });
     } else if (mode === Mode.diff) {
-        store.rulesToRemove.push(rule);
+        store.containersToRemove.push(container);
     }
 
 };

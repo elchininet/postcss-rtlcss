@@ -4,6 +4,8 @@ import {
     Declaration
 } from 'postcss';
 
+export type DeclarationContainer = Rule | AtRule;
+
 export enum Mode {
     combined = 'combined',
     override = 'override',

@@ -1,11 +1,11 @@
 import {
     Container,
     Rule,
-    AtRule,
     Node,
     Declaration
 } from 'postcss';
 import {
+    DeclarationContainer,
     RulesObject,
     UnmodifiedRulesObject,
     StringMap,
@@ -17,13 +17,14 @@ import {
     isAtRule,
     isComment,
     isDeclaration,
+    isDeclarationContainer,
     isRule,
     isString
 } from '@utilities/predicates';
 import { addProperSelectorPrefixes } from '@utilities/selectors';
 
-export const ruleHasDeclarations = (rule: Rule): boolean => {
-    return rule.some(
+export const containerHasDeclarations = (container: DeclarationContainer): boolean => {
+    return container.some(
         (node: Node) => isDeclaration(node)
     );
 };
@@ -45,73 +46,74 @@ export const ruleHasChildren = (rule: Container): boolean => {
     );
 };
 
-export const getParentRules = (rule: Rule): Rule[] => {
-    const rules: Rule[] = [];
-    while (isRule(rule)) {
-        rules.push(rule);
-        rule = rule.parent as Rule;
+export const getParentContainers = (container: DeclarationContainer): DeclarationContainer[] => {
+    const containers: DeclarationContainer[] = [];
+    while (isDeclarationContainer(container)) {
+        containers.unshift(container);
+        container = container.parent as DeclarationContainer;
     }
-    rules.shift();
-    return rules.reverse();
+    containers.pop();
+    return containers;
 };
 
 export const insertRules = (
-    parent: Rule,
-    rule: Rule,
-    rules: Rule[]
+    parent: DeclarationContainer,
+    container: DeclarationContainer,
+    containers: DeclarationContainer[]
 ): void => {
-    if (ruleHasDeclarations(rule)) {
-        rules = [...rules];
-        let parentRule: Rule;
-        while (rules.length) {
-            parentRule = rules.shift();
+    if (containerHasDeclarations(container)) {
+        containers = [...containers];
+        let parentContainer: DeclarationContainer;
+        while (containers.length) {
+            parentContainer = containers.shift();
             const innerRule = parent.nodes.find((node: Node): boolean => {
                 if (
-                    isRule(node) &&
-                    node.selector === parentRule.selector
+                    isRule(node)
+                    && isRule(parentContainer)
+                    && node.selector === parentContainer.selector
                 ) {
                     return true;
                 }
-            }) as Rule | undefined;
+            }) as DeclarationContainer | undefined;
             if (innerRule) {
-                parentRule = innerRule;
+                parentContainer = innerRule;
             } else {
-                parentRule = parentRule.clone().removeAll();
-                parent.append(parentRule);
+                parentContainer = parentContainer.clone().removeAll();
+                parent.append(parentContainer);
             }
-            parent = parentRule;
+            parent = parentContainer;
         }
-        parent.append(rule);
+        parent.append(container);
     }
 };
 
-export const appendRulesToRuleObject = (
-    ruleFlipped: Rule,
-    ruleFlippedSecond: Rule,
-    ruleBoth: Rule,
-    ruleSafe: Rule,
+export const appendContainersToRuleObject = (
+    containerFlipped: DeclarationContainer,
+    containerFlippedSecond: DeclarationContainer,
+    containerBoth: DeclarationContainer,
+    containerSafe: DeclarationContainer,
     ruleObject: RulesObject,
-    rules: Rule[]
+    containers: DeclarationContainer[]
 ): void => {
     insertRules(
         ruleObject.ruleLTR,
-        ruleFlipped,
-        rules
+        containerFlipped,
+        containers
     );
     insertRules(
         ruleObject.ruleRTL,
-        ruleFlippedSecond,
-        rules
+        containerFlippedSecond,
+        containers
     );
     insertRules(
         ruleObject.ruleBoth,
-        ruleBoth,
-        rules
+        containerBoth,
+        containers
     );
     insertRules(
         ruleObject.ruleSafe,
-        ruleSafe,
-        rules
+        containerSafe,
+        containers
     );
 };
 
@@ -141,16 +143,16 @@ export const insertRuleIntoStore = (
     return rulesObject;
 };
 
-export const appendParentRuleToStore = (
-    rule: Rule,
-    ruleFlipped: Rule,
-    ruleFlippedSecond: Rule,
-    ruleBoth: Rule,
-    ruleSafe: Rule
+export const appendParentContainerToStore = (
+    container: DeclarationContainer,
+    containerFlipped: DeclarationContainer,
+    containerFlippedSecond: DeclarationContainer,
+    containerBoth: DeclarationContainer,
+    containerSafe: DeclarationContainer
 ): void => {
     
-    const rules = getParentRules(rule);
-    const root = rules.shift();
+    const containers = getParentContainers(container);
+    const root = containers.shift() as Rule;
 
     let rootRulesObject: RulesObject | undefined = store.rules.find(
         (rObject: RulesObject) => rObject.rule === root
@@ -169,13 +171,13 @@ export const appendParentRuleToStore = (
         );
     }
 
-    appendRulesToRuleObject(
-        ruleFlipped,
-        ruleFlippedSecond,
-        ruleBoth,
-        ruleSafe,
+    appendContainersToRuleObject(
+        containerFlipped,
+        containerFlippedSecond,
+        containerBoth,
+        containerSafe,
         rootRulesObject,
-        rules
+        containers
     );
     
 };
@@ -196,8 +198,8 @@ export const cleanRuleRawsBefore = (node: Node | undefined, prefix = '\n\n'): vo
     }
 };
 
-export const cleanRules = (...rules: (Rule | AtRule)[]): void => {
-    rules.forEach((rule: Rule | AtRule | undefined | null): void => {
+export const cleanRules = (...rules: DeclarationContainer[]): void => {
+    rules.forEach((rule: DeclarationContainer | undefined | null): void => {
         const prev = rule.prev();
         if (prev && !isComment(prev)) {
             cleanRuleRawsBefore(rule);
@@ -295,7 +297,7 @@ export const parseRuleNames = (): void => {
         if (process) {
             rulesToProcess.push(ruleObject);
         } else if (store.options.mode === Mode.diff) {
-            store.rulesToRemove.push(ruleObject.rule);
+            store.containersToRemove.push(ruleObject.rule);
         }
     });
 
@@ -322,7 +324,7 @@ export const parseRuleNames = (): void => {
 
                 if (hasParentRule) {
 
-                    appendParentRuleToStore(
+                    appendParentContainerToStore(
                         rule.removeAll(),
                         ruleFlipped,
                         ruleFlippedSecond,
@@ -346,7 +348,7 @@ export const parseRuleNames = (): void => {
 
                 if (hasParentRule) {
 
-                    appendParentRuleToStore(
+                    appendParentContainerToStore(
                         store.options.mode === Mode.override
                             ? rule
                             : rule.removeAll(),
@@ -375,7 +377,7 @@ export const parseRuleNames = (): void => {
         }
 
         if (store.options.mode === Mode.diff) {
-            store.rulesToRemove.push(rule);
+            store.containersToRemove.push(rule);
         }
 
     });

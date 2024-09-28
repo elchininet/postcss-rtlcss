@@ -18,18 +18,19 @@ import {
 import { walkContainer } from '@utilities/containers';
 import { cleanRuleRawsBefore } from '@utilities/rules';
 import { addSelectorPrefixes, hasSelectorsPrefixed } from '@utilities/selectors';
+import { parseAtRules } from './atrules';
 import { parseDeclarations } from './declarations';
 
 const addToIgnoreRulesInDiffMode = (rule: Rule): void => {
     if (store.options.mode === Mode.diff) {
-        store.rulesToRemove.push(rule);
+        store.containersToRemove.push(rule);
     }
 };
 
 export const parseRules = (
     container: Container,
     parentSourceDirective: string = undefined,
-    hasParentRule = false,
+    hasParentRule = false
 ): void => {
 
     const controlDirectives: Record<string, ControlDirective> = {};
@@ -114,6 +115,12 @@ export const parseRules = (
                     checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS)
                 );
             }
+
+            parseAtRules(
+                node,
+                parentSourceDirective,
+                true
+            );
             
             parseRules(
                 node,
