@@ -1,5 +1,5 @@
-@import '@constants/colors';
-@import '@constants/mixins';
+@use '@constants/colors' as *;
+@use '@constants/mixins' as *;
 
 .wrapper {
     align-items: center;
