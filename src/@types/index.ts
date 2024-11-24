@@ -1,4 +1,6 @@
 import {
+    Container,
+    Root,
     Rule,
     AtRule,
     Declaration
@@ -145,3 +147,36 @@ export type DeclarationHashMap = Record<
     string,
     DeclarationHashMapProp
 >;
+
+export type RuleParser = (
+    parsers: Parsers,
+    container: Container,
+    parentSourceDirective?: string,
+    hasParentRule?: boolean
+) => void;
+
+export type AtRuleParser = (
+    parsers: Parsers,
+    container: Container,
+    parentSourceDirective?: string,
+    hasParentRule?: boolean
+) => void;
+
+export type KeyframeParser = (
+    css: Root
+) => void;
+
+export type DeclarationParser = (
+    container: DeclarationContainer,
+    hasParentRule: boolean,
+    ruleSourceDirectiveValue: string,
+    processRule: boolean,
+    rename: boolean
+) => void;
+
+export type Parsers = {
+    parseRules: RuleParser;
+    parseAtRules: AtRuleParser;
+    parseKeyFrames: KeyframeParser;
+    parseDeclarations: DeclarationParser;
+};

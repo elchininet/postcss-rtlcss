@@ -383,3 +383,9 @@ export const parseRuleNames = (): void => {
     });
 
 };
+
+export const addToIgnoreRulesInDiffMode = (rule: Rule): void => {
+    if (store.options.mode === Mode.diff) {
+        store.containersToRemove.push(rule);
+    }
+};

@@ -233,7 +233,11 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     }
     if (isAcceptedProcessDeclarationPlugins(options.processDeclarationPlugins)) {
         returnOptions.plugins = options.processDeclarationPlugins.map(plugin => ({
-            ...plugin, directives: {control: {}, value: []},
+            ...plugin,
+            directives: {
+                control: {},
+                value: [] as object[]
+            },
         }));
     }
     if (options.aliases && isObjectWithStringKeys(options.aliases)) {
