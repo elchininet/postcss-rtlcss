@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.5.1] - 2024-11-24
+
+- Small refactor to avoid a circular dependency between two parsers
+
 ## [5.5.0] - 2024-09-28
 
 - Support for nested at-rules
