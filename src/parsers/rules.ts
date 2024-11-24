@@ -6,7 +6,8 @@ import postcss, {
 import {
     ControlDirective,
     Source,
-    Mode
+    Mode,
+    Parsers
 } from '@types';
 import { TYPE, CONTROL_DIRECTIVE } from '@constants';
 import { store } from '@data/store';
@@ -16,18 +17,11 @@ import {
     getSourceDirectiveValue
 } from '@utilities/directives';
 import { walkContainer } from '@utilities/containers';
-import { cleanRuleRawsBefore } from '@utilities/rules';
+import { cleanRuleRawsBefore, addToIgnoreRulesInDiffMode } from '@utilities/rules';
 import { addSelectorPrefixes, hasSelectorsPrefixed } from '@utilities/selectors';
-import { parseAtRules } from './atrules';
-import { parseDeclarations } from './declarations';
-
-const addToIgnoreRulesInDiffMode = (rule: Rule): void => {
-    if (store.options.mode === Mode.diff) {
-        store.containersToRemove.push(rule);
-    }
-};
 
 export const parseRules = (
+    parsers: Parsers,
     container: Container,
     parentSourceDirective: string = undefined,
     hasParentRule = false
@@ -107,7 +101,7 @@ export const parseRules = (
             if (hasSelectorsPrefixed(node)) {
                 addToIgnoreRulesInDiffMode(node);
             } else {
-                parseDeclarations(
+                parsers.parseDeclarations(
                     node,
                     hasParentRule,
                     sourceDirectiveValue,
@@ -116,13 +110,15 @@ export const parseRules = (
                 );
             }
 
-            parseAtRules(
+            parsers.parseAtRules(
+                parsers,
                 node,
                 parentSourceDirective,
                 true
             );
             
-            parseRules(
+            parsers.parseRules(
+                parsers,
                 node,
                 parentSourceDirective,
                 true
