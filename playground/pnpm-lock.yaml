@@ -15,8 +15,8 @@ importers:
         specifier: ^8.4.31
         version: 8.4.38
       postcss-rtlcss:
-        specifier: ^5.5.0
-        version: 5.5.0(postcss@8.4.38)
+        specifier: ^5.5.1
+        version: 5.5.1(postcss@8.4.38)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2753,9 +2753,6 @@ packages:
   picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
 
-  picocolors@1.1.0:
-    resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
-
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -2833,8 +2830,8 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
 
-  postcss-rtlcss@5.5.0:
-    resolution: {integrity: sha512-NkUw3Pq6JNLk/4yE4BszZNpvmLvcX5phTNA0X2thOOPmVVR7sgQXWY+0UjvucsLFL9mQ9IY+YckLyy07yLVijQ==}
+  postcss-rtlcss@5.5.1:
+    resolution: {integrity: sha512-xwA+RhS/6hV7n95rElQn2fLtcYfuXpk/t0EPuxu4LFJ/ma/f+tzN1EH4nN1vaBzRECBo4Xld+TI/QqxWfO61Nw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       postcss: ^8.4.21
@@ -6505,8 +6502,6 @@ snapshots:
 
   picocolors@1.0.1: {}
 
-  picocolors@1.1.0: {}
-
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -6575,7 +6570,7 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.4.38)
       string-hash: 1.1.3
 
-  postcss-rtlcss@5.5.0(postcss@8.4.38):
+  postcss-rtlcss@5.5.1(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
       rtlcss: 4.3.0
@@ -6769,8 +6764,8 @@ snapshots:
 
   rtlcss@4.3.0:
     dependencies:
-      escalade: 3.1.2
-      picocolors: 1.1.0
+      escalade: 3.2.0
+      picocolors: 1.1.1
       postcss: 8.4.38
       strip-json-comments: 3.1.1
 
@@ -7202,7 +7197,7 @@ snapshots:
   update-browserslist-db@1.1.0(browserslist@4.23.3):
     dependencies:
       browserslist: 4.23.3
-      escalade: 3.1.2
+      escalade: 3.2.0
       picocolors: 1.0.1
 
   update-browserslist-db@1.1.1(browserslist@4.24.2):
