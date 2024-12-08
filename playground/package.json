@@ -25,8 +25,8 @@
     "monaco-editor": "^0.52.0",
     "postcss": "^8.4.31",
     "postcss-rtlcss": "^5.5.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
@@ -36,8 +36,8 @@
     "@babel/preset-typescript": "^7.26.0",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.10.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
     "classnames": "^2.5.1",
