@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 $small: 576px;       // Phones in landscape mode
 $medium: 768px;      // Tablet devices
 $large: 992px;       // Desktop devices
@@ -29,7 +31,7 @@ $transformParams: 0.25s ease-in-out;
 @mixin buildTransition($properties) {
     $props: ();
     @each $p in $properties {
-        $props: append($props, $p $transformParams, comma);
+        $props: list.append($props, $p $transformParams, comma);
     }
     transition: $props;
 }
