@@ -56,19 +56,19 @@ importers:
         version: 10.4.20(postcss@8.4.38)
       babel-loader:
         specifier: ^9.2.1
-        version: 9.2.1(@babel/core@7.26.0)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 9.2.1(@babel/core@7.26.0)(webpack@5.97.1)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
       clean-webpack-plugin:
         specifier: ^4.0.0
-        version: 4.0.0(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 4.0.0(webpack@5.97.1)
       copy-webpack-plugin:
         specifier: ^12.0.2
-        version: 12.0.2(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 12.0.2(webpack@5.97.1)
       css-loader:
         specifier: ^7.1.2
-        version: 7.1.2(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 7.1.2(webpack@5.97.1)
       eslint:
         specifier: ^9.16.0
         version: 9.16.0(jiti@1.21.0)
@@ -80,28 +80,28 @@ importers:
         version: 3.0.0(eslint@9.16.0(jiti@1.21.0))
       file-loader:
         specifier: ^6.2.0
-        version: 6.2.0(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 6.2.0(webpack@5.97.1)
       globals:
         specifier: ^15.13.0
         version: 15.13.0
       html-webpack-plugin:
         specifier: ^5.6.3
-        version: 5.6.3(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 5.6.3(webpack@5.97.1)
       mini-css-extract-plugin:
         specifier: ^2.9.2
-        version: 2.9.2(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 2.9.2(webpack@5.97.1)
       monaco-editor-webpack-plugin:
         specifier: ^7.1.0
-        version: 7.1.0(monaco-editor@0.52.0)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 7.1.0(monaco-editor@0.52.0)(webpack@5.97.1)
       postcss-loader:
         specifier: ^8.1.1
-        version: 8.1.1(postcss@8.4.38)(typescript@5.7.2)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 8.1.1(postcss@8.4.38)(typescript@5.7.2)(webpack@5.97.1)
       sass:
         specifier: ^1.82.0
         version: 1.82.0
       sass-loader:
         specifier: ^16.0.4
-        version: 16.0.4(sass@1.82.0)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+        version: 16.0.4(sass@1.82.0)(webpack@5.97.1)
       typed-scss-modules:
         specifier: ^8.0.1
         version: 8.0.1(sass@1.82.0)
@@ -2599,8 +2599,8 @@ packages:
     resolution: {integrity: sha512-2eznPJP8z2BFLX50tf0LuODrpINqP1RVIm/CObbTcBRITQgmC/TjcREF1NeTBzIcR5XO/ukWo+YHOjBbFwIupg==}
     hasBin: true
 
-  nanoid@3.3.7:
-    resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
+  nanoid@3.3.8:
+    resolution: {integrity: sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -4818,17 +4818,17 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1))(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4)(webpack@5.97.1)':
     dependencies:
       webpack: 5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1))(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.97.1)':
     dependencies:
       webpack: 5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1))(webpack-dev-server@5.1.0(webpack-cli@5.1.4)(webpack@5.97.1))(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack-dev-server@5.1.0)(webpack@5.97.1)':
     dependencies:
       webpack: 5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1)
@@ -4970,7 +4970,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
-  babel-loader@9.2.1(@babel/core@7.26.0)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  babel-loader@9.2.1(@babel/core@7.26.0)(webpack@5.97.1):
     dependencies:
       '@babel/core': 7.26.0
       find-cache-dir: 4.0.0
@@ -5146,7 +5146,7 @@ snapshots:
     dependencies:
       source-map: 0.6.1
 
-  clean-webpack-plugin@4.0.0(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  clean-webpack-plugin@4.0.0(webpack@5.97.1):
     dependencies:
       del: 4.1.1
       webpack: 5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)
@@ -5217,7 +5217,7 @@ snapshots:
 
   cookie@0.6.0: {}
 
-  copy-webpack-plugin@12.0.2(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  copy-webpack-plugin@12.0.2(webpack@5.97.1):
     dependencies:
       fast-glob: 3.3.2
       glob-parent: 6.0.2
@@ -5254,7 +5254,7 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  css-loader@7.1.2(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  css-loader@7.1.2(webpack@5.97.1):
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.38)
       postcss: 8.4.38
@@ -5781,7 +5781,7 @@ snapshots:
     dependencies:
       flat-cache: 4.0.1
 
-  file-loader@6.2.0(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  file-loader@6.2.0(webpack@5.97.1):
     dependencies:
       loader-utils: 2.0.4
       schema-utils: 3.3.0
@@ -5987,7 +5987,7 @@ snapshots:
       relateurl: 0.2.7
       terser: 5.36.0
 
-  html-webpack-plugin@5.6.3(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  html-webpack-plugin@5.6.3(webpack@5.97.1):
     dependencies:
       '@types/html-minifier-terser': 6.1.0
       html-minifier-terser: 6.1.0
@@ -6367,7 +6367,7 @@ snapshots:
 
   mime@1.6.0: {}
 
-  mini-css-extract-plugin@2.9.2(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  mini-css-extract-plugin@2.9.2(webpack@5.97.1):
     dependencies:
       schema-utils: 4.2.0
       tapable: 2.2.1
@@ -6383,7 +6383,7 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.1
 
-  monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.52.0)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.52.0)(webpack@5.97.1):
     dependencies:
       loader-utils: 2.0.4
       monaco-editor: 0.52.0
@@ -6400,7 +6400,7 @@ snapshots:
       dns-packet: 5.6.1
       thunky: 1.1.0
 
-  nanoid@3.3.7: {}
+  nanoid@3.3.8: {}
 
   natural-compare@1.4.0: {}
 
@@ -6594,7 +6594,7 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-loader@8.1.1(postcss@8.4.38)(typescript@5.7.2)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  postcss-loader@8.1.1(postcss@8.4.38)(typescript@5.7.2)(webpack@5.97.1):
     dependencies:
       cosmiconfig: 9.0.0(typescript@5.7.2)
       jiti: 1.21.0
@@ -6652,7 +6652,7 @@ snapshots:
 
   postcss@8.4.38:
     dependencies:
-      nanoid: 3.3.7
+      nanoid: 3.3.8
       picocolors: 1.0.0
       source-map-js: 1.2.0
 
@@ -6859,7 +6859,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@16.0.4(sass@1.82.0)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  sass-loader@16.0.4(sass@1.82.0)(webpack@5.97.1):
     dependencies:
       neo-async: 2.6.2
     optionalDependencies:
@@ -7118,7 +7118,7 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(esbuild@0.14.54)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  terser-webpack-plugin@5.3.10(esbuild@0.14.54)(webpack@5.97.1):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -7310,9 +7310,9 @@ snapshots:
   webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1))(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1))(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4(webpack-dev-server@5.1.0)(webpack@5.97.1))(webpack-dev-server@5.1.0(webpack-cli@5.1.4)(webpack@5.97.1))(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.97.1)
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.97.1)
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack-dev-server@5.1.0)(webpack@5.97.1)
       colorette: 2.0.20
       commander: 10.0.1
       cross-spawn: 7.0.5
@@ -7326,7 +7326,7 @@ snapshots:
     optionalDependencies:
       webpack-dev-server: 5.1.0(webpack-cli@5.1.4)(webpack@5.97.1)
 
-  webpack-dev-middleware@7.4.2(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)):
+  webpack-dev-middleware@7.4.2(webpack@5.97.1):
     dependencies:
       colorette: 2.0.20
       memfs: 4.11.1
@@ -7365,7 +7365,7 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.4.2(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+      webpack-dev-middleware: 7.4.2(webpack@5.97.1)
       ws: 8.18.0
     optionalDependencies:
       webpack: 5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4)
@@ -7406,7 +7406,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(esbuild@0.14.54)(webpack@5.97.1(esbuild@0.14.54)(webpack-cli@5.1.4))
+      terser-webpack-plugin: 5.3.10(esbuild@0.14.54)(webpack@5.97.1)
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     optionalDependencies:
