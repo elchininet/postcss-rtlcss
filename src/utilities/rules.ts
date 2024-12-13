@@ -231,7 +231,14 @@ export const removeEmptyRules = (rule: Container): void => {
 
 export const appendRules = (): void => {
     const { rules } = store;
-    rules.forEach(({rule, ruleLTR, ruleRTL, ruleBoth, ruleSafe}): void => {
+    rules.forEach((ruleObject): void => {
+        const {
+            rule,
+            ruleLTR,
+            ruleRTL,
+            ruleBoth,
+            ruleSafe
+        } = ruleObject;
         if (ruleBoth.nodes.length) {
             rule.after(ruleBoth);
         }
@@ -309,7 +316,7 @@ export const parseRuleNames = (): void => {
         let ruleFlippedSecond: Rule | undefined = undefined;
 
         for (const selector of rule.selectors) {
-            const flip = selector.replace(replaceRegExp, (match: string, group: string): string => replaceHash[group]);
+            const flip = selector.replace(replaceRegExp, (__match: string, group: string): string => replaceHash[group]);
             if (rulesHash[flip]) {
                 ruleFlippedSecond = rulesHash[flip].clone();
                 break;

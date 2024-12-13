@@ -66,13 +66,32 @@ export const addProperSelectorPrefixes = (
         source
     } = store.options;
     if (mode === Mode.combined) {
-        addSelectorPrefixes(ruleFlipped, source === Source.ltr ? ltrPrefix : rtlPrefix);
-        addSelectorPrefixes(ruleFlippedSecond, source === Source.rtl ? ltrPrefix : rtlPrefix);
+        addSelectorPrefixes(
+            ruleFlipped,
+            source === Source.ltr
+                ? ltrPrefix
+                : rtlPrefix
+        );
+        addSelectorPrefixes(
+            ruleFlippedSecond,
+            source === Source.ltr
+                ? rtlPrefix
+                : ltrPrefix
+        );
     } else {
-        addSelectorPrefixes(ruleFlipped, source === Source.ltr ? rtlPrefix : ltrPrefix);
-        addSelectorPrefixes(ruleFlippedSecond, source === Source.rtl ? rtlPrefix : ltrPrefix);
+        addSelectorPrefixes(
+            ruleFlipped,
+            source === Source.ltr
+                ? rtlPrefix
+                : ltrPrefix
+        );
+        addSelectorPrefixes(
+            ruleFlippedSecond,
+            source === Source.ltr
+                ? ltrPrefix
+                : rtlPrefix
+        );
     }
-
     addSelectorPrefixes(ruleBoth, bothPrefix);
     addSelectorPrefixes(ruleSafe, bothPrefix);
 };

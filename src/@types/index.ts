@@ -152,6 +152,7 @@ export type RuleParser = (
     parsers: Parsers,
     container: Container,
     parentSourceDirective?: string,
+    parentFreezeDirectiveActive?: boolean,
     hasParentRule?: boolean
 ) => void;
 
@@ -159,6 +160,7 @@ export type AtRuleParser = (
     parsers: Parsers,
     container: Container,
     parentSourceDirective?: string,
+    parentFreezeDirectiveActive?: boolean,
     hasParentRule?: boolean
 ) => void;
 
@@ -170,6 +172,7 @@ export type DeclarationParser = (
     container: DeclarationContainer,
     hasParentRule: boolean,
     ruleSourceDirectiveValue: string,
+    parentFreezeDirectiveActive: boolean,
     processRule: boolean,
     rename: boolean
 ) => void;

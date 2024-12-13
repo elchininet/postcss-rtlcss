@@ -221,5 +221,11 @@ html .test50 {
     border-left: none;
     border-right: 1px solid #FFF;
     border: none;
+}
+
+.test55, .test56 {
+    float: right;
+    margin: 10px 40px 30px 20px;
+    text-align: right;
 }"
 `;

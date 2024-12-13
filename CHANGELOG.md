@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.6.0] - 2024-12-13
+
+- Add new directives to freeze rules and declarations `/*rtl:freeze*/`, `/*rtl:begin:freeze*/` and `/*rtl:end:freeze*/`
+
 ## [5.5.1] - 2024-11-24
 
 - Small refactor to avoid a circular dependency between two parsers

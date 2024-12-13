@@ -22,6 +22,7 @@ export const parseAtRules = (
     parsers: Parsers,
     container: Container,
     parentSourceDirective: string = undefined,
+    parentFreezeDirectiveActive: boolean = false,
     hasParentRule = false
 ): void => {
 
@@ -54,6 +55,11 @@ export const parseAtRules = (
                 parentSourceDirective
             );
 
+            const freezeDirectiveActive = (
+                checkDirective(controlDirectives, CONTROL_DIRECTIVE.FREEZE) ||
+                parentFreezeDirectiveActive
+            );
+
             if (
                 hasParentRule &&
                 node.nodes
@@ -62,6 +68,7 @@ export const parseAtRules = (
                     node,
                     hasParentRule,
                     sourceDirectiveValue,
+                    freezeDirectiveActive,
                     checkDirective(controlDirectives, CONTROL_DIRECTIVE.RULES),
                     checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS)
                 );
@@ -70,7 +77,8 @@ export const parseAtRules = (
             parsers.parseAtRules(
                 parsers,
                 node,
-                parentSourceDirective,
+                sourceDirectiveValue,
+                freezeDirectiveActive,
                 hasParentRule
             );
 
@@ -78,6 +86,7 @@ export const parseAtRules = (
                 parsers,
                 node,
                 sourceDirectiveValue,
+                freezeDirectiveActive,
                 hasParentRule
             );
 

@@ -144,7 +144,7 @@ Examples
 }
 ```
 
-#### Output using the combined mode (default)
+#### Output using the combined mode (default and recommended)
 
 This is the recommended method, it will generate more CSS code but each direction will have their specific CSS declarations and there is no need of overriding properties.
 
@@ -187,6 +187,9 @@ This is the recommended method, it will generate more CSS code but each directio
 
 #### Output using the override mode
 
+>[!IMPORTANT]
+>This method is not recommended, check below why
+
 This is one of the alternative methods to override. It will generate less code because it lets the main rule intact most of the time and generates shorter specific rules to override the properties that are affected by the direction of the text.
 
 ```css
@@ -223,6 +226,9 @@ This is one of the alternative methods to override. It will generate less code b
 
 #### Output using the diff mode
 
+>[!IMPORTANT]
+>This method is not recommended, check below why
+
 This is the second alternative method to override. It generates the minimum amount of code because it only outputs the rules that have been flipped and without prefixing them. The intention of this method is to generate a separate stylesheet file that will be loaded on top of the original one to override those rules that need to be flipped in certain direction.
 
 ```css
@@ -239,12 +245,16 @@ This is the second alternative method to override. It generates the minimum amou
 }
 ```
 
-But the two methods to override have a disadvantage:
+>[!IMPORTANT]
+>But the two methods to override have disadvantages:
 
-<details><summary>Disadvantage of the override methods</summary>
+<details><summary>Disadvantages of the override methods</summary>
 <p>
 
-Use these methods carefully. They can override a property that is coming from another class if multiple classes are used at the same time. Take a look at the next `HTML` and `CSS` codes:
+The methods to override are discouraged because:
+
+1. Some directives as `/*rtl:freeze*/`, `/*rtl:begin:freeze*/` and `/*rtl:end:freeze*/` do not work with these methods
+2. They can override a property that is coming from another class if multiple classes are used at the same time. Take a look at the next `HTML` and `CSS` codes:
 
 ```html
 <div class="test1 test2">
@@ -312,7 +322,7 @@ And using the `diff` method the generated code will be the next one:
 }
 ```
 
-Now the `div` has a padding of `20px 10px 20px 20px` in `LTR` and `20px 0 20px 10px` in `RTL`, because when the class `test2` is overriden, it is not taken into account that it could be used with `test1` having the same properties. The solution, in this case, is to provide the property that has been inherited:
+Now the `div` has a padding of `20px 10px 20px 20px` in `LTR` and `20px 0 20px 10px` in `RTL`, because when the class `test2` is overriden, it is not taken into account that it could be used with `test1` having the same properties. The workaround, in this case, is to provide the property that has been inherited:
 
 ```css
 .test1 {
@@ -1516,9 +1526,12 @@ Control directives are placed between rules or declarations. They can target a s
 | `/*rtl:ignore*/`         | Ignores processing of the following rule or declaration                                                           |
 | `/*rtl:begin:ignore*/`   | Starts an ignoring block                                                                                          |
 | `/*rtl:end:ignore*/`     | Ends an ignoring block                                                                                            |
+| `/*rtl:freeze*/`         | Freezes the rule or declaration in the current direction but does nothing with the counterpart direction if there are flippable declarations     |
+| `/*rtl:begin:freeze*/`   | Starts a freeze block                                                                                             |
+| `/*rtl:end:freeze*/`     | Ends a freeze block                                                                                               |
 | `/*rtl:urls*/`           | This directive set the `processUrls` option to `true` in the next declaration or in the declarations of the next rule no mattering the value of the global `processUrls` option  |
-| `/*rtl:begin:urls*/`     | Starts a `processUrls` block block                                                                                           |
-| `/*rtl:end:urls*/`       | Ends a `processUrls` block block                                                                                             |
+| `/*rtl:begin:urls*/`     | Starts a `processUrls` block block                                                                                |
+| `/*rtl:end:urls*/`       | Ends a `processUrls` block block                                                                                  |
 | `/*rtl:rules*/`          | This directive set the `processRuleNames` option to `true` in the next rule no mattering the value of the global `processRuleNames` option  |
 | `/*rtl:begin:rules*/`    | Starts a `processRuleNames` block block |
 | `/*rtl:end:rules*/`      | Ends a `processRuleNames` block block   | 
@@ -1653,6 +1666,147 @@ Ignoring multiple declarations:
 
 [dir="ltr"] .test1, [dir="ltr"] .test2 {
     left: 10px;
+    text-align: left;
+}
+
+[dir="rtl"] .test1, [dir="rtl"] .test2 {
+    right: 10px;
+    text-align: right;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:freeze*/`
+
+<details><summary>Expand</summary>
+<p>
+
+>[!IMPORTANT]
+>1. This directive only works in `combined` mode. If you use it in `override` or `diff` mode it will be ignored.
+>2. If you use this directive with declarations that are not affected by page direction, it is recommended that you set the [safeBothPrefix](#safebothprefix) option in `true`.
+
+This directive freezes the rule or declaration in the current direction but does nothing with the counterpart direction if there are flippable declarations. When used with a rule, it will freeze it in the current direction even if it is doesn't contain flippable declarations. When it is used in a declration, it will freeze the declaration in the current direction even if it is not flippable.
+
+##### input
+
+```css
+/*rtl:freeze*/
+.test1, .test2 {
+    color: red;
+    text-align: left;
+    left: 10px;
+}
+
+.test3 {
+    /*rtl:freeze*/
+    text-align: center;
+    /*rtl:freeze*/
+    padding: 10px 20px 30px 40px;
+    margin: 1px 2px 3px 4px;
+}
+```
+
+##### output
+
+```css
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    color: red;
+    text-align: left;
+    left: 10px;
+}
+
+[dir="ltr"] .test3 {
+    text-align: center;
+    padding: 10px 40px 30px 20px;
+    margin: 1px 4px 3px 2px;
+}
+
+[dir="rtl"] .test3 {
+    margin: 1px 4px 3px 2px;
+}
+```
+
+</p>
+
+</details>
+
+---
+
+#### `/*rtl:begin:freeze*/` and `/*rtl:end:freeze*/`
+
+<details><summary>Expand</summary>
+<p>
+
+>[!IMPORTANT]
+>1. This directive only works in `combined` mode. If you use it in `override` or `diff` mode it will be ignored.
+>2. If you use these directives with declarations that are not affected by page direction, it is recommended that you set the [safeBothPrefix](#safebothprefix) option in `true`.
+
+These directives should be used together, they will provide the beginning and the end for freezing rules or declarations. The rules or delclarations between these blocks, will be frozen in the current direction even if there are no flippable declarations involved.
+
+Freezing multiple rules:
+
+##### input
+
+```css
+/*rtl:begin:freeze*/
+.test1, .test2 {
+    color: #FFF;
+    left: 10px;
+    text-align: left;
+}
+
+.test3 {
+    padding: 1px 2px 3px 4px;
+}
+/*rtl:end:freeze*/
+```
+
+##### output
+
+```css
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    color: #FFF;
+    left: 10px;
+    text-align: left;
+}
+
+[dir="ltr"] .test3 {
+    padding: 1px 2px 3px 4px;
+}
+```
+
+Freezing multiple declarations:
+
+##### input
+
+```css
+.test1, .test2 {
+    color: red;
+    left: 10px;
+    /*rtl:begin:freeze*/
+    margin-left: 4em;
+    padding: 1px 2px 3px 4px;
+    /*rtl:end:freeze*/
+    text-align: left;
+}
+```
+
+##### output
+
+```css
+.test1, .test2 {
+    color: red;
+}
+
+[dir="ltr"] .test1, [dir="ltr"] .test2 {
+    left: 10px;
+    margin-left: 4em;
+    padding: 1px 2px 3px 4px;
     text-align: left;
 }
 
