@@ -24,6 +24,7 @@ export const parseRules = (
     parsers: Parsers,
     container: Container,
     parentSourceDirective: string = undefined,
+    parentFreezeDirectiveActive: boolean = false,
     hasParentRule = false
 ): void => {
 
@@ -92,11 +93,38 @@ export const parseRules = (
                 addToIgnoreRulesInDiffMode(node);
                 return;
             }
-            
+
             const sourceDirectiveValue = getSourceDirectiveValue(
                 controlDirectives,
                 parentSourceDirective
             );
+
+            const freezeDirectiveActive = (
+                checkDirective(controlDirectives, CONTROL_DIRECTIVE.FREEZE) ||
+                parentFreezeDirectiveActive
+            );
+
+            if (freezeDirectiveActive) {
+                if (mode === Mode.combined) {
+                    addSelectorPrefixes(
+                        node,
+                        (
+                            (
+                                !sourceDirectiveValue &&
+                                source === Source.ltr
+                            ) ||
+                            (
+                                sourceDirectiveValue &&
+                                sourceDirectiveValue === Source.ltr
+                            )
+                        )
+                            ? ltrPrefix
+                            : rtlPrefix
+                    );
+                }
+                addToIgnoreRulesInDiffMode(node);
+                return;
+            }
 
             if (hasSelectorsPrefixed(node)) {
                 addToIgnoreRulesInDiffMode(node);
@@ -105,6 +133,7 @@ export const parseRules = (
                     node,
                     hasParentRule,
                     sourceDirectiveValue,
+                    freezeDirectiveActive,
                     checkDirective(controlDirectives, CONTROL_DIRECTIVE.RULES),
                     checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS)
                 );
@@ -113,14 +142,16 @@ export const parseRules = (
             parsers.parseAtRules(
                 parsers,
                 node,
-                parentSourceDirective,
+                sourceDirectiveValue,
+                freezeDirectiveActive,
                 true
             );
             
             parsers.parseRules(
                 parsers,
                 node,
-                parentSourceDirective,
+                sourceDirectiveValue,
+                freezeDirectiveActive,
                 true
             );
         

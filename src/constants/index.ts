@@ -27,6 +27,7 @@ export enum TYPEOF {
 
 export enum CONTROL_DIRECTIVE {
     IGNORE = 'ignore',
+    FREEZE = 'freeze',
     URLS = 'urls',
     RULES = 'rules',
     SOURCE = 'source',

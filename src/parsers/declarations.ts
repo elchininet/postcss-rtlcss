@@ -47,6 +47,7 @@ export const parseDeclarations = (
     container: DeclarationContainer,
     hasParentRule: boolean,
     ruleSourceDirectiveValue: string,
+    ruleFreezeDirectiveActive: boolean,
     processRule: boolean,
     rename: boolean
 ): void => {
@@ -151,11 +152,11 @@ export const parseDeclarations = (
                 return;
             }
 
-            const processUrlDirective = checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS);
+            const isProcessUrlDirectiveActive = checkDirective(controlDirectives, CONTROL_DIRECTIVE.URLS);
 
             const declString = `${decl.toString()};`;
             const declFlippedString = rtlcss.process(declString, {
-                processUrls: processUrls || processUrlDirective || rename,
+                processUrls: processUrls || isProcessUrlDirectiveActive || rename,
                 processEnv,
                 useCalc,
                 stringMap,
@@ -215,6 +216,18 @@ export const parseDeclarations = (
                 !sourceDirectiveValue ||
                 sourceDirectiveValue === source ||
                 mode === Mode.diff;
+
+            if (
+                checkDirective(controlDirectives, CONTROL_DIRECTIVE.FREEZE) ||
+                ruleFreezeDirectiveActive
+            ) {
+                if (mode === Mode.combined) {
+                    appendDeclarationToRule(decl, containerFlipped);
+                    declarationsProps.push(declPropUnprefixed);
+                    deleteDeclarations.push(decl);
+                }
+                return;
+            }
             
             if (
                 declProp === declFlippedProp &&

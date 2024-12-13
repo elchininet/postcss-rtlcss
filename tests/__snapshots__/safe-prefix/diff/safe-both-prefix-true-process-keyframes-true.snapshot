@@ -337,5 +337,13 @@ html .test50 {
 .test53 {
     margin-block-start: 10px;
     margin-block-end: 5px;
+}
+
+.test55, .test56 {
+    float: right;
+    background-clip: text;
+    -webkit-background-clip: text;
+    margin: 10px 40px 30px 20px;
+    text-align: right;
 }"
 `;
