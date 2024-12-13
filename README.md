@@ -24,31 +24,19 @@ Install
 #### npm
 
 ```bash
-## Latest version (postcss@^8.0.0)
 npm install postcss-rtlcss --save-dev
-
-## Latest legacy version (postcss@^7.0.0)
-npm install postcss-rtlcss@legacy --save-dev
 ```
 
 #### pnpm
 
 ```bash
-## Latest version (postcss@^8.0.0)
 pnpm add -D postcss-rtlcss
-
-## Latest legacy version (postcss@^7.0.0)
-pnpm add -D postcss-rtlcss@legacy
 ```
 
 #### yarn
 
 ```bash
-## Latest version (postcss@^8.0.0)
 yarn add postcss-rtlcss -D
-
-## Latest legacy version (postcss@^7.0.0)
-yarn add postcss-rtlcss@legacy -D
 ```
 
 Basic usage
@@ -69,11 +57,6 @@ const result = postcss([
 const rtlCSS = result.css;
 ```
 
-##### commonJS with the versions 1.x.x - 2.x.x
-```javascript
-const { postcssRTLCSS, Mode, Source, Autorename } = require('postcss-rtlcss');
-```
-
 #### Usage with ES6 modules
 
 ```javascript
@@ -87,12 +70,6 @@ const result = postcss([
 ]).process(cssInput);
 
 const rtlCSS = result.css;
-```
-
-##### ES6 modules with the versions 1.x.x - 2.x.x
-
-```javascript
-import { postcssRTLCSS, Mode, Source, Autorename } from 'postcss-rtlcss';
 ```
 
 #### Usage in Webpack with postcss-loader
@@ -146,7 +123,7 @@ Examples
 
 #### Output using the combined mode (default and recommended)
 
-This is the recommended method, it will generate more CSS code but each direction will have their specific CSS declarations and there is no need of overriding properties.
+This is the recommended method, it will generate more CSS code because each direction will have their specific prefixed rules but it is the safest option.
 
 ```css
 .test1, .test2 {
@@ -188,7 +165,7 @@ This is the recommended method, it will generate more CSS code but each directio
 #### Output using the override mode
 
 >[!IMPORTANT]
->This method is not recommended, check below why
+>This method is not recommended, [check below why](#disadvantages-of-the-two-methods-to-override)
 
 This is one of the alternative methods to override. It will generate less code because it lets the main rule intact most of the time and generates shorter specific rules to override the properties that are affected by the direction of the text.
 
@@ -227,7 +204,7 @@ This is one of the alternative methods to override. It will generate less code b
 #### Output using the diff mode
 
 >[!IMPORTANT]
->This method is not recommended, check below why
+>This method is not recommended, [check below why](#disadvantages-of-the-two-methods-to-override)
 
 This is the second alternative method to override. It generates the minimum amount of code because it only outputs the rules that have been flipped and without prefixing them. The intention of this method is to generate a separate stylesheet file that will be loaded on top of the original one to override those rules that need to be flipped in certain direction.
 
@@ -245,13 +222,7 @@ This is the second alternative method to override. It generates the minimum amou
 }
 ```
 
->[!IMPORTANT]
->But the two methods to override have disadvantages:
-
-<details><summary>Disadvantages of the override methods</summary>
-<p>
-
-The methods to override are discouraged because:
+#### Disadvantages of the two methods to override
 
 1. Some directives as `/*rtl:freeze*/`, `/*rtl:begin:freeze*/` and `/*rtl:end:freeze*/` do not work with these methods
 2. They can override a property that is coming from another class if multiple classes are used at the same time. Take a look at the next `HTML` and `CSS` codes:
@@ -366,10 +337,7 @@ And using the `diff` method the generated code will be:
 }
 ```
 
-</p>
-</details>
-
-Options
+Plugin Options
 ---
 
 All the options are optional, and a default value will be used if any of them is omitted or the type or format of them is wrong
@@ -380,19 +348,19 @@ All the options are optional, and a default value will be used if any of them is
 | [ltrPrefix](#ltrprefix-and-rtlprefix)                   | `string` or `string[]`    | `[dir="ltr"]`   | Prefix to use in the left-to-right CSS rules                 |
 | [rtlPrefix](#ltrprefix-and-rtlprefix)                   | `string` or `string[]`    | `[dir="rtl"]`   | Prefix to use in the right-to-left CSS rules                 |
 | [bothPrefix](#bothprefix)                               | `string` or `string[]`    | `[dir]`         | Prefix to create a new rule that affects both directions when the specificity of the ltr or rtl rules will override its declarations |
-| [prefixSelectorTransformer](#prefixselectortransformer) | `function` | `null` | Transform function to have more control over the selectors prefixing logic |
+| [prefixSelectorTransformer](#prefixselectortransformer) | `function`                | `null`          | Transform function to have more control over the selectors prefixing logic |
 | [safeBothPrefix](#safebothprefix)                       | `boolean`                 | `false`         | Add the `bothPrefix` to those declarations that can be affected by the direction to avoid them being overridden by specificity |
-| [ignorePrefixedRules](#ignoreprefixedrules)             | `boolean`                 | true            | Ignores rules that have been prefixed with some of the prefixes contained in `ltrPrefix`, `rtlPrefix`, or `bothPrefix` |
+| [ignorePrefixedRules](#ignoreprefixedrules)             | `boolean`                 | `true`          | Ignores rules that have been prefixed with some of the prefixes contained in `ltrPrefix`, `rtlPrefix`, or `bothPrefix` |
 | [source](#source)                                       | `Source (string)`         | `Source.ltr`    | The direction from which the final CSS will be generated     |
-| [processUrls](#processurls)                             | `boolean`                 | `false`         | Change the strings in URLs using the string map         |
+| [processUrls](#processurls)                             | `boolean`                 | `false`         | Change the strings in URLs using the string map              |
 | [processRuleNames](#processrulenames)                   | `boolean`                 | `false`         | Swap two rules containing no directional properties if they match any entry in `stringMap` when the direction changes |
 | [processKeyFrames](#processkeyframes)                   | `boolean`                 | `false`         | Flip keyframe animations                                     |
 | [processEnv](#processenv)                               | `boolean`                 | `true`          | When processEnv is false, it prevents flipping agent-defined environment variables (`safe-area-inset-left` and `safe-area-inset-right`) |
 | [useCalc](#usecalc)                                     | `boolean`                 | `false`         | Flips `background-position-x` and `transform-origin` properties if they are expressed in length units using [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) |
-| [stringMap](#stringmap)                                 | `PluginStringMap[]`       | Check below     | An array of strings maps that will be used to make the replacements of the declarations' URLs and to match the names of the rules if `processRuleNames` is `true` |
+| [stringMap](#stringmap)                                 | `PluginStringMap[]`       | [Check below](#stringmap) | An array of strings maps that will be used to make the replacements of the declarations' URLs and to match the names of the rules if `processRuleNames` is `true` |
 | [greedy](#greedy)                                       | `boolean`                 | `false`         | When greedy is `true`, the matches of `stringMap` will not take into account word boundaries |
-| [aliases](#aliases)                                     | `Record<string, string>`  | `{}`            | A strings map to treat some declarations as others |
-| [processDeclarationPlugins](#processdeclarationplugins) | `DeclarationPlugin[]` | `[]`         | Plugins applied when processing CSS declarations |
+| [aliases](#aliases)                                     | `Record<string, string>`  | `{}`            | A strings map to treat some declarations as others           |
+| [processDeclarationPlugins](#processdeclarationplugins) | `DeclarationPlugin[]`     | `[]`            | Plugins applied when processing CSS declarations             |
 
 ---
 
@@ -571,7 +539,7 @@ This function will be used to transform the selectors and prefixing them at our 
 
 >[!NOTE]
 >* If the function doesn‘t return a string, the default prefixing logic will be used.
->* If this function is used, be aware that rules using `html`, `:root` or `:::view-transition` will follow the custom prefixing logic. You should cover these cases.
+>* If this function is used, be aware that rules using `html`, `:root` or `::view-transition` will follow the custom prefixing logic. You should cover these cases.
 
 ##### input
 
@@ -1298,9 +1266,6 @@ const options = {
 
 This property consists of a string map to treat some declarations as others, very useful to flip the values of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
->[!NOTE]
->This property is not available in the legacy version of the package
-
 ##### input
 
 ```css
@@ -1412,24 +1377,24 @@ Control directives are placed between rules or declarations. They can target a s
 >[!IMPORTANT]
 >Block directives (the ones that start with `begin` and end with `end`) should be placed outside rules to apply the directive to multiple rules or inside a rule to apply the directive to multiple declarations. You should not place the begin of a directive outside a rule and the end inside one (or vice versa) or you will get undesired results.
 
-| Directive                                                  | Description                                                                                                                                    |
-| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [/\*rtl:ignore\*/](#rtlignore)                             | Ignores processing of the following rule or declaration                                                           |
-| [/\*rtl:begin:ignore\*/](#rtlbeginignore-and-rtlendignore) | Starts an ignoring block                                                                                          |
-| [/\*rtl:end:ignore\*/](#rtlbeginignore-and-rtlendignore)   | Ends an ignoring block                                                                                            |
-| [/\*rtl:freeze\*/](#rtlfreeze)         | Freezes the rule or declaration in the current direction but does nothing with the counterpart direction if there are flippable declarations     |
-| [/\*rtl:begin:freeze\*/](#rtlbeginfreeze-and-rtlendfreeze) | Starts a freeze block                                                                                             |
-| [/\*rtl:end:freeze\*/](#rtlbeginfreeze-and-rtlendfreeze)   | Ends a freeze block                                                                                               |
-| [/\*rtl:urls\*/](#rtlurls)           | This directive set the `processUrls` option to `true` in the next declaration or in the declarations of the next rule no mattering the value of the global `processUrls` option  |
-| [/\*rtl:begin:urls\*/](#rtlbeginrules-and-rtlendrules)     | Starts a `processUrls` block block                                                                                |
-| [/\*rtl:end:urls\*/](#rtlbeginrules-and-rtlendrules)       | Ends a `processUrls` block block                                                                                  |
-| [/\*rtl:rules\*/](#rtlrules)          | This directive set the `processRuleNames` option to `true` in the next rule no mattering the value of the global `processRuleNames` option  |
-| [/\*rtl:begin:rules\*/](#rtlbeginrules-and-rtlendrules)    | Starts a `processRuleNames` block block |
-| [/\*rtl:end:rules\*/](#rtlbeginrules-and-rtlendrules)      | Ends a `processRuleNames` block block   | 
-| [/\*rtl:source:{source}\*/](#rtlsourcesource)| Set the source of a rule or a declaration no mattering the value of the `source` property                         |
-| [/\*rtl:begin:source:{source}\*/](#rtlbeginsourcesource-and-rtlendsource) | Starts a source block                                                                                      |
-| [/\*rtl:end:source\*/](#rtlbeginsourcesource-and-rtlendsource)     | Ends a source block                                                                                               |
-| [/\*rtl:raw:{CSS}\*/](#rtlrawcss)      | Parses the `CSS` parameter and inserts it in its place. Depending on the `source` parameter the parsed `CSS` will be treated as `rtl` or `ltr` |
+| Directive                                                      | Description                                             |
+| -------------------------------------------------------------- | ------------------------------------------------------- |
+| [/\*rtl:ignore\*/](#rtlignore)                                 | Ignores processing of the following rule or declaration |
+| [/\*rtl:begin:ignore\*/](#rtlbeginignore-and-rtlendignore)     | Starts an ignoring block                                |
+| [/\*rtl:end:ignore\*/](#rtlbeginignore-and-rtlendignore)       | Ends an ignoring block                                  |
+| [/\*rtl:freeze\*/](#rtlfreeze)                                 | Freezes the rule or declaration in the current direction but does nothing with the counterpart direction if there are flippable declarations |
+| [/\*rtl:begin:freeze\*/](#rtlbeginfreeze-and-rtlendfreeze)     | Starts a freeze block                                   |
+| [/\*rtl:end:freeze\*/](#rtlbeginfreeze-and-rtlendfreeze)       | Ends a freeze block                                     |
+| [/\*rtl:urls\*/](#rtlurls)                                     | This directive set the `processUrls` option to `true` in the next declaration or in the declarations of the next rule no mattering the value of the global `processUrls` option |
+| [/\*rtl:begin:urls\*/](#rtlbeginrules-and-rtlendrules)         | Starts a `processUrls` block block                      |
+| [/\*rtl:end:urls\*/](#rtlbeginrules-and-rtlendrules)           | Ends a `processUrls` block block                        |
+| [/\*rtl:rules\*/](#rtlrules)                                   | This directive set the `processRuleNames` option to `true` in the next rule no mattering the value of the global `processRuleNames` option |
+| [/\*rtl:begin:rules\*/](#rtlbeginrules-and-rtlendrules)        | Starts a `processRuleNames` block block                 |
+| [/\*rtl:end:rules\*/](#rtlbeginrules-and-rtlendrules)          | Ends a `processRuleNames` block block                   | 
+| [/\*rtl:source:{source}\*/](#rtlsourcesource)                  | Set the source of a rule or a declaration no mattering the value of the `source` property |
+| [/\*rtl:begin:source:{source}\*/](#rtlbeginsourcesource-and-rtlendsource) | Starts a source block                        |
+| [/\*rtl:end:source\*/](#rtlbeginsourcesource-and-rtlendsource) | Ends a source block                                     |
+| [/\*rtl:raw:{CSS}\*/](#rtlrawcss)                              | Parses the `CSS` parameter and inserts it in its place. Depending on the `source` parameter the parsed `CSS` will be treated as `rtl` or `ltr` |
 
 ---
 
@@ -1562,13 +1527,9 @@ Ignoring multiple declarations:
 ## /\*rtl:freeze\*/
 
 >[!IMPORTANT]
->1. This directive only works in `combined` mode. If you use it in `override` or `diff` mode it will be ignored.
->2. If you use this directive with declarations that are not affected by page direction, it is recommended that you set the [safeBothPrefix](#safebothprefix) option in `true`.
+>This directive only works in `combined` mode. If you use it in `override` or `diff` modes it will be ignored.
 
->[!NOTE]
->This directive is not available in the legacy version of tha package
-
-This directive freezes the rule or declaration in the current direction but does nothing with the counterpart direction if there are flippable declarations. When used with a rule, it will freeze it in the current direction even if it is doesn't contain flippable declarations. When it is used in a declration, it will freeze the declaration in the current direction even if it is not flippable.
+This directive freezes the rule or declaration in the current direction but does nothing with the counterpart direction. When used with a rule, it will freeze it in the current direction even if it is doesn't contain flippable declarations. When it is used in a declration, it will freeze the declaration in the current direction even if it is not flippable.
 
 ##### input
 
@@ -1614,13 +1575,9 @@ This directive freezes the rule or declaration in the current direction but does
 ## /\*rtl:begin:freeze\*/ and /\*rtl:end:freeze\*/
 
 >[!IMPORTANT]
->1. This directive only works in `combined` mode. If you use it in `override` or `diff` mode it will be ignored.
->2. If you use these directives with declarations that are not affected by page direction, it is recommended that you set the [safeBothPrefix](#safebothprefix) option in `true`.
+>This directive only works in `combined` mode. If you use it in `override` or `diff` modes it will be ignored.
 
->[!NOTE]
->These directives are not available in the legacy version of tha package
-
-These directives should be used together, they will provide the beginning and the end for freezing rules or declarations. The rules or delclarations between these blocks, will be frozen in the current direction even if there are no flippable declarations involved.
+These directives should be used together, they will provide the beginning and the end for freezing rules or declarations. The rules or declarations between these blocks, will be frozen in the current direction even if there are no flippable declarations involved.
 
 Freezing multiple rules:
 
@@ -2046,13 +2003,13 @@ Value Directives
 
 Value directives are placed anywhere inside the declaration value. They target the containing declaration node.
 
-| Directive                | Description                                                                      |
-| ------------------------ | -------------------------------------------------------------------------------- |
-| [/\*rtl:ignore\*/](#rtlignore-1)         | Ignores processing of the declaration                                            |
-| [/\*rtl:append{value}\*/](#rtlappendvalue)  | Appends `{value}` to the end of the declaration value                            |
-| [/\*rtl:insert:{value}\*/](#rtlinsertvalue) | Inserts `{value}` to where the directive is located inside the declaration value |
-| [/\*rtl:prepend:{value}\*/](#rtlprependvalue)| Prepends `{value}` to the begining of the declaration value                      |
-| [/\*rtl:{value}\*/](#rtlvalue)        | Replaces the declaration value with `{value}`                                    |
+| Directive                                     | Description                                                                      |
+| --------------------------------------------- | -------------------------------------------------------------------------------- |
+| [/\*rtl:ignore\*/](#rtlignore-1)              | Ignores processing of the declaration                                            |
+| [/\*rtl:append{value}\*/](#rtlappendvalue)    | Appends `{value}` to the end of the declaration value                            |
+| [/\*rtl:insert:{value}\*/](#rtlinsertvalue)   | Inserts `{value}` to where the directive is located inside the declaration value |
+| [/\*rtl:prepend:{value}\*/](#rtlprependvalue) | Prepends `{value}` to the begining of the declaration value                      |
+| [/\*rtl:{value}\*/](#rtlvalue)                | Replaces the declaration value with `{value}`                                    |
 
 ---
 

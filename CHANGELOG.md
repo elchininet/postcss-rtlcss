@@ -3,6 +3,7 @@
 ## [5.6.0] - 2024-12-13
 
 - Add new directives to freeze rules and declarations `/*rtl:freeze*/`, `/*rtl:begin:freeze*/` and `/*rtl:end:freeze*/`
+- Remove references to the legacy package
 
 ## [5.5.1] - 2024-11-24
 
