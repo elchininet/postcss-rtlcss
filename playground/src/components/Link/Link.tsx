@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, JSX } from 'react';
 import * as styles from './Link.module.scss';
 
 export interface LinkProps  {

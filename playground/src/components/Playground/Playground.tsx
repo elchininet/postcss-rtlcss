@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {
+    useState,
+    useEffect,
+    JSX
+} from 'react';
 import postcss, { LazyResult, Result } from 'postcss';
 import postcssRTLCSS from 'postcss-rtlcss';
 import { PluginOptions } from '@types';
@@ -8,7 +12,7 @@ import { cssLines } from './css';
 import * as styles from './Playground.module.scss';
 
 const flipLines = (lines: string, options: PluginOptions = {}): LazyResult => {
-    return postcss([postcssRTLCSS(options)]).process(lines);   
+    return postcss([postcssRTLCSS(options)]).process(lines);
 };
 
 export const Playground = (): JSX.Element => {
@@ -21,14 +25,14 @@ export const Playground = (): JSX.Element => {
     useEffect((): void => {
         flipLines(lines, options).then((result: Result): void => {
             setLinesFlipped(result.css);
-        }).catch((error): void => {           
+        }).catch((error): void => {
             setLinesFlipped(`/* ${error.name}: ${error.message} */`);
         });
         setCode(lines);
     }, [ lines, options ]);
 
     const onChangeCode = (code: string): void => {
-        setLines(code);       
+        setLines(code);
     };
 
     const comonProps = {

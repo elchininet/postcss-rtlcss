@@ -1,4 +1,8 @@
-import React, {useEffect, useRef} from 'react';
+import React, {
+    useEffect,
+    useRef,
+    JSX
+} from 'react';
 import { editor, languages } from 'monaco-editor';
 import * as styles from './CSSPanel.module.scss';
 
@@ -36,6 +40,9 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
             theme: 'vs-dark',
             contextmenu: !isMobile,
             selectionHighlight: !isMobile,
+            stickyScroll: {
+                enabled: false
+            },
             hover: {
                 enabled: false
             },
