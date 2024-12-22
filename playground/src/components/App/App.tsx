@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { AppProvider } from '@components/AppProvider';
 import { Burger } from '@components/Burger';
 import { Header } from '@components/Header';
@@ -11,13 +11,13 @@ export const App = (): JSX.Element => {
 
     return (
         <AppProvider>
-            <div className={styles.wrapper}>              
+            <div className={styles.wrapper}>
                 <Header />
                 <Playground />
-                <Footer />                        
+                <Footer />
             </div>
             <Options />
             <Burger />
-        </AppProvider> 
+        </AppProvider>
     );
 };

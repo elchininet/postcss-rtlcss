@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, JSX } from 'react';
 import { Mode, Source } from 'postcss-rtlcss/options';
 import { useAppContext } from '@components/AppProvider';
 import { Switch } from '@components/Switch';
@@ -96,7 +96,7 @@ export const Options = (): JSX.Element => {
                                     ? fetchOptions.ignorePrefixedRules
                                     : true
                             )
-                        }}                        
+                        }}
                     />
                 </div>
                 { /* processUrls */ }
@@ -122,7 +122,7 @@ export const Options = (): JSX.Element => {
                 { /* processKeyFrames */ }
                 <div className={styles.panel}>
                     <Switch
-                        labels={['processKeyFrames: false', 'processKeyFrames: true']}                        
+                        labels={['processKeyFrames: false', 'processKeyFrames: true']}
                         onChange={changeProcessKeyframes}
                         attributes={{
                             checked: !!fetchOptions?.processKeyFrames

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { useAppContext } from '@components/AppProvider';
 import * as styles from './Burger.module.scss';
 

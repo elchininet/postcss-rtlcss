@@ -1,4 +1,9 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import {
+    useState,
+    useEffect,
+    useCallback,
+    useMemo
+} from 'react';
 import { FetchOptions } from '@types';
 
 interface UseApiProps {
@@ -122,7 +127,7 @@ export const useApi = (): UseApiProps => {
                     history.replaceState('', '', `#${id}`);
                     if (navigator.clipboard) {
                         navigator.clipboard.writeText(window.location.href);
-                    }                    
+                    }
                 })
                 .catch(() => {
                     setToken(null);
@@ -147,7 +152,7 @@ export const useApi = (): UseApiProps => {
                     setToken(newToken);
                 })
                 .catch(() => setReady(true));
-        }        
+        }
     }, [token]);
 
     useEffect(() => {

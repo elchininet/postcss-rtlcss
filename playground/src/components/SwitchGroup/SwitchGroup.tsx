@@ -1,4 +1,9 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, {
+    JSX,
+    useState,
+    useEffect,
+    ChangeEvent
+} from 'react';
 import classnames from 'classnames';
 import * as styles from './SwitchGroup.module.scss';
 
@@ -38,7 +43,9 @@ export const SwitchGroup = (props: SwitchGroupProps): JSX.Element => {
         const currentTarget = event.currentTarget;
         const value = currentTarget.value;
         setSelected(value);
-        onChange && onChange(value);
+        if (onChange) {
+            onChange(value);
+        }
     };
     return (
         <div className={styles.component}>
@@ -68,7 +75,7 @@ export const SwitchGroup = (props: SwitchGroupProps): JSX.Element => {
                         );
                     })
                 }
-            </div>            
+            </div>
         </div>
     );
 };

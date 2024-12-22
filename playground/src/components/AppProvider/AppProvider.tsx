@@ -1,4 +1,11 @@
-import React, { PropsWithChildren, createContext, useContext, useState, useEffect } from 'react';
+import React, {
+    JSX,
+    ReactNode,
+    createContext,
+    useContext,
+    useState,
+    useEffect
+} from 'react';
 import { Mode, Source } from 'postcss-rtlcss/options';
 import { PluginOptions, FetchOptions } from '@types';
 import { breakpointSizes } from '@constants';
@@ -64,7 +71,7 @@ const windowSizes = getWindowSizes();
 
 export const AppContext = createContext<AppProviderContext>({} as AppProviderContext);
 
-export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
+export const AppProvider = (props: { children?: ReactNode }): JSX.Element => {
 
     let delay: number;
     const [ code, setCode ] = useState<string>(null);
@@ -83,9 +90,9 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
 
     const resize = (): void => {
         if (delay) window.clearTimeout(delay);
-        delay = window.setTimeout((): void => {            
+        delay = window.setTimeout((): void => {
             const windowSizes = getWindowSizes();
-            setSizes(windowSizes);       
+            setSizes(windowSizes);
         }, 100);
     };
 
@@ -123,7 +130,7 @@ export const AppProvider = (props: PropsWithChildren<{}>): JSX.Element => {
         changeOptionsProcessEnv,
         changeOptionsUseCalc,
         changeOptionsGreedy,
-        windowSizes: sizes        
+        windowSizes: sizes
     };
 
     return (

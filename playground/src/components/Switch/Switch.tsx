@@ -1,4 +1,9 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, {
+    JSX,
+    useState,
+    useEffect,
+    ChangeEvent
+} from 'react';
 import * as styles from './Switch.module.scss';
 
 interface Attributes {

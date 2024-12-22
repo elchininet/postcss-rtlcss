@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import GitHubButton from 'react-github-btn';
 import classnames from 'classnames';
 import { Link } from '@components/Link';
