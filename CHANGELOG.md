@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.6.1] - 2025-04-07
+
+- Check that a rule has a `selectors` property before accessing it and in this way avoid an issue with Tailwind.
+
 ## [5.6.0] - 2024-12-13
 
 - Add new directives to freeze rules and declarations `/*rtl:freeze*/`, `/*rtl:begin:freeze*/` and `/*rtl:end:freeze*/`
