@@ -83,9 +83,16 @@ export interface PluginOptions {
     greedy?: boolean;
     aliases?: Record<string, string>;
     processDeclarationPlugins?: DeclarationPlugin[];
+    runOnExit?: boolean;
 }
 
-export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, 'stringMap' | 'processDeclarationPlugins' | 'prefixSelectorTransformer'> {
+type NonNormalizedOptions =
+    | 'stringMap'
+    | 'processDeclarationPlugins'
+    | 'prefixSelectorTransformer'
+    | 'runOnExit';
+
+export interface PluginOptionsNormalized extends Omit<Required<PluginOptions>, NonNormalizedOptions> {
     stringMap: StringMap[];
     plugins: RTLCSSPlugin[];
     prefixSelectorTransformer: PrefixSelectorTransformer | null;
