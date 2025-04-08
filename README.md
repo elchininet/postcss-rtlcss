@@ -361,6 +361,7 @@ All the options are optional, and a default value will be used if any of them is
 | [greedy](#greedy)                                       | `boolean`                 | `false`         | When greedy is `true`, the matches of `stringMap` will not take into account word boundaries |
 | [aliases](#aliases)                                     | `Record<string, string>`  | `{}`            | A strings map to treat some declarations as others           |
 | [processDeclarationPlugins](#processdeclarationplugins) | `DeclarationPlugin[]`     | `[]`            | Plugins applied when processing CSS declarations             |
+| [runOnExit](#runonexit) | `boolean`     | `false`            | Defines which visitor will be used to execute the plugin. If it is `false` (default value), `Once` will be used, but if it is true, `OnceExit` will be used instead. |
 
 ---
 
@@ -1366,6 +1367,76 @@ const options = {
     background-position: 0 100%;
 }
 ```
+
+---
+
+## runOnExit
+
+This option defines which `PostCSS` visitor will be used to execute the plugin. By default it is `false`, so the `Once` visitor will be used. If it is `true`, `OnceExit` will be used instead. Setting this option in `true` is useful if the plugin is used together with [postcss-preset-env](https://www.npmjs.com/package/postcss-preset-env) because in those cases the plugin will be executed when `postcss-preset-env` finished all the CSS processing.
+
+For example, let's assume that for the next example, `PostCSS RTLCSS` is executed together with `postcss-preset-env`.
+
+##### input
+
+```css
+.test {
+    color: red;
+    border-inline-start-width: thick;
+    margin-inline-end: 5px;
+    padding-inline-start: 20px;
+}
+```
+
+##### runOnExit in false (default)
+
+```javascript
+const options = {
+    runOnExit: false // This is the default value
+};
+```
+
+##### output
+
+```css
+.test {
+    color: red;
+    border-inline-start-width: thick;
+    margin-inline-end: 5px;
+    padding-inline-start: 20px;
+}
+```
+
+`PostCSS RTLCSS` didn't apply any change because it was executed at the beginning and it doesn't support [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values).
+
+##### runOnExit in true
+
+```javascript
+const options = {
+    runOnExit: true
+};
+```
+
+##### output
+
+```css
+.test {
+    color: red;
+}
+
+[dir="ltr"] .test {
+    border-left-width: thick;
+    margin-right: 5px;
+    padding-left: 20px;
+}
+
+[dir="rtl"] .test {
+    border-right-width: thick;
+    margin-left: 5px;
+    padding-right: 20px;
+}
+```
+
+`postcss-preset-env` executed `postcss-logical` behind the scenes in the CSS and converted its properties from logical to physical. After it finishes, `PostCSS RTLCSS` is executed and it makes the necessary changes to add the LTR and RTL prefixes.
 
 ---
 

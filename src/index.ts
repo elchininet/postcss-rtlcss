@@ -20,9 +20,12 @@ const parsers: Parsers = {
 };
 
 function postcssRTLCSS (options: PluginOptions = {}): Plugin {
-    return ({
+    const visitor = options.runOnExit
+        ? 'OnceExit'
+        : 'Once';
+    return {
         postcssPlugin: 'postcss-rtlcss',
-        Once(css: Root): void {
+        [visitor](css: Root): void {
             initStore(options);
             parseKeyFrames(css);
             parseAtRules(parsers, css);
@@ -32,8 +35,8 @@ function postcssRTLCSS (options: PluginOptions = {}): Plugin {
             appendKeyFrames();
             clean(css);
         }
-    });
-}
+    };
+};
 
 postcssRTLCSS.postcss = true;
 

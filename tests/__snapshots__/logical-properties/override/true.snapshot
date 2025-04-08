@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: override]] runOnExit Tests:  runOnExit true 1`] = `
+".test1 {
+    color: red;
+    border-left-width: thick;
+    margin-right: 5px;
+    padding-left: 20px;
+}
+
+[dir="rtl"] .test1 {
+    border-left-width: medium;
+    border-right-width: thick;
+    margin-right: 0;
+    margin-left: 5px;
+    padding-left: 0;
+    padding-right: 20px;
+}"
+`;

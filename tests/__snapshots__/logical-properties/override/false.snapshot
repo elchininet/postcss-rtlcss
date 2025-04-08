@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[[Mode: override]] runOnExit Tests:  runOnExit false 1`] = `
+".test1 {
+    color: red;
+    border-left-width: thick;
+    margin-right: 5px;
+    padding-left: 20px;
+}"
+`;

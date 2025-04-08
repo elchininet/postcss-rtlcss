@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.7.0] - 2025-04-08
+
+- Add an option to use the `OnceExit` visitor to execute the plugin instead of the default `Once`.
+
 ## [5.6.1] - 2025-04-07
 
 - Check that a rule has a `selectors` property before accessing it and in this way avoid an issue with Tailwind.
