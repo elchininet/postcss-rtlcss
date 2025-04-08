@@ -46,5 +46,9 @@ updates:
       timezone: "Europe/Amsterdam"
     commit-message:
       prefix: "[Github Actions]"
+    groups:
+      actions-deps:
+        patterns:
+          - "*"
     labels:
       - configuration
