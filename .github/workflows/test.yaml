@@ -29,7 +29,7 @@ jobs:
       - name: Linting files
         run: pnpm lint
       - name: Make coverage
-        run: pnpm test -- --coverage
+        run: pnpm test --coverage
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
