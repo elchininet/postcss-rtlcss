@@ -20,8 +20,8 @@ importers:
         specifier: ^8.4.31
         version: 8.4.38
       postcss-rtlcss:
-        specifier: ^5.7.0
-        version: 5.7.0(postcss@8.4.38)
+        specifier: ^5.7.1
+        version: 5.7.1(postcss@8.4.38)
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -2863,8 +2863,8 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
 
-  postcss-rtlcss@5.7.0:
-    resolution: {integrity: sha512-qx0KQ9iX17Qsi6AGZL3D6Ty7UjDebApE92FLP1Z8tQg4cGck/V/w0UrIo1rFQSh3rYsxDnSf1r30X8GNyxy6VQ==}
+  postcss-rtlcss@5.7.1:
+    resolution: {integrity: sha512-zE68CuARv5StOG/UQLa0W1Y/raUTzgJlfjtas43yh3/G1BFmoPEaHxPRHgeowXRFFhW33FehrNgsljxRLmPVWw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       postcss: ^8.4.21
@@ -6660,7 +6660,7 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.4.38)
       string-hash: 1.1.3
 
-  postcss-rtlcss@5.7.0(postcss@8.4.38):
+  postcss-rtlcss@5.7.1(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
       rtlcss: 4.3.0
