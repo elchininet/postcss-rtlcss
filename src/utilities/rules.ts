@@ -48,8 +48,15 @@ export const ruleHasChildren = (rule: Container): boolean => {
 
 export const getParentContainers = (container: DeclarationContainer): DeclarationContainer[] => {
     const containers: DeclarationContainer[] = [];
+    const temp: DeclarationContainer[] = [];
     while (isDeclarationContainer(container)) {
-        containers.unshift(container);
+        
+        if (isRule(container)) {
+            containers.unshift(container, ...temp.splice(0));
+        } else {
+            temp.unshift(container);
+        }
+
         container = container.parent as DeclarationContainer;
     }
     containers.pop();

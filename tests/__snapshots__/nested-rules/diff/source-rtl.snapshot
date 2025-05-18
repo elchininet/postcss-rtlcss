@@ -90,5 +90,14 @@ exports[`[[Mode: diff]] Nested rules tests:  {source: rtl} 1`] = `
 
 @mixin padding {
     padding-left: 10px;
+}
+
+@layer utilities {
+  .sm\\:pl-8 {
+    @media (width >= 40rem) {
+      padding-left: 0;
+      padding-right: calc(var(--spacing) * 8);
+    }
+  }
 }"
 `;
