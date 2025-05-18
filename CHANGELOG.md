@@ -1,5 +1,9 @@
 # Changelog
 
+## [5.7.1] - 2025-05-18
+
+- Solve an issue related to multiple nested at-rules with rules in the middle.
+
 ## [5.7.0] - 2025-04-08
 
 - Add an option to use the `OnceExit` visitor to execute the plugin instead of the default `Once`.
