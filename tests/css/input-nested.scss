@@ -100,3 +100,11 @@
 .test14 {
    @include padding;
 }
+
+@layer utilities {
+  .sm\:pl-8 {
+    @media (width >= 40rem) {
+      padding-left: calc(var(--spacing) * 8);
+    }
+  }
+}

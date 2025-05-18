@@ -239,5 +239,19 @@ exports[`[[Mode: combined]] Nested rules tests:  {source: rtl} processRuleNames:
 
 .test14 {
    @include padding;
+}
+
+@layer utilities {
+  [dir="rtl"] .sm\\:pl-8 {
+    @media (width >= 40rem) {
+      padding-left: calc(var(--spacing) * 8);
+    }
+  }
+
+  [dir="ltr"] .sm\\:pl-8 {
+    @media (width >= 40rem) {
+      padding-right: calc(var(--spacing) * 8);
+    }
+  }
 }"
 `;
