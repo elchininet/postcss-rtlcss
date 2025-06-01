@@ -72,7 +72,7 @@
     "@types/eslint": "^9.6.1",
     "@types/jest": "^29.5.14",
     "@types/jest-specific-snapshot": "^0.5.9",
-    "@types/node": "^22.15.21",
+    "@types/node": "^22.15.29",
     "@types/rtlcss": "^3.5.4",
     "eslint": "^9.27.0",
     "eslint-plugin-jest": "^28.11.0",
