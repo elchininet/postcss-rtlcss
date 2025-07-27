@@ -72,23 +72,23 @@
     "@types/eslint": "^9.6.1",
     "@types/jest": "^30.0.0",
     "@types/jest-specific-snapshot": "^0.5.9",
-    "@types/node": "^24.0.15",
+    "@types/node": "^24.1.0",
     "@types/rtlcss": "^3.5.4",
-    "eslint": "^9.31.0",
+    "eslint": "^9.32.0",
     "eslint-plugin-jest": "^29.0.1",
     "globals": "^16.3.0",
-    "jest": "^30.0.4",
+    "jest": "^30.0.5",
     "jest-specific-snapshot": "^8.0.0",
     "postcss": "^8.4.38",
     "postcss-preset-env": "^10.2.4",
     "replace-in-file": "^8.3.0",
     "rimraf": "^6.0.1",
-    "rollup": "^4.45.1",
+    "rollup": "^4.46.0",
     "rollup-plugin-ts": "^3.4.5",
     "ts-jest": "^29.4.0",
     "tslib": "^2.8.1",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.37.0"
+    "typescript-eslint": "^8.38.0"
   },
   "peerDependencies": {
     "postcss": "^8.4.21"
