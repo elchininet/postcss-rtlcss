@@ -24,14 +24,14 @@ importers:
         specifier: ^5.7.1
         version: 5.7.1(postcss@8.4.38)
       react:
-        specifier: ^19.1.1
-        version: 19.1.1
+        specifier: ^19.2.0
+        version: 19.2.0
       react-dom:
-        specifier: ^19.1.1
-        version: 19.1.1(react@19.1.1)
+        specifier: ^19.2.0
+        version: 19.2.0(react@19.2.0)
       react-github-btn:
         specifier: ^1.4.0
-        version: 1.4.0(react@19.1.1)
+        version: 1.4.0(react@19.2.0)
     devDependencies:
       '@babel/core':
         specifier: ^7.28.4
@@ -52,11 +52,11 @@ importers:
         specifier: ^24.6.2
         version: 24.6.2
       '@types/react':
-        specifier: ^19.1.15
-        version: 19.1.15
+        specifier: ^19.2.0
+        version: 19.2.0
       '@types/react-dom':
-        specifier: ^19.1.9
-        version: 19.1.9(@types/react@19.1.15)
+        specifier: ^19.2.0
+        version: 19.2.0(@types/react@19.2.0)
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.4.38)
@@ -1096,13 +1096,13 @@ packages:
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
 
-  '@types/react-dom@19.1.9':
-    resolution: {integrity: sha512-qXRuZaOsAdXKFyOhRBg6Lqqc0yay13vN7KrIg4L7N4aaHN68ma9OK3NE1BoDFgFOTfM7zg+3/8+2n8rLUH3OKQ==}
+  '@types/react-dom@19.2.0':
+    resolution: {integrity: sha512-brtBs0MnE9SMx7px208g39lRmC5uHZs96caOJfTjFcYSLHNamvaSMfJNagChVNkup2SdtOxKX1FDBkRSJe1ZAg==}
     peerDependencies:
-      '@types/react': ^19.0.0
+      '@types/react': ^19.2.0
 
-  '@types/react@19.1.15':
-    resolution: {integrity: sha512-+kLxJpaJzXybyDyFXYADyP1cznTO8HSuBpenGlnKOAkH4hyNINiywvXS/tGJhsrGGP/gM185RA3xpjY0Yg4erA==}
+  '@types/react@19.2.0':
+    resolution: {integrity: sha512-1LOH8xovvsKsCBq1wnT4ntDUdCJKmnEakhsuoUSy6ExlHCkGP2hqnatagYTgFk6oeL0VU31u7SNjunPN+GchtA==}
 
   '@types/retry@0.12.2':
     resolution: {integrity: sha512-XISRgDJ2Tc5q4TRqvgJtzsRkFYNJzZrhTdtMoGVBttwzzQJkPnS3WWTFc7kuDRoPtPakl+T+OfdEUjYJj7Jbow==}
@@ -2950,10 +2950,10 @@ packages:
     resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
     engines: {node: '>= 0.8'}
 
-  react-dom@19.1.1:
-    resolution: {integrity: sha512-Dlq/5LAZgF0Gaz6yiqZCf6VCcZs1ghAJyrsu84Q/GT0gV+mCxbfmKNoGRKBYMJ8IEdGPqu49YWXD02GCknEDkw==}
+  react-dom@19.2.0:
+    resolution: {integrity: sha512-UlbRu4cAiGaIewkPyiRGJk0imDN2T3JjieT6spoL2UeSf5od4n5LB/mQ4ejmxhCFT1tYe8IvaFulzynWovsEFQ==}
     peerDependencies:
-      react: ^19.1.1
+      react: ^19.2.0
 
   react-github-btn@1.4.0:
     resolution: {integrity: sha512-lV4FYClAfjWnBfv0iNlJUGhamDgIq6TayD0kPZED6VzHWdpcHmPfsYOZ/CFwLfPv4Zp+F4m8QKTj0oy2HjiGXg==}
@@ -2963,8 +2963,8 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  react@19.1.1:
-    resolution: {integrity: sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==}
+  react@19.2.0:
+    resolution: {integrity: sha512-tmbWg6W31tQLeB5cdIBOicJDJRR2KzXsV7uSK9iNfLWQ5bIZfxuPEHp7M8wiHyHnn0DD1i7w3Zmin0FtkrwoCQ==}
     engines: {node: '>=0.10.0'}
 
   readable-stream@2.3.8:
@@ -3126,8 +3126,8 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  scheduler@0.26.0:
-    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
+  scheduler@0.27.0:
+    resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
 
   schema-utils@3.3.0:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
@@ -4713,11 +4713,11 @@ snapshots:
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@19.1.9(@types/react@19.1.15)':
+  '@types/react-dom@19.2.0(@types/react@19.2.0)':
     dependencies:
-      '@types/react': 19.1.15
+      '@types/react': 19.2.0
 
-  '@types/react@19.1.15':
+  '@types/react@19.2.0':
     dependencies:
       csstype: 3.1.3
 
@@ -6780,19 +6780,19 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-dom@19.1.1(react@19.1.1):
+  react-dom@19.2.0(react@19.2.0):
     dependencies:
-      react: 19.1.1
-      scheduler: 0.26.0
+      react: 19.2.0
+      scheduler: 0.27.0
 
-  react-github-btn@1.4.0(react@19.1.1):
+  react-github-btn@1.4.0(react@19.2.0):
     dependencies:
       github-buttons: 2.27.0
-      react: 19.1.1
+      react: 19.2.0
 
   react-is@16.13.1: {}
 
-  react@19.1.1: {}
+  react@19.2.0: {}
 
   readable-stream@2.3.8:
     dependencies:
@@ -6960,7 +6960,7 @@ snapshots:
     optionalDependencies:
       '@parcel/watcher': 2.5.1
 
-  scheduler@0.26.0: {}
+  scheduler@0.27.0: {}
 
   schema-utils@3.3.0:
     dependencies:
