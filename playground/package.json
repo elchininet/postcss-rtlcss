@@ -25,8 +25,8 @@
     "monaco-editor": "^0.55.1",
     "postcss": "^8.4.31",
     "postcss-rtlcss": "^5.7.1",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
