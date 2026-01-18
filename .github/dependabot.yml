@@ -11,6 +11,7 @@ updates:
       prefix: "[Dependencies]"
     ignore:
       - dependency-name: "postcss"
+      - dependency-name: "postcss-preset-env"
     groups:
       dependencies-dev:
         dependency-type: "development"
