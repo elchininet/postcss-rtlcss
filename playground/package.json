@@ -14,6 +14,7 @@
     "rtlcss"
   ],
   "scripts": {
+    "lint": "eslint \"src/**/*.tsx\"",
     "generate-types": "typed-scss-modules src --aliasPrefixes.@constants src/constants",
     "generate-types:dev": "typed-scss-modules src --aliasPrefixes.@constants src/constants --watch",
     "start": "pnpm generate-types:dev & webpack serve --open --config webpack.dev-config.js",

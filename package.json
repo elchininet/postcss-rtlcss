@@ -47,7 +47,8 @@
   ],
   "scripts": {
     "test": "jest --clearCache && jest --verbose",
-    "lint": "eslint \"src/**/*.ts\" \"playground/src/**/*.tsx\" \"tests/**/*.ts\"",
+    "lint:playground": "cd playground && pnpm lint && cd ..",
+    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\" && pnpm lint:playground",
     "clean": "./scripts/clean.sh",
     "copy": "./scripts/copy.sh",
     "modify-dts": "replace-in-file --configFile=config.replace.json",
@@ -67,6 +68,7 @@
     "rtlcss": "4.3.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@types/eslint": "^9.6.1",
