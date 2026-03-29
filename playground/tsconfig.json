@@ -4,7 +4,7 @@
     "outDir": "../docs/",
     "module": "esnext",
     "jsx": "react",
-    "target": "es5",
+    "target": "es2015",
     "moduleResolution": "node",
     "declaration": false,
     "noImplicitAny": true,
