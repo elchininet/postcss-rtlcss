@@ -28,7 +28,7 @@ export const clean = (css: Container): void => {
         rules.forEach((rulesObject: RulesObject): void => {
             rulesObject.rule.remove();
         });
-        containersToRemove.forEach((rule: Rule) => {
+        containersToRemove.forEach((rule: Rule | AtRule) => {
             rule.remove();
         });
         keyframes.forEach(({atRule}): void => {

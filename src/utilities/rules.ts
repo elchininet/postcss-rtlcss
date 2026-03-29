@@ -72,8 +72,8 @@ export const insertRules = (
         containers = [...containers];
         let parentContainer: DeclarationContainer;
         while (containers.length) {
-            parentContainer = containers.shift();
-            const innerRule = parent.nodes.find((node: Node): boolean => {
+            parentContainer = containers.shift() as DeclarationContainer;
+            const innerRule = parent.nodes!.find((node: Node): boolean => {
                 if (
                     isRule(node)
                     && isRule(parentContainer)
@@ -81,6 +81,7 @@ export const insertRules = (
                 ) {
                     return true;
                 }
+                return false;
             }) as DeclarationContainer | undefined;
             if (innerRule) {
                 parentContainer = innerRule;
@@ -207,11 +208,11 @@ export const cleanRuleRawsBefore = (node: Node | undefined, prefix = '\n\n'): vo
 
 export const cleanRules = (...rules: DeclarationContainer[]): void => {
     rules.forEach((rule: DeclarationContainer | undefined | null): void => {
-        const prev = rule.prev();
+        const prev = rule!.prev();
         if (prev && !isComment(prev)) {
-            cleanRuleRawsBefore(rule);
+            cleanRuleRawsBefore(rule as Rule);
         }
-        rule.walk((node: Node): void => {
+        rule!.walk((node: Node): void => {
             if (isDeclaration(node)) {
                 const decl = node as Declaration;
                 if (decl.raws && decl.raws.value && RTL_COMMENT_REGEXP.test(decl.raws.value.raw)) {

@@ -21,7 +21,7 @@ import { vendor } from '@utilities/vendor';
 export const parseAtRules = (
     parsers: Parsers,
     container: Container,
-    parentSourceDirective: string = undefined,
+    parentSourceDirective: string | undefined = undefined,
     parentFreezeDirectiveActive: boolean = false,
     hasParentRule = false
 ): void => {

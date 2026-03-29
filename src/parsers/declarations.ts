@@ -46,7 +46,7 @@ import { vendor } from '@utilities/vendor';
 export const parseDeclarations = (
     container: DeclarationContainer,
     hasParentRule: boolean,
-    ruleSourceDirectiveValue: string,
+    ruleSourceDirectiveValue: string | undefined,
     ruleFreezeDirectiveActive: boolean,
     processRule: boolean,
     rename: boolean
@@ -72,7 +72,7 @@ export const parseDeclarations = (
     const containerBoth = containerFlipped.clone();
     const containerSafe = containerFlipped.clone();
 
-    const declarationHashMap = Array.prototype.reduce.call(container.nodes, (obj: DeclarationHashMap, node: Node): DeclarationHashMap => {
+    const declarationHashMap = Array.from(container.nodes as Node[]).reduce((obj: DeclarationHashMap, node: Node): DeclarationHashMap => {
         if (isDeclaration(node)) {
             const index = container.index(node);
             obj[node.prop] = obj[node.prop] || { ignore: false, indexes: {} };
@@ -83,7 +83,7 @@ export const parseDeclarations = (
             };
         }
         return obj;
-    }, {});
+    }, {} as DeclarationHashMap);
 
     const declarationsProps: string[] = [];
     const controlDirectives: Record<string, ControlDirective> = {};
@@ -146,7 +146,9 @@ export const parseDeclarations = (
             controlDirectives[controlDirective.directive] = controlDirective;
 
         },
-        (decl: Declaration): void => {
+        (node: Node): void => {
+
+            const decl = node as Declaration;
 
             if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
                 return;
@@ -404,10 +406,10 @@ export const parseDeclarations = (
     }
 
     if (
-        containerFlipped.nodes.length ||
-        containerFlippedSecond.nodes.length ||
-        containerBoth.nodes.length ||
-        containerSafe.nodes.length
+        containerFlipped.nodes!.length ||
+        containerFlippedSecond.nodes!.length ||
+        containerBoth.nodes!.length ||
+        containerSafe.nodes!.length
     ) {
         if (hasParentRule) {
             appendParentContainerToStore(
