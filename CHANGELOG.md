@@ -1,5 +1,10 @@
 # Changelog
 
+## [6.0.0] - 2026-03-29
+
+- Migrated to `TypeScript 6`, so the target of the library is now `es6` instead of the previous `es5`
+- Some refactors have been needed to make the project compatible with `TypeScript 6` but they should not affect the functionality of the plugin
+
 ## [5.7.1] - 2025-05-18
 
 - Solve an issue related to multiple nested at-rules with rules in the middle.

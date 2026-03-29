@@ -158,7 +158,7 @@ export type DeclarationHashMap = Record<
 export type RuleParser = (
     parsers: Parsers,
     container: Container,
-    parentSourceDirective?: string,
+    parentSourceDirective?: string | undefined,
     parentFreezeDirectiveActive?: boolean,
     hasParentRule?: boolean
 ) => void;
@@ -178,7 +178,7 @@ export type KeyframeParser = (
 export type DeclarationParser = (
     container: DeclarationContainer,
     hasParentRule: boolean,
-    ruleSourceDirectiveValue: string,
+    ruleSourceDirectiveValue: string | undefined,
     parentFreezeDirectiveActive: boolean,
     processRule: boolean,
     rename: boolean

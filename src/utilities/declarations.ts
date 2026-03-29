@@ -6,10 +6,10 @@ import {
 } from '@types';
 import { RTL_COMMENT_IGNORE_REGEXP, FLIP_PROPERTY_REGEXP } from '@constants';
 import { isComment } from '@utilities/predicates';
-import shorthandDeclarationsJson from '@data/shorthand-declarations.json';
-import logicalDeclarationsJson from '@data/logical-declarations.json';
-import notShorthandDeclarationsJson from '@data/not-shorthand-declarations.json';
-import initialValuesJson from '@data/initial-values.json';
+import shorthandDeclarationsJson from '../data/shorthand-declarations.json';
+import logicalDeclarationsJson from '../data/logical-declarations.json';
+import notShorthandDeclarationsJson from '../data/not-shorthand-declarations.json';
+import initialValuesJson from '../data/initial-values.json';
 
 const declarationsData: DeclarationsData = shorthandDeclarationsJson;
 const logicalDeclarationsData: DeclarationsData = logicalDeclarationsJson;

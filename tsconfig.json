@@ -2,23 +2,23 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "module": "esnext",
-    "target": "ES5",
-    "moduleResolution": "node",
+    "target": "es6",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "declaration": true,
+    "declaration": false,
     "noImplicitAny": true,
     "removeComments": true,
-    "baseUrl": "./src",
+    "types": ["node"],
+    "rootDir": "./src",
     "paths": {
-      "@types": ["@types"],
-      "@constants": ["constants"],
-      "@parsers/*": ["parsers/*"],
-      "@utilities/*": ["utilities/*"],
-      "@data/*": ["data/*"]
+      "@types": ["./src/@types"],
+      "@constants": ["./src/constants"],
+      "@parsers/*": ["./src/parsers/*"],
+      "@utilities/*": ["./src/utilities/*"],
+      "@data/*": ["./src/data/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.json"],
   "exclude": ["node_modules", "playground", "docs"]
 }
-  

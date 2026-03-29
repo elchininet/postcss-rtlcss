@@ -74,36 +74,45 @@ const getRTLCSSStringMap = (stringMap: PluginStringMap[]): StringMap[] =>
         }
     }));
 
-const ModeValuesArray = Object.keys(Mode).map((prop: ModeValue) => Mode[prop] as ModeValue);
-const SourceValuesArray = Object.keys(Source).map((prop: SourceValue) => Source[prop] as SourceValue);
+const modeKeys = Object.keys(Mode) as ModeValue[];
+const sourceKeys = Object.keys(Source) as SourceValue[];
+const ModeValuesArray = modeKeys.map((prop: ModeValue) => Mode[prop] as ModeValue);
+const SourceValuesArray = sourceKeys.map((prop: SourceValue) => Source[prop] as SourceValue);
 
-const isNotStringOrStringArray = (value: strings): boolean => {
-    if (!isString(value) && !Array.isArray(value)) {
+const isStringOrArrayOfStrings = (value: unknown): value is strings => {
+    if (isString(value)) {
         return true;
     }
     if (Array.isArray(value)) {
-        return value.some((item: string): boolean => !isString(item));
+        return value.every((item: unknown): boolean => isString(item));
     }
     return false;
 };
 
-const isNotAcceptedStringMap = (stringMap: PluginStringMap[]): boolean => {
-    if (!Array.isArray(stringMap)) {
-        return true;
+const isStringMap = (stringMap: unknown): stringMap is PluginStringMap[] => {
+    if (Array.isArray(stringMap)) {
+        return stringMap.every((map: unknown): boolean => {
+            return (
+                map !== null &&
+                typeof map === 'object' &&
+                'search' in map &&
+                'replace' in map &&
+                typeof map.search === typeof map.replace &&
+                isStringOrArrayOfStrings(map.search) &&
+                isStringOrArrayOfStrings(map.replace) &&
+                (
+                    !Array.isArray(map.search) ||
+                    (
+                        map.search.length === map.replace.length
+                    )
+                )
+            );
+        });
     }
-    return stringMap.some((map: PluginStringMap) =>
-        typeof map.search !== typeof map.replace ||
-        isNotStringOrStringArray(map.search) ||
-        isNotStringOrStringArray(map.replace) ||
-        (
-            Array.isArray(map.search) &&
-            Array.isArray(map.replace) &&
-            map.search.length !== map.replace.length
-        )
-    );
+    return false;
 };
 
-const isAcceptedProcessDeclarationPlugins = (plugins: DeclarationPlugin[]): boolean =>
+const isAcceptedProcessDeclarationPlugins = (plugins: unknown): plugins is DeclarationPlugin[] =>
     Array.isArray(plugins)
     && plugins.every((plugin: DeclarationPlugin) =>
         isString(plugin.name)
@@ -189,13 +198,13 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     if (isBoolean(options.greedy)) {
         returnOptions.greedy = options.greedy;
     }
-    if (!isNotStringOrStringArray(options.ltrPrefix)) {
+    if (isStringOrArrayOfStrings(options.ltrPrefix)) {
         returnOptions.ltrPrefix = options.ltrPrefix;
     }
-    if (!isNotStringOrStringArray(options.rtlPrefix)) {
+    if (isStringOrArrayOfStrings(options.rtlPrefix)) {
         returnOptions.rtlPrefix = options.rtlPrefix;
     }
-    if (!isNotStringOrStringArray(options.bothPrefix)) {
+    if (isStringOrArrayOfStrings(options.bothPrefix)) {
         returnOptions.bothPrefix = options.bothPrefix;
     }
     if (isFunction(options.prefixSelectorTransformer)) {
@@ -219,7 +228,7 @@ const normalizeOptions = (options: PluginOptions): PluginOptionsNormalized => {
     if (isBoolean(options.useCalc)) {
         returnOptions.useCalc = options.useCalc;
     }
-    if (!isNotAcceptedStringMap(options.stringMap)) {
+    if (isStringMap(options.stringMap)) {
         const stringMap = getRTLCSSStringMap(options.stringMap);
         stringMap.forEach((map: StringMap): void => {
             if (map.name === defaultStringMap[0].name) {

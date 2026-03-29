@@ -1,7 +1,8 @@
 import postcss, {
     Container,
     Rule,
-    Comment
+    Comment,
+    Node
 } from 'postcss';
 import {
     ControlDirective,
@@ -23,7 +24,7 @@ import { addSelectorPrefixes, hasSelectorsPrefixed } from '@utilities/selectors'
 export const parseRules = (
     parsers: Parsers,
     container: Container,
-    parentSourceDirective: string = undefined,
+    parentSourceDirective: string | undefined = undefined,
     parentFreezeDirectiveActive: boolean = false,
     hasParentRule = false
 ): void => {
@@ -87,10 +88,12 @@ export const parseRules = (
             controlDirectives[controlDirective.directive] = controlDirective;
 
         },
-        (node: Rule): void => {
+        (node: Node): void => {
+
+            const rule = node as unknown as Rule;
 
             if ( checkDirective(controlDirectives, CONTROL_DIRECTIVE.IGNORE) ) {
-                addToIgnoreRulesInDiffMode(node);
+                addToIgnoreRulesInDiffMode(rule);
                 return;
             }
 
@@ -107,7 +110,7 @@ export const parseRules = (
             if (freezeDirectiveActive) {
                 if (mode === Mode.combined) {
                     addSelectorPrefixes(
-                        node,
+                        rule,
                         (
                             (
                                 !sourceDirectiveValue &&
@@ -122,15 +125,15 @@ export const parseRules = (
                             : rtlPrefix
                     );
                 }
-                addToIgnoreRulesInDiffMode(node);
+                addToIgnoreRulesInDiffMode(rule);
                 return;
             }
 
-            if (hasSelectorsPrefixed(node)) {
-                addToIgnoreRulesInDiffMode(node);
+            if (hasSelectorsPrefixed(rule)) {
+                addToIgnoreRulesInDiffMode(rule);
             } else {
                 parsers.parseDeclarations(
-                    node,
+                    rule,
                     hasParentRule,
                     sourceDirectiveValue,
                     freezeDirectiveActive,
@@ -141,7 +144,7 @@ export const parseRules = (
 
             parsers.parseAtRules(
                 parsers,
-                node,
+                rule,
                 sourceDirectiveValue,
                 freezeDirectiveActive,
                 true
@@ -149,7 +152,7 @@ export const parseRules = (
             
             parsers.parseRules(
                 parsers,
-                node,
+                rule,
                 sourceDirectiveValue,
                 freezeDirectiveActive,
                 true
