@@ -25,7 +25,7 @@
   "dependencies": {
     "monaco-editor": "^0.55.1",
     "postcss": "^8.4.31",
-    "postcss-rtlcss": "^5.7.1",
+    "postcss-rtlcss": "^6.0.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-github-btn": "^1.4.0"
@@ -36,7 +36,7 @@
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.27",
@@ -45,7 +45,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^7.1.4",
-    "eslint": "^10.1.0",
+    "eslint": "^10.2.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-utils": "^3.0.0",
     "file-loader": "^6.2.0",
@@ -54,11 +54,11 @@
     "mini-css-extract-plugin": "^2.10.2",
     "monaco-editor-webpack-plugin": "^7.1.1",
     "postcss-loader": "^8.2.1",
-    "sass": "^1.98.0",
+    "sass": "^1.99.0",
     "sass-loader": "^16.0.7",
     "typed-scss-modules": "^8.1.1",
     "typescript": "^6.0.2",
-    "typescript-eslint": "^8.57.2",
+    "typescript-eslint": "^8.58.0",
     "webpack": "^5.105.4",
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.2.3"
@@ -71,8 +71,16 @@
   },
   "pnpm": {
     "overrides": {
+      "brace-expansion@<1.1.13": "=1.1.13",
+      "brace-expansion@>=4.0.0 <5.0.5": ">=5.0.5",
+      "dompurify@<3.3.2": ">=3.3.2",
       "esbuild@<=0.24.2": ">=0.25.0",
-      "lodash@>=4.0.0 <=4.17.22": ">=4.17.23"
+      "qs@>=6.7.0 <=6.14.1": ">=6.14.2",
+      "lodash@<=4.17.23": ">=4.18.0",
+      "minimatch@<3.1.4": ">=3.1.4",
+      "picomatch@<2.3.2": "=2.3.2",
+      "picomatch@>=4.0.0 <4.0.4": ">=4.0.4",
+      "serialize-javascript@<7.0.5": ">=7.0.5"      
     }
   }
 }
