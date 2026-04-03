@@ -75,9 +75,9 @@
     "@types/eslint": "^9.6.1",
     "@types/jest": "^30.0.0",
     "@types/jest-specific-snapshot": "^0.5.10",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.5.2",
     "@types/rtlcss": "^3.5.4",
-    "eslint": "^10.1.0",
+    "eslint": "^10.2.0",
     "eslint-plugin-jest": "^29.15.1",
     "globals": "^17.4.0",
     "jest": "^30.3.0",
@@ -86,13 +86,13 @@
     "postcss-preset-env": "10.6.1",
     "replace-in-file": "^8.4.0",
     "rimraf": "^6.1.3",
-    "rollup": "^4.60.0",
+    "rollup": "^4.60.1",
     "rollup-plugin-dts": "^6.4.1",
     "rollup-plugin-tsconfig-paths": "^1.5.2",
-    "ts-jest": "^29.4.6",
+    "ts-jest": "^29.4.9",
     "tslib": "^2.8.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.2"
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.0"
   },
   "peerDependencies": {
     "postcss": "^8.4.21"
@@ -102,7 +102,12 @@
   },
   "pnpm": {
     "overrides": {
-      "@isaacs/brace-expansion@<=5.0.0": ">=5.0.1"
+      "brace-expansion@<1.1.13": "=1.1.13",
+      "brace-expansion@>=2.0.0 <2.0.3": "=2.0.3",
+      "brace-expansion@>=4.0.0 <5.0.5": ">=5.0.5",
+      "picomatch@<2.3.2": "=2.3.2",
+      "picomatch@>=4.0.0 <4.0.4": ">=4.0.4",
+      "serialize-javascript@<7.0.5": ">=7.0.5"
     }
   }
 }
