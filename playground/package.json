@@ -58,7 +58,7 @@
     "sass-loader": "^16.0.7",
     "typed-scss-modules": "^8.1.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.58.2",
+    "typescript-eslint": "^8.59.0",
     "webpack": "^5.106.2",
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.2.3"
