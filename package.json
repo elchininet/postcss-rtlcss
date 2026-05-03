@@ -77,9 +77,9 @@
     "@types/jest-specific-snapshot": "^0.5.10",
     "@types/node": "^25.6.0",
     "@types/rtlcss": "^3.5.4",
-    "eslint": "^10.2.1",
+    "eslint": "^10.3.0",
     "eslint-plugin-jest": "^29.15.2",
-    "globals": "^17.5.0",
+    "globals": "^17.6.0",
     "jest": "^30.3.0",
     "jest-specific-snapshot": "^8.0.0",
     "postcss": "^8.4.38",
@@ -92,7 +92,7 @@
     "ts-jest": "^29.4.9",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.0"
+    "typescript-eslint": "^8.59.1"
   },
   "peerDependencies": {
     "postcss": "^8.4.21"
