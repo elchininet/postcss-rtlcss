@@ -26,6 +26,8 @@ jobs:
         run: pnpm install --ignore-scripts --prefer-offline
       - name: Linting files
         run: pnpm lint
+      - name: Test playground build
+        run: pnpm playground:build
       - name: Make coverage
         run: pnpm test --coverage
       - name: Coveralls
