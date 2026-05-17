@@ -53,6 +53,8 @@
     "copy": "./scripts/copy.sh",
     "modify-dts": "replace-in-file --configFile=config.replace.json",
     "build": "pnpm clean && rollup --config rollup.config.js --bundleConfigAsCjs && pnpm copy && pnpm modify-dts",
+    "playground:start": "pnpm --filter postcss-rtlcss-playground start",
+    "playground:build": "pnpm --filter postcss-rtlcss-playground build",
     "prepare": "pnpm build",
     "prepublishOnly": "pnpm lint && pnpm test",
     "version": "git add .",
@@ -99,15 +101,5 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "brace-expansion@<1.1.13": "=1.1.13",
-      "brace-expansion@>=2.0.0 <2.0.3": "=2.0.3",
-      "brace-expansion@>=4.0.0 <5.0.5": ">=5.0.5",
-      "picomatch@<2.3.2": "=2.3.2",
-      "picomatch@>=4.0.0 <4.0.4": ">=4.0.4",
-      "serialize-javascript@<7.0.5": ">=7.0.5"
-    }
   }
 }
