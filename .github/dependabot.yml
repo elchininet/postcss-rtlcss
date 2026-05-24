@@ -13,30 +13,12 @@ updates:
       - dependency-name: "postcss"
       - dependency-name: "postcss-preset-env"
     groups:
-      dependencies-dev:
-        dependency-type: "development"
-    labels:
-      - dependencies
-    versioning-strategy: increase
-  - package-ecosystem: "npm"
-    directory: "/playground/"
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-      time: "09:00"
-      timezone: "Europe/Amsterdam"
-    commit-message:
-      prefix: "[Playground dependencies]"
-    ignore:
-      - dependency-name: "postcss"
-    groups:
       dependencies-prod:
         dependency-type: "production"
       dependencies-dev:
         dependency-type: "development"
     labels:
       - dependencies
-      - playground
     versioning-strategy: increase
   - package-ecosystem: "github-actions"
     directory: "/"
