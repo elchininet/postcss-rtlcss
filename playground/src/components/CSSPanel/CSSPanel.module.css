@@ -1,5 +1,5 @@
-@use '@constants/colors' as *;
-@use '@constants/mixins' as *;
+@import '_colors.css';
+@import '_mixins.css';
 
 .container {
     display: flex;
@@ -12,7 +12,7 @@
     border-width: 0;
     box-sizing: border-box;
     height: 100%;
-    @include media(small) {
+    @mixin media $small {
         border-width: 0px 5px;
     }
 }

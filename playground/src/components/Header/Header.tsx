@@ -2,7 +2,7 @@ import React, { useCallback, JSX } from 'react';
 import { Share } from '@icons/Share';
 import { useAppContext } from '@components/AppProvider';
 import { cssLines } from '@components/Playground/css';
-import * as styles from './Header.module.scss';
+import * as styles from './Header.module.css';
 
 export const Header = (): JSX.Element => {
     const { canShare, token, share, code, options } = useAppContext();

@@ -1,5 +1,5 @@
-@use '@constants/colors' as *;
-@use '@constants/mixins' as *;
+@import '_colors.css';
+@import '_mixins.css';
 
 $size: 25px;
 
@@ -15,8 +15,8 @@ $size: 25px;
     cursor: pointer;
     height: $size;
     position: relative;
-    @include buildTransition(background-color);
-    width: $size * 2;
+    @mixin buildTransition background-color;
+    width: calc($size * 2);
     z-index: 2;
 
     &:before {
@@ -30,7 +30,7 @@ $size: 25px;
         left: 0;
         position: absolute;
         top: 0;
-        @include buildTransition(background-color border-color transform left);
+        @mixin buildTransition background-color border-color transform left;
         transform: translateX(0);
         width: $size;
     }

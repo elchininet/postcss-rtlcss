@@ -9,7 +9,7 @@ import { PluginOptions } from '@types';
 import { CSSPanel } from '@components/CSSPanel';
 import { useAppContext } from '@components/AppProvider';
 import { cssLines } from './css';
-import * as styles from './Playground.module.scss';
+import * as styles from './Playground.module.css';
 
 const flipLines = (lines: string, options: PluginOptions = {}): LazyResult => {
     return postcss([postcssRTLCSS(options)]).process(lines);

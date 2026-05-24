@@ -1,5 +1,5 @@
-@use '@constants/colors' as *;
-@use '@constants/mixins' as *;
+@import '_colors.css';
+@import '_mixins.css';
 
 .wrapper {
     align-items: center;
@@ -14,7 +14,7 @@
         color: $action;
         font-size: 18px;
         font-weight: 400;
-        @include media(small) {
+        @mixin media $small {
             font-size: 20px;
         }
     }
@@ -44,7 +44,7 @@
     font-size: 14px;
     font-weight: 700;
     margin: 0;
-    @include media(small) {
+    @mixin media $small {
         font-size: 20px;
     }
 }

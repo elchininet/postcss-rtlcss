@@ -5,7 +5,7 @@ import { Header } from '@components/Header';
 import { Options } from '@components/Options';
 import { Playground } from '@components/Playground';
 import { Footer } from '@components/Footer';
-import * as styles from './App.module.scss';
+import * as styles from './App.module.css';
 
 export const App = (): JSX.Element => {
 
