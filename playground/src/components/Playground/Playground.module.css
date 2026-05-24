@@ -1,5 +1,5 @@
-@use '@constants/colors' as *;
-@use '@constants/mixins' as *;
+@import '_colors.css';
+@import '_mixins.css';
 
 .wrapper {
     display: flex;
@@ -9,7 +9,7 @@
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 0;
-    @include media(small) {
+    @mixin media $small {
         flex-direction:  row;
     }
 }

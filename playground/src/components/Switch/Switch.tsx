@@ -4,7 +4,7 @@ import React, {
     useEffect,
     ChangeEvent
 } from 'react';
-import * as styles from './Switch.module.scss';
+import * as styles from './Switch.module.css';
 
 interface Attributes {
     [key: string]: string | boolean;

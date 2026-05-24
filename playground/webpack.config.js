@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
     mode: 'production',
@@ -25,8 +24,8 @@ module.exports = {
                 use: ['babel-loader']
             },
             {
-                test: /\.s?css$/,
-                exclude: /\.module\.s?css$/,
+                test: /\.css$/,
+                exclude: /\.module\.css$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -41,20 +40,12 @@ module.exports = {
                         }
                     },
                     {
-                        loader: 'postcss-loader',
-                        options: {
-                            postcssOptions: {
-                                plugins: [
-                                    autoprefixer()
-                                ]
-                            }
-                        }
-                    },
-                    'sass-loader'
+                        loader: 'postcss-loader'
+                    }
                 ]
             },
             {
-                test: /\.module\.s?css$/,
+                test: /\.module\.css$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -69,16 +60,8 @@ module.exports = {
                         }
                     },
                     {
-                        loader: 'postcss-loader',
-                        options: {
-                            postcssOptions: {
-                                plugins: [
-                                    autoprefixer()
-                                ]
-                            }
-                        }
-                    },
-                    'sass-loader'
+                        loader: 'postcss-loader'
+                    }
                 ]
             },
             {

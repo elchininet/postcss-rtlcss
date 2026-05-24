@@ -4,7 +4,7 @@ import React, {
     JSX
 } from 'react';
 import { editor, languages } from 'monaco-editor';
-import * as styles from './CSSPanel.module.scss';
+import * as styles from './CSSPanel.module.css';
 
 export interface CSSPanelProps {
     title: string;
@@ -24,11 +24,12 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
 
     useEffect(() => {
 
+        // @ts-expect-error this needs to be migrated because css property is deprecated
         languages.css.cssDefaults.setModeConfiguration({
             colors: false
         });
 
-        panel.current = editor.create(panelContainer.current, {
+        panel.current = editor.create(panelContainer.current!, {
             value: lines,
             minimap: {
                 enabled: false
@@ -52,14 +53,14 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
 
         panel.current.onDidChangeModelContent(() => {
             if (onChange) {
-                onChange(panel.current.getValue());
+                onChange(panel.current!.getValue());
             }
         });
 
     }, []);
 
     useEffect(() => {
-        if (height && panel.current) {
+        if (width && height && panel.current) {
             panel.current.layout({ height, width });
         }
     }, [height, width, panel]);

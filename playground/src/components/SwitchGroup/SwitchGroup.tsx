@@ -5,7 +5,7 @@ import React, {
     ChangeEvent
 } from 'react';
 import classnames from 'classnames';
-import * as styles from './SwitchGroup.module.scss';
+import * as styles from './SwitchGroup.module.css';
 
 interface Attributes {
     [key: string]: string | boolean;

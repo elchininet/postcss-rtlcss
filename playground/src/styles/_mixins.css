@@ -1,0 +1,10 @@
+$small: 576px;       /* Phones in landscape mode */
+$medium: 768px;      /* Tablet devices */
+$large: 992px;       /* Desktop devices */
+$extralarge: 1200px; /* Large desktop devices */
+
+@define-mixin media $size {
+    @media(min-width: $size) {
+        @mixin-content;
+    }
+}

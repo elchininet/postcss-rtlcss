@@ -4,21 +4,26 @@
     "outDir": "../docs/",
     "module": "esnext",
     "jsx": "react",
-    "target": "es2015",
-    "moduleResolution": "node",
+    "target": "es6",
+    "moduleResolution": "bundler",
     "declaration": false,
     "noImplicitAny": true,
     "removeComments": true,
-    "baseUrl": "./src",
+    "rootDir": "./",
     "types": ["node"],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
     "paths": {
       "@root": ["../../src"],
-      "@types": ["@types"],
-      "@constants": ["constants"],
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@utilities/*": ["utilities/*"],
-      "@icons/*": ["icons/*"]
+      "@types": ["./src/@types"],
+      "@constants": ["./src/constants"],
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@utilities/*": ["./src/utilities/*"],
+      "@icons/*": ["./src/icons/*"]
     }
   },
   "include": ["src/**/*"],

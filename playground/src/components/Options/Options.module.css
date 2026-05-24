@@ -1,5 +1,5 @@
-@use '@constants/colors' as *;
-@use '@constants/mixins' as *;
+@import '_colors.css';
+@import '_mixins.css';
 
 .wrapper {
     background-color: $gray_dark;
@@ -10,14 +10,14 @@
     position: fixed;
     left: 0;
     top: 0;
-    @include buildTransition(box-shadow transform);
+    @mixin buildTransition box-shadow transform;
     transform: translateX(-100%);
     width: calc(100vw - 100px);
     &[data-opened="true"] {
         box-shadow: 5px 0 20px rgba(0, 0, 0, .5);
         transform: translateX(0);
     }
-    @include media(small) {
+    @mixin media $small {
         width: 300px;
     }
 }
@@ -34,11 +34,11 @@
     line-height: 50px;
     opacity: 0;
     padding: 0 20px 0 50px;
-    @include buildTransition(opacity);
+    @mixin buildTransition opacity;
     [data-opened="true"] & {
         opacity: 1;
     }
-    @include media(small) {
+    @mixin media $small {
         font-size: 16px;
     }
 }

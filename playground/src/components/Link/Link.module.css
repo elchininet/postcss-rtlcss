@@ -1,4 +1,4 @@
-@use '@constants/colors' as *;
+@import '_colors.css';
 
 .link {
     color: $action;

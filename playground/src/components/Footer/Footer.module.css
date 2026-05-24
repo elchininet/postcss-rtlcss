@@ -1,4 +1,4 @@
-@use '@constants/colors' as *;
+@import '_colors.css';
 
 .wrapper {
     background-color: $gray_dark;

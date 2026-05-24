@@ -1,19 +1,19 @@
-@use '@constants/colors' as *;
+@import '_colors.css';
 
 $headerSize: 50px;
 $height: 14px;
 $width: 18px;
 $thick: 2px;
 
-@mixin element {
+@define-mixin element {
     background-color: $white;
     height: $thick;
     position: absolute;
     width: $width;
 }
 
-@mixin pseudoElement {
-    @include element();
+@define-mixin pseudo-element {
+    @mixin element;
     content: "";
     display: block;
     transform-origin: center center;
@@ -40,7 +40,7 @@ $thick: 2px;
     position: relative;
     width: $width;
     &:before {
-        @include pseudoElement();
+        @mixin pseudo-element;
         top: 0;
         transform: none;
         [data-opened="true"] & {
@@ -49,7 +49,7 @@ $thick: 2px;
         }
     }
     &:after {
-        @include pseudoElement();
+        @mixin pseudo-element;
         top: 100%;
         transform: translateY(-100%);
         [data-opened="true"] & {
@@ -60,7 +60,7 @@ $thick: 2px;
 }
 
 .burger {
-    @include element();
+    @mixin element;
     opacity: 1;
     top: 50%;
     transform: translateY(-50%);
