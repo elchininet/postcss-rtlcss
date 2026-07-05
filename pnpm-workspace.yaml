@@ -5,11 +5,6 @@ allowBuilds:
   '@parcel/watcher': false
   esbuild: false
   unrs-resolver: false
-minimumReleaseAgeExclude:
-  - dompurify@3.4.0
-  - esbuild@0.25.0
-  - uuid@11.1.1
-  - qs@6.15.2
 overrides:
   dompurify@<3.4.0: ^3.4.0
   esbuild@<=0.24.2: ^0.25.0
