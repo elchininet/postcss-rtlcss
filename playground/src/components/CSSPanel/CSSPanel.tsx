@@ -3,7 +3,7 @@ import React, {
     useRef,
     JSX
 } from 'react';
-import { editor, languages } from 'monaco-editor';
+import { editor, css } from 'monaco-editor';
 import * as styles from './CSSPanel.module.css';
 
 export interface CSSPanelProps {
@@ -24,8 +24,7 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
 
     useEffect(() => {
 
-        // @ts-expect-error this needs to be migrated because css property is deprecated
-        languages.css.cssDefaults.setModeConfiguration({
+        css.cssDefaults.setModeConfiguration({
             colors: false
         });
 
@@ -45,7 +44,7 @@ export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
                 enabled: false
             },
             hover: {
-                enabled: false
+                enabled: 'off'
             },
             scrollBeyondLastLine: false,
             language: 'scss'
