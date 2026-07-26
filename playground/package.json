@@ -21,11 +21,11 @@
   "author": "ElChiniNet",
   "license": "Apache-2.0",
   "dependencies": {
-    "monaco-editor": "^0.55.1",
+    "monaco-editor": "^0.56.0",
     "postcss": "^8.4.31",
     "postcss-rtlcss": "latest",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
