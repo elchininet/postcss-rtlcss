@@ -1,6 +1,6 @@
-const webpackConfig = require('./webpack.config');
+import webpackConfig from './webpack.config.js';
 
-module.exports = {
+export default {
     ...webpackConfig,
     mode: 'development',
     plugins: webpackConfig.plugins.splice(1),

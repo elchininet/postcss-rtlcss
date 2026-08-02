@@ -13,6 +13,7 @@
     "postcss-rtlcss",
     "rtlcss"
   ],
+  "type": "module",
   "scripts": {
     "lint": "eslint \"src/**/*.tsx\"",
     "start": "webpack serve --open --config webpack.dev-config.js",
@@ -54,7 +55,7 @@
     "postcss-import": "^16.1.1",
     "postcss-loader": "^8.2.1",
     "postcss-mixins": "^12.1.2",
-    "postcss-nested": "^7.0.2",
+    "postcss-nested": "^8.0.0",
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.65.0",
