@@ -1,17 +1,17 @@
-const path = require('path');
-const aliases = require('./aliases');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+import path from 'node:path';
+import aliases from './aliases.js';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
-module.exports = {
+export default {
     mode: 'production',
     entry: './src/index.tsx',
     output: {
         filename: 'scripts/index.js',
-        path: path.resolve(__dirname, '../docs')
+        path: path.resolve('../docs')
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],

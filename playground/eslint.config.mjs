@@ -1,8 +1,8 @@
-const tseslint = require('typescript-eslint');
-const js = require('@eslint/js');
-const globals = require('globals');
+import tseslint from 'typescript-eslint';
+import js from '@eslint/js';
+import globals from 'globals';
 
-module.exports = [
+export default [
     {
         languageOptions: {
             globals: {
@@ -27,17 +27,21 @@ module.exports = [
                 }
             ],
             indent: ['error', 4],
-            semi: ['error', 'always'],
             'no-trailing-spaces': [2, { skipBlankLines: true }],
-            '@typescript-eslint/no-var-requires': 'off',
-            '@typescript-eslint/ban-ts-ignore': 'off',
-            '@typescript-eslint/ban-ts-comment': 'off'
+            '@typescript-eslint/no-var-requires': 'off'
+        }
+    },
+    {
+        files: ['*.ts', '*.tsx'],
+        rules: {
+            '@typescript-eslint/ban-types': 'off'
         }
     },
     {
         files: ['*.js'],
         rules: {
-            '@typescript-eslint/explicit-function-return-type': 'off'
+            '@typescript-eslint/explicit-function-return-type': 'off',
+            '@typescript-eslint/no-require-imports': 'off'
         }
     }
 ];

@@ -13,7 +13,6 @@ updates:
       prefix: "[Dependencies]"
     ignore:
       - dependency-name: "postcss"
-      - dependency-name: "postcss-preset-env"
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
     groups:
