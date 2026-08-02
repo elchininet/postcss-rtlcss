@@ -47,7 +47,8 @@
     "options.js"
   ],
   "scripts": {
-    "test": "jest --clearCache && jest --verbose",
+    "test:esm": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "pnpm test:esm --clearCache && pnpm test:esm --verbose",
     "lint:playground": "cd playground && pnpm lint && cd ..",
     "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\" && pnpm lint:playground",
     "clean": "./scripts/clean.sh",
