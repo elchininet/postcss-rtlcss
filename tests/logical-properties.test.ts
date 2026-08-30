@@ -1,7 +1,6 @@
 import postcss from 'postcss';
 import postcssRTLCSS from '../src';
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const { default: postcssPresetEnv } = require('postcss-preset-env');
+import postcssPresetEnv from 'postcss-preset-env';
 import { PluginOptions } from '../src/@types';
 import {
     readCSSFile,
