@@ -3,9 +3,10 @@ import React, {
     useEffect,
     JSX
 } from 'react';
-import postcss, { LazyResult, Result } from 'postcss';
+import type { LazyResult, Result } from 'postcss';
+import postcss from 'postcss';
 import postcssRTLCSS from 'postcss-rtlcss';
-import { PluginOptions } from '@types';
+import type { PluginOptions } from '@types';
 import { CSSPanel } from '@components/CSSPanel';
 import { useAppContext } from '@components/AppProvider';
 import { cssLines } from './css';
