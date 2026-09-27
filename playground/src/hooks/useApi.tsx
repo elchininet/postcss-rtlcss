@@ -4,7 +4,7 @@ import {
     useCallback,
     useMemo
 } from 'react';
-import { FetchOptions } from '@types';
+import type { FetchOptions } from '@types';
 
 interface UseApiProps {
     token: string;
@@ -67,7 +67,7 @@ const fetchApi = (data?: Record<string, string>): Promise<FetchResponse> => {
     });
 };
 
-const getToken = () => new Promise((resolve, reject) => {
+const getToken = () => new Promise<string>((resolve, reject) => {
     fetchApi()
         .then((data: FetchResponse) => {
             if (data.success && data.token) {
@@ -83,7 +83,7 @@ const getCode = (
     code: string,
     options: string,
     token: string
-) => new Promise((resolve, reject) => {
+) => new Promise<string>((resolve, reject) => {
     fetchApi({code, options, token})
         .then((data: FetchResponse) => {
             if (data.success && data.id) {
@@ -99,10 +99,10 @@ const getCode = (
 
 export const useApi = (): UseApiProps => {
 
-    const [ id, setId ] = useState<string>(null);
-    const [ token, setToken ] = useState<string>(null);
-    const [ fetchCode, setFetchCode ] = useState<string>(null);
-    const [ fetchOptions, setFetchOptions ] = useState<FetchOptions>(null);
+    const [ id, setId ] = useState<string>('');
+    const [ token, setToken ] = useState<string>('');
+    const [ fetchCode, setFetchCode ] = useState<string>('');
+    const [ fetchOptions, setFetchOptions ] = useState<FetchOptions>({});
     const [ ready, setReady ] = useState(false);
 
     const canShare = useMemo(() => {
@@ -130,7 +130,7 @@ export const useApi = (): UseApiProps => {
                     }
                 })
                 .catch(() => {
-                    setToken(null);
+                    setToken('');
                 });
         }
     }, [token]);

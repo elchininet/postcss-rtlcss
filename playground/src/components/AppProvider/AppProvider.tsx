@@ -7,7 +7,7 @@ import React, {
     useEffect
 } from 'react';
 import { Mode, Source } from 'postcss-rtlcss/options';
-import { PluginOptions, FetchOptions } from '@types';
+import type { PluginOptions, FetchOptions } from '@types';
 import { breakpointSizes } from '@constants';
 import { useApi } from '@hooks/useApi';
 
@@ -74,7 +74,7 @@ export const AppContext = createContext<AppProviderContext>({} as AppProviderCon
 export const AppProvider = (props: { children?: ReactNode }): JSX.Element => {
 
     let delay: number;
-    const [ code, setCode ] = useState<string>(null);
+    const [ code, setCode ] = useState<string>('');
     const [ options, setOptions ] = useState<PluginOptions>(defaultOptions);
     const [ sizes, setSizes ] = useState<WindowSizes>(windowSizes);
     const [ optionsOpen, setOptionsOpen ] = useState<boolean>(false);
