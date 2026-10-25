@@ -30,7 +30,7 @@
     "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.7",
+    "@babel/core": "^8.0.9",
     "@babel/preset-env": "^8.0.7",
     "@babel/preset-react": "^8.0.1",
     "@babel/preset-typescript": "^8.0.7",
@@ -55,14 +55,14 @@
     "postcss-import": "^17.0.1",
     "postcss-loader": "^8.2.1",
     "postcss-mixins": "^12.1.2",
-    "postcss-nested": "^9.0.0",
+    "postcss-nested": "^9.0.1",
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.71.2",
+    "typescript-eslint": "^8.72.0",
     "typescript-plugin-css-modules": "^5.2.0",
-    "webpack": "^5.112.0",
+    "webpack": "^5.112.2",
     "webpack-cli": "^7.2.3",
-    "webpack-dev-server": "^6.0.0"
+    "webpack-dev-server": "^6.1.0"
   },
   "browserslist": [
     "defaults"
