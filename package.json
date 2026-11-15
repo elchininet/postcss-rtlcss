@@ -81,7 +81,7 @@
     "@types/jest-specific-snapshot": "^0.5.11",
     "@types/node": "^26.6.6",
     "@types/rtlcss": "^3.5.4",
-    "eslint": "^10.14.0",
+    "eslint": "^10.15.0",
     "eslint-plugin-jest": "^29.17.0",
     "globals": "^17.14.0",
     "jest": "^30.5.2",
@@ -90,13 +90,13 @@
     "postcss-preset-env": "11.6.2",
     "replace-in-file": "^9.0.0",
     "rimraf": "^6.1.4",
-    "rollup": "^4.68.0",
+    "rollup": "^4.68.3",
     "rollup-plugin-dts": "^6.5.1",
     "rollup-plugin-tsconfig-paths": "^1.5.2",
     "ts-jest": "^29.4.15",
     "tslib": "^2.9.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.1"
+    "typescript-eslint": "^8.72.2"
   },
   "peerDependencies": {
     "postcss": "^8.4.21"
