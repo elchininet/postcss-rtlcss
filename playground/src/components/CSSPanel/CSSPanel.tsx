@@ -1,7 +1,6 @@
 import React, {
     useEffect,
-    useRef,
-    JSX
+    useRef
 } from 'react';
 import { editor, css } from 'monaco-editor';
 import * as styles from './CSSPanel.module.css';
@@ -16,7 +15,7 @@ export interface CSSPanelProps {
     onChange?: (code: string) => void;
 }
 
-export const CSSPanel = (props: CSSPanelProps): JSX.Element => {
+export const CSSPanel = (props: CSSPanelProps): React.ReactElement => {
 
     const { title, height, width, lines = '', readOnly = false, isMobile = false, onChange } = props;
     const panel = useRef<editor.IStandaloneCodeEditor>(null);

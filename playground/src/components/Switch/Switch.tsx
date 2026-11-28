@@ -1,8 +1,6 @@
 import React, {
-    JSX,
     useState,
-    useEffect,
-    ChangeEvent
+    useEffect
 } from 'react';
 import * as styles from './Switch.module.css';
 
@@ -17,7 +15,7 @@ export interface SwitchProps {
     onChange?: (checked: boolean) => void;
 }
 
-export const Switch = (props: SwitchProps): JSX.Element => {
+export const Switch = (props: SwitchProps): React.ReactElement => {
 
     const { labels, checkbox = true, attributes = {}, onChange } = props;
     const { checked: active, ...rest } = attributes;
@@ -26,7 +24,7 @@ export const Switch = (props: SwitchProps): JSX.Element => {
         ? labels
         : checked ? labels[1] : labels[0];
 
-    const changeCallback = (event: ChangeEvent<HTMLInputElement>): void => {
+    const changeCallback = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const status = event.currentTarget.checked;
         setChecked(status);
         if (onChange) {

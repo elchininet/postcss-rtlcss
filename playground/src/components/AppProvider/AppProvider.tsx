@@ -1,6 +1,4 @@
 import React, {
-    JSX,
-    ReactNode,
     createContext,
     useContext,
     useState,
@@ -71,7 +69,7 @@ const windowSizes = getWindowSizes();
 
 export const AppContext = createContext<AppProviderContext>({} as AppProviderContext);
 
-export const AppProvider = (props: { children?: ReactNode }): JSX.Element => {
+export const AppProvider = (props: { children?: React.ReactNode }): React.ReactElement => {
 
     let delay: number;
     const [ code, setCode ] = useState<string>('');
