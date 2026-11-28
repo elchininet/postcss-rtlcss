@@ -1,8 +1,8 @@
-import React, { JSX } from 'react';
+import React from 'react';
 import { useAppContext } from '@components/AppProvider';
 import * as styles from './Burger.module.css';
 
-export const Burger = (): JSX.Element => {
+export const Burger = (): React.ReactElement => {
     
     const { optionsOpen, setOptionsOpen } = useAppContext();
 

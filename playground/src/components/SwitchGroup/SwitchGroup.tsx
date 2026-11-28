@@ -1,8 +1,6 @@
 import React, {
-    JSX,
     useState,
-    useEffect,
-    ChangeEvent
+    useEffect
 } from 'react';
 import classnames from 'classnames';
 import * as styles from './SwitchGroup.module.css';
@@ -21,7 +19,7 @@ export interface SwitchGroupProps {
     onChange?: (value: string) => void;
 }
 
-export const SwitchGroup = (props: SwitchGroupProps): JSX.Element => {
+export const SwitchGroup = (props: SwitchGroupProps): React.ReactElement => {
     const {
         label,
         name,
@@ -39,7 +37,7 @@ export const SwitchGroup = (props: SwitchGroupProps): JSX.Element => {
         }
     }, [active]);
 
-    const onChangeRadio = (event: ChangeEvent<HTMLInputElement>) => {
+    const onChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
         const currentTarget = event.currentTarget;
         const value = currentTarget.value;
         setSelected(value);
@@ -54,7 +52,7 @@ export const SwitchGroup = (props: SwitchGroupProps): JSX.Element => {
             </span>
             <div className={classnames(styles.container, !horizontal && styles.vertical)}>
                 {
-                    values.map((value: string): JSX.Element => {
+                    values.map((value: string): React.ReactElement => {
                         const isActive = value === selected;
                         return (
                             <div

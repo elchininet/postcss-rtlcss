@@ -1,7 +1,6 @@
 import React, {
     useState,
-    useEffect,
-    JSX
+    useEffect
 } from 'react';
 import type { LazyResult, Result } from 'postcss';
 import postcss from 'postcss';
@@ -16,7 +15,7 @@ const flipLines = (lines: string, options: PluginOptions = {}): LazyResult => {
     return postcss([postcssRTLCSS(options)]).process(lines);
 };
 
-export const Playground = (): JSX.Element => {
+export const Playground = (): React.ReactElement => {
     
     const { ready, fetchCode, setCode, options, windowSizes } = useAppContext();
     const { isSmallScreen, panelHeight, panelWidth } = windowSizes;

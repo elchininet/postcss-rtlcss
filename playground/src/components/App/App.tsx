@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import React from 'react';
 import { AppProvider } from '@components/AppProvider';
 import { Burger } from '@components/Burger';
 import { Header } from '@components/Header';
@@ -7,7 +7,7 @@ import { Playground } from '@components/Playground';
 import { Footer } from '@components/Footer';
 import * as styles from './App.module.css';
 
-export const App = (): JSX.Element => {
+export const App = (): React.ReactElement => {
 
     return (
         <AppProvider>

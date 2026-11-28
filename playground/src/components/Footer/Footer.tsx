@@ -1,10 +1,10 @@
-import React, { JSX } from 'react';
+import React from 'react';
 import GitHubButton from 'react-github-btn';
 import classnames from 'classnames';
 import { Link } from '@components/Link';
 import * as styles from './Footer.module.css';
 
-export const Footer = (): JSX.Element => {
+export const Footer = (): React.ReactElement => {
     return (
         <footer className={styles.wrapper}>
             <div className={styles.footerPanel}>

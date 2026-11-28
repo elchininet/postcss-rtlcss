@@ -1,4 +1,4 @@
-import React, { useEffect, JSX } from 'react';
+import React, { useEffect } from 'react';
 import { Mode, Source } from 'postcss-rtlcss/options';
 import { useAppContext } from '@components/AppProvider';
 import { Switch } from '@components/Switch';
@@ -6,7 +6,7 @@ import { SwitchGroup } from '@components/SwitchGroup';
 import { isBoolean } from '@utilities/types';
 import * as styles from './Options.module.css';
 
-export const Options = (): JSX.Element => {
+export const Options = (): React.ReactElement => {
 
     const {
         setOptions,

@@ -1,11 +1,11 @@
-import React, { JSX } from 'react';
+import React from 'react';
 
 interface ShareProps {
 	color?: string;
 	size?: number;
 }
 
-export const Share = (props: ShareProps): JSX.Element => {
+export const Share = (props: ShareProps): React.ReactElement => {
     const { color = '#FFF', size = 30 } = props;
     return (
         <svg
