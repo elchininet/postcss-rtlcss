@@ -1,6 +1,6 @@
 # Changelog
 
-## [6.2.0] - 2026-11-28
+## [6.1.0] - 2026-11-28
 
 - Update `RTLCSS` to version `4.4.0`
 
