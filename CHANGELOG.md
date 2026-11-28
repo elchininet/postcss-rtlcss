@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.2.0] - 2026-11-28
+
+- Update `RTLCSS` to version `4.4.0`
+
 ## [6.0.0] - 2026-03-29
 
 - Migrated to `TypeScript 6`, so the target of the library is now `es6` instead of the previous `es5`
